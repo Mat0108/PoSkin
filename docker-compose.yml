@@ -30,7 +30,7 @@ services:
       - ME_CONFIG_BASICAUTH_USERNAME=${MONGODB_USER}
       - ME_CONFIG_BASICAUTH_PASSWORD=${MONGODB_PASSWORD}
     ports:
-      - '8081:8081'
+      - '$MONGODB_EXPRESS_PORT:$MONGODB_EXPRESS_PORT'
     depends_on:
       - mongodb
     networks:
