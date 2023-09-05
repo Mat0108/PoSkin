@@ -55,10 +55,26 @@ services:
     tty: true
     networks:
       - server
+  front:
+    container_name: front
+    depends_on:
+      - mongodb
+    build: ./Front
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - $REACT_PORT:$REACT_PORT
+    stdin_open: true
+    tty: true
+    networks:
+      - front
+
 
 volumes:
   db:
 
 networks:
   server:
+    driver: bridge
+  front:
     driver: bridge

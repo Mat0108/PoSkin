@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+.center {
+@apply align-middle justify-center items-center content-center;
+}
+.justified {
+@apply justify-center;
+}
+.aligned {
+@apply align-middle items-center content-center;
+}
