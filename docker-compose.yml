@@ -46,6 +46,8 @@ services:
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
+      - UID=&UID
+      - GUD=&GUD
       - DB_HOST=mongodb
       - DB_USER=$MONGODB_USER
       - DB_PASSWORD=$MONGODB_PASSWORD
@@ -62,6 +64,9 @@ services:
     build: ./Front
     restart: unless-stopped
     env_file: ./.env
+    environment:
+      - UID=&UID
+      - GUD=&GUD
     ports:
       - $REACT_PORT:$REACT_PORT
     stdin_open: true

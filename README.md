@@ -1,6 +1,16 @@
-# Docker Compose Nodejs and MongoDB example
+![alt text](https://github.com/Mat0108/PoSkin/blob/master/Front/public/favicon.ico?raw=true)
 
-## Run the System
+## Set the .env with the template
+
+To obtain the uid and gud information, run the following commands: 
+```bash
+docker build --pull --rm -f "user\Dockerfile" -t poskinuser:latest "user"
+docker run -it poskinuser bash
+```
+In the bash optenu with the last command, type id to retrieve the uid and gud
+
+
+## Launch the app
 We can easily run the whole with only a single command:
 ```bash
 docker-compose up
@@ -13,6 +23,14 @@ The services can be run on the background with command:
 docker-compose up -d
 ```
 
+To access the application :
+
+```bash
+site web : http://localhost:3000 
+mongo-express : http://localhost:8081
+```
+
+
 ## Stop the System
 Stopping all the running containers is also simple with a single command:
 ```bash
@@ -24,20 +42,3 @@ If you need to stop and remove all containers, networks, and all images used by 
 docker-compose down --rmi all
 ```
 
-For more detail, please visit:
-> [Docker Compose Node.js Express and MongoDB example](https://www.bezkoder.com/docker-compose-nodejs-mongodb/)
-
-Related Posts:
-> [Node.js, Express & MongoDb: Build a CRUD Rest Api example](https://bezkoder.com/node-express-mongodb-crud-rest-api/)
-
-> [Server side Pagination in Node.js with MongoDB and Mongoose](https://bezkoder.com/node-js-mongodb-pagination/)
-
-Security:
-> [Node.js + MongoDB: User Authentication & Authorization with JWT](https://bezkoder.com/node-js-mongodb-auth-jwt/)
-
-Associations:
-> [MongoDB One-to-One relationship tutorial with Mongoose examples](https://bezkoder.com/mongoose-one-to-one-relationship-example/)
-
-> [MongoDB One-to-Many Relationship tutorial with Mongoose examples](https://bezkoder.com/mongoose-one-to-many-relationship/)
-
-> [MongoDB Many-to-Many Relationship with Mongoose examples](https://bezkoder.com/mongodb-many-to-many-mongoose/)
