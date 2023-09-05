@@ -10,6 +10,8 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
+app.use(cors());
+
 const db = require("./app/models");
 
 console.log(db.url);
