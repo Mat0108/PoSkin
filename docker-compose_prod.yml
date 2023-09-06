@@ -24,7 +24,9 @@ services:
     depends_on:
       - mongodb
     #on build le server avec le dockerfile du dossier server
-    build: ./server
+    build: 
+     context: production
+     dockerfile: ./server/dockerfile
     restart: unless-stopped
     env_file: ./.env
     ports:
@@ -49,7 +51,10 @@ services:
     depends_on:
       - mongodb
     #on build le server avec le dockerfile du dossier Front
-    build: ./Front
+    build: 
+     context: production
+     dockerfile: ./Front/dockerfile
+
     restart: unless-stopped
     env_file: ./.env
     environment:
