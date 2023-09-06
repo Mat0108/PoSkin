@@ -2,14 +2,16 @@
 
 ## Set the .env with the template
 
-To obtain the uid and gud information, run the following commands: 
+To retrieve the mongo connection information, install the Vault cli (vlt) and follow the commands to retrieve the secrets to put in the env file.
 ```bash
-docker build --pull --rm -f "user\Dockerfile" -t poskinuser:latest "user"
-docker run -it poskinuser bash
+vlt login
+vlt config init
+vlt secrets get -plaintext MONGODB_USER
+vlt secrets get -plaintext MONGODB_PASSWORD
+vlt secrets get -plaintext MONGODB_DATABASE
+
+
 ```
-In the bash optenu with the last command, type id to retrieve the uid and gud
-
-
 ## Launch the app
 We can easily run the whole with only a single command:
 ```bash

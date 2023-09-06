@@ -2,24 +2,29 @@ version: "3.8"
 
 services:
   mongodb:
+    # on utilise l'image 5.0.2 de mongo
     image: mongo:5.0.2
     restart: unless-stopped
     env_file: ./.env
     container_name: mongodb
+    # variable d'environment pour setup mongo 
     environment:
       - MONGO_INITDB_ROOT_USERNAME=$MONGODB_USER
       - MONGO_INITDB_ROOT_PASSWORD=$MONGODB_PASSWORD
     ports:
       - $MONGODB_LOCAL_PORT:$MONGODB_DOCKER_PORT
+    #on crée un volume pour stocker les données de mongo, pour stocker de maniere persitance 
     volumes:
       - ./mongo-volume:/data/db
     working_dir: /data/db
     networks:
       - server
   mongo-express:
+    # on utilise la derniere version disponible de mongo-express
     image: mongo-express:latest
     restart: always
     container_name: mongo_express
+    # variable d'environment pour permettre de confirgurer l'acces de mongo-express à mongo
     environment:
       - ME_CONFIG_MONGODB_SERVER=mongodb
       - ME_CONFIG_MONGODB_PORT=27017
@@ -40,11 +45,13 @@ services:
     container_name: server
     depends_on:
       - mongodb
+    #on build le server avec le dockerfile du dossier server
     build: ./server
     restart: unless-stopped
     env_file: ./.env
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    # variable d'environment pour permettre de confirgurer l'acces du server à mongo
     environment:
       - UID=&UID
       - GUD=&GUD
@@ -63,6 +70,7 @@ services:
     container_name: front
     depends_on:
       - mongodb
+    #on build le server avec le dockerfile du dossier Front
     build: ./Front
     restart: unless-stopped
     env_file: ./.env

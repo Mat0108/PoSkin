@@ -2,10 +2,12 @@ version: "3.8"
 
 services:
   mongodb:
+    # on utilise l'image 5.0.2 de mongo
     image: mongo:5.0.2
     restart: unless-stopped
     env_file: ./.env
     container_name: mongodb
+    # variable d'environment pour setup mongo 
     environment:
       - MONGO_INITDB_ROOT_USERNAME=$MONGODB_USER
       - MONGO_INITDB_ROOT_PASSWORD=$MONGODB_PASSWORD
@@ -21,11 +23,13 @@ services:
     container_name: server
     depends_on:
       - mongodb
+    #on build le server avec le dockerfile du dossier server
     build: ./server
     restart: unless-stopped
     env_file: ./.env
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    # variable d'environment pour permettre de confirgurer l'acces du server à mongo
     environment:
       - UID=&UID
       - GUD=&GUD
@@ -44,6 +48,7 @@ services:
     container_name: front
     depends_on:
       - mongodb
+    #on build le server avec le dockerfile du dossier Front
     build: ./Front
     restart: unless-stopped
     env_file: ./.env

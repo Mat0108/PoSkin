@@ -20,7 +20,7 @@ const Navbar = () =>{
     const cm = "text-black bg-red hover:bg-[#264C4D] hover:text-white px-4 py-2  rounded-full "
     useEffect(()=>{
         const fetchData = async() =>{
-            const message = await getMessage("64f73e4fc4a66c0012cf4458");
+            const message = await getMessage("64f88bfb02d3b800123a493f");
             if(message){
                 console.log(message)
                 setMessage(message.context)
