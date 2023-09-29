@@ -16,6 +16,7 @@ import Diagnostic from './pages/Diagnostic';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Conseils from './pages/Conseils';
+import Blog from './pages/Blog';
 function App() {
   return (
     <div className="App w-full h-full relative bg-[#EEE8E4]">
@@ -23,11 +24,12 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home/>}></Route>
-          <Route path="/Expertise" element={<Expertise/>}></Route> 
+          {/* <Route path="/Expertise" element={<Expertise/>}></Route> 
           <Route path="/APropos" element={<QuiSommesNous />}></Route>
           <Route path="/Community" element={<Commu/>}></Route>
           <Route path='/Diagnostic' element={<Diagnostic/>}></Route>
-          <Route path='/Conseils' element={<Conseils/>}></Route>
+          <Route path='/Conseils' element={<Conseils/>}></Route> */}
+          <Route path="/Blog/:BlogId" element={<Blog/>}></Route>
         </Routes>
         <Newsletter />
         <Footer />

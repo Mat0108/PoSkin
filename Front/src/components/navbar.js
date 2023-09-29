@@ -2,32 +2,17 @@
     // import skincare from '../images/skincare.png'
 
 import logo from '../images/logo.png';
-import React, { useEffect, useMemo, useState } from 'react';
-import axios from 'axios'
+import React, { useMemo, useState } from 'react';
+
 import pointwhite from "../images/pointwhite.png";
 import pointhidden from "../images/pointhidden.png";
- const getMessage = async(texte) => {
-    const res = await axios.get(`http://localhost:8080/message/${texte}`);
-    return res.data;
-}
+
 const Navbar = () =>{
     const [aproposbool,setAproposbool] = useState(false);
     const [conseilbool,setConseilbool] = useState(false);
     const [expertisebool,setExpertisebool] = useState(false);
     const [communitybool,setCommunitybool] = useState(false);
-    const [message,setMessage] = useState("");
     const cmhover = "text-black hover:bg-[#264C4D] hover:text-white px-4 py-2  rounded-full "
-    const cm = "text-black bg-red hover:bg-[#264C4D] hover:text-white px-4 py-2  rounded-full "
-    useEffect(()=>{
-        const fetchData = async() =>{
-            const message = await getMessage("64f88bfb02d3b800123a493f");
-            if(message){
-                console.log(message)
-                setMessage(message.context)
-            }
-        };
-        fetchData();
-    },[]);
     const apropos = useMemo(()=>{
         if(aproposbool){
             return <div><a href={"/APropos"} ><div className={`flex flex-row w-[130px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={pointwhite} alt={"pw"} /></div><div> A propos</div></div></a></div>
@@ -61,17 +46,16 @@ const Navbar = () =>{
     
     <div className='w-full h-[80px] border-b-2 border-white grid grid-cols-5 bg-[#EEE8E4] p-2'>
         <div className='col-start-1 ml-[35px] mt-[12px] p-x-2 flex items-start ' ><a href="/" className='w-fit h-full'><img src={logo} alt="logo" className='h-[70%] '/></a></div>
-        <div><p1>{message}</p1></div>
         <div className='col-start-4 col-span-2 flex '>
             <div className='w-full flex flex-row text-lg space-x-2 mr-[100px] center justify-end '>
-                <div onMouseEnter={()=>{setAproposbool(true)}}
+                {/* <div onMouseEnter={()=>{setAproposbool(true)}}
                 onMouseLeave={()=>{setAproposbool(false)}}>{apropos}</div>
                 <div onMouseEnter={()=>{setConseilbool(true)}}
                 onMouseLeave={()=>{setConseilbool(false)}}>{conseil}</div>
                 <div onMouseEnter={()=>{setExpertisebool(true)}}
                 onMouseLeave={()=>{setExpertisebool(false)}}>{expertise}</div>
                 <div onMouseEnter={()=>{setCommunitybool(true)}}
-                onMouseLeave={()=>{setCommunitybool(false)}}>{community}</div>
+                onMouseLeave={()=>{setCommunitybool(false)}}>{community}</div> */}
 
             </div>
         </div>

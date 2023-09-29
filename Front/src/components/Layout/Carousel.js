@@ -7,7 +7,7 @@ const Carousel =({props})=>{
             <div>
                 <p className="mt-[30px] text-[50px] font-av-bold text-blue ">{props.titre}</p>
                 {props.col}
-                <div className="mt-[20px] w-full flex center"> <img src={point}  /></div>  
+                <div className="mt-[20px] w-full flex center"> <img src={point} alt={"point"} /></div>  
                     
             </div>
         </div>

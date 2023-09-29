@@ -325,5 +325,7 @@ const ConseilCarousel4Image3 = () =>{
     </div>
   </div>)
 }
+
+
 // PAGES CONSEILS & ASTUCES
 export {switchtext}

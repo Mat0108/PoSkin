@@ -15,15 +15,15 @@ const ExpertiseHome =()=>{
                 <div className="w-[100%] mt-[80px] grid grid-cols-3 ">
                     <div className="col-start-1 flex flex-col items-center">
                         <p className="text-white text-[16px] w-[60%]">Certification - Académie des Facialistes - Paris</p>
-                        <div className="mt-[20px]"> <img src={partenaire1}  /></div>  
+                        <div className="mt-[20px]"> <img src={partenaire1} alt={"partenaire1"}  /></div>  
                     </div>
                     <div className="col-start-2 flex flex-col items-center ">
                         <p className="text-white w-[300px] text-[16px] w-[60%] ">Certification - École Delphine Langlois - Facialiste Paris</p>
-                        <div className="mt-[20px]"> <img src={partenaire2}  /></div>  
+                        <div className="mt-[20px]"> <img src={partenaire2}  alt={"partenaire2"}/></div>  
                     </div>
                     <div className="col-start-3 flex flex-col items-center">
                         <p className="text-white w-[220px] text-[16px] w-[60%]">Tous nos produits sont testés et certifiés cruelty free</p>
-                        <div className="mt-[20px]"> <img src={partenaire3}  /></div>  
+                        <div className="mt-[20px]"> <img src={partenaire3} alt={"partenaire3"}  /></div>  
                     </div>
                 </div>
                 
