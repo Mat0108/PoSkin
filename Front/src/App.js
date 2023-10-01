@@ -16,11 +16,13 @@ import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Conseils from './pages/Conseils';
 import Blog from './pages/Blog';
+import ScrollToTop from './components/ScrollToTop';
 function App() {
   return (
     <div className="App w-full h-full relative bg-[#EEE8E4]">
       <Router>
         <Navbar />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home/>}></Route>
           {/* <Route path="/Expertise" element={<Expertise/>}></Route> 

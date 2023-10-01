@@ -29,7 +29,7 @@ const Home = ()=>{
     function BlogCarousel(image,titre,url){
         return (<>
             <div className="relative w-full h-fit mt-[10px] flex center">
-                <Link to={url}>
+                <Link to={url} >
                     <div className="mt-[20px] w-full flex center h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[250px]'/></div>  
                     <div className='absolute top-0 left-0 w-full h-full flex center'><p className='text-white mt-2 text-[30px] font-av-bold'>{titre}</p></div>    
                 </Link>
@@ -37,10 +37,10 @@ const Home = ()=>{
             </>)
     }
     let listBlogCarousel = [
-        BlogCarousel("/images/Blog/vitaminec.png","","/Blog/1"),
-        BlogCarousel("/images/Blog/cremesolaire.png","La creme solaire","/Blog/2"),
-        BlogCarousel("/images/Blog/vitaminec.png","","/Blog/1"),
-        BlogCarousel("/images/Blog/cremesolaire.png","La creme solaire","/Blog/2"),
+        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","","/Blog/1"),
+        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","","/Blog/2"),
+        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","","/Blog/1"),
+        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","","/Blog/2"),
     ]
 
     return (<>
