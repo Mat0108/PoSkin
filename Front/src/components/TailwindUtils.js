@@ -199,5 +199,7 @@ export const getW = (value)=>{
             return "w-[98%]";
           case 99:
             return "w-[99%]";
+          default:
+            return "w-full"
     }
 }

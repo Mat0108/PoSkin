@@ -1,20 +1,8 @@
-
-import ExpertiseHome from "../components/ExpertiseHome";
-import Layout1image from "../components/Layout/Layout1image";
-import Layout1imageinv from "../components/Layout/Layout1imageinv";
 import LayoutFullImage from "../components/Layout/LayoutFullImage";
 import { switchtext } from "../components/textdivers";
-import v15 from "./../images/visage/visage15.png";
-import v16 from "./../images/visage/visage16.png";
 import v17 from "./../images/visage/visage17.png";
 import v18 from "./../images/visage/visage18.png";
 import v19 from "./../images/visage/visage19.png";
-import v14 from "./../images/visage/visage14.png";
-import v2 from "./../images/visage/visage2.png";
-import v3 from "./../images/visage/visage3.png";
-import v4 from "./../images/visage/visage4.png";
-import v7 from "./../images/visage/visage7.png";
-import v8 from "./../images/visage/visage8.png";
 import search from "./../images/search.png";
 import love from "./../images/love.png";
 import partage from "./../images/partage.png";
@@ -26,9 +14,7 @@ import C1 from "./../images/Commu/Commu1.png";
 import C2 from "./../images/Commu/Commu2.png";
 import C3 from "./../images/Commu/Commu3.png";
 import C4 from "./../images/Commu/Commu4.png";
-import { useState } from "react";
 const Commu = ()=>{
-    const [fil,setFil] = useState(true)
     function itemCarousel(image,titre){
         return (<div className="relative w-[250px] h-[200px]" key={`item-${titre}`}>
             <img src={image} alt={titre} className="w-full h-full rounded-2xl"/>

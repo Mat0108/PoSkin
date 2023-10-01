@@ -1,6 +1,3 @@
-import buy from "../images/buy.png";
-import visage5 from "../images/visage/visage5.png"
-import skincare from "../images/SkinCare1.png"
 const switchtext=(params)=>{
   switch(params){
     case "presentation":

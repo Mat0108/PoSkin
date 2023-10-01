@@ -2,7 +2,6 @@
 import LayoutFullImage from '../components/Layout/LayoutFullImage';
 import Layout1image from '../components/Layout/Layout1image';
 import Layout2image from '../components/Layout/Layout2image';
-import Layout3image from '../components/Layout/Layout3image';
 import ExpertiseHome from '../components/ExpertiseHome';
 
 import {switchtext} from './../components/textdivers';
@@ -26,7 +25,7 @@ const Home = ()=>{
         return (<>
             <div className="relative w-full h-fit mt-[10px] flex center">
                 <div>
-                    <div className="mt-[20px] w-full flex center h-[250px]"> <img src={image}  alt="image" className='h-[250px]'/></div>  
+                    <div className="mt-[20px] w-full flex center h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[250px]'/></div>  
                     {switchtext(col)}    
                 </div>
             </div>
@@ -42,7 +41,7 @@ const Home = ()=>{
         return (<>
             <div className="relative w-full h-fit mt-[10px] flex center">
                 <Link to={url}>
-                    <div className="mt-[20px] w-full flex center h-[250px]"> <img src={image}  alt="image" className='h-[250px]'/></div>  
+                    <div className="mt-[20px] w-full flex center h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[250px]'/></div>  
                     <div className='absolute top-0 left-0 w-full h-full flex center'><p className='text-white mt-2 text-[30px] font-av-bold'>{titre}</p></div>    
                 </Link>
             </div>
@@ -56,7 +55,7 @@ const Home = ()=>{
     ]
 
     return (<>
-            <LayoutFullImage props={{titre:"DECOUVREZ VOTRE PEAU",button:<div className="absolute z-[1000] top-0 left-0 w-full h-full flex center"><div className='mt-[20%] w-fit h-fit p-2 text-white_coffee text-[40px] flex center'><a className="w-fit py-2 px-6 bg-blue rounded-3xl" >Et révélez votre beauté naturelle</a></div></div>,image1:{url:fullvisage,alt:"fullvisage"}}}/>
+        <LayoutFullImage props={{titre:"DECOUVREZ VOTRE PEAU",button:<div className="absolute z-[1000] top-0 left-0 w-full h-full flex center"><div className='mt-[20%] w-fit h-fit p-2 text-white_coffee text-[40px] flex center'><div className="w-fit py-2 px-6 bg-blue rounded-3xl" >Et révélez votre beauté naturelle</div></div></div>,image1:{url:fullvisage,alt:"fullvisage"}}}/>
         <Layout1image props={{col1:switchtext("presentation"),image1:{url:visage2,alt:"visage2"}}} />
         <Layout2image props={{col1:switchtext("apropos"),col2:switchtext("apropos2"),image1:{url:visage7,alt:"visage7"},image2:{url:visage8,alt:"visage8"}}} />
         {/* <div className='w-full flex center'>

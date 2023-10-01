@@ -1,6 +1,4 @@
-import Layout1imageinv from "../components/Layout/Layout1imageinv"
-import LayoutFullImage from "../components/Layout/LayoutFullImage"
-import Layout2col from "../components/Layout/Layout2col";
+import LayoutFullImage from "../components/Layout/LayoutFullImage";
 
 import cb from "./../images/conseils/Conseil-banner.png";
 

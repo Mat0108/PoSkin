@@ -29,9 +29,9 @@ const Carousel2 =({props})=>{
         <div className="w-full flex flex-col">       
             <div className="flex flex-row w-full">
                 <div className={`${getW(ratio)} flex center`}>
-                {!props.disableClic && <p className="text-5xl" onClick={()=>setShow(show == 0 ? Object.keys(props.items).length-1 :show-1)}>{"<"}</p>}
+                {!props.disableClic && <p className="text-5xl" onClick={()=>setShow(show === 0 ? Object.keys(props.items).length-1 :show-1)}>{"<"}</p>}
                 </div>
-                <div className={`flex flex-row ${getW(100-2*ratio)}  h-full ${props.nbShow == 1 ? "center":"justify-between space-x-4"}`}>
+                <div className={`flex flex-row ${getW(100-2*ratio)}  h-full ${props.nbShow === 1 ? "center":"justify-between space-x-4"}`}>
                     {items}
                 </div>
                 <div className={`${getW(ratio)} flex center`}>
@@ -41,7 +41,7 @@ const Carousel2 =({props})=>{
             </div>
             {props.showPoint && <div className="w-full flex center mt-[20px]">
                 <div className="w-fit flex flex-row space-x-2">
-                    {props.items.map((e,pos)=>{return <div className="w-[18px] h-[21px]"><img src={pos==show ? Big : Low} alt={"point"}/></div>})}        
+                    {props.items.map((e,pos)=>{return <div className="w-[18px] h-[21px]"><img src={pos===show ? Big : Low} alt={"point"}/></div>})}        
                 </div>
                 
             </div>}

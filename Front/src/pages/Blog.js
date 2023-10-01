@@ -36,7 +36,7 @@ const Blog = () =>{
         return (<>
             <div className="relative w-full h-fit mt-[10px] flex center">
                 <Link to={url}>
-                    <div className="mt-[20px] w-full flex center h-[250px]"> <img src={image}  alt="image" className='h-[250px]'/></div>  
+                    <div className="mt-[20px] w-full flex center h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[250px]'/></div>  
                     <div className='absolute top-0 left-0 w-full h-full flex center'><p className='text-white mt-2 text-[30px] font-av-bold'>{titre}</p></div>    
                 </Link>
             </div>
@@ -78,7 +78,7 @@ const Blog = () =>{
         }
     },[params])
     return (<div className='w-full h-full flex center flex-col'>
-        {!!image && <img className='w-full h-fit ' src={VitamineC0} alt={"image"}></img>} 
+        {!!image && <img className='w-full h-fit ' src={image} alt={"background"}></img>} 
         <div className='w-[86%] m-8 h-full flex center gap-8 flex-col'>
             {!!titre1 && <div className='w-full h-[100px] bg-blue'></div>}        
             {(!!image1 || !!text1) && <div className='flex center w-full h-fit gap-8  '>
