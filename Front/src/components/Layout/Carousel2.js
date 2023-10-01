@@ -1,8 +1,6 @@
 
 import { useState,useEffect } from "react";
 import { getW } from "../TailwindUtils";
-import Low from "../../images/pointlow.png";
-import Big from "../../images/pointbig.png";
 const Carousel2 =({props})=>{
     // props : {{items,nbShow}}
     const [show,setShow]= useState(0)
@@ -41,7 +39,7 @@ const Carousel2 =({props})=>{
             </div>
             {props.showPoint && <div className="w-full flex center mt-[20px]">
                 <div className="w-fit flex flex-row space-x-2">
-                    {props.items.map((e,pos)=>{return <div className="w-[18px] h-[21px]"><img src={pos===show ? Big : Low} alt={"point"}/></div>})}        
+                    {props.items.map((e,pos)=>{return <div className="w-[18px] h-[21px]"><img src={pos===show ? "/images/pointbig.png" : "/images/pointlow.png"} alt={"point"}/></div>})}        
                 </div>
                 
             </div>}

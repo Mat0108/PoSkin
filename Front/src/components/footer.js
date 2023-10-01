@@ -1,13 +1,10 @@
-import logobig from "../images/logobig.png"
-import tiktok from "../images/tiktok.png"
-import instagram from "../images/instagram.png"
-import pinterest from "../images/pinterest.png"
+
 const Footer = ()=>{
     return (
     <footer className="p-4 pb-10 bg-white_coffee flex w-full">
         <div className="w-[20%] flex flex-col center ">
             <div>
-                    <div className="mt-[20px]"> <img src={logobig} alt={"logo"} className="w-[65%]"/></div>
+                    <div className="mt-[20px]"> <img src={"/images/logobig.png"} alt={"logo"} className="w-[65%]"/></div>
                     <p className="text-[14px] mt-[5px] text-left">Découvrez votre peau.</p>
    
             </div>  
@@ -46,9 +43,9 @@ const Footer = ()=>{
                 <p className="text-[16px] my-[10px]">REJOIGNEZ PO. SUR :</p>
 
                 <div className="grid grid-cols-3 gap-2 w-[60%]">
-                        <div className="col-start-1"><a href="https://www.tiktok.com/@po.skin_?is_from_webapp=1&sender_device=pc"> <img src={tiktok} alt={"tiktok"}  /></a></div>
-                        <div className="col-start-2"><a href="https://instagram.com/po.skin__?igshid=MzRlODBiNWFlZA=="> <img src={instagram} alt={"instagram"}  /></a></div>
-                        <div className="col-start-3"><a href="https://www.pinterest.fr/poskinnn/?invite_code=20394619d86b4527a76a7cb5758afad2&sender=1093671228167842742"> <img src={pinterest}  alt={pinterest} /></a></div>
+                        <div className="col-start-1"><a href="https://www.tiktok.com/@po.skin_?is_from_webapp=1&sender_device=pc"> <img src={"/images/tiktok.png"} alt={"tiktok"}  /></a></div>
+                        <div className="col-start-2"><a href="https://instagram.com/po.skin__?igshid=MzRlODBiNWFlZA=="> <img src={"/images/instagram.png"} alt={"instagram"}  /></a></div>
+                        <div className="col-start-3"><a href="https://www.pinterest.fr/poskinnn/?invite_code=20394619d86b4527a76a7cb5758afad2&sender=1093671228167842742"> <img src={"/images/pinterest.png"}  alt={"pinterest"} /></a></div>
                     </div>
             </div>
         </div> 

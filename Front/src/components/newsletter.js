@@ -1,5 +1,4 @@
-import { useState } from "react"
-import fleche from "../images/fleche.png"
+import { useState } from "react";
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { toast } from "react-toastify";
@@ -36,7 +35,7 @@ const Newsletter =()=>{
                 <p className="text-[30px] w-[300px]">Votre adresse mail:</p>
                 <div className="flex flex-row">
                     <input className="w-[600px] bg-[#83C5BE] border-b-2 mt-5" placeholder="votre mail " value={value} onChange={e=>setValue(e.target.value)}></input>
-                    <div className="mt-[20px] w-[40px] ml-[10px] flex center border-2 " onClick={()=>createUser(value)}> <img src={fleche} alt={"fleche"} /></div> 
+                    <div className="mt-[20px] w-[40px] ml-[10px] flex center border-2 " onClick={()=>createUser(value)}> <img src={"/images/fleche.png"} alt={"fleche"} /></div> 
                 </div>
             </div>
         </div>
