@@ -203,3 +203,5 @@ export const getW = (value)=>{
             return "w-full"
     }
 }
+
+

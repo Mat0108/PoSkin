@@ -64,13 +64,13 @@ const switchtext=(params)=>{
 }
 const presentation = ()=>{
     return (<>
-      <p className="text-[100px] font-mt-bold text-blue text-left ">Po.</p>
-      <p className="text-[50px] font-mt-bold text-blue text-left ">Pour une belle peau</p>
-      <p className="mt-[30px] text-[16px] text-left ">
+      <p className="text-[20px] sm:text-[100px] font-mt-bold text-blue text-left ">Po.</p>
+      <p className="text-[10px] sm:text-[50px] font-mt-bold text-blue text-left ">Pour une belle peau</p>
+      <p className="text-[8px] sm:text-[16px] mt-[30px] text-left ">
       Chez Po. nous sommes convaincus que prendre soin de sa peau devrait être à la portée de tous et de toutes.
-      </p><p className="mt-[10px] text-[16px] text-left ">C’est pour cela que nous voulons rendre accessible les soins, les conseils, les expertises.
+      </p><p className="text-[8px] sm:text-[16px] mt-[10px] text-left ">C’est pour cela que nous voulons rendre accessible les soins, les conseils, les expertises.
       </p>
-      <p className="mt-[30px] text-[16px] text-left ">
+      <p className="text-[8px] sm:text-[16px]  text-left ">
       Nous sommes fiers de mettre à votre disposition des formules de soins cleans et de vous mettre en contact avec  nos partenaires expert dans les problèmes de peaux. 
       </p>
       </>
@@ -78,19 +78,19 @@ const presentation = ()=>{
   }
 const apropos=()=>{
     return (<>
-    <p className="mt-[35px] text-[60px] font-mt-bold text-blue text-left w-[600px]">A propos...</p>
-    <p className="mt-[20px] text-[16px] text-left w-[600px]">Nous avons choisi de collaborer avec des experts facialistes pour VOUS !</p>
-    <p className="text-[16px] text-left w-[600px]">Pour que vous puissez bénéficier d’un diagnostic fiable et personnalisé.</p>
-    <p className="text-[16px] text-left w-[600px]">Vous pourrez donc vous orienter vers ce dont vous avez réellement besoin.</p>
-    <div className="mt-[20px] text-[30px] w-fit px-8 py-2 bg-[#83C5BE] rounded-full font-mt-bold text-blue text-left hover:text-white hover:bg-blue"><p>En savoir plus</p></div>
+    <p className="mt-[35px] text-[12px] sm:text-[60px] font-mt-bold text-blue text-left">A propos...</p>
+    <p className="mt-[20px] text-[8px] sm:text-[16px] text-left">Nous avons choisi de collaborer avec des experts facialistes pour VOUS !</p>
+    <p className="text-[8px] sm:text-[16px] text-left">Pour que vous puissez bénéficier d’un diagnostic fiable et personnalisé.</p>
+    <p className="text-[8px] sm:text-[16px] text-left">Vous pourrez donc vous orienter vers ce dont vous avez réellement besoin.</p>
+    <div className="mt-[20px] text-[10px] sm:text-[30px] w-fit px-4 sm:px-8 py-2 bg-[#83C5BE] rounded-full font-mt-bold text-blue text-left hover:text-white hover:bg-blue"><p>En savoir plus</p></div>
     </>)
   }
 const apropos2=()=>{
     return(<>
-    <p className="mt-[20px] text-[16px] text-left w-[600px]"> En plus de pouvoir bénéficier d’un savoir-faire hors-pair, profitez également d’une technologie hors-pair !</p>
-    <p className="mt-[20px] text-[16px]  text-left w-[600px]">L’Intelligence Artificielle saura parfaire votre diagnostic afin de le rendre encore   plus précis !
+    <p className="mt-[20px] text-[8px] sm:text-[16px] text-left w-[80%] sm:w-[65%] mx-auto"> En plus de pouvoir bénéficier d’un savoir-faire hors-pair, profitez également d’une technologie hors-pair !</p>
+    <p className="mt-[20px] text-[8px] sm:text-[16px] text-left w-[80%] sm:w-[65%] mx-auto">L’Intelligence Artificielle saura parfaire votre diagnostic afin de le rendre encore   plus précis !
     Un simple selfie servira à déterminer la ligne directrice de votre diagnostic.</p>
-    <div className="mt-[40px] text-[30px] w-fit px-8 py-2 bg-[#83C5BE] rounded-full font-mt-bold text-blue text-left w-[600px] hover:text-white hover:bg-blue"><p>En savoir plus</p></div>            
+    <div className="mt-[40px] text-[10px] sm:text-[30px] mx-auto w-fit px-4 sm:px-8 py-2 bg-[#83C5BE] rounded-full font-mt-bold text-blue text-left hover:text-white hover:bg-blue w-[80%] sm:w-[60%]"><p>En savoir plus</p></div>            
     </>)
 }
 
