@@ -7,13 +7,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'av-ulight': ['Montserrat', 'sans-serif'],
-        'av-light': ['MontserratLight', 'sans-serif'],
-        'av-thin': ['MontserratThin', 'sans-serif'],
-        'av-rg': ['Montserrat', 'sans-serif'],
-        'av-md': ['MontserratMedium', 'sans-serif'],
-        'av-demi': ['MontserratDemi', 'sans-serif'],
-        'av-bold': ['MontserratBold', 'sans-serif']
+        'mt':['Montserrat', 'sans-serif'],
+        'mt-demi': ['MontserratDemi', 'sans-serif'],
+        'mt-bold': ['MontserratBold', 'sans-serif']
       },
       gridTemplateColumns:{
         'rectangle':'200px 300px 700px 150px',

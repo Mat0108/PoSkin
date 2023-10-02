@@ -12,6 +12,7 @@ const Blog = () =>{
     
     const [image,setImage] = useState();
     const [text,setText] = useState();
+    const [titre,setTitre] = useState();
     const [titre1,setTitre1] = useState();
     const [image1,setImage1] = useState();
     const [text1,setText1] = useState();
@@ -30,19 +31,22 @@ const Blog = () =>{
     const [titre6,setTitre6] = useState();
     const [text6,setText6] = useState();
     const [image6,setImage6] = useState();
-    function BlogCarousel(image,titre,url){
+    function BlogCarousel(image,titre,soustitre,url){
         return (<>
             <div className="relative w-full h-fit mt-[10px] flex center">
-                <Link to={url} preventScrollReset={true}>
+                <Link to={url}>
                     <div className="mt-[20px] w-full flex center h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[250px]'/></div>  
-                    <div className='absolute top-0 left-0 w-full h-full flex center'><p className='text-white mt-2 text-[30px] font-av-bold'>{titre}</p></div>    
+                    <div className='absolute top-0 left-0 w-full h-full flex center flex-col'>
+                        <p className='w-[80%] text-white mt-2 text-[34px] font-mt-bold'>{titre}</p>
+                        <p className='w-[80%] text-white text-[20px] font-mt-bold'>{soustitre}</p>
+                    </div>   
                 </Link>
             </div>
             </>)
     }
     let listBlogCarousel = [
-        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","","/Blog/1"),
-        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","","/Blog/2")
+        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","","/Blog/1"),
+        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire","un indispensable pour votre routine skincare","/Blog/2")
     ]
 
 
@@ -50,6 +54,7 @@ const Blog = () =>{
         switch(params.BlogId){
             case "1":
                 setImage("/images/Blog/vitaminec/vitaminec.png")
+                setTitre("La vitamine C")
                 setTitre1(null);
                 setImage1("/images/Blog/vitaminec/vitaminec1.png")
                 setText1("La vitamine C est depuis longtemps considérée comme un nutriment essentiel pour notre santé globale. Mais saviez-vous que cette vitamine joue également un rôle crucial dans le maintien d'une peau saine et radieuse ? La vitamine C est devenue un ingrédient incontournable dans de nombreux produits de soin de la peau, et pour de bonnes raisons. Dans cet article, nous explorerons les nombreux bienfaits de la vitamine C pour la peau et pourquoi vous devriez l'incorporer dans votre routine de soins.")
@@ -72,6 +77,7 @@ const Blog = () =>{
                 break;
             case "2":
                 setImage("/images/Blog/cremesolaire/cremesolaire.png");
+                setTitre("La creme solaire : un indispensable pour votre routine skincare")
                 setText("Il est recommandé de se créer une routine pour prendre soin de soi de façon régulière avec les produits adaptés à ton type de peau. L'ordre d'utilisation des soins va influencer leur efficacité. Ici, on vous aide à établir votre routine skincare pour satisfaire les besoins de votre peau.")
                 setTitre1("1. L’importance des bons gestes et produits dans une skincare routine");
                 setImage1("/images/Blog/cremesolaire/cremesolaire1.png")
@@ -117,32 +123,35 @@ const Blog = () =>{
         }
     },[params])
     return (<div className='w-full h-full flex center flex-col'>
-        {!!image && <img className='w-full h-fit ' src={image} alt={"background"}></img>} 
+        {!!image && <div className='relative w-full h-fit'>
+            <img className='w-full h-fit ' src={image} alt={"background"}></img>
+            {!!titre && <div className='absolute top-0 left-0 w-full h-full flex center'><p className='w-[60%] text-white mt-2 text-[50px] font-mt-bold'>{titre}</p></div>}
+        </div>} 
         <div className='w-[86%] m-8 h-full flex center gap-8 flex-col'>
             {!!text &&<div className='w-full h-fit my-8'><p className='text-left text-[20px] text-justify'>{text}</p></div>}
-            {!!titre1 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-av-bold'>{titre1}</h1></div>}
+            {!!titre1 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-mt-bold'>{titre1}</h1></div>}
             {(!!image1 || !!text1) && <div className='flex center w-full h-fit gap-8  '>
                 {!!image1 && <div className={`${text1 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image1} alt={"image1"} className='w-fit h-full'></img></div>}
                 {!!text1 && <div className={`${image1 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[22px] text-justify'>{text1}</div></div>}
             </div>}
-            {!!titre2 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-av-bold'>{titre2}</h1></div>}
+            {!!titre2 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-mt-bold'>{titre2}</h1></div>}
             {!!text2 &&<div className='w-full h-fit'><p className='text-left text-[20px] text-justify'>{text2}</p></div>}
-            {!!titre3 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-av-bold'>{titre3}</h1></div>}
+            {!!titre3 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-mt-bold'>{titre3}</h1></div>}
             {!!text3 &&<div className='w-full h-fit'><p className='text-left text-[20px] text-justify'>{text3}</p></div>}
         </div>
         {!!image3 && <img className='w-full h-fit ' src={image3} alt={"image3"}></img>} 
         <div className='w-[86%] m-8 h-full flex center gap-8 flex-col'>
             {!!text3b &&<div className='w-full h-fit my-8'><p className='text-left text-[20px] text-justify'>{text3b}</p></div>}
-            {!!titre4 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-av-bold'>{titre4}</h1></div>}
+            {!!titre4 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-mt-bold'>{titre4}</h1></div>}
             {!!text4 &&<div className='w-full h-fit'><p className='text-left text-[20px] text-justify'>{text4}</p></div>}
             
-            {!!titre5 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-av-bold'>{titre5}</h1></div>}
+            {!!titre5 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-mt-bold'>{titre5}</h1></div>}
             
             <div className='flex center w-full h-fit '>
                 {!!text5 && <div className={`${image5 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[22px] text-justify'>{text5}</div></div>}
                 {!!image5 && <div className={`${text5 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image5} alt={"image5"} className='w-fit h-full'></img></div>}
             </div>
-            {!!titre6 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-av-bold'>{titre6}</h1></div>}
+            {!!titre6 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-mt-bold'>{titre6}</h1></div>}
             
             <div className='flex center w-full h-fit mt-8'>
                 {!!image6 && <div className={`${text6 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image6} alt={"image6"} className='w-fit h-full'></img></div>}
@@ -151,7 +160,7 @@ const Blog = () =>{
             </div>
         </div>
         <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div>
-        <div><h1 className="mt-[50px] text-[50px] font-av-bold text-blue ">Articles connexes :</h1></div>
+        <div><h1 className="mt-[50px] text-[50px] font-mt-bold text-blue ">Articles connexes :</h1></div>
         <Carousel2 props={{items:listBlogCarousel,nbShow:1,ratio:25,showPoint:true}}/>
         <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div>
         

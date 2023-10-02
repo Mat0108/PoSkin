@@ -8,7 +8,7 @@
 //                     <img src={v21} alt={"visage21"} className="w-full h-full"/>
 //                 </div>
 //                 <div className="w-2/3 h-full bg-[#264C4D]">
-//                     <div><p className="mt-[160px] text-white text-[50px] font-av-bold">FAIRE MON DIAGNOSTIC</p></div>
+//                     <div><p className="mt-[160px] text-white text-[50px] font-mt-bold">FAIRE MON DIAGNOSTIC</p></div>
 //                     <div className="w-full flex center mt-[120px]">
 //                         <div className="bg-[#EEE8E4] w-[330px] rounded-full"><a href="https://docs.google.com/forms/d/e/1FAIpQLSf7xeWz4iVPFQisVw0mE06KPANSVaX8PBV51AavnBavW7m6_A/viewform" className="text-[40px] text-[#264C4D]">C'est parti !</a></div>
 //                         <p></p>

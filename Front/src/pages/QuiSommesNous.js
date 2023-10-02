@@ -43,7 +43,7 @@
 //         <img src={v10} alt={"visage10"} className="w-full"/>
 //     </div>
 //     <Layout2col props={{titre:switchtext("quisommesnous2"),col1:switchtext("quisommesnous3"),image1:{url:v11,alt:"visage11",className:"mt-[60px]"},col2:switchtext("quisommesnous4"),image2:{url:v12,alt:"visage12",className:"mt-[60px]"}}}/>
-//     <div className="w-full text-center"><p className="mt-[30px] mb-[10px] text-[50px] font-av-bold text-blue ">Témoignages</p></div>
+//     <div className="w-full text-center"><p className="mt-[30px] mb-[10px] text-[50px] font-mt-bold text-blue ">Témoignages</p></div>
 //     <Carousel2 props={{items:itemCarousel,nbShow:1,ratio:20,showPoint:true}}/>
 //     <div className="mb-[40px]"></div>
 //     </>)

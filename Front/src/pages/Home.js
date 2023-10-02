@@ -26,21 +26,26 @@ const Home = ()=>{
         itemCarousel("/images/visage/visage22.png","Carousel2"),
         itemCarousel("/images/visage/visage23.png","Carousel3")
     ]
-    function BlogCarousel(image,titre,url){
+    function BlogCarousel(image,titre,soustitre,url){
         return (<>
             <div className="relative w-full h-fit mt-[10px] flex center">
-                <Link to={url} >
+                <Link to={url}>
                     <div className="mt-[20px] w-full flex center h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[250px]'/></div>  
-                    <div className='absolute top-0 left-0 w-full h-full flex center'><p className='text-white mt-2 text-[30px] font-av-bold'>{titre}</p></div>    
+                    <div className='absolute top-0 left-0 w-full h-full flex center flex-col'>
+                        <p className='w-[80%] text-white mt-2 text-[34px] font-mt-bold'>{titre}</p>
+                        <p className='w-[80%] text-white text-[20px] font-mt-bold'>{soustitre}</p>
+                    </div>   
+                    
                 </Link>
             </div>
             </>)
     }
     let listBlogCarousel = [
-        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","","/Blog/1"),
-        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","","/Blog/2"),
-        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","","/Blog/1"),
-        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","","/Blog/2"),
+        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","","/Blog/1"),
+        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire :","un indispensable pour votre routine skincare","/Blog/2"),
+        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","","/Blog/1"),
+        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire","un indispensable pour votre routine skincare","/Blog/2")
+    
     ]
 
     return (<>
@@ -53,10 +58,10 @@ const Home = ()=>{
             </div>
         </div>
          <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
-        <div><p className="mt-[30px] text-[50px] font-av-bold text-blue ">Nos conseils </p></div>
+        <div><p className="mt-[30px] text-[50px] font-mt-bold text-blue ">Nos conseils </p></div>
         <Carousel2 props={{items:listCarousel,nbShow:1,ratio:25,showPoint:true}}/>
-        <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div>
-        <div><p className="mt-[30px] text-[50px] font-av-bold text-blue ">Notre blog </p></div>
+        {/* <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
+        <div><p className="mt-[30px] text-[50px] font-mt-bold text-blue ">Notre blog </p></div>
         <Carousel2 props={{items:listBlogCarousel,nbShow:2,ratio:25,showPoint:true}}/>
         
         <div className='mt-[20px]'></div>

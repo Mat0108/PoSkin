@@ -65,22 +65,22 @@
 
 //     <LayoutFullImage props={{image1:{url:cb,alt:"Conseil-banner"}}}/>  
 
-//     <div className="w-full text-center text-[50px]  mt-[50px] font-av-bold text-blue">Nos conseils</div>
+//     <div className="w-full text-center text-[50px]  mt-[50px] font-mt-bold text-blue">Nos conseils</div>
 //     <Carousel2 props={{items:listCarousel,nbShow:1,ratio:20,showPoint:true}}/>
 
 //     <div className="relative w-full h-0.5 mt-[100px] mb-[100px] bg-[#10264C4D]"></div>
 
-//     <div className="w-full text-left text-[50px] mt-[20px] ml-[155px] font-av-bold text-blue">Les derniers tutos...</div>
+//     <div className="w-full text-left text-[50px] mt-[20px] ml-[155px] font-mt-bold text-blue">Les derniers tutos...</div>
 //     <Carousel2 props={{items:listCarousel2,nbShow:3,ratio:10,showPoint:false,disableClic:true}}/>
 
 //     <div className="relative w-full h-0.5 mt-[100px] mb-[100px] bg-[#10264C4D]"></div>
 
-//     <div className="w-full text-left text-[50px] mt-[20px] ml-[165px] font-av-bold text-blue">Catégories</div>
+//     <div className="w-full text-left text-[50px] mt-[20px] ml-[165px] font-mt-bold text-blue">Catégories</div>
 //     <Carousel2 props={{items:listCarousel3,nbShow:3,ratio:10,showPoint:false,disableClic:true}}/>
 
 //     <div className="relative w-full h-0.5 mt-[100px] mb-[100px] bg-[#10264C4D]"></div>
 
-//     <div className="w-full text-left text-[50px] mt-[20px] ml-[155px] font-av-bold text-blue">Interviews</div>
+//     <div className="w-full text-left text-[50px] mt-[20px] ml-[155px] font-mt-bold text-blue">Interviews</div>
 //     <div className="w-full text-left text-[30px] ml-[155px] text-blue">Des personnes inspirants et qui vous ressemblent</div>
 //     <Carousel2 props={{items:listCarousel4,nbShow:3,ratio:10,showPoint:false,disableClic:true}}/>
 //     <div className="w-full h-[20px]"></div>

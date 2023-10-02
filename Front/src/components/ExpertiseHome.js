@@ -7,10 +7,10 @@ const ExpertiseHome =()=>{
     return (<>
         <div className="relative w-full h-fit p-[10px] grid grid-cols-4 bg-blue">
             <div className="col-start-1">
-                <div className="p-[40px] w-full flex center"> <div><img src={"./images/visage/visage.png"} alt={"visage"} /></div></div>  
+                <div className="p-[40px] w-full flex center"> <div><img src={"./images/visage/visage6.png"} alt={"visage"} /></div></div>  
             </div>
             <div className="col-start-2 col-span-3">
-                <p className="mt-[40px] text-[20px] text-white font-av-bold">NOTRE EXPERTISE</p>
+                <p className="mt-[40px] text-[20px] text-white font-mt-bold">NOTRE EXPERTISE</p>
                 <p className="ml-[10%] mt-[30px] w-[80%] text-white">Nos partenaires sont diplômés et reconnus comme des Experts dans leur domaine et garantissent une prise en charge honnête et réfléchie</p>
                 <div className="w-[100%] mt-[80px] grid grid-cols-3 ">
                     <div className="col-start-1 flex flex-col items-center">
