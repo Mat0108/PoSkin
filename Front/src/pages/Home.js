@@ -14,7 +14,7 @@ const Home = ()=>{
         return (<>
             <div className="relative w-full h-fit mt-[10px] flex center">
                 <div>
-                    <div className="mt-[20px] w-full flex center h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[250px]'/></div>  
+                    <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[100px] sm:h-[250px]'/></div>  
                     {switchtext(col)}    
                 </div>
             </div>
@@ -30,10 +30,10 @@ const Home = ()=>{
         return (<>
             <div className="relative w-full h-fit mt-[10px] flex center">
                 <Link to={url}>
-                    <div className="mt-[20px] w-full flex center h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[250px]'/></div>  
+                    <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[100px] sm:h-[250px]'/></div>  
                     <div className='absolute top-0 left-0 w-full h-full flex center flex-col'>
-                        <p className='w-[80%] text-white mt-2 text-[34px] font-mt-bold'>{titre}</p>
-                        <p className='w-[80%] text-white text-[20px] font-mt-bold'>{soustitre}</p>
+                        <p className='w-[80%] text-white mt-2 text-[7px] sm:text-[34px] font-mt-bold'>{titre}</p>
+                        <p className='w-[80%] text-white text-[5px] sm:text-[20px] font-mt-bold'>{soustitre}</p>
                     </div>   
                     
                 </Link>
@@ -58,10 +58,10 @@ const Home = ()=>{
             </div>
         </div>
          <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
-        <div><p className="mt-[30px] text-[50px] font-mt-bold text-blue ">Nos conseils </p></div>
+        <div><p className="mt-[30px] text-[12px] sm:text-[50px] font-mt-bold text-blue ">Nos conseils </p></div>
         <Carousel2 props={{items:listCarousel,nbShow:1,ratio:25,showPoint:true}}/>
         {/* <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
-        <div><p className="mt-[30px] text-[50px] font-mt-bold text-blue ">Notre blog </p></div>
+        <div><p className="mt-[30px] text-[12px] sm:text-[50px] font-mt-bold text-blue ">Notre blog </p></div>
         <Carousel2 props={{items:listBlogCarousel,nbShow:2,ratio:25,showPoint:true}}/>
         
         <div className='mt-[20px]'></div>

@@ -178,24 +178,24 @@ const quisommesnous4 = () =>{
 
 const Carousel1 = () =>{
   return (<>
-  <p className="mt-[20px] text-[16px] font-mt-bold text-blue">4 types de peau, 4 types de soins </p>    
-  <div className=" h-[120px]"><p className="text-[16px] mt-[5px]">Quel nettoyant choisir ? quel serum vous correspond ? </p>
-  <p className="text-[16px]">Comprenez et accepter la nature de votre peau grâce à nos conseils ciblés pour vous.</p>  
+  <p className="mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">4 types de peau, 4 types de soins </p>    
+  <div className="h-[120px]"><p className="text-[8px] sm:text-[16px] mt-[5px]">Quel nettoyant choisir ? quel serum vous correspond ? </p>
+  <p className="text-[8px] sm:text-[16px]">Comprenez et accepter la nature de votre peau grâce à nos conseils ciblés pour vous.</p>  
   </div>
   </>)
 }
 
 const Carousel2 = () =>{
   return (<>
-  <p className="mt-[20px] text-[16px] font-mt-bold text-blue"> Bien choisir son masque  </p>    
-  <p className="text-[16px] w-[80%] mx-auto mt-[5px] h-[120px]">Les masques sont devenus un incontournable de nos routines de soins de la peau, offrant une expérience indulgente et des bienfaits immédiats. Que vous recherchiez une hydratation intense, une purification en profondeur ou un éclat instantané, il existe un masque adapté à vos besoins spécifiques.</p>
+  <p className="mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue"> Bien choisir son masque  </p>    
+  <p className="text-[8px] sm:text-[16px] w-[80%] mx-auto mt-[5px] h-[120px]">Les masques sont devenus un incontournable de nos routines de soins de la peau, offrant une expérience indulgente et des bienfaits immédiats. Que vous recherchiez une hydratation intense, une purification en profondeur ou un éclat instantané, il existe un masque adapté à vos besoins spécifiques.</p>
   
   </>)
 }
 const Carousel3 = () =>{
   return (<>
-  <p className="mt-[20px] text-[16px] font-mt-bold text-blue">Une solution contre l'acné ?</p>    
-  <p className="text-[16px]  w-[80%] mx-auto mt-[5px] h-[120px]">L'acné est un problème de peau courant qui peut affecter notre confiance en nous. Mais saviez-vous qu'il existe des solutions naturelles pour traiter l'acné et retrouver une peau saine et équilibrée. Nous allons explorer les remèdes naturels les plus efficaces pour lutter contre l'acné, en mettant l'accent sur des ingrédients naturels et des méthodes douces pour apaiser et réduire les imperfections cutanées.</p>
+  <p className="mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">Une solution contre l'acné ?</p>    
+  <p className="text-[8px] sm:text-[16px]  w-[80%] mx-auto mt-[5px] h-[120px]">L'acné est un problème de peau courant qui peut affecter notre confiance en nous. Mais saviez-vous qu'il existe des solutions naturelles pour traiter l'acné et retrouver une peau saine et équilibrée. Nous allons explorer les remèdes naturels les plus efficaces pour lutter contre l'acné, en mettant l'accent sur des ingrédients naturels et des méthodes douces pour apaiser et réduire les imperfections cutanées.</p>
   </>)
 }
 

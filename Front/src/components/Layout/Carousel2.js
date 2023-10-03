@@ -39,7 +39,7 @@ const Carousel2 =({props})=>{
             </div>
             {props.showPoint && <div className="w-full flex center mt-[20px]">
                 <div className="w-fit flex flex-row space-x-2">
-                    {props.items.map((e,pos)=>{return <div className="w-[18px] h-[21px]"><img src={pos===show ? "/images/pointbig.png" : "/images/pointlow.png"} alt={"point"}/></div>})}        
+                    {props.items.map((e,pos)=>{return <div className="w-[9px] sm:w-[18px] h-[10px] sm:h-[21px]"><img src={pos===show ? "/images/pointbig.png" : "/images/pointlow.png"} alt={"point"}/></div>})}        
                 </div>
                 
             </div>}
