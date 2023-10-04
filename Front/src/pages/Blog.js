@@ -31,22 +31,25 @@ const Blog = () =>{
     const [titre6,setTitre6] = useState();
     const [text6,setText6] = useState();
     const [image6,setImage6] = useState();
-    function BlogCarousel(image,titre,soustitre,url){
+    function BlogCarousel(image,titre,url){
         return (<>
             <div className="relative w-full h-fit mt-[10px] flex center">
                 <Link to={url}>
-                    <div className="mt-[20px] w-full flex center h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[250px]'/></div>  
-                    <div className='absolute top-0 left-0 w-full h-full flex center flex-col'>
-                        <p className='w-[80%] text-white mt-2 text-[34px] font-mt-bold'>{titre}</p>
-                        <p className='w-[80%] text-white text-[20px] font-mt-bold'>{soustitre}</p>
-                    </div>   
+                    <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[100px] sm:h-[250px]'/></div>  
+                    {/* <div className='absolute top-0 left-0 w-full h-full flex center flex-col'>
+                        <p className='w-[80%] text-white mt-2 text-[7px] sm:text-[34px] font-mt-bold'>{titre}</p>
+                        <p className='w-[80%] text-white text-[5px] sm:text-[20px] font-mt-bold'>{soustitre}</p>
+                    </div>    */}
+                    <p className="mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">{titre} </p>    
+  
+                    
                 </Link>
             </div>
             </>)
     }
     let listBlogCarousel = [
-        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","","/Blog/1"),
-        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire","un indispensable pour votre routine skincare","/Blog/2")
+        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","/Blog/1"),
+        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire : un indispensable pour votre routine skincare","/Blog/2"),
     ]
 
 
@@ -124,43 +127,43 @@ const Blog = () =>{
     },[params])
     return (<div className='w-full h-full flex center flex-col'>
         {!!image && <div className='relative w-full h-fit'>
-            <img className='w-full h-fit ' src={image} alt={"background"}></img>
-            {!!titre && <div className='absolute top-0 left-0 w-full h-full flex center'><p className='w-[60%] text-white mt-2 text-[50px] font-mt-bold'>{titre}</p></div>}
+            <img className='w-full ' src={image} alt={"background"}></img>
+            {!!titre && <div className='absolute top-0 left-0 w-full h-full flex center'><p className='w-[60%] text-white mt-2 text-[20px] sm:text-[50px] font-mt-bold'>{titre}</p></div>}
         </div>} 
-        <div className='w-[86%] m-8 h-full flex center gap-8 flex-col'>
-            {!!text &&<div className='w-full h-fit my-8'><p className='text-left text-[20px] text-justify'>{text}</p></div>}
-            {!!titre1 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-mt-bold'>{titre1}</h1></div>}
-            {(!!image1 || !!text1) && <div className='flex center w-full h-fit gap-8  '>
+        <div className='w-[90%] sm:w-[86%] m-2 sm:m-8 h-full flex center flex-col'>
+            {!!text &&<div className='w-full h-fit my-2 sm:my-8'><p className='text-left text-[10px] sm:text-[20px] text-justify'>{text}</p></div>}
+            {!!titre1 &&<div className='w-full h-fit my-2 sm:my-8'><h1 className='text-left text-[20px] sm:text-[50px] text-blue font-mt-bold'>{titre1}</h1></div>}
+            {(!!image1 || !!text1) && <div className='flex center w-full h-fit gap-2 sm:gap-8  '>
                 {!!image1 && <div className={`${text1 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image1} alt={"image1"} className='w-fit h-full'></img></div>}
-                {!!text1 && <div className={`${image1 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[22px] text-justify'>{text1}</div></div>}
+                {!!text1 && <div className={`${image1 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[8px] sm:text-[22px] text-justify'>{text1}</div></div>}
             </div>}
-            {!!titre2 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-mt-bold'>{titre2}</h1></div>}
-            {!!text2 &&<div className='w-full h-fit'><p className='text-left text-[20px] text-justify'>{text2}</p></div>}
-            {!!titre3 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-mt-bold'>{titre3}</h1></div>}
-            {!!text3 &&<div className='w-full h-fit'><p className='text-left text-[20px] text-justify'>{text3}</p></div>}
+            {!!titre2 &&<div className='w-full h-fit my-2 sm:my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre2}</h1></div>}
+            {!!text2 &&<div className='w-full h-fit'><p className='text-left text-[8px] sm:text-[20px] text-justify'>{text2}</p></div>}
+            {!!titre3 &&<div className='w-full h-fit my-2 sm:my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre3}</h1></div>}
+            {!!text3 &&<div className='w-full h-fit'><p className='text-left text-[8px] sm:text-[20px] text-justify'>{text3}</p></div>}
         </div>
         {!!image3 && <img className='w-full h-fit ' src={image3} alt={"image3"}></img>} 
-        <div className='w-[86%] m-8 h-full flex center gap-8 flex-col'>
-            {!!text3b &&<div className='w-full h-fit my-8'><p className='text-left text-[20px] text-justify'>{text3b}</p></div>}
-            {!!titre4 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-mt-bold'>{titre4}</h1></div>}
-            {!!text4 &&<div className='w-full h-fit'><p className='text-left text-[20px] text-justify'>{text4}</p></div>}
+        <div className='w-[90%] sm:w-[86%] m-2 sm:m-8 h-full flex center gap-2 sm:gap-8 flex-col'>
+            {!!text3b &&<div className='w-full h-fit my-2 sm:my-8'><p className='text-left text-[8px] sm:text-[20px] text-justify'>{text3b}</p></div>}
+            {!!titre4 &&<div className='w-full h-fit my-2 sm:my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre4}</h1></div>}
+            {!!text4 &&<div className='w-full h-fit'><p className='text-left text-[8px] sm:text-[20px] text-justify'>{text4}</p></div>}
             
-            {!!titre5 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-mt-bold'>{titre5}</h1></div>}
+            {!!titre5 &&<div className='w-full h-fit my-2 sm:my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre5}</h1></div>}
             
             <div className='flex center w-full h-fit '>
-                {!!text5 && <div className={`${image5 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[22px] text-justify'>{text5}</div></div>}
+                {!!text5 && <div className={`${image5 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[8px] sm:text-[20px] text-justify'>{text5}</div></div>}
                 {!!image5 && <div className={`${text5 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image5} alt={"image5"} className='w-fit h-full'></img></div>}
             </div>
-            {!!titre6 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[50px] text-blue font-mt-bold'>{titre6}</h1></div>}
+            {!!titre6 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre6}</h1></div>}
             
-            <div className='flex center w-full h-fit mt-8'>
+            <div className='flex center w-full h-fit mt-2 sm:mt-8'>
                 {!!image6 && <div className={`${text6 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image6} alt={"image6"} className='w-fit h-full'></img></div>}
-                {!!text6 && <div className={`${image6 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[22px] text-justify '>{text6}</div></div>}
+                {!!text6 && <div className={`${image6 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[8px] sm:text-[20px] text-justify '>{text6}</div></div>}
                
             </div>
         </div>
         <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div>
-        <div><h1 className="mt-[50px] text-[50px] font-mt-bold text-blue ">Articles connexes :</h1></div>
+        <div><h1 className="mt-[12px] sm:mt-[30px] text-[12px] sm:text-[50px] font-mt-bold text-blue ">Articles connexes :</h1></div>
         <Carousel2 props={{items:listBlogCarousel,nbShow:1,ratio:25,showPoint:true}}/>
         <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div>
         

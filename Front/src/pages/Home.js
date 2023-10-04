@@ -21,32 +21,37 @@ const Home = ()=>{
             </>)
 
     }
-    let listCarousel = [
-        itemCarousel("/images/visage/visage5.png","Carousel1"),
-        itemCarousel("/images/visage/visage22.png","Carousel2"),
-        itemCarousel("/images/visage/visage23.png","Carousel3")
-    ]
-    function BlogCarousel(image,titre,soustitre,url){
+    function BlogCarousel(image,titre,url){
         return (<>
             <div className="relative w-full h-fit mt-[10px] flex center">
                 <Link to={url}>
                     <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[100px] sm:h-[250px]'/></div>  
-                    <div className='absolute top-0 left-0 w-full h-full flex center flex-col'>
+                    {/* <div className='absolute top-0 left-0 w-full h-full flex center flex-col'>
                         <p className='w-[80%] text-white mt-2 text-[7px] sm:text-[34px] font-mt-bold'>{titre}</p>
                         <p className='w-[80%] text-white text-[5px] sm:text-[20px] font-mt-bold'>{soustitre}</p>
-                    </div>   
+                    </div>    */}
+                    <p className="mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">{titre} </p>    
+  
                     
                 </Link>
             </div>
             </>)
     }
-    let listBlogCarousel = [
-        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","","/Blog/1"),
-        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire :","un indispensable pour votre routine skincare","/Blog/2"),
-        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","","/Blog/1"),
-        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire","un indispensable pour votre routine skincare","/Blog/2")
-    
+    let listCarousel = [
+        itemCarousel("/images/visage/visage5.png","Carousel1"),
+        itemCarousel("/images/visage/visage22.png","Carousel2"),
+        itemCarousel("/images/visage/visage23.png","Carousel3"),
+        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","/Blog/1"),
+        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire : un indispensable pour votre routine skincare","/Blog/2"),
     ]
+    
+    // let listBlogCarousel = [
+    //     BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","","/Blog/1"),
+    //     BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire :","un indispensable pour votre routine skincare","/Blog/2"),
+    //     BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","","/Blog/1"),
+    //     BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire","un indispensable pour votre routine skincare","/Blog/2")
+    
+    // ]
 
     return (<>
         <LayoutFullImage props={{titre:"DECOUVREZ VOTRE PEAU",button:<div className="absolute z-[1000] top-0 left-0 w-full h-full flex center"><div className='mt-[20%] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] flex center'><div className="w-fit py-2 px-6 bg-blue rounded-3xl" >Et révélez votre beauté naturelle</div></div></div>,image1:{url:"/images/visage/fullvisage.png",alt:"fullvisage"}}}/>
@@ -61,9 +66,6 @@ const Home = ()=>{
         <div><p className="mt-[30px] text-[12px] sm:text-[50px] font-mt-bold text-blue ">Nos conseils </p></div>
         <Carousel2 props={{items:listCarousel,nbShow:1,ratio:25,showPoint:true}}/>
         {/* <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
-        <div><p className="mt-[30px] text-[12px] sm:text-[50px] font-mt-bold text-blue ">Notre blog </p></div>
-        <Carousel2 props={{items:listBlogCarousel,nbShow:2,ratio:25,showPoint:true}}/>
-        
         <div className='mt-[20px]'></div>
         {/* <Carousel props={{titre:"Nos conseils...",col:switchtext("Carousel1")}} /> */}
         <ExpertiseHome />
