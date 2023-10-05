@@ -58,8 +58,12 @@ const switchtext=(params)=>{
       return ConseilCarousel4Image3();
     case "ExpertisePassion":
       return ExpertisePassion();
+    case "VitamineC":
+      return VitamineC();
+    case "CremeSolaire":
+      return CremeSolaire();
     default:
-      break;
+      return "Not Found";
   }
 }
 const presentation = ()=>{
@@ -322,7 +326,22 @@ const ConseilCarousel4Image3 = () =>{
     </div>
   </div>)
 }
-
-
+const VitamineC = () =>{
+  return (<>
+   <div className="h-[100px] sm:h-[150px] flex center flex-col">
+    <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">La vitamine c  </p>    
+    <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify w-[70%]">Découvrez les bienfaits incroyables de la vitamine C pour votre santé, votre beauté et votre bien-être. Cet article explore les sources, les avantages, et les meilleures façons d'intégrer cette vitamine essentielle dans votre quotidien. Plongez dans le monde de la vitamine C et apprenez comment elle peut renforcer votre système immunitaire, améliorer l'apparence de votre peau et bien plus encore.</p>  
+  </div>
+  </>)
+}
+const CremeSolaire = () =>{
+  return (<>
+  <div className="h-[100px] sm:h-[150px] flex center flex-col">
+    <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">La creme solaire : un indispensable pour votre routine skincare  </p>    
+    <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">Vous pouvez développer davantage en parlant des avantages de la protection solaire, des types de crèmes solaires, des erreurs courantes à éviter, et donner des conseils pour une application efficace.  Si vous avez besoin d'aide pour écrire le contenu de l'article ou d'autres informations, n'hésitez pas à demander.</p> </div>
+  </>)
+}
+// Vous pouvez développer davantage en parlant des avantages de la protection solaire, des types de crèmes solaires, des erreurs courantes à éviter, et donner des conseils pour une application efficace. 
+// Si vous avez besoin d'aide pour écrire le contenu de l'article ou d'autres informations, n'hésitez pas à demander.
 // PAGES CONSEILS & ASTUCES
 export {switchtext}

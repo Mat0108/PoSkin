@@ -4,6 +4,7 @@ import {Link, useParams } from 'react-router-dom';
 
 
 import Carousel2 from '../components/Layout/Carousel2';
+import { switchtext } from '../components/textdivers';
 
 
 
@@ -31,25 +32,21 @@ const Blog = () =>{
     const [titre6,setTitre6] = useState();
     const [text6,setText6] = useState();
     const [image6,setImage6] = useState();
-    function BlogCarousel(image,titre,url){
+    function itemCarousel(image,col,url){
         return (<>
             <div className="relative w-full h-fit mt-[10px] flex center">
                 <Link to={url}>
-                    <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[100px] sm:h-[250px]'/></div>  
-                    {/* <div className='absolute top-0 left-0 w-full h-full flex center flex-col'>
-                        <p className='w-[80%] text-white mt-2 text-[7px] sm:text-[34px] font-mt-bold'>{titre}</p>
-                        <p className='w-[80%] text-white text-[5px] sm:text-[20px] font-mt-bold'>{soustitre}</p>
-                    </div>    */}
-                    <p className="mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">{titre} </p>    
-  
-                    
+                    <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[100px] sm:h-[250px] w-fit'/></div>  
+                    {switchtext(col)}    
                 </Link>
             </div>
             </>)
+
     }
-    let listBlogCarousel = [
-        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","/Blog/1"),
-        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire : un indispensable pour votre routine skincare","/Blog/2"),
+
+    let listCarousel = [
+        itemCarousel("/images/Blog/vitaminec/vitaminec.png","VitamineC","/Blog/1"),
+        itemCarousel("/images/Blog/cremesolaire/cremesolaire.png","CremeSolaire","/Blog/2"),
     ]
 
 
@@ -164,7 +161,7 @@ const Blog = () =>{
         </div>
         <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div>
         <div><h1 className="mt-[12px] sm:mt-[30px] text-[12px] sm:text-[50px] font-mt-bold text-blue ">Articles connexes :</h1></div>
-        <Carousel2 props={{items:listBlogCarousel,nbShow:1,ratio:25,showPoint:true}}/>
+        <Carousel2 props={{items:listCarousel,nbShow:1,ratio:25,showPoint:true}}/>
         <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div>
         
     </div>)

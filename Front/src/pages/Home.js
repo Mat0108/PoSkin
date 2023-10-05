@@ -10,13 +10,13 @@ import Carousel2 from '../components/Layout/Carousel2';
 
 import { Link } from 'react-router-dom';
 const Home = ()=>{
-    function itemCarousel(image,col){
+    function itemCarousel(image,col,url){
         return (<>
             <div className="relative w-full h-fit mt-[10px] flex center">
-                <div>
-                    <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[100px] sm:h-[250px]'/></div>  
+                <Link to={url}>
+                    <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[100px] sm:h-[250px] w-fit'/></div>  
                     {switchtext(col)}    
-                </div>
+                </Link>
             </div>
             </>)
 
@@ -38,11 +38,8 @@ const Home = ()=>{
             </>)
     }
     let listCarousel = [
-        itemCarousel("/images/visage/visage5.png","Carousel1"),
-        itemCarousel("/images/visage/visage22.png","Carousel2"),
-        itemCarousel("/images/visage/visage23.png","Carousel3"),
-        BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","/Blog/1"),
-        BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire : un indispensable pour votre routine skincare","/Blog/2"),
+        itemCarousel("/images/Blog/vitaminec/vitaminec.png","VitamineC","/Blog/1"),
+        itemCarousel("/images/Blog/cremesolaire/cremesolaire.png","CremeSolaire","/Blog/2"),
     ]
     
     // let listBlogCarousel = [
