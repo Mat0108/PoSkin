@@ -2,22 +2,16 @@ import { useState } from "react";
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { toast } from "react-toastify";
-
+import env from "react-dotenv";
 const Newsletter =()=>{
-    const [value, setValue] = useState()
+    const [value, setValue] = useState();
     const firebaseConfig = {
-        apiKey: "AIzaSyA44Ehyz0Fu6pISrwKaI5rALkfAUr-LpQ8",
-        authDomain: "landingpage-5f8fe.firebaseapp.com",
-        projectId: "landingpage-5f8fe",
-        storageBucket: "landingpage-5f8fe.appspot.com",
-        messagingSenderId: "868071044023",
-        appId: "1:868071044023:web:92d849caa07464ee2d6e32"
-        // apiKey: process.env.APIKEY,
-        // authDomain:  process.env.authDomain,
-        // projectId: process.env.projectId,
-        // storageBucket:  process.env.storageBucket,
-        // messagingSenderId:  process.env.messagingSenderId,
-        // appId:  process.env.appId
+        apiKey: env.apiKey,
+        authDomain: env.authDomain,
+        projectId: env.projectId,
+        storageBucket: env.storageBucket,
+        messagingSenderId: env.messagingSenderId,
+        appId:  env.appId
       };
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);

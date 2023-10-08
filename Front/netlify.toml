@@ -2,15 +2,3 @@
     from = "/*"
     to ="/public/index.html"
     status = 200
-
-[build]
-  command = "npm run build"
-  
-[context.production.environment]
-    APIKEY= "AIzaSyA44Ehyz0Fu6pISrwKaI5rALkfAUr-LpQ8"
-    authDomain= "landingpage-5f8fe.firebaseapp.com"
-    projectId= "landingpage-5f8fe"
-    storageBucket= "landingpage-5f8fe.appspot.com"
-    messagingSenderId= "868071044023"
-    appId= "1:868071044023:web:92d849caa07464ee2d6e32"
-

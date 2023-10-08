@@ -18,6 +18,7 @@ import Conseils from './pages/Conseils';
 import Blog from './pages/Blog';
 import ScrollToTop from './components/ScrollToTop';
 function App() {
+
   return (
     <div className="App w-full h-full relative bg-[#EEE8E4] font-mt">
       <Router>
