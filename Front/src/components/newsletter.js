@@ -6,12 +6,12 @@ import env from "react-dotenv";
 const Newsletter =()=>{
     const [value, setValue] = useState();
     const firebaseConfig = {
-        apiKey: env.apiKey,
-        authDomain: env.authDomain,
-        projectId: env.projectId,
-        storageBucket: env.storageBucket,
-        messagingSenderId: env.messagingSenderId,
-        appId:  env.appId
+        apiKey: "AIzaSyA44Ehyz0Fu6pISrwKaI5rALkfAUr-LpQ8",
+        authDomain: "landingpage-5f8fe.firebaseapp.com",
+        projectId: "landingpage-5f8fe",
+        storageBucket: "landingpage-5f8fe.appspot.com",
+        messagingSenderId: "868071044023",
+        appId: "1:868071044023:web:92d849caa07464ee2d6e32"
       };
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);

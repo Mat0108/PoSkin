@@ -38,9 +38,13 @@ const Home = ()=>{
             </>)
     }
     let listCarousel = [
-        itemCarousel("/images/Blog/vitaminec/vitaminec.png","VitamineC","/Blog/1"),
-        itemCarousel("/images/Blog/cremesolaire/cremesolaire.png","CremeSolaire","/Blog/2"),
+        itemCarousel("/images/Blog/vitaminec/vitaminec.png","VitamineC","/Blog/vitaminec"),
+        itemCarousel("/images/Blog/cremesolaire/cremesolaire.png","CremeSolaire","/Blog/cremesolaire"),
+        itemCarousel("/images/Blog/cremesolaire/cremesolaire.png","CremeSolaire","/Blog/avoirunebellepeau"),
+        itemCarousel("/images/Blog/cremesolaire/cremesolaire.png","CremeSolaire","/Blog/peauparfaite"),
+    
     ]
+
     
     // let listBlogCarousel = [
     //     BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","","/Blog/1"),
