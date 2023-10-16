@@ -45,6 +45,9 @@ const Blog = () =>{
     const [text10,setText10] = useState();
     const [image10,setImage10] = useState();
     const [conclusion, setConclusion] = useState();
+
+    const [margin,setMargin] = useState("my-2 sm:my-8");
+    const [margin2, setMargin2] = useState("")
     function itemCarousel(image,col,url){
         return (<>
             <div className="relative w-full h-fit mt-[10px] flex center">
@@ -60,6 +63,8 @@ const Blog = () =>{
     let listCarousel = [
         itemCarousel("/images/Blog/vitaminec/vitaminec.png","VitamineC","/Blog/vitaminec"),
         itemCarousel("/images/Blog/cremesolaire/cremesolaire.png","CremeSolaire","/Blog/cremesolaire"),
+        itemCarousel("/images/visage/visage10.png","AvoirUneBellePeau","/Blog/avoirunebellepeau"),
+        itemCarousel("/images/quisommesnous.png","PeauParfaite","/Blog/peauparfaite"),
     ]
 
 
@@ -94,6 +99,7 @@ const Blog = () =>{
                 setTitre8(null);
                 setText8(null);
                 setConclusion(null);
+                setMargin("my-2 sm:my-6");
                 break;
             case "cremesolaire":
                 setImage("/images/Blog/cremesolaire/cremesolaire.png");
@@ -124,10 +130,11 @@ const Blog = () =>{
                 setTitre8(null);
                 setText8(null);
                 setConclusion(null);
+                setMargin("my-2 sm:my-8");
                 break;
         
             case "avoirunebellepeau":
-                setImage(null);
+                setImage("/images/visage/visage10.png");
                 setTitre1("Les gestes à éviter pour avoir une belle peau");
                 setText("Avoir une belle peau, c'est l’objectif de beaucoup d'entre nous. Pourtant, il est parfois plus difficile de savoir ce qu'il faut éviter que ce qu'il faut faire pour obtenir une peau radieuse. Dans cet article, nous allons passer en revue les gestes à éviter absolument pour préserver la santé et la beauté de votre peau.");
                 setImage1(null);
@@ -153,9 +160,10 @@ const Blog = () =>{
                 setText8("Le tabagisme et la consommation excessive d'alcool sont deux habitudes qui ont un impact négatif sur la peau. Ils réduisent la circulation sanguine, privant ainsi la peau d'oxygène et de nutriments essentiels, ce qui entraîne un teint terne et des rides prématurées.");
  
                 setConclusion("En conclusion, obtenir une belle peau nécessite de prendre soin d'elle au quotidien, mais il est tout aussi important de connaître les gestes à éviter. En évitant ces erreurs courantes, vous pouvez préserver la santé et la jeunesse de votre peau, pour un teint radieux et éclatant de beauté. N'oubliez pas que chaque peau est unique, alors adaptez votre routine en fonction de vos besoins spécifiques, de votre type de peau, et n'hésitez pas à consulter un spécialiste si vous avez des préoccupations particulières concernant votre peau.");
+                setMargin("my-2 sm:my-4");
                 break;
             case "peauparfaite":
-                setImage(null);
+                setImage("/images/quisommesnous.png");
                 setText(null);
                 setTitre1("Les 10 étapes d'une routine de soin pour une peau parfaite");
                 setImage1(null);
@@ -189,6 +197,7 @@ const Blog = () =>{
                 setTitre10("10. Le repos : ");
                 setText10("Enfin, ne sous-estimez pas l'importance du sommeil. Une nuit de repos réparateur contribue grandement à la régénération de la peau et lui donne un aspect plus reposant et éclatant.");
                 setConclusion(null);
+                setMargin("my-2 sm:my-4");
                 break;
             default:
                 setImage(null);
@@ -233,60 +242,60 @@ const Blog = () =>{
             {!!titre && <div className='absolute top-0 left-0 w-full h-full flex center'><p className='w-[60%] text-white mt-2 text-[20px] sm:text-[50px] font-mt-bold'>{titre}</p></div>}
         </div>} 
         <div className='w-[90%] sm:w-[86%] m-2 sm:m-8 h-full flex center flex-col'>
-            {!!text &&<div className='w-full h-fit my-2 sm:my-8'><p className='text-left text-[10px] sm:text-[20px] text-justify'>{text}</p></div>}
-            {!!titre1 &&<div className='w-full h-fit my-2 sm:my-8'><h1 className='text-left text-[20px] sm:text-[50px] text-blue font-mt-bold'>{titre1}</h1></div>}
+            {!!text &&<div className={`w-full h-fit ${margin}`}><p className='text-left text-[10px] sm:text-[20px] text-justify'>{text}</p></div>}
+            {!!titre1 &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[20px] sm:text-[50px] text-blue font-mt-bold'>{titre1}</h1></div>}
             {(!!image1 || !!text1) && <div className='flex center w-full h-fit gap-2 sm:gap-8  '>
                 {!!image1 && <div className={`${text1 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image1} alt={"image1"} className='w-fit h-full'></img></div>}
                 {!!text1 && <div className={`${image1 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[8px] sm:text-[22px] text-justify'>{text1}</div></div>}
             </div>}
-            {!!titre2 &&<div className='w-full h-fit my-2 sm:my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre2}</h1></div>}
-            {!!text2 &&<div className='w-full h-fit'><p className='text-left text-[8px] sm:text-[20px] text-justify'>{text2}</p></div>}
-            {!!titre3 &&<div className='w-full h-fit my-2 sm:my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre3}</h1></div>}
-            {!!text3 &&<div className='w-full h-fit'><p className='text-left text-[8px] sm:text-[20px] text-justify'>{text3}</p></div>}
+            {!!titre2 &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre2}</h1></div>}
+            {!!text2 &&<div className={`w-full h-fit ${margin}`}><p className='text-left text-[8px] sm:text-[20px] text-justify'>{text2}</p></div>}
+            {!!titre3 &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre3}</h1></div>}
+            {!!text3 &&<div className={`w-full h-fit ${margin}`}><p className='text-left text-[8px] sm:text-[20px] text-justify'>{text3}</p></div>}
         </div>
         {!!image3 && <img className='w-full h-fit ' src={image3} alt={"image3"}></img>} 
         <div className='w-[90%] sm:w-[86%] m-2 sm:m-8 h-full flex center gap-2 sm:gap-8 flex-col'>
-            {!!text3b &&<div className='w-full h-fit my-2 sm:my-8'><p className='text-left text-[8px] sm:text-[20px] text-justify'>{text3b}</p></div>}
-            {!!titre4 &&<div className='w-full h-fit my-2 sm:my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre4}</h1></div>}
-            {!!text4 &&<div className='w-full h-fit'><p className='text-left text-[8px] sm:text-[20px] text-justify'>{text4}</p></div>}
+            {!!text3b &&<div className={`w-full h-fit ${margin}`}><p className='text-left text-[8px] sm:text-[20px] text-justify'>{text3b}</p></div>}
+            {!!titre4 &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre4}</h1></div>}
+            {!!text4 &&<div className={`w-full h-fit ${margin}`}><p className='text-left text-[8px] sm:text-[20px] text-justify'>{text4}</p></div>}
             
-            {!!titre5 &&<div className='w-full h-fit my-2 sm:my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre5}</h1></div>}
-            <div className='flex center w-full h-fit '>
-                {!!text5 && <div className={`${image5 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[8px] sm:text-[20px] text-justify'>{text5}</div></div>}
+            {!!titre5 &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre5}</h1></div>}
+            {(!!text5 || !!image5 ) && <div className={`flex center w-full h-fit ${margin}`}>
+                {!!text5 && <div className={`${image5 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto text-[8px] sm:text-[20px] text-justify'>{text5}</div></div>}
                 {!!image5 && <div className={`${text5 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image5} alt={"image5"} className='w-fit h-full'></img></div>}
-            </div>
+            </div>}
 
-            {!!titre6 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre6}</h1></div>}
-            <div className='flex center w-full h-fit mt-2 sm:mt-8'>
+            {!!titre6 &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre6}</h1></div>}
+            {(!!text6 || !!image6 ) && <div className={`flex center w-full h-fit ${margin}`}>
                 {!!image6 && <div className={`${text6 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image6} alt={"image6"} className='w-fit h-full'></img></div>}
-                {!!text6 && <div className={`${image6 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[8px] sm:text-[20px] text-justify '>{text6}</div></div>}
-            </div>
+                {!!text6 && <div className={`${image6 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto text-[8px] sm:text-[20px] text-justify '>{text6}</div></div>}
+            </div>}
 
-            {!!titre7 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre7}</h1></div>}
-            <div className='flex center w-full h-fit mt-2 sm:mt-8'>
+            {!!titre7 &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre7}</h1></div>}
+            {(!!text7 || !!image7 ) && <div className={`flex center w-full h-fit ${margin}`}>
                 {!!image7 && <div className={`${text7 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image7} alt={"image7"} className='w-fit h-full'></img></div>}
-                {!!text7 && <div className={`${image7 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[8px] sm:text-[20px] text-justify '>{text7}</div></div>}
-            </div>
+                {!!text7 && <div className={`${image7 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto text-[8px] sm:text-[20px] text-justify '>{text7}</div></div>}
+            </div>}
 
-            {!!titre8 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre8}</h1></div>}
-            <div className='flex center w-full h-fit mt-2 sm:mt-8'>
+            {!!titre8 &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre8}</h1></div>}
+            {(!!text8 || !!image8 ) && <div className={`flex center w-full h-fit ${margin}`}>
                 {!!image8 && <div className={`${text8 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image8} alt={"image6"} className='w-fit h-full'></img></div>}
-                {!!text8 && <div className={`${image8 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[8px] sm:text-[20px] text-justify '>{text8}</div></div>}
-            </div>
+                {!!text8 && <div className={`${image8 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto text-[8px] sm:text-[20px] text-justify '>{text8}</div></div>}
+            </div>}
 
-            {!!titre9 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre9}</h1></div>}
-            <div className='flex center w-full h-fit mt-2 sm:mt-8'>
-                {!!image8 && <div className={`${text9 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image9} alt={"image6"} className='w-fit h-full'></img></div>}
-                {!!text8 && <div className={`${image9 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[8px] sm:text-[20px] text-justify '>{text9}</div></div>}
-            </div>
+            {!!titre9 &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre9}</h1></div>}
+            {(!!text9 || !!image9 ) && <div className={`flex center w-full h-fit ${margin}`}>
+                {!!image9 && <div className={`${text9 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image9} alt={"image6"} className='w-fit h-full'></img></div>}
+                {!!text9 && <div className={`${image9 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto text-[8px] sm:text-[20px] text-justify '>{text9}</div></div>}
+            </div>}
             
-            {!!titre10 &&<div className='w-full h-fit my-8'><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre10}</h1></div>}
-            <div className='flex center w-full h-fit mt-2 sm:mt-8'>
-                {!!image8 && <div className={`${text10 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image10} alt={"image6"} className='w-fit h-full'></img></div>}
-                {!!text8 && <div className={`${image10 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto w-[90%] text-[8px] sm:text-[20px] text-justify '>{text10}</div></div>}
-            </div>    
+            {!!titre10 &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre10}</h1></div>}
+            {(!!text10 || !!image10 ) && <div className={`flex center w-full h-fit ${margin}`}>
+                {!!image10 && <div className={`${text10 ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image10} alt={"image6"} className='w-fit h-full'></img></div>}
+                {!!text10 && <div className={`${image10 ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto text-[8px] sm:text-[20px] text-justify '>{text10}</div></div>}
+            </div>} 
+            {!!conclusion && <div className={`w-full h-fit flex center mt-2 sm:mt-4`}><div className='mx-auto text-[8px] sm:text-[20px] text-justify '>{conclusion}</div></div>}
         </div>
-        {!!conclusion && <div className={`w-full h-fit flex center`}><div className='mx-auto w-[90%] text-[8px] sm:text-[20px] text-justify '>{conclusion}</div></div>}
         <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div>
         <div><h1 className="mt-[12px] sm:mt-[30px] text-[12px] sm:text-[50px] font-mt-bold text-blue ">Articles connexes :</h1></div>
         <Carousel2 props={{items:listCarousel,nbShow:1,ratio:25,showPoint:true}}/>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { toast } from "react-toastify";
-import env from "react-dotenv";
+// import env from "react-dotenv";
 const Newsletter =()=>{
     const [value, setValue] = useState();
     const firebaseConfig = {

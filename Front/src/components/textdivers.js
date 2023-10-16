@@ -62,6 +62,10 @@ const switchtext=(params)=>{
       return VitamineC();
     case "CremeSolaire":
       return CremeSolaire();
+    case "AvoirUneBellePeau":
+      return AvoirUneBellePeau();
+    case "PeauParfaite":
+      return PeauParfaite();
     default:
       return "Not Found";
   }
@@ -341,7 +345,21 @@ const CremeSolaire = () =>{
     <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">Vous pouvez développer davantage en parlant des avantages de la protection solaire, des types de crèmes solaires, des erreurs courantes à éviter, et donner des conseils pour une application efficace.  Si vous avez besoin d'aide pour écrire le contenu de l'article ou d'autres informations, n'hésitez pas à demander.</p> </div>
   </>)
 }
-// Vous pouvez développer davantage en parlant des avantages de la protection solaire, des types de crèmes solaires, des erreurs courantes à éviter, et donner des conseils pour une application efficace. 
-// Si vous avez besoin d'aide pour écrire le contenu de l'article ou d'autres informations, n'hésitez pas à demander.
+const AvoirUneBellePeau = ()=>{
+  return (<>
+    <div className="h-[100px] sm:h-[150px] flex center flex-col">
+      <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">Les gestes à éviter pour avoir une belle peau</p>    
+      <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">Avoir une belle peau, c'est l’objectif de beaucoup d'entre nous. Pourtant, il est parfois plus difficile de savoir ce qu'il faut éviter que ce qu'il faut faire pour obtenir une peau radieuse. Dans cet article, nous allons passer en revue les gestes à éviter absolument pour préserver la santé et la beauté de votre peau.</p>
+    </div>
+    </>)
+}
+const PeauParfaite = ()=>{
+  return (<>
+    <div className="h-[100px] sm:h-[150px] flex center flex-col">
+      <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">Les 10 étapes d'une routine de soin pour une peau parfaite</p>    
+      <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">Prendre soin de sa peau est un acte d'amour envers soi-même. Une routine de soin de la peau bien établie peut vous aider à maintenir une peau saine, lumineuse et belle. Pour qu’une routine visage soit efficace, il y a quelques règles et étapes à respecter. Des étapes que l’on oublie, que l’on néglige, ou simplement que l’on ne connaît pas parfois. On vous dévoile ici les différentes étapes pour avoir une peau saine et éclatante !</p>
+    </div>
+    </>)
+}
 // PAGES CONSEILS & ASTUCES
 export {switchtext}
