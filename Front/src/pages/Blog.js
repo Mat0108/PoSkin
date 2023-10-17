@@ -11,44 +11,7 @@ import { switchtext } from '../components/textdivers';
 const Blog = () =>{
     const params = useParams();
     
-    const [image,setImage] = useState();
-    const [text,setText] = useState();
-    const [titre,setTitre] = useState();
-    const [titre1,setTitre1] = useState();
-    const [image1,setImage1] = useState();
-
-    const [text1,setText1] = useState();
-    const [titre2,setTitre2] = useState();
-    const [text2,setText2] = useState();
-    const [titre3,setTitre3] = useState();
-    const [text3,setText3] = useState();
-    const [text3b,setText3b] = useState();
-    const [image3,setImage3] = useState();
-    const [titre4,setTitre4] = useState();
-    const [text4,setText4] = useState();
-    const [image4,setImage4] = useState();
-    const [titre5,setTitre5] = useState();
-    const [text5,setText5] = useState();
-    const [image5,setImage5] = useState();
-    const [titre6,setTitre6] = useState();
-    const [text6,setText6] = useState();
-    const [image6,setImage6] = useState();
-    const [titre7,setTitre7] = useState();
-    const [text7,setText7] = useState();
-    const [image7,setImage7] = useState();
-    const [titre8,setTitre8] = useState();
-    const [text8,setText8] = useState();
-    const [image8,setImage8] = useState();
-    const [titre9,setTitre9] = useState();
-    const [text9,setText9] = useState();
-    const [image9,setImage9] = useState();
-    const [titre10,setTitre10] = useState();
-    const [text10,setText10] = useState();
-    const [image10,setImage10] = useState();
-    const [conclusion, setConclusion] = useState();
-
     const [margin,setMargin] = useState("my-2 sm:my-8");
-
     const [listItem,setListItem] = useState({
         titre:[],
         text:[],
@@ -73,8 +36,8 @@ const Blog = () =>{
     let listCarousel = [
         itemCarousel("/images/Blog/vitaminec/vitaminec.png","VitamineC","/Blog/vitaminec"),
         itemCarousel("/images/Blog/cremesolaire/cremesolaire.png","CremeSolaire","/Blog/cremesolaire"),
-        itemCarousel("/images/visage/visage10.png","AvoirUneBellePeau","/Blog/avoirunebellepeau"),
-        itemCarousel("/images/quisommesnous.png","PeauParfaite","/Blog/peauparfaite"),
+        itemCarousel("/images/Blog/avoirunebellepeau/avoirunebellepeau.png","AvoirUneBellePeau","/Blog/avoirunebellepeau"),
+        itemCarousel("/images/Blog/peauparfaite/peauparfaite.png","PeauParfaite","/Blog/peauparfaite")
     ]
 
     
@@ -93,8 +56,7 @@ const Blog = () =>{
                     atlimage:["vitaminec","vitaminec1","","","vitaminec2","","vitaminec3","vitaminec4"],
                     textcolor:["","","","","","","",""],
                     layout:["IFT","TL","TF","TF","IF","TF","TR","TL"]
-                })
-                setConclusion(null);
+                });
                 setMargin("my-2 sm:my-6");
                 break;
             case "cremesolaire":
@@ -110,8 +72,7 @@ const Blog = () =>{
                     atlimage:["cremesolaire","cremesolaire1","","cremesolaire2","cremesolaire3"],
                     textcolor:["","","","","","","",""],
                     layout:["IFT","TF","TL","TF","IFD","TR","TF"]
-                })
-                
+                });
                 setMargin("my-2 sm:my-8");
                 break;
         
@@ -131,81 +92,41 @@ const Blog = () =>{
                     atlimage:["avoirunebellepeau","","","","","avoirunebellepeau2",""],
                     textcolor:["text-black","","","","","",""],
                     layout:["IFTD","TF","TF","TF","TF","IF","TF","TF","TF","TF"]
-                })
+                });
                 setMargin("my-2 sm:my-4");
                 break;
             case "peauparfaite":
-                setImage("/images/quisommesnous.png");
-                setText(null);
-                setTitre1("Les 10 étapes d'une routine de soin pour une peau parfaite");
-                setImage1(null);
-                setText1("Prendre soin de sa peau est un acte d'amour envers soi-même. Une routine de soin de la peau bien établie peut vous aider à maintenir une peau saine, lumineuse et belle. Pour qu’une routine visage soit efficace, il y a quelques règles et étapes à respecter. Des étapes que l’on oublie, que l’on néglige, ou simplement que l’on ne connaît pas parfois. On vous dévoile ici les différentes étapes pour avoir une peau saine et éclatante !")
-                setTitre2("1. Le démaquillage :");
-                setText2("Si vous portez du maquillage, retirez-le soigneusement à l'aide d'un démaquillant doux. Assurez-vous de ne laisser aucune trace de maquillage.");
-                setTitre3("2. Le nettoyage :");
-                setText3("La première étape consiste à nettoyer votre visage matin et soir. Choisissez un nettoyant adapté à votre type de peau pour éliminer les impuretés, le reste de maquillage et l'excès de sébum.")
-                setImage3(null);
-                setTitre4("3. L'exfoliation :");
-                setText4("Exfoliez votre peau une à deux fois par semaine pour éliminer les cellules mortes et favoriser le renouvellement cellulaire. Utilisez un gommage ou un exfoliant chimique selon vos préférences.");
-                setImage4(null);
-                setTitre5("4. Le tonique : ");
-                setText5("Appliquez un tonique pour rééquilibrer le pH de votre peau et préparer votre épiderme à absorber les produits qui suivront.");
-                setImage5(null);
-                setTitre5("5. Le sérum :");
-                setText5("Les sérums sont des produits concentrés en actifs. Choisissez un sérum adapté à vos besoins spécifiques, qu'il s'agisse d'hydratation, d'anti-âge, de pigmentation, ou autre.");
-                setImage6(null);
-                setTitre6("6. L'hydratation : ");
-                setText6("Hydratez votre peau avec une crème adaptée à votre type de peau. L'hydratation est cruciale pour maintenir une barrière cutanée saine et pour éviter la sensation de tiraillement ou de fini gras.");
-                setImage7(null);
-                setTitre7("7. Le contour des yeux :");
-                setText7("Appliquez une crème spécifique pour le contour des yeux pour hydrater cette zone délicate et prévenir les ridules. Faites attention aux composants des produits que vous mettez autour des yeux. Prenez l’avis des spécialistes.");
-                setImage8(null);
-                setTitre8("8. La protection solaire :");
-                setText8("Même les jours nuageux, protégez votre peau des rayons UV en utilisant un écran solaire avec un SPF approprié. C'est l'un des moyens les plus efficaces pour prévenir le vieillissement prématuré et les problèmes de pigmentation.");
-                setImage9(null);
-                setTitre9("9. Les soins ciblés : ");
-                setText9("Si vous avez des problèmes de peau spécifiques, comme l'acné ou la rosacée, appliquez les traitements adaptés après le sérum, mais avant l'hydratant.");
-                setImage10(null);
-                setTitre10("10. Le repos : ");
-                setText10("Enfin, ne sous-estimez pas l'importance du sommeil. Une nuit de repos réparateur contribue grandement à la régénération de la peau et lui donne un aspect plus reposant et éclatant.");
-                setConclusion(null);
-                setMargin("my-2 sm:my-4");
+                setListItem({
+                    titre:["Les 10 étapes d'une routine de soin pour une peau parfaite","1. Le démaquillage","2. Le nettoyage","3. L'exfoliation","4. Le tonique","5. Le sérum","6. L'hydratation","","7. Le contour des yeux","8. La protection solaire","9. Les soins ciblés","10. Le repos ",""],
+                    text:["Prendre soin de sa peau est un acte d'amour envers soi-même. Une routine de soin de la peau bien établie peut vous aider à maintenir une peau saine, lumineuse et belle. Pour qu’une routine visage soit efficace, il y a quelques règles et étapes à respecter. Des étapes que l’on oublie, que l’on néglige, ou simplement que l’on ne connaît pas parfois. On vous dévoile ici les différentes étapes pour avoir une peau saine et éclatante !",
+                        "Si vous portez du maquillage, retirez-le soigneusement à l'aide d'un démaquillant doux. Assurez-vous de ne laisser aucune trace de maquillage.",
+                        "La première étape consiste à nettoyer votre visage matin et soir. Choisissez un nettoyant adapté à votre type de peau pour éliminer les impuretés, le reste de maquillage et l'excès de sébum.",
+                        "Exfoliez votre peau une à deux fois par semaine pour éliminer les cellules mortes et favoriser le renouvellement cellulaire. Utilisez un gommage ou un exfoliant chimique selon vos préférences.",
+                        "Appliquez un tonique pour rééquilibrer le pH de votre peau et préparer votre épiderme à absorber les produits qui suivront.",
+                        "Les sérums sont des produits concentrés en actifs. Choisissez un sérum adapté à vos besoins spécifiques, qu'il s'agisse d'hydratation, d'anti-âge, de pigmentation, ou autre.",
+                        "Hydratez votre peau avec une crème adaptée à votre type de peau. L'hydratation est cruciale pour maintenir une barrière cutanée saine et pour éviter la sensation de tiraillement ou de fini gras.",
+                        "","Appliquez une crème spécifique pour le contour des yeux pour hydrater cette zone délicate et prévenir les ridules. Faites attention aux composants des produits que vous mettez autour des yeux. Prenez l’avis des spécialistes.",
+                        "Même les jours nuageux, protégez votre peau des rayons UV en utilisant un écran solaire avec un SPF approprié. C'est l'un des moyens les plus efficaces pour prévenir le vieillissement prématuré et les problèmes de pigmentation.",
+                        "Si vous avez des problèmes de peau spécifiques, comme l'acné ou la rosacée, appliquez les traitements adaptés après le sérum, mais avant l'hydratant.",
+                        "Enfin, ne sous-estimez pas l'importance du sommeil. Une nuit de repos réparateur contribue grandement à la régénération de la peau et lui donne un aspect plus reposant et éclatant.",
+                        "N'oubliez pas que la constance est la clé de l’efficacité d'une skincare routine. Donnez à votre peau le temps de s'adapter aux nouveaux produits que vous introduisez dans votre routine, et soyez patient(e). En suivant ces 10 étapes, vous pouvez prendre soin de votre peau de manière complète et efficace, pour un teint éclatant et une peau en pleine santé."],
+                    image:["/images/Blog/peauparfaite/peauparfaite.png","","","","","","","/images/Blog/peauparfaite/peauparfaite2.png","","","","",""],
+                    atlimage:["peauparfaite","","","","","","","peauparfaite2","","","","",""],
+                    textcolor:["text-black","","","","","","","","","","","",""],
+                    layout:["IFTD","TF","TF","TF","TF","TF","TF","IF","TF","TF","TF","TF","TF"]
+                });
                 break;
             default:
-                setImage(null);
-                setText(null);
-                setTitre1(null);
-                setImage1(null);
-                setText1(null);
-                setTitre2(null);
-                setText2(null);
-                setTitre3(null);
-                setText3(null);
-                setImage3(null);
-                setTitre4(null);
-                setText4(null);
-                setImage4(null);
-                setTitre5(null);
-                setText5(null);
-                setImage5(null);
-                setTitre5(null);
-                setText5(null);
-                setImage6(null);
-                setTitre6(null);
-                setText6(null);
-                setImage7(null);
-                setTitre7(null);
-                setText7(null);
-                setImage8(null);
-                setTitre8(null);
-                setText8(null);
-                setImage9(null);
-                setTitre9(null);
-                setText9(null);
-                setImage10(null);
-                setTitre10(null);
-                setText10(null);
-                setConclusion(null);
+                setListItem({
+                    titre:[],
+                    text:[],
+                    image:[],
+                    atlimage:[],
+                    textcolor:[],
+                    layout:[]
+                });
+                break;
+
         }
     },[params])
 
@@ -215,13 +136,13 @@ const Blog = () =>{
                 {!!titre &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[20px] sm:text-[50px] text-blue font-mt-bold'>{titre}</h1></div>}
                 {(!!image || !!text) && <div className={`flex center w-full h-fit gap-2 sm:gap-8`}>
                     {!!image && <div className={`${text ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image} alt={altimage} className='w-fit h-full'></img></div>}
-                    {!!text && <div className={`${image ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto text-[8px] sm:text-[22px] text-justify'>{text}</div></div>}
+                    {!!text && <div className={`${image ? "w-2/3" : "w-full"} h-fit flex `}><div className='text-[8px] sm:text-[22px] text-justify'>{text}</div></div>}
                 </div>}</div>
         }else{
             return <div className={`w-[90%] sm:w-[86%] h-fit ${margin}`}>
                 {!!titre &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre}</h1></div>}
                 {(!!image ||!!text ) && <div className={`flex center w-full h-fit gap-2 sm:gap-8`}>
-                {!!text && <div className={`${image ? "w-2/3" : "w-full"} h-fit flex center`}><div className='mx-auto text-[8px] sm:text-[20px] text-justify'>{text}</div></div>}
+                {!!text && <div className={`${image ? "w-2/3" : "w-full"} h-fit flex`}><div className='text-[8px] sm:text-[20px] text-justify'>{text}</div></div>}
                 {!!image && <div className={`${text ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image} alt={altimage} className='w-fit h-full'></img></div>}
             </div>}
             </div>
@@ -229,19 +150,19 @@ const Blog = () =>{
     }
     function returnFullImageWithTitre(titre,image,altimage,textcolor){
         return <>{!!image && <div className='relative w-full h-fit'>
-            <img className='w-full h-fit' src={image} alt={altimage}></img>
-            {!!titre && <div className='absolute top-0 left-0 w-full h-full flex center'><p className={`w-[60%] ${textcolor ? textcolor : "text-white"} mt-2 text-[20px] sm:text-[50px] font-mt-bold`}>{titre}</p></div>}
+            <img className='w-full h-fit max-h-[200px] sm:max-h-[600px]' src={image} alt={altimage}></img>
+            {!!titre && <div className='absolute top-0 left-0 w-full h-full flex center'><p className={`w-[80%] ${textcolor ? textcolor : "text-white"} mt-2 text-[20px] sm:text-[50px] font-mt-bold`}>{titre}</p></div>}
         </div>}</>
     }
     function returnFullImage(image,altimage){
-        return <>{!!image && <div className='relative w-full h-fit'>
-            <img className='w-full h-fit ' src={image} alt={altimage}></img>
+        return <>{!!image && <div className='relative w-full h-fit '>
+            <img className='w-full h-fit max-h-[200px] sm:max-h-[600px] ' src={image} alt={altimage}></img>
         </div>} </>
     }
     function returnImageWithTextDown(text,image,altimage){
         return <div className={`w-full h-fit ${margin}`}>
         {(!!image ||!!text ) && <div className={`flex center flex-col w-full h-full  gap-2 sm:gap-8`}>
-            {!!image && <div className={`w-full h-fit flex center`}><img src={image} alt={altimage} className='w-full h-fit'></img></div>}
+            {!!image && <div className={`w-full h-fit flex center`}><img src={image} alt={altimage} className='w-full h-fit max-h-[200px] sm:max-h-[600px]'></img></div>}
             {!!text && <div className={`w-[90%] sm:w-[86%] h-fit flex center`}><div className='mx-auto text-[8px] sm:text-[20px] text-justify'>{text}</div></div>}
         </div>}
         </div>
@@ -250,8 +171,8 @@ const Blog = () =>{
         return <div className={`w-full h-fit ${margin}`}>
         {(!!image ||!!text ) && <div className={`flex center flex-col w-full h-full  gap-2 sm:gap-8`}>
             {!!image && <div className='relative w-full h-fit'>
-            <img className='w-full h-fit' src={image} alt={altimage}></img>
-            {!!titre && <div className='absolute top-0 left-0 w-full h-full flex center'><p className={`w-[60%] ${textcolor ? textcolor : "text-white"} mt-2 text-[20px] sm:text-[50px] font-mt-bold`}>{titre}</p></div>}
+            <img className='w-full h-fit max-h-[200px] sm:max-h-[600px]' src={image} alt={altimage}></img>
+            {!!titre && <div className='absolute top-0 left-0 w-full h-full flex center'><p className={`w-[80%] ${textcolor ? textcolor : "text-white"} mt-2 text-[20px] sm:text-[50px] font-mt-bold`}>{titre}</p></div>}
             </div>}
             {!!text && <div className={`w-[90%] sm:w-[86%] h-fit flex center`}><div className='mx-auto text-[8px] sm:text-[20px] text-justify'>{text}</div></div>}
         </div>}

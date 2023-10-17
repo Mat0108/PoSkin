@@ -40,8 +40,8 @@ const Home = ()=>{
     let listCarousel = [
         itemCarousel("/images/Blog/vitaminec/vitaminec.png","VitamineC","/Blog/vitaminec"),
         itemCarousel("/images/Blog/cremesolaire/cremesolaire.png","CremeSolaire","/Blog/cremesolaire"),
-        itemCarousel("/images/visage/visage10.png","AvoirUneBellePeau","/Blog/avoirunebellepeau"),
-        itemCarousel("/images/quisommesnous.png","PeauParfaite","/Blog/peauparfaite"),
+        itemCarousel("/images/Blog/avoirunebellepeau/avoirunebellepeau.png","AvoirUneBellePeau","/Blog/avoirunebellepeau"),
+        itemCarousel("/images/Blog/peauparfaite/peauparfaite.png","PeauParfaite","/Blog/peauparfaite")
     
     ]
 
