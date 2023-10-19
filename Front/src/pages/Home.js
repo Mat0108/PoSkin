@@ -13,44 +13,27 @@ import { useEffect, useMemo, useState } from 'react';
 import { getBlogs } from '../services/Blog';
 const Home = ()=>{
     const [itemList,setItemList]= useState([])
-    const useApi = false;
-    function itemCarouselOld(image,col,url){
-        return (<>
-            <div className="relative w-full h-fit mt-[10px] flex center">
-                <Link to={url}>
-                    <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[100px] sm:h-[250px] w-fit'/></div>  
-                    {switchtext(col)}    
-                </Link>
-            </div>
-        </>)
-    }
+
     useEffect(() => {
         const fetchData = async() => {
             const blogs = await getBlogs();
             setItemList(blogs)
             
         };
-        if(useApi){fetchData();}
+        fetchData();
     }, [])
     
-    let listCarousel = [
-        itemCarouselOld("/images/Blog/vitaminec/vitaminec.png","VitamineC","/Blog/vitaminec"),
-        itemCarouselOld("/images/Blog/cremesolaire/cremesolaire.png","CremeSolaire","/Blog/cremesolaire"),
-        itemCarouselOld("/images/Blog/avoirunebellepeau/avoirunebellepeau.png","AvoirUneBellePeau","/Blog/avoirunebellepeau"),
-        itemCarouselOld("/images/Blog/peauparfaite/peauparfaite.png","PeauParfaite","/Blog/peauparfaite")
-    
-    ]
+
     const BlogCarousel = useMemo(() =>
     { 
         let list = []
-        if(useApi && Object.keys(itemList).length){itemList.map(blog=>{list.push(itemCarousel(blog.imagepresentation,blog.altimagepresentation,blog.title,blog.textpresentation,blog.altimagepresentation))})}
-        if(!useApi ){list = listCarousel}
+        if(Object.keys(itemList).length){itemList.map(blog=>{list.push(itemCarousel(blog.imagepresentation,blog.altimagepresentation,blog.title,blog.textpresentation,`/Blog/${blog.altimagepresentation}`))})}
         return <Carousel2 props={{items:list,nbShow:1,ratio:25,showPoint:true}}/>
     }, [itemList])
 
     function itemCarousel(image,altimage,title,text,url){
         return (<>
-            <div className="relative w-full h-fit mt-[10px] flex center">
+            <div className="relative w-full h-fit mt-[10px] flex center" key={url}>
                 <Link to={url}>
                     <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt={altimage} className='h-[100px] sm:h-[250px] w-fit'/></div>  
                     <div className="h-[100px] sm:h-[150px] flex center flex-col">
@@ -64,14 +47,7 @@ const Home = ()=>{
     }
 
 
-    
-    // let listBlogCarousel = [
-    //     BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","","/Blog/1"),
-    //     BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire :","un indispensable pour votre routine skincare","/Blog/2"),
-    //     BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","","/Blog/1"),
-    //     BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire","un indispensable pour votre routine skincare","/Blog/2")
-    
-    // ]
+  
 
     return (<>
         <LayoutFullImage props={{titre:"DECOUVREZ VOTRE PEAU",button:<div className="absolute z-[1000] top-0 left-0 w-full h-full flex center"><div className='mt-[20%] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] flex center'><div className="w-fit py-2 px-6 bg-blue rounded-3xl" >Et révélez votre beauté naturelle</div></div></div>,image1:{url:"/images/visage/fullvisage.png",alt:"fullvisage"}}}/>
