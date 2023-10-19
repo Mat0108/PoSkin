@@ -5,12 +5,13 @@ import {Link, useParams } from 'react-router-dom';
 
 import Carousel2 from '../components/Layout/Carousel2';
 import { switchtext } from '../components/textdivers';
+import { getBlogs } from '../services/Blog';
 
-
+import env from "react-dotenv";
 
 const Blog = () =>{
     const params = useParams();
-    
+    const useApi = true;
     const [margin,setMargin] = useState("my-2 sm:my-8");
     const [listItem,setListItem] = useState({
         titre:[],
@@ -20,6 +21,7 @@ const Blog = () =>{
         textcolor:[],
         layout:[]
     });
+
     //Layout list : IF -> fullimage, IFT -> fullimage avec un titre, IFD -> image avec du text en dessous, IFTD combine IFT && IFD , TF -> fulltext, TL -> layout avec text à gauche et image à droite, TR -> layout avec image à gauche et text à droite
     function itemCarousel(image,col,url){
         return (<>
@@ -62,7 +64,7 @@ const Blog = () =>{
             case "cremesolaire":
                 setListItem({
                     titre:["La creme solaire : un indispensable pour votre routine skincare","","1. L’importance des bons gestes et produits dans une skincare routine","2. Le rôle de la crème solaire dans une routine skincare adaptée","","3. Les différents indices de protection solaire (SPF)"],
-                    text:["","Il est recommandé de se créer une routine pour prendre soin de soi de façon régulière avec les produits adaptés à ton type de peau. L'ordre d'utilisation des soins va influencer leur efficacité. Ici, on vous aide à établir votre routine skincare pour satisfaire les besoins de votre peau.",
+                        text:["","Il est recommandé de se créer une routine pour prendre soin de soi de façon régulière avec les produits adaptés à ton type de peau. L'ordre d'utilisation des soins va influencer leur efficacité. Ici, on vous aide à établir votre routine skincare pour satisfaire les besoins de votre peau.",
                         "Une routine beauté est essentielle pour prendre soin de sa peau, quelque soit son type. Des bonnes habitudes au quotidien peuvent offrir de beaux résultats rapidement et sur le long terme. Il faudra toutefois être plus ou moins patientes selon les exigences de son type de peau. Une routine beauté est une expression adoptée par beaucoup de personnes afin d’affiner leur grain de peau. Une routine beauté c’est tout simplement lorsque nous suivons un rituel de beauté singulier au quotidien. Chaque matin et chaque soir, nous avons donc des gestes précis et des produits adaptés pour prendre soin de notre visage, ou de notre corps.",
                         "Dans le monde des soins de la peau, il existe un produit incontournable qui ne devrait pas être négligé : la crème solaire. Que vous soyez adepte d'une routine skincare complexe ou que vous préfériez une routine plus simple, l'utilisation quotidienne d'une crème solaire est essentielle pour maintenir une peau saine et protégée contre toutes agressions et pollutions. Les rayons du soleil sont une source importante de dommages cutanés, tels que le vieillissement prématuré de la peau, les taches brunes, les rides, l’hyperpigmentation et même le risque de cancer de la peau. C'est pourquoi il est primordial de se protéger en utilisant une crème solaire adaptée. Lorsque vous choisissez une crème solaire, assurez vous qu'elle offre une protection à large spectre contre les rayons UVA et UVB. Les rayons UVA sont responsables du vieillissement cutané, tandis que les rayons UVB sont à l'origine des coups de soleil. Optez également pour un indice de protection solaire (SPF) d'au moins 30 pour une protection efficace.",
                         "La crème solaire doit être appliquée généreusement sur l'ensemble du visage et du corps, environ 15 minutes avant toute exposition au soleil. N'oubliez pas de réappliquer toutes les deux heures, ou plus fréquemment si vous transpirez ou vous baignez. Certaines crèmes solaires sont spécialement formulées pour répondre aux besoins spécifiques de chaque type de peau, que vous ayez la peau sèche, grasse, sensible ou sujette à l'acné. Il existe également des options teintées pour ceux qui souhaitent unifier leur teint tout en se protégeant du soleil. N'oubliez pas que la crème solaire ne doit pas être réservée uniquement aux journées ensoleillées d'été. Les rayons UV sont présents toute l'année, même par temps nuageux, et peuvent pénétrer à travers les fenêtres. Il est donc important d'intégrer la crème solaire à votre routine quotidienne, quelle que soit la saison.",
