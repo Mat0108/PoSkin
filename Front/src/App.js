@@ -12,6 +12,8 @@ import Footer from './components/footer';
 import Newsletter from './components/newsletter';
 import Commu from './pages/Commu';
 import Diagnostic from './pages/Diagnostic';
+import DiagnosticStart from './pages/DiagnosticStart';
+
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Conseils from './pages/Conseils';
@@ -29,8 +31,9 @@ function App() {
           {/* <Route path="/Expertise" element={<Expertise/>}></Route> 
           <Route path="/APropos" element={<QuiSommesNous />}></Route>
           <Route path="/Community" element={<Commu/>}></Route>
-          <Route path='/Diagnostic' element={<Diagnostic/>}></Route>
           <Route path='/Conseils' element={<Conseils/>}></Route>*/}
+          <Route path='/Diagnostic' element={<Diagnostic/>}></Route>
+          <Route path="/Diagnostic/start/" element={<DiagnosticStart/>}></Route>
           <Route path="/Blog/:BlogId" element={<Blog/>}></Route> 
         </Routes>
         <Newsletter />

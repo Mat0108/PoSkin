@@ -1,9 +1,10 @@
 import axios from "axios";
+import { url } from "./config";
 export const getBlogs = async () => {
-    const res = await axios.get(`https://poapi1-sgl9cp2c.b4a.run/blog`);
+    const res = await axios.get(`${url}/blog`);
     return res.data;
 }
 export const getBlogbyField = async (Field) => {
-    const res = await axios.get(`https://poapi1-sgl9cp2c.b4a.run/blog/get/alt/${Field}`);
+    const res = await axios.get(`${url}/blog/get/alt/${Field}`);
     return res.data;
 }
