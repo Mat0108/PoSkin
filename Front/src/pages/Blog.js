@@ -131,7 +131,6 @@ const Blog = () =>{
     
     const items = useMemo(() => {
         let list = []
-        console.log('listItem.layout : ', listItem.layout)
         if(!!Object.keys(listItem.layout).length){
             for(let i = 0;i< Object.keys(listItem.layout).length;i++){
                 

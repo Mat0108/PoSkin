@@ -11,7 +11,9 @@ export let DiagnosticData = [
 			"Poches & cernes",
 			"Rides & ridules"
 		],
-		"type":"multi"
+		"type":"multi",
+		"width":"w-[200px]",
+		"rounded":""
 	},
 	{
 		"image":"/images/Diagnostic/diagnostic3.png",
@@ -25,7 +27,9 @@ export let DiagnosticData = [
 			"Éclaircissement du teint",
 			"Autre (veuiller préciser)"
 		],
-		"type":"multi"
+		"type":"multi",
+		"width":"w-[350px]",
+		"rounded":""
 	},
 	{
 		"image":"/images/Diagnostic/diagnostic3.png",
@@ -40,7 +44,9 @@ export let DiagnosticData = [
 			"Exfoliant",
 			"Aucun produit"
 		],
-		"type":"multi"
+		"type":"multi",
+		"width":"w-[220px]",
+		"rounded":""
 	},
 	{
 		"image":"/images/Diagnostic/diagnostic4.png",
@@ -50,6 +56,21 @@ export let DiagnosticData = [
 			"J'ai un grain de peau irrégulier",
 			"Ma peau est en manque de soleil"
 		],
-		"type":"multi"
+		"type":"multi",
+		"width":"w-full",
+		"rounded":""
+	},
+	{
+		"image":"/images/Diagnostic/diagnostic5.png",
+		"title":"Vous vous définissez comme ...",
+		"reponses":[
+			"Une femme",
+			"Un homme",
+			"Non-binaire",
+			"Je ne souhaite pas me definir"
+		],
+		"type":"multi",
+		"width":"w-[330px]",
+		"rounded":""
 	}
 ]
