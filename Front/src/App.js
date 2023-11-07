@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {Route,Routes} from 'react-router';
 
@@ -19,16 +19,15 @@ import "react-toastify/dist/ReactToastify.css";
 import Conseils from './pages/Conseils';
 import Blog from './pages/Blog';
 import ScrollToTop from './components/ScrollToTop';
-import Register from './pages/Register';
 import Login from './pages/Login';
+import { register } from './services/user';
+import Register from './pages/Register';
 function App() {
-  const [modal,setModal] = useState(<></>)
-  const Modal = useMemo(() => {return <div className='absolute top-0  '>{modal}</div> }, [modal])
+
   return (
     <div className="App w-full h-full relative bg-[#EEE8E4] font-mt">
-      {Modal}
       <Router>
-        <Navbar Register={()=>{setModal(<Register Login={()=>{setModal(<Login/>)}}/>)}} Login={()=>{setModal(<Login/>)}}/>
+        <Navbar />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home/>}></Route>
@@ -36,6 +35,8 @@ function App() {
           <Route path="/APropos" element={<QuiSommesNous />}></Route>
           <Route path="/Community" element={<Commu/>}></Route>
           <Route path='/Conseils' element={<Conseils/>}></Route>*/}
+          <Route path='/Login' element={<Login/>}></Route>
+          <Route path='/Register' element={<Register/>}></Route>
           <Route path='/Diagnostic' element={<Diagnostic/>}></Route>
           <Route path="/Diagnostic/start/" element={<DiagnosticStart/>}></Route>
           <Route path="/Blog/:BlogId" element={<Blog/>}></Route> 
