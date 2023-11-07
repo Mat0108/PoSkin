@@ -39,7 +39,7 @@ const Home = ()=>{
                     <div className="h-[100px] sm:h-[150px] flex center flex-col">
                         <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">{title}</p>    
                         <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">{text}</p>
-                    </div>
+                       </div>
                 </Link>
             </div>
             </>)
