@@ -27,6 +27,7 @@ const DiagnosticStart = ()=>{
             
         </div>
     }
+    /* eslint-disable no-unused-expressions */
     const Element = useMemo(() =>{
         console.log('% : ',100*(i+1)/DiagnosticData.length)
         return <div className="flex flex-col">
