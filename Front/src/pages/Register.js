@@ -1,9 +1,8 @@
 import React,{useState} from "react";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate} from "react-router-dom";
 import {register} from "../services/user";
 
-const Register = () => {
+const Register = (props) => {
     const [user,setUser] = useState({
         'firstname':'',
         'lastname':'',
@@ -32,11 +31,10 @@ const Register = () => {
     }
 
     return (
-        <div>
-            <div className='bg-gray-gainsboro grid grid-cols-1 sm:grid-cols-2 h-screen w-full'>
+        <div className='relative w-screen h-screen flex center z-[350] '>
+        <div className='absolute w-[600px] h-fit rounded-3xl grid grid-cols-1 sm:grid-cols-2 bg-gray-gainsboro z-[350] p-4'>
                 <div className='hidden sm:block'>
                 </div>
-        
                 <div className='bg-gray flex flex-col justify-center'>
                     <form className='max-w-[400px] w-full mx-auto rounded-lg bg-black-900'>
                         <h2 className='text-4xl text-black font-bold text-center pb-6'>REGISTER</h2>
@@ -61,8 +59,9 @@ const Register = () => {
                             <input className='p-2 rounded-lg bg-gray-700 mt-2 py-2 px-4 focus:border-blue-500 focus:bg-gray-800 focus:outline-none form-control Cinput' type="password" onChange={onChangeHandler} value = {user.password} placeholder="Enter your password" id="password" required/>
                         </div>
 
-                        <button onClick={onClick} className='w-full my-5 py-2 bg-blue shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg '>Sign Up </button>
-                        <Link to='/Login' className="Clink text-blue-yale"><p className="underline md:underline-offset-4">I already have an account !</p></Link>
+                        <button onClick={onClick} className='w-full my-5 py-2 bg-blue shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg hover:cursor-pointer'>Sign Up </button>
+                        <div className="hover:cursor-pointer">I already have an account !</div>
+                        <div  ><p className="underline md:underline-offset-4 text-blue-yale hover:cursor-pointer" onClick={props.Login} >I already have an account !</p></div>
                         
                     </form>
                 </div>

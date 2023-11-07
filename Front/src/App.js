@@ -1,6 +1,6 @@
 import './App.css';
 
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {Route,Routes} from 'react-router';
 
@@ -19,12 +19,16 @@ import "react-toastify/dist/ReactToastify.css";
 import Conseils from './pages/Conseils';
 import Blog from './pages/Blog';
 import ScrollToTop from './components/ScrollToTop';
+import Register from './pages/Register';
+import Login from './pages/Login';
 function App() {
-
+  const [modal,setModal] = useState(<></>)
+  const Modal = useMemo(() => {return <div className='absolute top-0  '>{modal}</div> }, [modal])
   return (
     <div className="App w-full h-full relative bg-[#EEE8E4] font-mt">
+      {Modal}
       <Router>
-        <Navbar />
+        <Navbar Register={()=>{setModal(<Register Login={()=>{setModal(<Login/>)}}/>)}} Login={()=>{setModal(<Login/>)}}/>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home/>}></Route>
