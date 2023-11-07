@@ -1,10 +1,9 @@
 import React,{useState} from "react";
-import { Link, useNavigate} from "react-router-dom";
-import { Rabbit } from "../componants/Image/Image";
+import { Link } from "react-router-dom";
+
 import {register} from "../services/user";
 
 const Register = () => {
-    let navigate = useNavigate();
     const [user,setUser] = useState({
         'firstname':'',
         'lastname':'',
@@ -19,7 +18,7 @@ const Register = () => {
             const res = await register(user);
             if (res.status === 200)
             {
-                navigate("/Login");
+                // navigate("/Login");
             }
         }else{
             alert("Please fill all the fields !")
@@ -36,7 +35,6 @@ const Register = () => {
         <div>
             <div className='bg-gray-gainsboro grid grid-cols-1 sm:grid-cols-2 h-screen w-full'>
                 <div className='hidden sm:block'>
-                    <Rabbit />
                 </div>
         
                 <div className='bg-gray flex flex-col justify-center'>

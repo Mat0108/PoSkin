@@ -1,10 +1,8 @@
 import React,{ useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Rabbit } from "../componants/Image/Image";
 import {login, getAllUsers} from "../services/user";
 
 const Login = () => {
-    let navigate = useNavigate();
     const [user,setUser] = useState({
         'email':'',
         'password':''
@@ -41,7 +39,6 @@ const Login = () => {
         <div>
             <div className='bg-gray-gainsboro grid grid-cols-1 sm:grid-cols-2 h-screen w-full'>
                 <div className='hidden sm:block'>
-                    <Rabbit />
                 </div>
         
                 <div className='bg-gray flex flex-col justify-center'>
