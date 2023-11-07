@@ -57,7 +57,7 @@ const Login = () => {
 
                         <button className='w-full my-5 py-2 bg-blue shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg' onClick={onClick}>Sign In</button>
                         <Link to='/Register' className="Clink text-blue-yale"><p className="underline md:underline-offset-4">I don't have an account</p></Link>
-                        <Link to='/Register' className="Clink text-blue-yale"><p className="underline md:underline-offset-4">Password forgot</p></Link>
+                        <Link to='/' className="Clink text-blue-yale"><p className="underline md:underline-offset-4">Password forgot</p></Link>
                     </form>
 
                 </div>

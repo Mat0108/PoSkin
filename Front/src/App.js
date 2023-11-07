@@ -21,9 +21,11 @@ import Blog from './pages/Blog';
 import ScrollToTop from './components/ScrollToTop';
 import Login from './pages/Login';
 import { register } from './services/user';
+import { login } from './services/user';
 import Register from './pages/Register';
-function App() {
 
+
+function App() {
   return (
     <div className="App w-full h-full relative bg-[#EEE8E4] font-mt">
       <Router>
