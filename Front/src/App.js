@@ -1,37 +1,66 @@
 import './App.css';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {Route,Routes} from 'react-router';
 
 import Home from './pages/Home';
-import Expertise from './pages/Expertise';
-import QuiSommesNous from './pages/QuiSommesNous'
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Newsletter from './components/newsletter';
-import Commu from './pages/Commu';
 import Diagnostic from './pages/Diagnostic';
 import DiagnosticStart from './pages/DiagnosticStart';
 
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import Conseils from './pages/Conseils';
 import Blog from './pages/Blog';
 import ScrollToTop from './components/ScrollToTop';
 import Login from './pages/Login';
 import { register } from './services/user';
 import { login } from './services/user';
 import Register from './pages/Register';
+import Modal from 'react-modal';
 import ForgotPassword from './pages/PasswordForgot';
 
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [divModal,setDivModal] = useState(<></>)
+
+  const customStyles = {
+
+    
+    overlay: {zIndex: 1000}
+  };
+  
+  const openModal = (element,test) => {
+    console.log(test)
+    setIsModalOpen(true);
+    setDivModal(element);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setDivModal(<></>)
+  };
+  let register = <Register type={false} close={()=>closeModal()} login={()=>{}}/>
+  let login = <Login type={true} close={()=>closeModal()} register={()=>{openModal(register)}}/>
+  register = <Register type={false} close={()=>closeModal()} login={()=>{openModal(login,"test")}}/>
+  login = <Login type={true} close={()=>closeModal()} register={()=>{openModal(register,"test")}}/>
   return (
     <div className="App w-full h-full relative bg-[#EEE8E4] font-mt">
       <Router>
-        <Navbar />
+        <Navbar Login={()=>openModal(login)} Register={()=>openModal(register)}/>
         <ScrollToTop />
+
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          className={"bg-transparent w-screen h-screen z-[10000] flex center"}
+          style={customStyles}
+        >
+          {divModal}
+        </Modal>
         <Routes>
           <Route path="/" element={<Home/>}></Route>
           {/* <Route path="/Expertise" element={<Expertise/>}></Route> 

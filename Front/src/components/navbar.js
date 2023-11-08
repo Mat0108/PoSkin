@@ -8,7 +8,7 @@ const Navbar = (props) => {
   const [registerbool, setRegisterbool] = useState(false);
   const [loginbool, setLoginbool] = useState(false);
 
-    const cmhover = "text-black hover:bg-[#264C4D] hover:text-white px-4 py-2  rounded-full "
+    const cmhover = "text-black hover:bg-[#264C4D] hover:text-white px-4 py-2 hover:cursor-pointer rounded-full "
     const apropos = useMemo(()=>{
         if(aproposbool){
             return <div><a href={"/APropos"} ><div className={`flex flex-row w-[130px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointhidden.png"} alt={"pw"} /></div><div> A propos</div></div></a></div>

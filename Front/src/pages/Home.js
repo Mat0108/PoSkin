@@ -39,7 +39,7 @@ const Home = ()=>{
                     <div className="h-[100px] sm:h-[150px] flex center flex-col">
                         <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">{title}</p>    
                         <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">{text}</p>
-                    </div>
+                       </div>
                 </Link>
             </div>
             </>)
@@ -50,7 +50,7 @@ const Home = ()=>{
   
 
     return (<>
-        <LayoutFullImage props={{titre:"DECOUVREZ VOTRE PEAU",button:<div className="absolute z-[1000] top-0 left-0 w-full h-full flex center"><div className='mt-[20%] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] flex center'><div className="w-fit py-2 px-6 bg-blue rounded-3xl" >Et révélez votre beauté naturelle</div></div></div>,image1:{url:"/images/visage/fullvisage.png",alt:"fullvisage"}}}/>
+        <LayoutFullImage props={{titre:"DECOUVREZ VOTRE PEAU",button:<div className="absolute z-[100] top-0 left-0 w-full h-full flex center"><div className='mt-[20%] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] flex center'><div className="w-fit py-2 px-6 bg-blue rounded-3xl" >Et révélez votre beauté naturelle</div></div></div>,image1:{url:"/images/visage/fullvisage.png",alt:"fullvisage"}}}/>
         <Layout1image props={{col1:switchtext("presentation"),image1:{url:"/images/visage/visage2.png",alt:"visage2"}}} />
         <Layout2image props={{col1:switchtext("apropos"),col2:switchtext("apropos2"),image1:{url:"/images/visage/visage7.png",alt:"visage7"},image2:{url:"/images/visage/visage8.png",alt:"visage8"}}} />
         {/* <div className='w-full flex center'>
@@ -60,7 +60,7 @@ const Home = ()=>{
         </div>
          <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
         <div><p className="mt-[30px] text-[12px] sm:text-[50px] font-mt-bold text-blue ">Nos conseils </p></div>
-        {/* {BlogCarousel} */}
+        {BlogCarousel}
         {/* <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
         <div className='mt-[20px]'></div>
         {/* <Carousel props={{titre:"Nos conseils...",col:switchtext("Carousel1")}} /> */}
