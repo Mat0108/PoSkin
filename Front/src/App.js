@@ -23,6 +23,7 @@ import Login from './pages/Login';
 import { register } from './services/user';
 import { login } from './services/user';
 import Register from './pages/Register';
+import ForgotPassword from './pages/PasswordForgot';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/APropos" element={<QuiSommesNous />}></Route>
           <Route path="/Community" element={<Commu/>}></Route>
           <Route path='/Conseils' element={<Conseils/>}></Route>*/}
+          <Route path='/PasswordForgot' element={<ForgotPassword/>}></Route>
           <Route path='/Login' element={<Login/>}></Route>
           <Route path='/Register' element={<Register/>}></Route>
           <Route path='/Diagnostic' element={<Diagnostic/>}></Route>
