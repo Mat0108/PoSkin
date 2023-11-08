@@ -60,7 +60,7 @@ const Home = ()=>{
         </div>
          <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
         <div><p className="mt-[30px] text-[12px] sm:text-[50px] font-mt-bold text-blue ">Nos conseils </p></div>
-        {BlogCarousel}
+        {/* {BlogCarousel} */}
         {/* <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
         <div className='mt-[20px]'></div>
         {/* <Carousel props={{titre:"Nos conseils...",col:switchtext("Carousel1")}} /> */}

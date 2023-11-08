@@ -15,8 +15,13 @@ import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Blog from './pages/Blog';
 import ScrollToTop from './components/ScrollToTop';
-function App() {
+import Login from './pages/Login';
+import { register } from './services/user';
+import { login } from './services/user';
+import Register from './pages/Register';
 
+
+function App() {
   return (
     <div className="App w-full h-full relative bg-[#EEE8E4] font-mt">
       <Router>
@@ -24,6 +29,12 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home/>}></Route>
+          {/* <Route path="/Expertise" element={<Expertise/>}></Route> 
+          <Route path="/APropos" element={<QuiSommesNous />}></Route>
+          <Route path="/Community" element={<Commu/>}></Route>
+          <Route path='/Conseils' element={<Conseils/>}></Route>*/}
+          <Route path='/Login' element={<Login/>}></Route>
+          <Route path='/Register' element={<Register/>}></Route>
           <Route path='/Diagnostic' element={<Diagnostic/>}></Route>
           <Route path="/Diagnostic/start/" element={<DiagnosticStart/>}></Route>
           <Route path="/Blog/:BlogId" element={<Blog/>}></Route> 

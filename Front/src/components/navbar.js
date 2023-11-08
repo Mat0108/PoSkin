@@ -1,11 +1,13 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
+const Navbar = (props) => {
+  const [aproposbool, setAproposbool] = useState(false);
+  const [conseilbool, setConseilbool] = useState(false);
+  const [expertisebool, setExpertisebool] = useState(false);
+  const [communitybool, setCommunitybool] = useState(false);
+  const [registerbool, setRegisterbool] = useState(false);
+  const [loginbool, setLoginbool] = useState(false);
 
-const Navbar = () =>{
-    const [aproposbool,setAproposbool] = useState(false);
-    const [conseilbool,setConseilbool] = useState(false);
-    const [expertisebool,setExpertisebool] = useState(false);
-    const [communitybool,setCommunitybool] = useState(false);
     const cmhover = "text-black hover:bg-[#264C4D] hover:text-white px-4 py-2  rounded-full "
     const apropos = useMemo(()=>{
         if(aproposbool){
@@ -35,6 +37,21 @@ const Navbar = () =>{
             return <div><a href={"/Community"} ><div className={`flex flex-row w-[140px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div> Community</div></div></a></div>
         }
     },[communitybool])
+    const Register = useMemo(()=>{
+        if(registerbool){
+            return <div onClick={props.Register}><div className={`flex flex-row w-[140px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointhidden.png"} alt={"pw"} /></div><div>Register</div></div></div>
+        }else{
+            return <div onClick={props.Register}><div className={`flex flex-row w-[140px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>Register</div></div></div>
+        }
+    },[registerbool])
+
+    const Login = useMemo(()=>{
+        if(loginbool){
+            return <div onClick={props.Login}><div className={`flex flex-row w-[140px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointhidden.png"} alt={"pw"} /></div><div>Login</div></div></div>
+        }else{
+            return <div onClick={props.Login}><div className={`flex flex-row w-[140px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>Login</div></div></div>
+        }
+    },[loginbool])
     return (
     <>
     
@@ -42,6 +59,11 @@ const Navbar = () =>{
         <div className='col-start-1 ml-[20px]  sm:ml-[35px] mt-[4px] sm:mt-[12px] p-x-2 flex items-start ' ><a href="/" className='w-fit h-full'><img src={'/images/logo.png'} alt="logo" className='h-[30%] sm:h-[70%] '/></a></div>
         <div className='col-start-4 col-span-2 flex '>
             <div className='w-full flex flex-row text-lg space-x-2 mr-[100px] center justify-end '>
+                <div onMouseEnter={()=>{setRegisterbool(true)}}
+                onMouseLeave={()=>{setRegisterbool(false)}}>{Register}</div>
+                <div onMouseEnter={()=>{setLoginbool(true)}}
+                onMouseLeave={()=>{setLoginbool(false)}}>{Login}</div>
+
                 {/* <div onMouseEnter={()=>{setAproposbool(true)}}
                 onMouseLeave={()=>{setAproposbool(false)}}>{apropos}</div>
                 <div onMouseEnter={()=>{setConseilbool(true)}}
