@@ -1,13 +1,13 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
+const Navbar = (props) => {
+  const [aproposbool, setAproposbool] = useState(false);
+  const [conseilbool, setConseilbool] = useState(false);
+  const [expertisebool, setExpertisebool] = useState(false);
+  const [communitybool, setCommunitybool] = useState(false);
+  const [registerbool, setRegisterbool] = useState(false);
+  const [loginbool, setLoginbool] = useState(false);
 
-const Navbar = (props) =>{
-    const [aproposbool,setAproposbool] = useState(false);
-    const [conseilbool,setConseilbool] = useState(false);
-    const [expertisebool,setExpertisebool] = useState(false);
-    const [communitybool,setCommunitybool] = useState(false);
-    const [registerbool,setRegisterbool] = useState(false);
-    const [loginbool,setLoginbool] = useState(false);
     const cmhover = "text-black hover:bg-[#264C4D] hover:text-white px-4 py-2  rounded-full "
     const apropos = useMemo(()=>{
         if(aproposbool){
