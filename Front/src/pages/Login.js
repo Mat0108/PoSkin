@@ -114,7 +114,7 @@ const Login = () => {
           <Link to="/Register" className="Clink text-blue-yale">
             <p className="underline md:underline-offset-4">I already have an account!</p>
           </Link>
-          <Link to="/Login" className="Clink text-blue-yale">
+          <Link to="/PasswordForgot" className="Clink text-blue-yale">
             <p className="underline md:underline-offset-4">Password forgot</p>
           </Link>
         </form>
