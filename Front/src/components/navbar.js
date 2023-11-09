@@ -47,11 +47,11 @@ const Navbar = (props) => {
 
     const Login = useMemo(()=>{
         if(loginbool){
-            return <div onClick={props.Login}><div className={`flex flex-row w-[140px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointhidden.png"} alt={"pw"} /></div><div>Login</div></div></div>
+            return <div onClick={props.LoginCond ? props.Logout: props.Login}><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>{props.LoginCond ? "Se deconnecter" : "Se connecter"}</div></div></div>
         }else{
-            return <div onClick={props.Login}><div className={`flex flex-row w-[140px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>Login</div></div></div>
+            return <div onClick={props.LoginCond ? props.Logout: props.Login}><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>{props.LoginCond ? "Se deconnecter" : "Se connecter"}</div></div></div>
         }
-    },[loginbool])
+    },[loginbool,props])
     return (
     <>
     
@@ -59,8 +59,8 @@ const Navbar = (props) => {
         <div className='col-start-1 ml-[20px]  sm:ml-[35px] mt-[4px] sm:mt-[12px] p-x-2 flex items-start ' ><a href="/" className='w-fit h-full'><img src={'/images/logo.png'} alt="logo" className='h-[30%] sm:h-[70%] '/></a></div>
         <div className='col-start-4 col-span-2 flex '>
             <div className='w-full flex flex-row text-lg space-x-2 mr-[100px] center justify-end '>
-                <div onMouseEnter={()=>{setRegisterbool(true)}}
-                onMouseLeave={()=>{setRegisterbool(false)}}>{Register}</div>
+                {/* <div onMouseEnter={()=>{setRegisterbool(true)}}
+                onMouseLeave={()=>{setRegisterbool(false)}}>{Register}</div> */}
                 <div onMouseEnter={()=>{setLoginbool(true)}}
                 onMouseLeave={()=>{setLoginbool(false)}}>{Login}</div>
 

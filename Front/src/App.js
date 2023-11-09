@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {Route,Routes} from 'react-router';
 
@@ -16,7 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Blog from './pages/Blog';
 import ScrollToTop from './components/ScrollToTop';
 import Login from './pages/Login';
-import { register } from './services/user';
+import { logout, register } from './services/user';
 import { login } from './services/user';
 import Register from './pages/Register';
 import Modal from 'react-modal';
@@ -26,33 +26,43 @@ import ForgotPassword from './pages/PasswordForgot';
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [divModal,setDivModal] = useState(<></>)
-
+  const [connected,setConnected] = useState(false) 
   const customStyles = {
-
-    
     overlay: {zIndex: 1000}
   };
   
-  const openModal = (element,test) => {
-    console.log(test)
+  const openModal = (element) => {
     setIsModalOpen(true);
     setDivModal(element);
   };
 
-  const closeModal = () => {
+  const closeModal = (Login) => {
+    setConnected(Login)
     setIsModalOpen(false);
     setDivModal(<></>)
   };
+  async function Logout(){
+    console.log('localStorage.getItem(\"userId\") : ', localStorage.getItem("userId"))
+    let res = await logout(localStorage.getItem("userId"));
+    if(res.status == "200"){
+      setConnected(false);
+      localStorage.clear()
+    }
+  } 
   let register = <Register type={false} close={()=>closeModal()} login={()=>{}}/>
-  let login = <Login type={true} close={()=>closeModal()} register={()=>{openModal(register)}}/>
-  register = <Register type={false} close={()=>closeModal()} login={()=>{openModal(login,"test")}}/>
-  login = <Login type={true} close={()=>closeModal()} register={()=>{openModal(register,"test")}}/>
+  let login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}}/>
+  register = <Register type={false} close={()=>closeModal()} login={()=>{openModal(login)}}/>
+  login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}}/>
+
+  const Nav = useMemo(() => 
+  {return <Navbar Login={()=>openModal(login)} LoginCond={connected} Logout={()=>{Logout()}} />
+}
+  , [connected,register,login])
   return (
     <div className="App w-full h-full relative bg-[#EEE8E4] font-mt">
       <Router>
-        <Navbar Login={()=>openModal(login)} Register={()=>openModal(register)}/>
         <ScrollToTop />
-
+        {Nav}
         <Modal
           isOpen={isModalOpen}
           onRequestClose={closeModal}

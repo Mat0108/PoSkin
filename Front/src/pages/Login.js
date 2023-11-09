@@ -26,19 +26,18 @@ const Login = (props) => {
     event.preventDefault();
 
     if (user.password !== "" && user.email !== "") {
-      const allUsers = await getAllUsers();
-
-      if (allUsers.some((u) => u.email === user.email)) {
-        const userData = await login(user);
-
+      const userData = await login({email:user.email,password:user.password});
+      console.log('userData : ', userData)
+      if(userData.status == "200"){
         localStorage.setItem("userEmail", user.email);
-        localStorage.setItem("userId", userData.user.id);
-        localStorage.setItem("userFirstname", userData.user.firstname);
-        localStorage.setItem("userLastname", userData.user.lastname);
+        localStorage.setItem("userId", userData.data.id);
+        localStorage.setItem("userFirstname", userData.data.firstname);
+        localStorage.setItem("userLastname", userData.data.lastname);
+        localStorage.setItem("userConnected", userData.data.connected);
         
-        props.close()
-        // closeModal(); // Fermez la modal après la connexion réussie
+        props.login()
       } else {
+        
         alert("Account doesn't exist !");
       }
     } else {

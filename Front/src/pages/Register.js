@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
-import { register } from "../services/user";
+import { login, register } from "../services/user";
 
 const Register = (props) => {
   const [user, setUser] = useState({
@@ -20,7 +20,10 @@ const Register = (props) => {
     if (user.email !== "" && user.password !== "" && user.confirmpassword !== "" && user.password == user.confirmpassword && user.firstname !== "" && user.lastname !== "") {
       const res = await register(user);
       if (res.status === 200) {
-        // Inscription réussie, vous pouvez ajouter du code ici si nécessaire
+        const resLogin = await login({email:user.email,password:user.password})
+        if(resLogin.status == 200){
+          props.close()
+        }  
       }
     } else {
       alert("Please fill all the fields!");

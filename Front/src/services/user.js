@@ -8,15 +8,15 @@ export const register = async (user) => {
 
 export const login = async (user) => {
     const res = await axios.post(`${url}/user/login`,user);
-    return res.data;
+    return res;
 }
 
 export const logout = async (userId) => {
     const res = await axios.post(`${url}/user/logout/${userId}`);
-    return res.data;
+    return res;
 }
 
 export const getAllUsers = async (user) => {
     const res = await axios.get(`${url}/users`);
-    return res.data;
+    return res;
 }
