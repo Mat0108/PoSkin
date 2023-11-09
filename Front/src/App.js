@@ -21,6 +21,7 @@ import { login } from './services/user';
 import Register from './pages/Register';
 import Modal from 'react-modal';
 import ForgotPassword from './pages/PasswordForgot';
+import PasswordForgot from './pages/PasswordForgot';
 
 
 function App() {
@@ -51,9 +52,12 @@ function App() {
   } 
   let register = <Register type={false} close={()=>closeModal()} login={()=>{}}/>
   let login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}}/>
-  register = <Register type={false} close={()=>closeModal()} login={()=>{openModal(login)}}/>
-  login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}}/>
 
+  register = <Register type={false} close={()=>closeModal()} login={()=>{openModal(login)}}/>
+  
+  let password = <PasswordForgot type={false} close={()=>closeModal()} login={()=>openModal(login)} register={()=>{openModal(register)}}/>
+  login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} password_forgot={()=>{openModal(password)}}/>
+  
   const Nav = useMemo(() => 
   {return <Navbar Login={()=>openModal(login)} LoginCond={connected} Logout={()=>{Logout()}} />
 }

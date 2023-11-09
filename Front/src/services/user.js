@@ -20,3 +20,8 @@ export const getAllUsers = async (user) => {
     const res = await axios.get(`${url}/users`);
     return res;
 }
+
+export const forgotPassword = async (mail) => {
+    const res = await axios.post(`${url}/user/forgetpassword`,mail);
+    return res;
+}

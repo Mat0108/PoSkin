@@ -30,10 +30,10 @@ const Login = (props) => {
       console.log('userData : ', userData)
       if(userData.status == "200"){
         localStorage.setItem("userEmail", user.email);
-        localStorage.setItem("userId", userData.data.id);
-        localStorage.setItem("userFirstname", userData.data.firstname);
-        localStorage.setItem("userLastname", userData.data.lastname);
-        localStorage.setItem("userConnected", userData.data.connected);
+        localStorage.setItem("userId", userData.data.user._id);
+        localStorage.setItem("userFirstname", userData.data.user.firstname);
+        localStorage.setItem("userLastname", userData.data.user.lastname);
+        localStorage.setItem("userConnected", userData.data.user.connected);
         
         props.login()
       } else {
