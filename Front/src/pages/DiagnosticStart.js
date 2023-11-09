@@ -46,10 +46,10 @@ const DiagnosticStart = ()=>{
                         </div>
                         <div>
                             <div className="w-fit flex flex-row mt-[50px] ">
-                                <div className="bg-[#83C5BE] rounded-l-full text-[24px] px-8 py-2" onClick={()=>{i == 0 ? "":setI(i-1)}}>
+                                <div className="bg-[#83C5BE] rounded-l-full text-[24px] px-8 py-2" onClick={()=>{i === 0 ? null:setI(i - 1)}}>
                                     PRÉCÉDENT
                                 </div>
-                                <div className="bg-[#264C4D] rounded-r-full text-[24px] px-16 py-2 text-white" onClick={()=>{i == DiagnosticData.length-1 ? "":setI(i+1)}}>
+                                <div className="bg-[#264C4D] rounded-r-full text-[24px] px-16 py-2 text-white" onClick={()=>{i === DiagnosticData.length-1 ? null :setI(i + 1)}}>
                                     {i == DiagnosticData.length-1 ? "VALIDER":"SUIVANT"}
                                 </div>
                             </div>

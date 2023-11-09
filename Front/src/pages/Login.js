@@ -14,21 +14,13 @@ const customStyles = {
   },
 };
 
-const Login = () => {
+const Login = (props) => {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
 
   const onClick = async (event) => {
     event.preventDefault();
@@ -44,7 +36,8 @@ const Login = () => {
         localStorage.setItem("userFirstname", userData.user.firstname);
         localStorage.setItem("userLastname", userData.user.lastname);
         
-        closeModal(); // Fermez la modal après la connexion réussie
+        props.close()
+        // closeModal(); // Fermez la modal après la connexion réussie
       } else {
         alert("Account doesn't exist !");
       }
@@ -59,31 +52,74 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <Link to="#" onClick={openModal}>Login</Link>
+    <div className="w-fit h-fit flex flex-row">
+      <div className="w-[34px] h-[34px] bg-[#264C4D] flex center hover:cursor-pointer" onClick={props.close}><img src={"/images/icon_close.png"} alt={"close"}/></div>
+      <div className="w-fit h-fit bg-[#264C4D] grid grid-cols-2">
+          <div><img src={"/images/visage/visage29.png"} alt={"visage"} className="h-full"/> </div>
+          <div className="flex flex-col center">
+            <img src={"/images/logowhite.png"} alt={"logo"} className="w-[66px] h-[56px] mt-[30px]"/>
+            <p className="text-[16px] text-center text-white mt-[20px]">Rejoignez le mouvement et découvrez</p>
+            <p className="text-[16px] text-center text-white">  votre nouvelle peau</p>
+            <div className="grid grid-cols-2 w-full mt-[22px]">
+              <div className={`${props.type == false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
+                <div className={`${props.type == true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.register} >INSCRIPTION</div>
+              </div>
+              <div className={`${props.type == true ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
+                <div className={`${props.type == false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`}>DÈJA INSCRIT </div>
+              </div>
+            </div>
+            <div className="w-full h-fit bg-white flex flex-col px-[60px] py-[30px] gap-8">
+              <div className="flex flex row center gap-4 border-2 p-2  ">
+                <img src={"/images/icon_google.png"} alt={"google"} />
+                <div className="text-[16px] text-[#A29F9F]">Continuer avec Google</div>
+              </div>
+              <div className="flex flex row center gap-4 border-2 p-2  ">
+                <img src={"/images/icon_facebook.png"} alt={"facebook"} />
+                <div className="text-[16px] text-[#A29F9F]">Continuer avec Facebook</div>
+              </div>
+              <div className="flex flex row center gap-4 border-2 p-2  ">
+                <img src={"/images/icon_apple.png"} alt={"apple"} />
+                <div className="text-[16px] text-[#A29F9F]">Continuer avec Apple</div>
+              </div>
+            </div>
+            <form className="w-full h-fit bg-[#EEE8E4] px-[60px] py-[30px]">
+              <h2 className="text-[20px] font-av-bold text-[#264C4D] font-mt-bold ">
+                CONNEXION
+              </h2>
 
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Login Modal"
-      >
-        <form className="max-w-[400px] w-full mx-auto rounded-lg bg-black-900">
-          <h2 className="text-4xl dark:text-white font-bold text-center pb-8">
-            Login
-          </h2>
+              <div className="flex flex-col text-black py-2 mb-2">
+                {/* <label className="py-1">Email :</label> */}
+                <input
+                  className="rounded-lg bg-gray-700 mt-2 py-2 px-4 border-[#264C4D] border-2 focus:bg-black-800 focus:outline-none form-control"
+                  type="text"
+                  onChange={onChangeHandler}
+                  value={user.email}
+                  placeholder="Email*"
+                  id="email"
+                  required
+                />
+              </div>
 
-          <div className="flex flex-col text-black py-2 mb-2">
-            <label className="py-1">Email :</label>
-            <input
-              className="rounded-lg bg-gray-700 mt-2 py-2 px-4 focus:border-blue-500 focus:bg-black-800 focus:outline-none form-control Cinput"
-              type="text"
-              onChange={onChangeHandler}
-              value={user.email}
-              placeholder="Enter your email"
-              id="email"
-              required
-            />
+              <div className="flex flex-col text-black py-2 mb-2">
+                {/* <label className="py-1">Password :</label> */}
+                <input
+                  className="py-2 px-4 rounded-lg bg-gray-700 border-[#264C4D] border-2 focus:bg-gray-800 focus:outline-none form-control"
+                  type="password"
+                  onChange={onChangeHandler}
+                  value={user.password}
+                  placeholder="Password*"
+                  id="password"
+                  required
+                />
+              </div>
+
+              <button
+                className="w-full my-2 py-3 bg-blue text-white font-mt-bold rounded-full text-[20px]"
+                onClick={onClick}
+              >
+                SE CONNECTER
+              </button>
+            </form>
           </div>
 
           <div className="flex flex-col text-black py-2 mb-2">
@@ -120,6 +156,7 @@ const Login = () => {
         </form>
       </Modal>
     </div>
+    
   );
 };
 

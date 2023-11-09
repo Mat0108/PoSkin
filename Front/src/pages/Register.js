@@ -3,39 +3,21 @@ import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import { register } from "../services/user";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
-
-const Register = () => {
+const Register = (props) => {
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",
     email: "",
     password: "",
+    confirmpassword:""
   });
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
 
   const onClick = async (event) => {
     event.preventDefault();
 
-    if (user.email !== "" && user.password !== "" && user.firstname !== "" && user.lastname !== "") {
+    if (user.email !== "" && user.password !== "" && user.confirmpassword !== "" && user.password == user.confirmpassword && user.firstname !== "" && user.lastname !== "") {
       const res = await register(user);
       if (res.status === 200) {
         // Inscription réussie, vous pouvez ajouter du code ici si nécessaire
@@ -51,83 +33,105 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <Link to="#" onClick={openModal}>
-        Register
-      </Link>
-
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Register Modal"
-      >
-        <form className="max-w-[400px] w-full mx-auto rounded-lg bg-black-900">
-          <h2 className="text-4xl text-black font-bold text-center pb-6">REGISTER</h2>
-
-          <div className="flex flex-col text-black py-1 mb-2">
-            <label className="py-1">First Name:</label>
-            <input
-              className="rounded-lg bg-gray-700 mt-2 py-2 px-4 focus:border-blue-500 focus:bg-black-800 focus:outline-none form-control Cinput"
+    <div className="w-fit h-fit flex flex-row">
+      <div className="w-[34px] h-[34px] bg-[#264C4D] flex center hover:cursor-pointer" onClick={props.close}><img src={"/images/icon_close.png"} alt={"close"}/></div>
+      <div className="w-fit h-fit bg-[#264C4D] grid grid-cols-2">
+          <div><img src={"/images/visage/visage30.png"} alt={"visage"} className="h-full"/> </div>
+          <div className="flex flex-col center">
+            <img src={"/images/logowhite.png"} alt={"logo"} className="w-[66px] h-[56px] mt-[30px]"/>
+            <p className="text-[16px] text-center text-white mt-[20px]">Rejoignez le mouvement et découvrez</p>
+            <p className="text-[16px] text-center text-white">  votre nouvelle peau</p>
+            <div className="grid grid-cols-2 w-full mt-[22px]">
+              <div className={`${props.type == false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
+                <div className={`${props.type == true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`}>INSCRIPTION</div>
+              </div>
+              <div className={`${props.type == true ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
+                <div className={`${props.type == false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.login}>DÈJA INSCRIT </div>
+              </div>
+            </div>
+            <div className="w-full h-fit bg-white flex flex-col px-[60px] py-[30px] gap-8">
+              <div className="flex flex row center gap-4 border-2 p-2  ">
+                <img src={"/images/icon_google.png"} alt={"google"} />
+                <div className="text-[16px] text-[#A29F9F]">Continuer avec Google</div>
+              </div>
+              <div className="flex flex row center gap-4 border-2 p-2  ">
+                <img src={"/images/icon_facebook.png"} alt={"facebook"} />
+                <div className="text-[16px] text-[#A29F9F]">Continuer avec Facebook</div>
+              </div>
+              <div className="flex flex row center gap-4 border-2 p-2  ">
+                <img src={"/images/icon_apple.png"} alt={"apple"} />
+                <div className="text-[16px] text-[#A29F9F]">Continuer avec Apple</div>
+              </div>
+            </div>
+        <form className="relative w-full h-fit bg-[#EEE8E4] px-[60px] py-[30px] flex flex-col gap-4">
+           <h2 className="text-[20px] font-av-bold text-[#264C4D] font-mt-bold ">
+            CRÉER UN COMPTE
+          </h2>
+          <div className="relative w-full flex flex-row gap-2">
+          <input
+              className="w-full rounded-lg bg-gray-700 border-[#264C4D] border-2 py-2 px-4 focus:border-blue-500 focus:bg-black-800 focus:outline-none form-control Cinput"
               type="text"
               onChange={onChangeHandler}
               value={user.firstname}
-              placeholder="Enter your firstname"
+              placeholder="Prenom*"
               id="firstname"
               required
             />
-          </div>
-
-          <div className="flex flex-col text-black py-1 mb-2">
-            <label className="py-1">Last Name:</label>
-            <input
-              className="rounded-lg bg-gray-700 mt-2 py-2 px-4 focus:border-blue-500 focus:bg-black-800 focus:outline-none form-control Cinput"
+             <input
+              className="rounded-lg bg-gray-700 border-[#264C4D] border-2 py-2 px-4 focus:border-blue-500 focus:bg-black-800 focus:outline-none form-control Cinput"
               type="text"
               onChange={onChangeHandler}
               value={user.lastname}
-              placeholder="Enter your lastname"
+              placeholder="Nom*"
               id="lastname"
               required
             />
-          </div>
-
-          <div className="flex flex-col text-black py-1 mb-2">
-            <label className="py-1">Email:</label>
-            <input
-              className="rounded-lg bg-gray-700 mt-2 py-2 px-4 focus:border-blue-500 focus:bg-black-800 focus:outline-none form-control Cinput"
-              type="text"
-              onChange={onChangeHandler}
-              value={user.email}
-              placeholder="Enter your email"
-              id="email"
-              required
-            />
-          </div>
-
-          <div className="flex flex-col text-black py-1 mb-2">
-            <label className="py-1">Password:</label>
-            <input
-              className="p-2 rounded-lg bg-gray-700 mt-2 py-2 px-4 focus:border-blue-500 focus:bg-gray-800 focus:outline-none form-control Cinput"
-              type="password"
-              onChange={onChangeHandler}
-              value={user.password}
-              placeholder="Enter your password"
-              id="password"
-              required
-            />
-          </div>
-
+          </div>   
+          <input
+            className="w-full rounded-lg bg-gray-700 border-[#264C4D] border-2 mt-2 py-2 px-4 focus:border-blue-500 focus:bg-black-800 focus:outline-none form-control Cinput"
+            type="text"
+            onChange={onChangeHandler}
+            value={user.email}
+            placeholder="E-mail*"
+            id="email"
+            required
+          />
+          <input
+            className="w-full p-2 rounded-lg bg-gray-700 border-[#264C4D] border-2 mt-2 py-2 px-4 focus:border-blue-500 focus:bg-gray-800 focus:outline-none form-control Cinput"
+            type="password"
+            onChange={onChangeHandler}
+            value={user.password}
+            placeholder="Mot de passe*"
+            id="password"
+            required
+          />
+          <input
+            className="w-full p-2 rounded-lg bg-gray-700 border-[#264C4D] border-2 mt-2 py-2 px-4 focus:border-blue-500 focus:bg-gray-800 focus:outline-none form-control Cinput"
+            type="password"
+            onChange={onChangeHandler}
+            value={user.confirmpassword}
+            placeholder="Confirmer mot de passe*"
+            id="confirmpassword"
+            required
+          />
+          
           <button
-            onClick={onClick}
-            className="w-full my-5 py-2 bg-blue shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg"
-          >
-            Sign Up
+              className="w-full mt-3 py-3 bg-blue text-white font-mt-bold rounded-full text-[20px] hover:cursor-pointer"
+              onClick={onClick}
+            >
+            S'INCRIRE
           </button>
-          <Link to="/Login" className="Clink text-blue-yale">
-            <p className="underline md:underline-offset-4">I already have an account!</p>
-          </Link>
+          <div className="w-full h-full grid grid-cols-2"></div>
+          <button
+              className="w-full mb-3 py-3 bg-blue text-white font-mt-bold rounded-full text-[20px] hover:cursor-pointer"
+              onClick={props.password_forgot}
+            >
+            MOT DE PASSE OUBLIÉ
+          </button>
+
         </form>
-      </Modal>
+        </div>
+      </div>
     </div>
   );
 };
