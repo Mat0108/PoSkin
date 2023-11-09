@@ -122,12 +122,7 @@ const Register = (props) => {
             S'INCRIRE
           </button>
           <div className="w-full h-full grid grid-cols-2"></div>
-          <button
-              className="w-full mb-3 py-3 bg-blue text-white font-mt-bold rounded-full text-[20px] hover:cursor-pointer"
-              onClick={props.password_forgot}
-            >
-            MOT DE PASSE OUBLIÉ
-          </button>
+          
 
         </form>
         </div>

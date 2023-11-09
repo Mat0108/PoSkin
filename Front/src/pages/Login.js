@@ -119,42 +119,19 @@ const Login = (props) => {
               >
                 SE CONNECTER
               </button>
+              
+              <button
+              className="w-full mb-3 py-3 bg-blue text-white font-mt-bold rounded-full text-[20px] hover:cursor-pointer"
+              onClick={props.password_forgot}
+            >
+            MOT DE PASSE OUBLIÉ
+          </button>
+
+
             </form>
           </div>
 
-          <div className="flex flex-col text-black py-2 mb-2">
-            <label className="py-1">Password :</label>
-            <input
-              className="py-2 px-4 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none form-control Cinput"
-              type="password"
-              onChange={onChangeHandler}
-              value={user.password}
-              placeholder="Enter your password"
-              id="password"
-              required
-            />
-          </div>
-
-          <button
-            className="w-full my-5 py-2 bg-blue shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg"
-            onClick={onClick}
-          >
-            Sign In
-          </button>
-          <button
-            onClick={closeModal}
-            className="w-full py-2 bg-red-500 text-white font-semibold rounded-lg"
-          >
-            Close
-          </button>
-          <Link to="/Register" className="Clink text-blue-yale">
-            <p className="underline md:underline-offset-4">I already have an account!</p>
-          </Link>
-          <Link to="/PasswordForgot" className="Clink text-blue-yale">
-            <p className="underline md:underline-offset-4">Password forgot</p>
-          </Link>
-        </form>
-      </Modal>
+      </div>
     </div>
     
   );
