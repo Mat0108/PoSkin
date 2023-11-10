@@ -9,53 +9,62 @@ import {switchtext} from './../components/textdivers';
 import Carousel2 from '../components/Layout/Carousel2';
 
 import { Link } from 'react-router-dom';
-const Home = ()=>{
-    function itemCarousel(image,col,url){
+import { useEffect, useMemo, useState } from 'react';
+import { getBlogs } from '../services/Blog';
+import PasswordEdit from './PasswordEdit';
+import { Modal } from 'react-modal';
+const Home = (props)=>{
+
+    const [itemList,setItemList]= useState([])
+    
+    useEffect(() => {
+        const fetchData = async() => {
+            const blogs = await getBlogs();
+            setItemList(blogs)
+            
+        };
+        fetchData();
+    }, [])
+    
+
+    const BlogCarousel = useMemo(() =>
+    { 
+        let list = []
+        if(Object.keys(itemList).length){itemList.map(blog=>{list.push(itemCarousel(blog.imagepresentation,blog.altimagepresentation,blog.title,blog.textpresentation,`/Blog/${blog.altimagepresentation}`))})}
+        return <Carousel2 props={{items:list,nbShow:1,ratio:25,showPoint:true}}/>
+    }, [itemList])
+
+    function itemCarousel(image,altimage,title,text,url){
         return (<>
-            <div className="relative w-full h-fit mt-[10px] flex center">
+            <div className="relative w-full h-fit mt-[10px] flex center" key={url}>
                 <Link to={url}>
-                    <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[100px] sm:h-[250px] w-fit'/></div>  
-                    {switchtext(col)}    
+                    <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt={altimage} className='h-[100px] sm:h-[250px] w-fit'/></div>  
+                    <div className="h-[100px] sm:h-[150px] flex center flex-col">
+                        <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">{title}</p>    
+                        <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">{text}</p>
+                       </div>
                 </Link>
             </div>
             </>)
 
     }
-    function BlogCarousel(image,titre,url){
-        return (<>
-            <div className="relative w-full h-fit mt-[10px] flex center">
-                <Link to={url}>
-                    <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt="CarouselItem" className='h-[100px] sm:h-[250px]'/></div>  
-                    {/* <div className='absolute top-0 left-0 w-full h-full flex center flex-col'>
-                        <p className='w-[80%] text-white mt-2 text-[7px] sm:text-[34px] font-mt-bold'>{titre}</p>
-                        <p className='w-[80%] text-white text-[5px] sm:text-[20px] font-mt-bold'>{soustitre}</p>
-                    </div>    */}
-                    <p className="mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">{titre} </p>    
-  
-                    
-                </Link>
-            </div>
-            </>)
-    }
-    let listCarousel = [
-        itemCarousel("/images/Blog/vitaminec/vitaminec.png","VitamineC","/Blog/vitaminec"),
-        itemCarousel("/images/Blog/cremesolaire/cremesolaire.png","CremeSolaire","/Blog/cremesolaire"),
-        itemCarousel("/images/visage/visage10.png","AvoirUneBellePeau","/Blog/avoirunebellepeau"),
-        itemCarousel("/images/quisommesnous.png","PeauParfaite","/Blog/peauparfaite"),
-    
-    ]
 
-    
-    // let listBlogCarousel = [
-    //     BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","","/Blog/1"),
-    //     BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire :","un indispensable pour votre routine skincare","/Blog/2"),
-    //     BlogCarousel("/images/Blog/vitaminec/vitaminec.png","La vitamine C","","/Blog/1"),
-    //     BlogCarousel("/images/Blog/cremesolaire/cremesolaire.png","La creme solaire","un indispensable pour votre routine skincare","/Blog/2")
-    
-    // ]
 
-    return (<>
-        <LayoutFullImage props={{titre:"DECOUVREZ VOTRE PEAU",button:<div className="absolute z-[1000] top-0 left-0 w-full h-full flex center"><div className='mt-[20%] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] flex center'><div className="w-fit py-2 px-6 bg-blue rounded-3xl" >Et révélez votre beauté naturelle</div></div></div>,image1:{url:"/images/visage/fullvisage.png",alt:"fullvisage"}}}/>
+    let buttondiv = <div className="absolute z-[100] top-0 left-0 w-full h-full flex flex-col center">
+        <div className='mt-[20%] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] flex center'> Et révélez votre beauté naturelle</div>
+        <Link to="/Diagnostic" className="mt-[10px] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] font-mt-bold py-2 px-6 bg-blue rounded-3xl" >Faire mon diagnostic</Link>
+    </div>
+
+    return (<div>
+        {/* <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          className={"bg-transparent w-screen h-screen z-[10000] flex center"}
+          style={customStyles}
+        >
+          {divModal}
+        </Modal> */}
+        <LayoutFullImage props={{titre:"DECOUVREZ VOTRE PEAU",button:buttondiv,image1:{url:"/images/visage/fullvisage.png",alt:"fullvisage"}}}/>
         <Layout1image props={{col1:switchtext("presentation"),image1:{url:"/images/visage/visage2.png",alt:"visage2"}}} />
         <Layout2image props={{col1:switchtext("apropos"),col2:switchtext("apropos2"),image1:{url:"/images/visage/visage7.png",alt:"visage7"},image2:{url:"/images/visage/visage8.png",alt:"visage8"}}} />
         {/* <div className='w-full flex center'>
@@ -65,12 +74,12 @@ const Home = ()=>{
         </div>
          <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
         <div><p className="mt-[30px] text-[12px] sm:text-[50px] font-mt-bold text-blue ">Nos conseils </p></div>
-        <Carousel2 props={{items:listCarousel,nbShow:1,ratio:25,showPoint:true}}/>
+        {BlogCarousel}
         {/* <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
         <div className='mt-[20px]'></div>
         {/* <Carousel props={{titre:"Nos conseils...",col:switchtext("Carousel1")}} /> */}
         <ExpertiseHome />
-       </>)
+       </div>)
 }
 
 export default Home

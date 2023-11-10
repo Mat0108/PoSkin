@@ -7,6 +7,13 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@kurkle/color": "^0.2.1",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "5.0.0-alpha.109",
+    "@mui/material": "^5.10.11",
+    "@mui/system": "^5.11.2",
     "axios": "^1.5.0",
     "firebase": "^9.22.0",
     "netlify": "^13.1.9",
@@ -14,12 +21,14 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dotenv": "^0.1.3",
+    "react-modal": "^3.16.1",
     "react-native": "^0.71.8",
     "react-router": "^6.11.2",
     "react-router-dom": "^6.11.2",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.3",
     "redux": "^4.2.0",
+    "universal-cookie": "^6.1.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -47,7 +56,14 @@
     ]
   },
   "react-dotenv": {
-    "whitelist": ["apiKey","authDomain","projectId","storageBucket","messagingSenderId","appId"]
+    "whitelist": [
+      "apiKey",
+      "authDomain",
+      "projectId",
+      "storageBucket",
+      "messagingSenderId",
+      "appId"
+    ]
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
