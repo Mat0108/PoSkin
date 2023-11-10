@@ -11,7 +11,7 @@ export let DiagnosticData = [
 			"Poches & cernes",
 			"Rides & ridules"
 		],
-		"type":"multi",
+		"type":"simple",
 		"width":"w-[200px]",
 		"rounded":""
 	},
@@ -25,7 +25,7 @@ export let DiagnosticData = [
 			"Anti-âge",
 			"Protection solaire",
 			"Éclaircissement du teint",
-			"Autre (veuiller préciser)"
+			"Autre"
 		],
 		"type":"multi",
 		"width":"w-[350px]",
@@ -72,5 +72,11 @@ export let DiagnosticData = [
 		"type":"multi",
 		"width":"w-[330px]",
 		"rounded":""
+	},
+	{
+		"image":"/images/Diagnostic/diagnostic6.png",
+		"title":"Pour garder une trace de votre diagnostic de peau, veuillez vous connecter ou créer un compte :",
+		"reponses":[
+		],
 	}
 ]

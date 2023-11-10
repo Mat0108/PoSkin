@@ -11,9 +11,12 @@ import Carousel2 from '../components/Layout/Carousel2';
 import { Link } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import { getBlogs } from '../services/Blog';
-const Home = ()=>{
-    const [itemList,setItemList]= useState([])
+import PasswordEdit from './PasswordEdit';
+import { Modal } from 'react-modal';
+const Home = (props)=>{
 
+    const [itemList,setItemList]= useState([])
+    
     useEffect(() => {
         const fetchData = async() => {
             const blogs = await getBlogs();
@@ -47,10 +50,21 @@ const Home = ()=>{
     }
 
 
-  
+    let buttondiv = <div className="absolute z-[100] top-0 left-0 w-full h-full flex flex-col center">
+        <div className='mt-[20%] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] flex center'> Et révélez votre beauté naturelle</div>
+        <Link to="/Diagnostic" className="mt-[10px] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] font-mt-bold py-2 px-6 bg-blue rounded-3xl" >Faire mon diagnostic</Link>
+    </div>
 
-    return (<>
-        <LayoutFullImage props={{titre:"DECOUVREZ VOTRE PEAU",button:<div className="absolute z-[100] top-0 left-0 w-full h-full flex center"><div className='mt-[20%] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] flex center'><div className="w-fit py-2 px-6 bg-blue rounded-3xl" >Et révélez votre beauté naturelle</div></div></div>,image1:{url:"/images/visage/fullvisage.png",alt:"fullvisage"}}}/>
+    return (<div>
+        {/* <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          className={"bg-transparent w-screen h-screen z-[10000] flex center"}
+          style={customStyles}
+        >
+          {divModal}
+        </Modal> */}
+        <LayoutFullImage props={{titre:"DECOUVREZ VOTRE PEAU",button:buttondiv,image1:{url:"/images/visage/fullvisage.png",alt:"fullvisage"}}}/>
         <Layout1image props={{col1:switchtext("presentation"),image1:{url:"/images/visage/visage2.png",alt:"visage2"}}} />
         <Layout2image props={{col1:switchtext("apropos"),col2:switchtext("apropos2"),image1:{url:"/images/visage/visage7.png",alt:"visage7"},image2:{url:"/images/visage/visage8.png",alt:"visage8"}}} />
         {/* <div className='w-full flex center'>
@@ -65,7 +79,7 @@ const Home = ()=>{
         <div className='mt-[20px]'></div>
         {/* <Carousel props={{titre:"Nos conseils...",col:switchtext("Carousel1")}} /> */}
         <ExpertiseHome />
-       </>)
+       </div>)
 }
 
 export default Home

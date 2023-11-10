@@ -25,3 +25,14 @@ export const forgotPassword = async (mail) => {
     const res = await axios.post(`${url}/user/forgetpassword`,mail);
     return res;
 }
+
+export const forgotPasswordCheckToken = async (TokenId) => {
+    const res = await axios.post(`${url}/user/validatetoken`,{resetToken:TokenId});
+    return res;
+}
+export const forgotPasswordValider = async (body) => {
+    const res = await axios.post(`${url}/user/editpassword`,body);
+    return res;
+}
+
+

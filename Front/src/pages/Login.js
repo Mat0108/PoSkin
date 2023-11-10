@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal"; // Importez react-modal
 import { Link } from "react-router-dom";
 import { login, getAllUsers } from "../services/user";
+import { toast } from "react-toastify";
 
 const customStyles = {
   content: {
@@ -37,11 +38,10 @@ const Login = (props) => {
         
         props.login()
       } else {
-        
-        alert("Account doesn't exist !");
+        toast.error("Le compte n'existe pas !");
       }
     } else {
-      alert("Please fill all the fields !");
+      toast.info("Merci de remplir tous les champs !");
     }
   };
 

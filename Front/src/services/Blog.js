@@ -8,3 +8,7 @@ export const getBlogbyField = async (Field) => {
     const res = await axios.get(`${url}/blog/get/alt/${Field}`);
     return res.data;
 }
+
+export const saveDiagnostic = async (data)=>{
+    const res = await axios.post(`${url}/form/create`,data)
+}
