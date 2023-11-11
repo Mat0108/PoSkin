@@ -42,7 +42,11 @@ const DiagnosticStart = (props)=>{
     }
     function Envoyer(){
         let result = saveDiagnostic({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],mail:mail,selected:selected})
-        console.log(result)
+        if(result.status == "200"){
+            toast.success("Diagnostic envoyé par mail");
+        }else{
+            toast.error("Erreur api")
+        }
     } 
     /* eslint-disable no-unused-expressions */
     const Element = useMemo(() =>{        
@@ -56,7 +60,7 @@ const DiagnosticStart = (props)=>{
                     <img src={DiagnosticData[i].image} alt={DiagnosticData[i].image} className="w-full h-full"/>
                 </div>
                 <div className="w-2/3 h-full ml-[10%] bg-[#EEE8E4]">
-                    <div><h2 className="w-[80%] mt-[40px] text-[40px] text-[#264C4D] text-left h-[120px] ">{DiagnosticData[i].title}</h2></div>
+                    <div><h2 className="w-[80%] mt-[40px] text-[32px] text-[#264C4D] text-left h-[120px] ">{DiagnosticData[i].title}</h2></div>
                     <div className="w-full flex flex-col">
                         {i == DiagnosticData.length-1 ? "" :<div className={`w-[80%] max-h-[280px] grid ${DiagnosticData[i].reponses.length > 4 ? "grid-cols-2":"grid-cols-1"}`}>
                             {Object.keys(DiagnosticData[i].reponses).length ? DiagnosticData[i].reponses.map((item,pos)=>{return Button(item,pos,DiagnosticData[i])}):""}
@@ -64,7 +68,7 @@ const DiagnosticStart = (props)=>{
 
                         <div>
                             {i == DiagnosticData.length-1 ?<div className="flex flex-col">
-                                <div className="text-[20px] text-[#264C4D] text-left mt-[10px]">Vous recevrez une copie de votre diagnostic de peau prochainement</div>
+                                <div className="text-[20px] text-[#264C4D] text-left mt-[20px]">Vous recevrez une copie de votre diagnostic de peau prochainement</div>
                                 <input
                                     className="rounded-lg w-[500px] bg-gray-700 mt-2 py-2 px-4 border-[#264C4D] border-2 focus:bg-black-800 focus:outline-none form-control"
                                     type="text"
