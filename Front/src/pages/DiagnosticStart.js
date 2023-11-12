@@ -40,8 +40,8 @@ const DiagnosticStart = (props)=>{
         }
         
     }
-    function Envoyer(){
-        let result = saveDiagnostic({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],mail:mail,selected:selected})
+    async function Envoyer(){
+        let result = await saveDiagnostic({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],mail:mail,selected:selected})
         if(result.status == "200"){
             toast.success("Diagnostic envoyé par mail");
         }else{

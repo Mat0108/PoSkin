@@ -69,7 +69,7 @@ export let DiagnosticData = [
 			"Non-binaire",
 			"Je ne souhaite pas me definir"
 		],
-		"type":"multi",
+		"type":"simple",
 		"width":"w-[330px]",
 		"rounded":""
 	},
