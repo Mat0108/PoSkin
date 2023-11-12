@@ -75,7 +75,7 @@ export let DiagnosticData = [
 	},
 	{
 		"image":"/images/Diagnostic/diagnostic6.png",
-		"title":"Pour garder une trace de votre diagnostic de peau, veuillez vous connecter ou créer un compte :",
+		"title":"Pour garder une trace de votre diagnostic de peau",
 		"reponses":[
 		],
 	}

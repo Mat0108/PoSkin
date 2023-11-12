@@ -8,6 +8,7 @@ const DiagnosticStart = (props)=>{
     const [selected,setSelected] = useState(DiagnosticData.map(()=>{return new Array()}))
     const [i,setI] = useState(0)
     const [mail, setMail] = useState("")
+
     
     function UpdateArray(pos){
         if(DiagnosticData[i].type == "multi"){
@@ -41,9 +42,10 @@ const DiagnosticStart = (props)=>{
         
     }
     async function Envoyer(){
-        let result = await saveDiagnostic({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],mail:mail,selected:selected})
-        if(result.status == "200"){
-            toast.success("Diagnostic envoyé par mail");
+        let response = await saveDiagnostic({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],mail:mail,selected:selected})
+        console.log('response : ', response)
+        if(response.status == 200){
+            toast.success("Mail envoyé !")
         }else{
             toast.error("Erreur api")
         }

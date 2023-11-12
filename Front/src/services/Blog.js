@@ -11,4 +11,5 @@ export const getBlogbyField = async (Field) => {
 
 export const saveDiagnostic = async (data)=>{
     const res = await axios.post(`${url}/form/create`,data)
+    return res;
 }
