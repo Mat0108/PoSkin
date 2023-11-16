@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { login, register } from "../services/user";
 
 const Register = (props) => {
+  console.log('props : ', props)
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",

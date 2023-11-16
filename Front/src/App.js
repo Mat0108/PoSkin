@@ -60,7 +60,16 @@ function App() {
   
   login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} password_forgot={()=>{openModal(password)}}/>
   function LoginDiagnostic(data){
-    openModal(<Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} password_forgot={()=>{openModal(password)}} diagnostic_data={data}/>)
+    console.log('data : ', data)
+    let register = <Register type={false} close={()=>closeModal()} login={()=>{}} diagnostic_data={data}/>
+    let login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} diagnostic_data={data}/>
+  
+    register = <Register type={false} close={()=>closeModal()} login={()=>{openModal(login)}} diagnostic_data={data}/>
+    
+    let password = <PasswordForgot type={false} close={()=>closeModal()} login={()=>openModal(login)} register={()=>{openModal(register)}} diagnostic_data={data}/>
+    
+    login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} password_forgot={()=>{openModal(password)}} diagnostic_data={data}/>
+    openModal(login)
   }
   const Nav = useMemo(() => 
   {return <Navbar Login={()=>openModal(login)} LoginCond={connected} Logout={()=>{Logout()}} />

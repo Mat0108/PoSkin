@@ -3,6 +3,7 @@ import { DiagnosticData } from "../constants/DiagnosticData";
 import { getW } from "../components/TailwindUtils";
 import { toast } from "react-toastify";
 import { saveDiagnostic } from "../services/Blog";
+import Diagnostic from './Diagnostic';
 const DiagnosticStart = (props)=>{
 
     const [selected,setSelected] = useState(DiagnosticData.map(()=>{return new Array()}))
@@ -43,7 +44,6 @@ const DiagnosticStart = (props)=>{
     }
     async function Envoyer(){
         let response = await saveDiagnostic({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],mail:mail,selected:selected})
-        console.log('response : ', response)
         if(response.status === 200){
             toast.success("Mail envoyé !")
         }else{
@@ -62,7 +62,7 @@ const DiagnosticStart = (props)=>{
                     <img src={DiagnosticData[i].image} alt={DiagnosticData[i].image} className="w-full h-full"/>
                 </div>
                 <div className="w-2/3 h-full ml-[10%] bg-[#EEE8E4]">
-                    <div><h2 className="w-[80%] mt-[40px] text-[32px] text-[#264C4D] text-left h-[120px] ">{DiagnosticData[i].title}</h2></div>
+                    <div><h2 className={`w-[70%] mt-[40px] text-[32px] text-[#264C4D] text-justify h-[120px] ${i===DiagnosticData.length-1 ? "font-mt-demi":""}`}>{DiagnosticData[i].title}</h2></div>
                     <div className="w-full flex flex-col">
                         {i === DiagnosticData.length-1 ? "" :<div className={`w-[80%] max-h-[280px] grid ${DiagnosticData[i].reponses.length > 4 ? "grid-cols-2":"grid-cols-1"}`}>
                             {Object.keys(DiagnosticData[i].reponses).length ? DiagnosticData[i].reponses.map((item,pos)=>{return Button(item,pos,DiagnosticData[i])}):""}
@@ -70,7 +70,7 @@ const DiagnosticStart = (props)=>{
 
                         <div>
                             {i === DiagnosticData.length-1 ?<div className="flex flex-col">
-                                <div className="text-[20px] text-[#264C4D] text-left mt-[20px]">Vous recevrez une copie de votre diagnostic de peau prochainement</div>
+                                <div className="text-[20px] text-[#264C4D] text-left mt-[10px]">Vous recevrez une copie de votre diagnostic de peau prochainement</div>
                                 <input
                                     className="rounded-lg w-[500px] bg-gray-700 mt-2 py-2 px-4 border-[#264C4D] border-2 focus:bg-black-800 focus:outline-none form-control"
                                     type="text"
@@ -79,14 +79,16 @@ const DiagnosticStart = (props)=>{
                                     placeholder="Email*"
                                     required
                                 />
-
+                                <div className="flex flex-col w-full mt-[30px] "> <div className="w-fit bg-[#264C4D] rounded-full text-[24px] px-16 py-2 text-white hover:cursor-pointer" onClick={()=>{Envoyer()}}>Envoyer</div> </div>
+                                <div className="text-[24px] font-mt-demi w-[70%] text-justify mt-[20px] ">Vous avez également la possibilité de vous connecter ou de vous inscrire pour sauvegardé votre diagnostic de la peau et ainsi profiter de fonctionnalités supplémentaires. </div>
+                                <div className="flex flex-col w-full mt-[30px] "> <div className="w-fit bg-[#264C4D] rounded-full text-[24px] px-16 py-2 text-white hover:cursor-pointer" onClick={()=>{props.login({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],selected:selected})}}>Se connecter</div> </div>
                             </div>:""}
                             <div className="w-fit flex flex-row mt-[50px] ">
-                                <div className="bg-[#83C5BE] rounded-l-full text-[24px] px-8 py-2 hover:cursor-pointer" onClick={()=>{i === 0 ? null:setI(i - 1)}}>
+                                <div className={`bg-[#83C5BE] rounded-l-full  text-[24px] px-8 py-2 hover:cursor-pointer`} onClick={()=>{i === 0 ? null:setI(i - 1)}}>
                                     PRÉCÉDENT
                                 </div>
-                                 <div className="bg-[#264C4D] rounded-r-full text-[24px] px-16 py-2 text-white hover:cursor-pointer" onClick={()=>{i === DiagnosticData.length-1 ? Envoyer():valider()}}>
-                                    {i === DiagnosticData.length-1 ? "ENVOYER":"SUIVANT"}
+                                 <div className={`bg-[#264C4D] rounded-r-full text-[24px] px-16 py-2 ${i === DiagnosticData.length-1 ? "text-[#264C4D]":"text-white"}  hover:cursor-pointer`} onClick={()=>{valider()}}>
+                                     SUIVANT
                                 </div>
                             </div>
                         </div>

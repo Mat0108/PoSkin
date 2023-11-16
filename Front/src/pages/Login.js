@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { login } from "../services/user";
 import { toast } from "react-toastify";
+import { saveDiagnostic } from "../services/Blog";
 
 
 const Login = (props) => {
+  console.log('props : ', props)
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -15,13 +17,22 @@ const Login = (props) => {
     event.preventDefault();
     if (user.password !== "" && user.email !== "") {
       const userData = await login({email:user.email,password:user.password});
-      if(userData.status === "200"){
+      console.log('userData : ', userData)
+      if(userData.status === 200){
         localStorage.setItem("userEmail", user.email);
         localStorage.setItem("userId", userData.data.user._id);
         localStorage.setItem("userFirstname", userData.data.user.firstname);
         localStorage.setItem("userLastname", userData.data.user.lastname);
         localStorage.setItem("userConnected", userData.data.user.connected);
-        
+        if(props.diagnostic_data){
+          let response = await saveDiagnostic({mail:userData.data.email,...props.diagnostic_data})
+          console.log('response : ', response)
+          if(response.status === 200){
+            toast.success("Mail envoyé !")
+          }else{
+              toast.error("Erreur api")
+          }
+        }
         props.login()
       } else {
         toast.error("Le compte n'existe pas !");
@@ -106,11 +117,11 @@ const Login = (props) => {
               </button>
               
               <button
-              className="w-full mb-3 py-3 bg-blue text-white font-mt-bold rounded-full text-[20px] hover:cursor-pointer"
-              onClick={props.password_forgot}
-            >
-            MOT DE PASSE OUBLIÉ
-          </button>
+                className="w-full mb-3 py-3 bg-blue text-white font-mt-bold rounded-full text-[20px] hover:cursor-pointer"
+                onClick={props.password_forgot}
+              >
+              MOT DE PASSE OUBLIÉ
+            </button>
 
 
             </form>
