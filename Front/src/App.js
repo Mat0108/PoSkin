@@ -44,9 +44,8 @@ function App() {
     setDivModal(<></>)
   };
   async function Logout(){
-    console.log('localStorage.getItem(\"userId\") : ', localStorage.getItem("userId"))
     let res = await logout(localStorage.getItem("userId"));
-    if(res.status == "200"){
+    if(res.status === "200"){
       setConnected(false);
       localStorage.clear()
     }
@@ -66,7 +65,7 @@ function App() {
   const Nav = useMemo(() => 
   {return <Navbar Login={()=>openModal(login)} LoginCond={connected} Logout={()=>{Logout()}} />
 }
-  , [connected,register,login])
+  , [connected,login])
   return (
     <div className="App w-full h-full relative bg-[#EEE8E4] font-mt">
       <Router>

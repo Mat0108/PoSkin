@@ -1,13 +1,8 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import {Link, useParams } from 'react-router-dom';
-
-
 import Carousel2 from '../components/Layout/Carousel2';
-import { switchtext } from '../components/textdivers';
 import { getBlogbyField, getBlogs } from '../services/Blog';
-
-import env from "react-dotenv";
 
 const Blog = () =>{
     const params = useParams();
@@ -50,7 +45,7 @@ const Blog = () =>{
 
 
     function returnTextWithImage(titre,text,image,altimage,pos){
-        if(pos == false){
+        if(pos === false){
             return <div className={`w-[90%] sm:w-[86%] h-fit ${margin}`}>
                 {!!titre &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[20px] sm:text-[50px] text-blue font-mt-bold'>{titre}</h1></div>}
                 {(!!image || !!text) && <div className={`flex center w-full h-fit gap-2 sm:gap-8`}>
@@ -96,17 +91,14 @@ const Blog = () =>{
             {!!text && <div className={`w-[90%] sm:w-[86%] h-fit flex center`}><div className='mx-auto text-[8px] sm:text-[20px] text-justify'>{text}</div></div>}
         </div>}
         </div>
-        return <>{!!image && <div className='relative w-full h-fit'>
-            <img className='w-full h-fit' src={image} alt={altimage}></img>
-            {!!titre && <div className='absolute top-0 left-0 w-full h-full flex center'><p className={`w-[60%] ${textcolor ? textcolor : "text-white"} mt-2 text-[20px] sm:text-[50px] font-mt-bold`}>{titre}</p></div>}
-        </div>}</>
+
     }
     function switchLayout(layout,title,text,image,altimage,textcolor){
-        if(title == "null"){ title = ""}
-        if(text == "null"){ text = ""}
-        if(image == "null"){ image = ""}
-        if(altimage == "null"){ altimage = ""}
-        if(textcolor == "null"){ textcolor = ""}
+        if(title === "null"){ title = ""}
+        if(text === "null"){ text = ""}
+        if(image === "null"){ image = ""}
+        if(altimage === "null"){ altimage = ""}
+        if(textcolor === "null"){ textcolor = ""}
         switch(layout){
             case "IF":
                 return returnFullImage(image,altimage);

@@ -11,7 +11,7 @@ const DiagnosticStart = (props)=>{
 
     
     function UpdateArray(pos){
-        if(DiagnosticData[i].type == "multi"){
+        if(DiagnosticData[i].type === "multi"){
             if(selected[i].includes(pos)){
                 selected[i] = selected[i].filter(function(e) { return e !== pos })
             }else{
@@ -24,8 +24,8 @@ const DiagnosticStart = (props)=>{
         setSelected(selected => [...selected]);
     }
     function Button(text,pos,data){
-        return <div className={`${data.width != "" ? data.width : "w-fit"}  mt-[20px]`} key={`diagnostic-${pos}`}>
-            <div className={`${(selected[i].includes(pos)) ? "bg-[#264C4D] text-[#EEE8E4]":"hover:bg-[#264C4D] bg-[#EEE8E4] text-[#264C4D] hover:text-[#EEE8E4]" } border-2 border-[#264C4D] ${data.width != "" ? data.width : "w-fit"} px-4 py-2 ${data.rounded != "" ? data.rounded : "rounded-full"}`} onClick={()=>{UpdateArray(pos)}}>
+        return <div className={`${data.width !== "" ? data.width : "w-fit"}  mt-[20px]`} key={`diagnostic-${pos}`}>
+            <div className={`${(selected[i].includes(pos)) ? "bg-[#264C4D] text-[#EEE8E4]":"hover:bg-[#264C4D] bg-[#EEE8E4] text-[#264C4D] hover:text-[#EEE8E4]" } border-2 border-[#264C4D] ${data.width !== "" ? data.width : "w-fit"} px-4 py-2 ${data.rounded !== "" ? data.rounded : "rounded-full"}`} onClick={()=>{UpdateArray(pos)}}>
                 <a className="text-[20px] ">{text}</a>
             </div>
             
@@ -44,7 +44,7 @@ const DiagnosticStart = (props)=>{
     async function Envoyer(){
         let response = await saveDiagnostic({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],mail:mail,selected:selected})
         console.log('response : ', response)
-        if(response.status == 200){
+        if(response.status === 200){
             toast.success("Mail envoyé !")
         }else{
             toast.error("Erreur api")
@@ -64,12 +64,12 @@ const DiagnosticStart = (props)=>{
                 <div className="w-2/3 h-full ml-[10%] bg-[#EEE8E4]">
                     <div><h2 className="w-[80%] mt-[40px] text-[32px] text-[#264C4D] text-left h-[120px] ">{DiagnosticData[i].title}</h2></div>
                     <div className="w-full flex flex-col">
-                        {i == DiagnosticData.length-1 ? "" :<div className={`w-[80%] max-h-[280px] grid ${DiagnosticData[i].reponses.length > 4 ? "grid-cols-2":"grid-cols-1"}`}>
+                        {i === DiagnosticData.length-1 ? "" :<div className={`w-[80%] max-h-[280px] grid ${DiagnosticData[i].reponses.length > 4 ? "grid-cols-2":"grid-cols-1"}`}>
                             {Object.keys(DiagnosticData[i].reponses).length ? DiagnosticData[i].reponses.map((item,pos)=>{return Button(item,pos,DiagnosticData[i])}):""}
                         </div>}
 
                         <div>
-                            {i == DiagnosticData.length-1 ?<div className="flex flex-col">
+                            {i === DiagnosticData.length-1 ?<div className="flex flex-col">
                                 <div className="text-[20px] text-[#264C4D] text-left mt-[20px]">Vous recevrez une copie de votre diagnostic de peau prochainement</div>
                                 <input
                                     className="rounded-lg w-[500px] bg-gray-700 mt-2 py-2 px-4 border-[#264C4D] border-2 focus:bg-black-800 focus:outline-none form-control"
@@ -85,8 +85,8 @@ const DiagnosticStart = (props)=>{
                                 <div className="bg-[#83C5BE] rounded-l-full text-[24px] px-8 py-2 hover:cursor-pointer" onClick={()=>{i === 0 ? null:setI(i - 1)}}>
                                     PRÉCÉDENT
                                 </div>
-                                 <div className="bg-[#264C4D] rounded-r-full text-[24px] px-16 py-2 text-white hover:cursor-pointer" onClick={()=>{i == DiagnosticData.length-1 ? Envoyer():valider()}}>
-                                    {i == DiagnosticData.length-1 ? "ENVOYER":"SUIVANT"}
+                                 <div className="bg-[#264C4D] rounded-r-full text-[24px] px-16 py-2 text-white hover:cursor-pointer" onClick={()=>{i === DiagnosticData.length-1 ? Envoyer():valider()}}>
+                                    {i === DiagnosticData.length-1 ? "ENVOYER":"SUIVANT"}
                                 </div>
                             </div>
                         </div>

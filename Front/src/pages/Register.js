@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Modal from "react-modal";
-import { Link } from "react-router-dom";
 import { login, register } from "../services/user";
 
 const Register = (props) => {
@@ -17,11 +15,11 @@ const Register = (props) => {
   const onClick = async (event) => {
     event.preventDefault();
 
-    if (user.email !== "" && user.password !== "" && user.confirmpassword !== "" && user.password == user.confirmpassword && user.firstname !== "" && user.lastname !== "") {
+    if (user.email !== "" && user.password !== "" && user.confirmpassword !== "" && user.password === user.confirmpassword && user.firstname !== "" && user.lastname !== "") {
       const res = await register(user);
       if (res.status === 200) {
         const resLogin = await login({email:user.email,password:user.password})
-        if(resLogin.status == 200){
+        if(resLogin.status === 200){
           props.close()
         }  
       }
@@ -45,11 +43,11 @@ const Register = (props) => {
             <p className="text-[16px] text-center text-white mt-[20px]">Rejoignez le mouvement et découvrez</p>
             <p className="text-[16px] text-center text-white">  votre nouvelle peau</p>
             <div className="grid grid-cols-2 w-full mt-[22px]">
-              <div className={`${props.type == false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
-                <div className={`${props.type == true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`}>INSCRIPTION</div>
+              <div className={`${props.type === false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
+                <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`}>INSCRIPTION</div>
               </div>
-              <div className={`${props.type == true ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
-                <div className={`${props.type == false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.login}>DÈJA INSCRIT </div>
+              <div className={`${props.type === true ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
+                <div className={`${props.type === false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.login}>DÈJA INSCRIT </div>
               </div>
             </div>
             <div className="w-full h-fit bg-white flex flex-col px-[60px] py-[30px] gap-8">

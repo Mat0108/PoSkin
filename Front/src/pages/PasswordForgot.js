@@ -1,29 +1,16 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import Modal from "react-modal"; // Importez react-modal
 import { forgotPassword } from '../services/user';
 import { toast } from 'react-toastify';
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
 
 function PasswordForgot(props) {
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
 
   const handleForgotPassword = async (event) => {
     event.preventDefault();
     console.log('email : ', email)
     const response = await forgotPassword({email:email});
-    if(response.status == 200){
+    if(response.status === 200){
       toast.success("Mail envoyé !")
     }
   };
@@ -39,11 +26,11 @@ function PasswordForgot(props) {
               <p className="text-[16px] text-center text-white mt-[20px]">Rejoignez le mouvement et découvrez</p>
               <p className="text-[16px] text-center text-white">  votre nouvelle peau</p>
               <div className="grid grid-cols-2 w-full mt-[22px]">
-                <div className={`${props.type == false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
-                  <div className={`${props.type == true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.register} >INSCRIPTION</div>
+                <div className={`${props.type === false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
+                  <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.register} >INSCRIPTION</div>
                 </div>
-                <div className={`${props.type == false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
-                  <div className={`${props.type == true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.login} >DÈJA INSCRIT </div>
+                <div className={`${props.type === false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
+                  <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.login} >DÈJA INSCRIT </div>
                 </div>
               </div>
 

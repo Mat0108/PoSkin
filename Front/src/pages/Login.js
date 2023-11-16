@@ -1,19 +1,7 @@
 import React, { useState } from "react";
-import Modal from "react-modal"; // Importez react-modal
-import { Link } from "react-router-dom";
-import { login, getAllUsers } from "../services/user";
+import { login } from "../services/user";
 import { toast } from "react-toastify";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
 
 const Login = (props) => {
   const [user, setUser] = useState({
@@ -25,11 +13,9 @@ const Login = (props) => {
 
   const onClick = async (event) => {
     event.preventDefault();
-
     if (user.password !== "" && user.email !== "") {
       const userData = await login({email:user.email,password:user.password});
-      console.log('userData : ', userData)
-      if(userData.status == "200"){
+      if(userData.status === "200"){
         localStorage.setItem("userEmail", user.email);
         localStorage.setItem("userId", userData.data.user._id);
         localStorage.setItem("userFirstname", userData.data.user.firstname);
@@ -60,11 +46,11 @@ const Login = (props) => {
             <p className="text-[16px] text-center text-white mt-[20px]">Rejoignez le mouvement et découvrez</p>
             <p className="text-[16px] text-center text-white">  votre nouvelle peau</p>
             <div className="grid grid-cols-2 w-full mt-[22px]">
-              <div className={`${props.type == false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
-                <div className={`${props.type == true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.register} >INSCRIPTION</div>
+              <div className={`${props.type === false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
+                <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.register} >INSCRIPTION</div>
               </div>
-              <div className={`${props.type == true ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
-                <div className={`${props.type == false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`}>DÈJA INSCRIT </div>
+              <div className={`${props.type === true ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
+                <div className={`${props.type === false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`}>DÈJA INSCRIT </div>
               </div>
             </div>
             <div className="w-full h-fit bg-white flex flex-col px-[60px] py-[30px] gap-8">

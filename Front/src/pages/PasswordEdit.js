@@ -1,8 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import axios from 'axios';
-import Modal from "react-modal"; // Importez react-modal
-import { forgotPassword, forgotPasswordCheckToken, forgotPasswordValider } from '../services/user';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { forgotPasswordCheckToken, forgotPasswordValider } from '../services/user';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 
@@ -28,12 +26,12 @@ function PasswordEdit(props) {
   const handleForgotPassword = async (event) => {
     event.preventDefault();
     // console.log('email : ', email)
-    if(user.password1 != "" && user.password2 != ""){
-    if(user.password1 == user.password2){
+    if(user.password1 !== "" && user.password2 !== ""){
+    if(user.password1 === user.password2){
       const response = await forgotPasswordValider({resetToken:params.TokenId,newPassword:user.password1});
   
       console.log(response)
-      if(response.status == "200" && response.data.status == true){
+      if(response.status === "200" && response.data.status === true){
         toast.success("Mot de passe modifié avec succes")
         navigate("/")
         props.login()
@@ -120,11 +118,11 @@ function PasswordEdit(props) {
               <p className="text-[16px] text-center text-white mt-[20px]">Rejoignez le mouvement et découvrez</p>
               <p className="text-[16px] text-center text-white">  votre nouvelle peau</p>
               <div className="grid grid-cols-1 w-full mt-[22px]">
-                {/* <div className={`${props.type == false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
-                  <div className={`${props.type == true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.register} >INSCRIPTION</div>
+                {/* <div className={`${props.type === false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
+                  <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.register} >INSCRIPTION</div>
                 </div> */}
-                <div className={`${props.type == false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
-                  <div className={`${props.type == true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.login} >DÈJA INSCRIT </div>
+                <div className={`${props.type === false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
+                  <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.login} >DÈJA INSCRIT </div>
                 </div>
               </div>
               {element}
