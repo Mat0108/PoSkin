@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { login, register } from "../services/user";
+import { saveDiagnostic } from "../services/Blog";
+import { toast } from "react-toastify";
 
 const Register = (props) => {
   console.log('props : ', props)
@@ -21,6 +23,15 @@ const Register = (props) => {
       if (res.status === 200) {
         const resLogin = await login({email:user.email,password:user.password})
         if(resLogin.status === 200){
+          if(props.diagnostic_data){
+            let response = await saveDiagnostic({mail:user.email,...props.diagnostic_data})
+            console.log('response : ', response)
+            if(response.status === 200){
+              toast.success("Mail envoyé !")
+            }else{
+                toast.error("Erreur api")
+            }
+          }
           props.close()
         }  
       }
