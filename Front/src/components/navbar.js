@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = (props) => {
 //   const [aproposbool, setAproposbool] = useState(false);
@@ -7,6 +8,7 @@ const Navbar = (props) => {
 //   const [communitybool, setCommunitybool] = useState(false);
 //   const [registerbool, setRegisterbool] = useState(false);
   const [loginbool, setLoginbool] = useState(false);
+  const [comptebool, setComptebool] = useState(false);
 
     const cmhover = "text-black hover:bg-[#264C4D] hover:text-white px-4 py-2 hover:cursor-pointer rounded-full "
     // const apropos = useMemo(()=>{
@@ -52,6 +54,13 @@ const Navbar = (props) => {
             return <div onClick={props.LoginCond ? props.Logout: props.Login}><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>{props.LoginCond ? "Se deconnecter" : "Se connecter"}</div></div></div>
         }
     },[loginbool,props])
+    const Compte = useMemo(()=>{
+        if(comptebool){
+            return <Link to="/Compte" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>Mon compte</div></div></Link>
+        }else{
+            return <Link to="/Compte" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>Mon Compte</div></div></Link>
+        }
+    },[comptebool])
     return (
     <>
     
@@ -61,9 +70,11 @@ const Navbar = (props) => {
             <div className='w-full flex flex-row text-lg space-x-2 mr-[100px] center justify-end '>
                 {/* <div onMouseEnter={()=>{setRegisterbool(true)}}
                 onMouseLeave={()=>{setRegisterbool(false)}}>{Register}</div> */}
+                {props.LoginCond ? <div onMouseEnter={()=>{setComptebool(true)}}
+                onMouseLeave={()=>{setComptebool(false)}}>{Compte}</div>:"" }
                 <div onMouseEnter={()=>{setLoginbool(true)}}
                 onMouseLeave={()=>{setLoginbool(false)}}>{Login}</div>
-
+      
                 {/* <div onMouseEnter={()=>{setAproposbool(true)}}
                 onMouseLeave={()=>{setAproposbool(false)}}>{apropos}</div>
                 <div onMouseEnter={()=>{setConseilbool(true)}}

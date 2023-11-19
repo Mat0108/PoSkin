@@ -11,7 +11,7 @@ import Newsletter from './components/newsletter';
 import Diagnostic from './pages/Diagnostic';
 import DiagnosticStart from './pages/DiagnosticStart';
 
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Blog from './pages/Blog';
 import ScrollToTop from './components/ScrollToTop';
@@ -21,6 +21,7 @@ import Register from './pages/Register';
 import Modal from 'react-modal';
 import PasswordForgot from './pages/PasswordForgot';
 import PasswordEdit from './pages/PasswordEdit';
+import Compte from './pages/Compte';
 
 
 function App() {
@@ -45,8 +46,10 @@ function App() {
   };
   async function Logout(){
     let res = await logout(localStorage.getItem("userId"));
-    if(res.status === "200"){
+    console.log('res : ', res)
+    if(res.status === 200){
       setConnected(false);
+      toast.success("Vous êtes deconnecté !")
       localStorage.clear()
     }
   } 
@@ -100,6 +103,7 @@ function App() {
           <Route path='/Diagnostic' element={<Diagnostic/>}></Route>
           <Route path="/Diagnostic/start/" element={<DiagnosticStart login={LoginDiagnostic}/>}></Route>
           <Route path="/Blog/:BlogId" element={<Blog/>}></Route> 
+          <Route path="/Compte" element={<Compte/>}></Route> 
         </Routes>
         <Newsletter />
         <Footer />

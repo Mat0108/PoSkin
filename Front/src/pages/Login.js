@@ -24,13 +24,14 @@ const Login = (props) => {
         localStorage.setItem("userFirstname", userData.data.user.firstname);
         localStorage.setItem("userLastname", userData.data.user.lastname);
         localStorage.setItem("userConnected", userData.data.user.connected);
+        toast.success("Vous êtes connecté !")
         if(props.diagnostic_data){
           let response = await saveDiagnostic({mail:userData.data.email,...props.diagnostic_data})
           console.log('response : ', response)
           if(response.status === 200){
             toast.success("Mail envoyé !")
           }else{
-              toast.error("Erreur api")
+            toast.error("Erreur api")
           }
         }
         props.login()
