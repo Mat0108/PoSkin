@@ -35,4 +35,9 @@ export const forgotPasswordValider = async (body) => {
     return res;
 }
 
+export const patchUser = async (UserId,body) => {
+    const res = await axios.patch(`${url}/user/${UserId}`,body);
+    return res;
+}
+
 

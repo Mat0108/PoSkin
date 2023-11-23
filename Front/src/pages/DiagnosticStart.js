@@ -3,7 +3,6 @@ import { DiagnosticData } from "../constants/DiagnosticData";
 import { getW } from "../components/TailwindUtils";
 import { toast } from "react-toastify";
 import { saveDiagnostic } from "../services/Blog";
-import Diagnostic from './Diagnostic';
 const DiagnosticStart = (props)=>{
 
     const [selected,setSelected] = useState(DiagnosticData.map(()=>{return new Array()}))

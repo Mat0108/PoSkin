@@ -8,7 +8,6 @@ function PasswordForgot(props) {
 
   const handleForgotPassword = async (event) => {
     event.preventDefault();
-    console.log('email : ', email)
     const response = await forgotPassword({email:email});
     if(response.status === 200){
       toast.success("Mail envoyé !")

@@ -5,7 +5,6 @@ import { saveDiagnostic } from "../services/Blog";
 
 
 const Login = (props) => {
-  console.log('props : ', props)
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -17,7 +16,6 @@ const Login = (props) => {
     event.preventDefault();
     if (user.password !== "" && user.email !== "") {
       const userData = await login({email:user.email,password:user.password});
-      console.log('userData : ', userData)
       if(userData.status === 200){
         localStorage.setItem("userEmail", user.email);
         localStorage.setItem("userId", userData.data.user._id);
@@ -27,7 +25,6 @@ const Login = (props) => {
         toast.success("Vous êtes connecté !")
         if(props.diagnostic_data){
           let response = await saveDiagnostic({mail:userData.data.email,...props.diagnostic_data})
-          console.log('response : ', response)
           if(response.status === 200){
             toast.success("Mail envoyé !")
           }else{

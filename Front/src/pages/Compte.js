@@ -1,14 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
+import { forgotPassword, patchUser } from "../services/user";
+import { toast } from "react-toastify";
 
 const Compte = (props) =>{
     const [user, setUser] = useState({
         firstname:localStorage.getItem("userFirstname"),
         lastname:localStorage.getItem("userLastname"),
         email: localStorage.getItem("userEmail"),
-        oldpassword:"",
-        password: "",
-        confirmpassword:""
       });
     const [edit,setEdit] = useState(false);
     const navigate = useNavigate();
@@ -17,73 +16,79 @@ const Compte = (props) =>{
         navigate("/")
       }
     }, [])
-    const onChangeHandler = (event) => {
-        if(edit){
-            const { id, value } = event.target;
-            setUser({ ...user, [id]: value });
+    const handleChangePassword = async (event) => {
+      event.preventDefault();
+      const response = await forgotPassword({email:user.email});
+      if(response.status === 200){
+        toast.success("Mail de réinitialisation de mot de passe envoyé !")
+      }
+    };
+    const onClick = async (event) => {
+        event.preventDefault();
+        console.log(!(user.firstname === localStorage.getItem("userFirstname") &&
+        user.lastname === localStorage.getItem("userLastname") &&
+        user.email === localStorage.getItem("userEmail")))
+        if (!(user.firstname === localStorage.getItem("userFirstname") &&
+        user.lastname === localStorage.getItem("userLastname") &&
+        user.email === localStorage.getItem("userEmail"))) {
+          const userData = await patchUser(localStorage.getItem('userId'),user);
+          console.log('userData : ', userData)
+          if(userData.status === 200){
+            localStorage.setItem("userEmail", user.email);
+            localStorage.setItem("userId", userData.data.user._id);
+            localStorage.setItem("userFirstname", userData.data.user.firstname);
+            localStorage.setItem("userLastname", userData.data.user.lastname);
+            localStorage.setItem("userConnected", userData.data.user.connected);
+            toast.success("Vos informations ont bien été modifié !")
+          }
+        }
+        else {
+          toast.info("Merci de modifier au moins un des champs !");
         }
       };
+    const onChangeHandler = (event) => {
+        const { id, value } = event.target;
+        setUser({ ...user, [id]: value });
+      };
     const element = useMemo(() => {
-        return <><div className="px-[50px] w-1/2 flex flex-col">
-                <label className="text-left font-mt-demi text-[20px] mt-4">NOM</label>
+        return <><div className=" w-1/2 flex flex-col gap-3">
+                <div className="flex flex-col">
+                  <label className="text-left font-mt-demi text-[20px]">NOM</label>
+                  <input
+                  className="rounded-xl bg-gray-700 mt-2 py-2 px-4 border-[#A29F9F] border-2 bg-[#F3F3F3]"
+                  type="text"
+                  onChange={onChangeHandler}
+                  value={user.firstname}
+                  placeholder="Votre nom"
+                  id="firstname"
+                  />  
+                </div>
+                <div className="flex flex-col">
+                  <label className="text-left font-mt-demi text-[20px]">PRÉNOM</label>
+                  <input
+                  className="rounded-xl bg-gray-700 mt-2 py-2 px-4 border-[#A29F9F] border-2 bg-[#F3F3F3]"
+                  type="text"
+                  onChange={onChangeHandler}
+                  value={user.lastname}
+                  placeholder="Votre prénom"
+                  id="lastname"
+                  />
+                </div>
+                <div className="flex flex-col">
             
-                <input
-                className="rounded-xl bg-gray-700 mt-2 py-2 px-4 border-[#A29F9F] border-2 bg-[#F3F3F3]"
-                type="text"
-                onChange={onChangeHandler}
-                value={user.firstname}
-                placeholder="Votre nom"
-                id="firstname"
-                />
-                <label className="text-left font-mt-demi text-[20px] mt-4">PRÉNOM</label>
-                <input
-                className="rounded-xl bg-gray-700 mt-2 py-2 px-4 border-[#A29F9F] border-2 bg-[#F3F3F3]"
-                type="text"
-                onChange={onChangeHandler}
-                value={user.lastname}
-                placeholder="Votre prénom"
-                id="lastname"
-                />
-                <label className="text-left font-mt-demi text-[20px] mt-4">E-MAIL</label>
-                <input
-                className="rounded-xl bg-gray-700 mt-2 py-2 px-4 border-[#A29F9F] border-2 bg-[#F3F3F3]"
-                type="text"
-                onChange={onChangeHandler}
-                value={user.email}
-                placeholder="Votre émail"
-                id="email"
-                />
-            </div>
-            {edit ?<div className="px-[50px] w-1/2 flex flex-col">
-                <label className="text-left font-mt-demi text-[20px] mt-4">MODICATION DU MOT DE PASSE</label>
-            
-                <input
-                className="rounded-xl bg-gray-700 mt-2 py-2 px-4 border-[#A29F9F] border-2 bg-[#F3F3F3]"
-                type="text"
-                onChange={onChangeHandler}
-                value={user.oldpassword}
-                placeholder="Votre mot de passe actuel"
-                id="oldpassword"
-                />
-                {/* <label className="text-left font-mt-demi text-[20px] mt-4">PRÉNOM</label> */}
-                <input
-                className="rounded-xl bg-gray-700 mt-2 py-2 px-4 border-[#A29F9F] border-2 bg-[#F3F3F3] mt-[50px]"
-                type="text"
-                onChange={onChangeHandler}
-                value={user.password}
-                placeholder="Votre nouveau mot de passe"
-                id="password"
-                />
-                {/* <label className="text-left font-mt-demi text-[20px] mt-4">E-MAIL</label> */}
-                <input
-                className="rounded-xl bg-gray-700 mt-2 py-2 px-4 border-[#A29F9F] border-2 bg-[#F3F3F3] mt-[50px]"
-                type="text"
-                onChange={onChangeHandler}
-                value={user.confirmpassword}
-                placeholder="Confirmez votre mot de passe "
-                id="confirmpassword"
-                />
-            </div> : ""}
+                  <label className="text-left font-mt-demi text-[20px]">E-MAIL</label>
+                  <input
+                  className="rounded-xl bg-gray-700 mt-2 py-2 px-4 border-[#A29F9F] border-2 bg-[#F3F3F3]"
+                  type="text"
+                  onChange={onChangeHandler}
+                  value={user.email}
+                  placeholder="Votre émail"
+                  id="email"
+                  />
+                </div>  
+                
+           </div>
+           
             </>
     }, [edit,user])
     return <div className="">
@@ -94,16 +99,19 @@ const Compte = (props) =>{
         </div>
         <div className="w-2/3 h-full p-[30px]">
             <div className="bg-white rounded-3xl w-full h-full flex flex-col ">
-                <div className="font-mt-bold text-[40px] mt-[60px]">{`BIENVENUE ${localStorage.getItem("userFirstname").toUpperCase()}`}</div>
-                <div className="text-[20px] mt-[20px]">{`Po. vous remercie pour votre confiance`}</div>
-                <div className="flex center mt-[45px]"> <div className="bg-[#83C5BE] px-8 py-2 w-fit h-fit rounded-full text-[24px] font-mt-demi">Mon suivi</div></div>
+                <div className="font-mt-bold text-[40px] mt-[40px]">{`BIENVENUE ${localStorage.getItem("userFirstname") && localStorage.getItem("userFirstname").toUpperCase()}`}</div>
+                <div className="text-[20px] mt-[10px]">{`Po. vous remercie pour votre confiance`}</div>
+                <div className="flex center mt-[35px] gap-8"> 
+                    <div className="bg-[#83C5BE] px-8 py-2 w-[270px] h-fit rounded-full text-[24px] font-mt-demi">Mon suivi</div>
+                    <div className="bg-[#83C5BE] px-8 py-2 w-[270px] h-fit rounded-full text-[24px] font-mt-demi">Mes diagnostic</div>
+                </div>
                 <div className="text-[32px] mt-[40px] font-mt-demi">{`MES INFORMATIONS `}</div>
                 <div className="w-full flex flex-row center"> 
                     {element}
                     
                 </div>
-                <div className="flex center mt-[45px]"> <div className="bg-[#264C4D] px-8 py-2 w-fit h-fit rounded-full text-[24px] font-mt-demi text-white hover:cursor-pointer" onClick={()=>{setEdit(!edit)}}>Modifier mes informations</div></div>
-                
+                <div className="flex center mt-[30px]"> <div className="bg-[#264C4D] px-8 py-2 w-fit h-fit rounded-full text-[24px] font-mt-demi text-white hover:cursor-pointer" onClick={onClick}>Modifier mes informations</div></div>
+                <div className="flex center mt-[20px]"> <div className="bg-[#264C4D] px-8 py-2 w-fit h-fit rounded-full text-[24px] font-mt-demi text-white hover:cursor-pointer" onClick={handleChangePassword}>Réinitialisation du mot de passe</div></div>
             </div>
 
         </div>
