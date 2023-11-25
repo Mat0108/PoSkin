@@ -10,10 +10,10 @@ import Footer from './components/footer';
 import Newsletter from './components/newsletter';
 import Diagnostic from './pages/Diagnostic';
 import DiagnosticStart from './pages/DiagnosticStart';
+import Blog from './pages/Blog';
 
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import Blog from './pages/Blog';
 import ScrollToTop from './components/ScrollToTop';
 import Login from './pages/Login';
 import { logout } from './services/user';
@@ -63,12 +63,10 @@ function App() {
   
   login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} password_forgot={()=>{openModal(password)}}/>
   function LoginDiagnostic(data){
-    console.log('data : ', data)
     let register = <Register type={false} close={()=>closeModal()} login={()=>{}} diagnostic_data={data}/>
     let login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} diagnostic_data={data}/>
   
     register = <Register type={false} close={()=>closeModal()} login={()=>{openModal(login)}} diagnostic_data={data}/>
-    
     let password = <PasswordForgot type={false} close={()=>closeModal()} login={()=>openModal(login)} register={()=>{openModal(register)}} diagnostic_data={data}/>
     
     login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} password_forgot={()=>{openModal(password)}} diagnostic_data={data}/>
@@ -86,8 +84,10 @@ function App() {
         <Modal
           isOpen={isModalOpen}
           onRequestClose={closeModal}
-          className={"bg-transparent w-screen h-screen z-[10000] flex center"}
+          // className={"bg-transparent w-screen h-screen z-[10000] flex center"}
           style={customStyles}
+          overlayClassName={"hover:cursor-pointer"}
+          shouldCloseOnOverlayClick={true}
         >
           {divModal}
         </Modal>
