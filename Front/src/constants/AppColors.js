@@ -8,7 +8,7 @@ const Colors = {
   "white2": "#FFF9F9",
   "green" : "#888E52",
   "red" : "#99271D",
-  "brown" : "#B1907D",
+  "l" : "#B1907D",
   "gray":"#A5ABAF",
   "black":"#000000",
   "green_default": "#6EC331",

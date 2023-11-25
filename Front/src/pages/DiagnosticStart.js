@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { DiagnosticData } from "../constants/DiagnosticData";
 import { getW } from "../components/TailwindUtils";
 import { toast } from "react-toastify";
-import { saveDiagnostic } from "../services/Blog";
+import { saveDiagnostic } from "../services/Diagnostic";
 const DiagnosticStart = (props)=>{
 
     const [selected,setSelected] = useState(DiagnosticData.map(()=>{return new Array()}))

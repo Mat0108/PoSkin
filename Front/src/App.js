@@ -22,6 +22,7 @@ import Modal from 'react-modal';
 import PasswordForgot from './pages/PasswordForgot';
 import PasswordEdit from './pages/PasswordEdit';
 import Compte from './pages/Compte';
+import MesDiagnostics from './pages/MesDiagnostics';
 
 
 function App() {
@@ -33,8 +34,7 @@ function App() {
     overlay: {zIndex: 1000}
   };
   const openModal = (element) => {
-    console.log('element : ', element)
-
+   
     setIsModalOpen(true);
     setDivModal(element);
   };
@@ -104,6 +104,7 @@ function App() {
           <Route path="/Diagnostic/start/" element={<DiagnosticStart login={LoginDiagnostic}/>}></Route>
           <Route path="/Blog/:BlogId" element={<Blog/>}></Route> 
           <Route path="/Compte" element={<Compte/>}></Route> 
+          <Route path="/MesDiagnostics" element={<MesDiagnostics openModal={openModal} closeModal={closeModal}/>} ></Route> 
         </Routes>
         <Newsletter />
         <Footer />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { login, register } from "../services/user";
-import { saveDiagnostic } from "../services/Blog";
 import { toast } from "react-toastify";
+import { saveDiagnostic } from "../services/Diagnostic";
 
 const Register = (props) => {
   console.log('props : ', props)

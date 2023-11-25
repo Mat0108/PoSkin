@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { login } from "../services/user";
 import { toast } from "react-toastify";
-import { saveDiagnostic } from "../services/Blog";
+import { saveDiagnostic } from "../services/Diagnostic";
 
 
 const Login = (props) => {

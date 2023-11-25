@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import MesDiagnostics from './../pages/MesDiagnostics';
 
 const Navbar = (props) => {
 //   const [aproposbool, setAproposbool] = useState(false);
@@ -9,6 +10,8 @@ const Navbar = (props) => {
 //   const [registerbool, setRegisterbool] = useState(false);
   const [loginbool, setLoginbool] = useState(false);
   const [comptebool, setComptebool] = useState(false);
+  
+  const [diagnosticbool, setDiagnosticbool] = useState(false);
 
     const cmhover = "text-black hover:bg-[#264C4D] hover:text-white px-4 py-2 hover:cursor-pointer rounded-full "
     // const apropos = useMemo(()=>{
@@ -61,6 +64,13 @@ const Navbar = (props) => {
             return <Link to="/Compte" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>Mon Compte</div></div></Link>
         }
     },[comptebool])
+    const MesDiagnostics = useMemo(()=>{
+        if(diagnosticbool){
+            return <Link to="/MesDiagnostics" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>Mes Diagnostics</div></div></Link>
+        }else{
+            return <Link to="/MesDiagnostics" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>Mes Diagnostics</div></div></Link>
+        }
+    },[diagnosticbool])
     return (
     <>
     
@@ -70,6 +80,8 @@ const Navbar = (props) => {
             <div className='w-full flex flex-row text-lg space-x-2 mr-[100px] center justify-end '>
                 {/* <div onMouseEnter={()=>{setRegisterbool(true)}}
                 onMouseLeave={()=>{setRegisterbool(false)}}>{Register}</div> */}
+                {props.LoginCond ? <div onMouseEnter={()=>{setDiagnosticbool(true)}}
+                onMouseLeave={()=>{setDiagnosticbool(false)}}>{MesDiagnostics}</div>:"" }
                 {props.LoginCond ? <div onMouseEnter={()=>{setComptebool(true)}}
                 onMouseLeave={()=>{setComptebool(false)}}>{Compte}</div>:"" }
                 <div onMouseEnter={()=>{setLoginbool(true)}}
