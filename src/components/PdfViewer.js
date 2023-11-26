@@ -41,7 +41,7 @@ export const PdfViewer = (props) => {
             {props.title}
         </div>
         <div className="absolute -top-2 right-0 flex center gap-4">
-            <div className="w-fit h-fit bg-green p-2 rounded-lg" onClick={()=>props.closeModal()} ><img src={"/images/icon_close.png"} alt={"close"} className="w-6 h-6"/></div>
+            <div className="w-fit h-fit bg-green p-2 rounded-lg" onClick={()=>props.closeModal(true)} ><img src={"/images/icon_close.png"} alt={"close"} className="w-6 h-6"/></div>
             
           
             <div className="w-fit h-fit bg-russet p-2 rounded-lg" onClick={downloadPdf}><img src={"/images/downloads.png"} alt={"downloads"} className="w-6 h-6"/></div>

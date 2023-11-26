@@ -1,6 +1,7 @@
 const Colors = {
   "blue":"#264C4D",
   "russet":"#823919",
+  "cyan":"#83C5BE",
   "vivid_tangerine":"#F5AD89",
   "white_coffee":"#E4DDD3",
   "transparent": "transparent",

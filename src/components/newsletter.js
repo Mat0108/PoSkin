@@ -3,7 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { toast } from "react-toastify";
 // import env from "react-dotenv";
-const Newsletter =()=>{
+const Newsletter =(props)=>{
     const [value, setValue] = useState();
     const firebaseConfig = {
         apiKey: "AIzaSyA44Ehyz0Fu6pISrwKaI5rALkfAUr-LpQ8",
@@ -26,7 +26,7 @@ const Newsletter =()=>{
       
     return (<>
 
-        <div className="relative w-full h-[100px] sm:h-[260px] grid grid-cols-6 bg-[#83C5BE]">
+        <div className="relative w-full h-[100px] sm:h-[260px] grid grid-cols-6 bg-[#83C5BE]" >
             <div className="col-start-1 col-span-2 flex flex-col text-center my-auto ml-[40px]">
                 <p className="text-[12px] sm:text-[30px] w-[80%] sm:w-[90%]">NEWSLETTER</p>
                 <p className="w-[90%] sm:w-[60%] text-[7px] sm:text-[14px] text-justify mx-auto">Suivez notre actualité et ne manquez aucune de nos nouveautés en vous inscrivant à notre newsletter </p>

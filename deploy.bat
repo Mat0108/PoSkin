@@ -1,3 +1,5 @@
 @echo off
-netlify build
-netlify deploy --prod
+echo Building...
+call netlify build
+echo Deploying...
+call netlify deploy --prod

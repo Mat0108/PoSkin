@@ -1,7 +1,7 @@
-const switchtext=(params)=>{
+const switchtext=(params,action)=>{
   switch(params){
     case "presentation":
-      return presentation();
+      return presentation(action);
     case "apropos":
       return apropos();
     case "apropos2":
@@ -70,7 +70,7 @@ const switchtext=(params)=>{
       return "Not Found";
   }
 }
-const presentation = ()=>{
+const presentation = (action)=>{
     return (<>
       <p className="text-[20px] sm:text-[100px] font-mt-bold text-blue text-left ">Po.</p>
       <p className="text-[10px] sm:text-[50px] font-mt-bold text-blue text-left ">Pour une belle peau</p>
@@ -81,6 +81,8 @@ const presentation = ()=>{
       <p className="text-[8px] sm:text-[16px]  text-left ">
       Nous sommes fiers de mettre à votre disposition des formules de soins cleans et de vous mettre en contact avec  nos partenaires expert dans les problèmes de peaux. 
       </p>
+      
+      <div className="mt-[20px] text-[10px] sm:text-[30px] w-fit px-4 sm:px-8 py-2 bg-[#83C5BE] rounded-full font-mt-bold text-blue text-left hover:text-white hover:bg-blue hover:cursor-pointer" onClick={action}><p>S'inscrire à la newsletter</p></div>
       </>
     )
   }
@@ -98,8 +100,8 @@ const apropos2=()=>{
     <p className="mt-[20px] text-[8px] sm:text-[16px] text-left w-[80%] sm:w-[65%] mx-auto"> En plus de pouvoir bénéficier d’un savoir-faire hors-pair, profitez également d’une technologie hors-pair !</p>
     <p className="mt-[20px] text-[8px] sm:text-[16px] text-left w-[80%] sm:w-[65%] mx-auto">L’Intelligence Artificielle saura parfaire votre diagnostic afin de le rendre encore   plus précis !
     Un simple selfie servira à déterminer la ligne directrice de votre diagnostic.</p>
-    <div className="mt-[40px] text-[10px] sm:text-[30px] mx-auto w-fit px-4 sm:px-8 py-2 bg-[#83C5BE] rounded-full font-mt-bold text-blue text-left hover:text-white hover:bg-blue w-[80%] sm:w-[60%]"><p>En savoir plus</p></div>            
-    </>)
+    <div className="ml-[17%] mt-[20px] text-[10px] sm:text-[30px] w-fit px-4 sm:px-8 py-2 bg-[#83C5BE] rounded-full font-mt-bold text-blue text-left hover:text-white hover:bg-blue"><p>En savoir plus</p></div>
+     </>)
 }
 
 const produittitre = ()=>{

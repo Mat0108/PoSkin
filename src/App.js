@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState,useRef } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {Route,Routes} from 'react-router';
 
@@ -23,13 +23,14 @@ import PasswordForgot from './pages/PasswordForgot';
 import PasswordEdit from './pages/PasswordEdit';
 import Compte from './pages/Compte';
 import MesDiagnostics from './pages/MesDiagnostics';
+import PriseDeRdv from './pages/PriseDeRdv';
 
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [divModal,setDivModal] = useState(<></>)
   const [connected,setConnected] = useState(false)
-  
+  const newsletterRef = useRef();
   const customStyles = {
     overlay: {zIndex: 1000}
   };
@@ -38,7 +39,7 @@ function App() {
     setIsModalOpen(true);
     setDivModal(element);
   };
-
+  
   const closeModal = (Login) => {
     setConnected(Login)
     setIsModalOpen(false);
@@ -63,7 +64,6 @@ function App() {
   
   login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} password_forgot={()=>{openModal(password)}}/>
   function LoginDiagnostic(data){
-    console.log('data : ', data)
     let register = <Register type={false} close={()=>closeModal()} login={()=>{}} diagnostic_data={data}/>
     let login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} diagnostic_data={data}/>
   
@@ -78,6 +78,16 @@ function App() {
   {return <Navbar Login={()=>openModal(login)} LoginCond={connected} Logout={()=>{Logout()}} />
 }
   , [connected,login])
+
+  function ScrollNewsletter(){
+    console.log('props.newsletterRef : ', newsletterRef)
+    if (newsletterRef.current) {
+        newsletterRef.current.scrollIntoView({
+          behavior: 'smooth', // Vous pouvez également utiliser 'auto' à la place de 'smooth'
+          block: 'start', // Vous pouvez utiliser 'start', 'center', 'end', ou 'nearest'
+        });
+    }
+}
   return (
     <div className="App w-full h-full relative bg-[#EEE8E4] font-mt">
       <Router>
@@ -92,7 +102,9 @@ function App() {
           {divModal}
         </Modal>
         <Routes>
-          <Route path="/" element={<Home/>}></Route>
+          <Route path="/" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
+          <Route path="/activate/:userId" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
+          
           {/* <Route path="/Expertise" element={<Expertise/>}></Route> 
           <Route path="/APropos" element={<QuiSommesNous />}></Route>
           <Route path="/Community" element={<Commu/>}></Route>
@@ -105,7 +117,9 @@ function App() {
           <Route path="/Blog/:BlogId" element={<Blog/>}></Route> 
           <Route path="/Compte" element={<Compte/>}></Route> 
           <Route path="/MesDiagnostics" element={<MesDiagnostics openModal={openModal} closeModal={closeModal}/>} ></Route> 
+          <Route path="/PriseDeRdv" element={<PriseDeRdv />}></Route>
         </Routes>
+        <div ref={newsletterRef}></div>
         <Newsletter />
         <Footer />
         <ToastContainer

@@ -8,15 +8,17 @@ import {switchtext} from './../components/textdivers';
 
 import Carousel2 from '../components/Layout/Carousel2';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import { getBlogs } from '../services/Blog';
-import PasswordEdit from './PasswordEdit';
-import { Modal } from 'react-modal';
+import { activateAccount } from '../services/user';
+import { toast } from 'react-toastify';
+
 const Home = (props)=>{
 
-    const [itemList,setItemList]= useState([])
-    
+    const [itemList,setItemList]= useState([]);
+    const params = useParams()
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchData = async() => {
             const blogs = await getBlogs();
@@ -24,6 +26,19 @@ const Home = (props)=>{
             
         };
         fetchData();
+        if(params.userId){
+            const activate = async() => {
+                const user = await activateAccount(params.userId);
+                if(user.status == 200){
+                    toast.succes(user.message)
+                    navigate("/")
+                }
+            };
+            activate();
+            
+        }
+        
+        
     }, [])
     
 
@@ -49,12 +64,12 @@ const Home = (props)=>{
 
     }
 
-
+    
     let buttondiv = <div className="absolute z-[100] top-0 left-0 w-full h-full flex flex-col center">
         <div className='mt-[20%] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] flex center'> Et révélez votre beauté naturelle</div>
         <Link to="/Diagnostic" className="mt-[10px] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] font-mt-bold py-2 px-6 bg-blue rounded-3xl" >Faire mon diagnostic</Link>
     </div>
-
+    
     return (<div>
         {/* <Modal
           isOpen={isModalOpen}
@@ -65,7 +80,7 @@ const Home = (props)=>{
           {divModal}
         </Modal> */}
         <LayoutFullImage props={{titre:"DECOUVREZ VOTRE PEAU",button:buttondiv,image1:{url:"/images/visage/fullvisage.png",alt:"fullvisage"}}}/>
-        <Layout1image props={{col1:switchtext("presentation"),image1:{url:"/images/visage/visage2.png",alt:"visage2"}}} />
+        <Layout1image props={{col1:switchtext("presentation",props.scroll),image1:{url:"/images/visage/visage2.png",alt:"visage2"}}} />
         <Layout2image props={{col1:switchtext("apropos"),col2:switchtext("apropos2"),image1:{url:"/images/visage/visage7.png",alt:"visage7"},image2:{url:"/images/visage/visage8.png",alt:"visage8"}}} />
         {/* <div className='w-full flex center'>
             <div className='w-[80%]'>

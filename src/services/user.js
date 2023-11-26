@@ -22,16 +22,16 @@ export const getAllUsers = async (user) => {
 }
 
 export const forgotPassword = async (mail) => {
-    const res = await axios.post(`${url}/user/forgetpassword`,mail);
+    const res = await axios.post(`${url}/users/forgetpassword`,mail);
     return res;
 }
 
 export const forgotPasswordCheckToken = async (TokenId) => {
-    const res = await axios.post(`${url}/user/validatetoken`,{resetToken:TokenId});
+    const res = await axios.post(`${url}/users/validatetoken`,{resetToken:TokenId});
     return res;
 }
 export const forgotPasswordValider = async (body) => {
-    const res = await axios.post(`${url}/user/editpassword`,body);
+    const res = await axios.post(`${url}/users/editpassword`,body);
     return res;
 }
 
@@ -40,4 +40,7 @@ export const patchUser = async (UserId,body) => {
     return res;
 }
 
-
+export const activateAccount = async (UserId) => {
+    const res = await axios.get(`${url}/users/activate/${UserId}`);
+    return res;
+}

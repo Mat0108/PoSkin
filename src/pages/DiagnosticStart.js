@@ -61,6 +61,7 @@ const DiagnosticStart = (props)=>{
                     <img src={DiagnosticData[i].image} alt={DiagnosticData[i].image} className="w-full h-full"/>
                 </div>
                 <div className="w-2/3 h-full ml-[10%] bg-[#EEE8E4]">
+                    {i === DiagnosticData.length-1 && localStorage.getItem("userEmail") ? "" : <>
                     <div><h2 className={`w-[70%] mt-[40px] text-[32px] text-[#264C4D] text-justify h-[120px] ${i===DiagnosticData.length-1 ? "font-mt-demi":""}`}>{DiagnosticData[i].title}</h2></div>
                     <div className="w-full flex flex-col">
                         {i === DiagnosticData.length-1 ? "" :<div className={`w-[80%] max-h-[280px] grid ${DiagnosticData[i].reponses.length > 4 ? "grid-cols-2":"grid-cols-1"}`}>
@@ -92,6 +93,7 @@ const DiagnosticStart = (props)=>{
                             </div>
                         </div>
                     </div>
+                    </>}
                 </div>
             </div>
 

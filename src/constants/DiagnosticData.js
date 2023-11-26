@@ -16,7 +16,7 @@ export let DiagnosticData = [
 		"rounded":""
 	},
 	{
-		"image":"/images/Diagnostic/diagnostic3.png",
+		"image":"/images/Diagnostic/diagnostic2.png",
 		"title":"Quelles sont vos préoccupations principales en matière de soins de la peau ?",
 		"reponses":[
 			"Hydratation",
