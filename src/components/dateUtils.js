@@ -1,6 +1,6 @@
 export function getDate(date){
     let datef = new Date(date);
-    return `${datef.getMonth()+1>9?"":"0"}${datef.getMonth()+1}/${datef.getDate()>9?"":"0"}${datef.getDate()}`
+    return `${datef.getFullYear()}-${datef.getMonth()+1>9?"":"0"}${datef.getMonth()+1}-${datef.getDate()>9?"":"0"}${datef.getDate()}`
 }
 export function getShowDate(date){
     let datef = new Date(date);
