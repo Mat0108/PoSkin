@@ -102,22 +102,22 @@ function App() {
           {divModal}
         </Modal>
         <Routes>
-          <Route path="/" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
-          <Route path="/activate/:userId" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
-          
+          <Route exact path="/activate/:userId" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
+          <Route exact path="/Blog/:BlogId" element={<Blog/>}></Route> 
           {/* <Route path="/Expertise" element={<Expertise/>}></Route> 
           <Route path="/APropos" element={<QuiSommesNous />}></Route>
           <Route path="/Community" element={<Commu/>}></Route>
           <Route path='/Conseils' element={<Conseils/>}></Route>*/}
-          <Route path='/ForgotPassword/:TokenId' element={<PasswordEdit login={()=>openModal(login)} password={()=>openModal(password)}/>}></Route>
+          <Route exact path='/ForgotPassword/:TokenId' element={<PasswordEdit login={()=>openModal(login)} password={()=>openModal(password)}/>}></Route>
           <Route path='/Login' element={<Login/>}></Route>
           <Route path='/Register' element={<Register/>}></Route>
           <Route path='/Diagnostic' element={<Diagnostic/>}></Route>
           <Route path="/Diagnostic/start/" element={<DiagnosticStart login={LoginDiagnostic}/>}></Route>
-          <Route path="/Blog/:BlogId" element={<Blog/>}></Route> 
           <Route path="/Compte" element={<Compte/>}></Route> 
           <Route path="/MesDiagnostics" element={<MesDiagnostics openModal={openModal} closeModal={closeModal}/>} ></Route> 
           <Route path="/PriseDeRdv" element={<PriseDeRdv />}></Route>
+          <Route exact path="/" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
+          
         </Routes>
         <div ref={newsletterRef}></div>
         <Newsletter />

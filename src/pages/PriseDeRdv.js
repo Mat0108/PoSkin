@@ -284,9 +284,9 @@ const PriseDeRdv = ()=>{
                     <div className="text-[20px] font-mt-demi">Renseignez les informations suivantes : </div>
                     
                 </div>
-                <div className="w-full h-full flex flex-row flex center">
+                <div className="w-full h-full flex flex-row flex ">
                     <div className="w-[32%] h-full relative ">
-                        <img src={"/images/Compte/Compte1.jpg"} alt={"visage21"} className="w-fit h-full"/>
+                        <img src={"/images/Compte/Compte1.jpg"} alt={"visage21"} className="w-full h-[1200px]"/>
                     </div>
                     <div className="w-[68%] h-full p-[30px] ">
                         <div className="bg-white rounded-3xl w-full h-full  flex flex-col overflow-hidden hover:overflow-auto">

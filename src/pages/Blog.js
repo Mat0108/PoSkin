@@ -6,6 +6,7 @@ import { getBlogbyField, getBlogs } from '../services/Blog';
 
 const Blog = () =>{
     const params = useParams();
+    console.log('params : ', params)
     const [margin,setMargin] = useState("my-2 sm:my-8");
     const [listItem,setListItem] = useState({
         titre:[],
@@ -137,8 +138,16 @@ const Blog = () =>{
     const BlogCarousel = useMemo(() =>
     { 
         let list2 = []
-        if(Object.keys(listItems).length){listItems.map(blog=>{list2.push(itemCarousel(blog.imagepresentation,blog.altimagepresentation,blog.title,blog.textpresentation,`/Blog/${blog.altimagepresentation}`))})}
-        return <Carousel2 props={{items:list2,nbShow:1,ratio:25,showPoint:true}}/>
+        let start = 0;
+        if(Object.keys(listItems).length){
+            listItems.map((blog,pos)=>{
+                list2.push(itemCarousel(blog.imagepresentation,blog.altimagepresentation,blog.title,blog.textpresentation,`/Blog/${blog.altimagepresentation}`))
+                if(blog.altimagepresentation == params.BlogId){
+                    start = pos
+                }
+            })
+        }
+        return <Carousel2 props={{items:list2,nbShow:1,ratio:25,showPoint:true,start:start}}/>
     }, [listItems])
 
     return (<div className='w-full h-full flex center flex-col'>

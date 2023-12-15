@@ -61,7 +61,7 @@ const DiagnosticStart = (props)=>{
                     <img src={DiagnosticData[i].image} alt={DiagnosticData[i].image} className="w-full h-full"/>
                 </div>
                 <div className="w-2/3 h-full ml-[10%] bg-[#EEE8E4]">
-                    {i === DiagnosticData.length-1 && localStorage.getItem("userEmail") ? "" : <>
+
                     <div><h2 className={`w-[70%] mt-[40px] text-[32px] text-[#264C4D] text-justify h-[120px] ${i===DiagnosticData.length-1 ? "font-mt-demi":""}`}>{DiagnosticData[i].title}</h2></div>
                     <div className="w-full flex flex-col">
                         {i === DiagnosticData.length-1 ? "" :<div className={`w-[80%] max-h-[280px] grid ${DiagnosticData[i].reponses.length > 4 ? "grid-cols-2":"grid-cols-1"}`}>
@@ -83,6 +83,7 @@ const DiagnosticStart = (props)=>{
                                 <div className="text-[24px] font-mt-demi w-[70%] text-justify mt-[20px] ">Vous avez également la possibilité de vous connecter ou de vous inscrire pour sauvegardé votre diagnostic de la peau et ainsi profiter de fonctionnalités supplémentaires. </div>
                                 <div className="flex flex-col w-full mt-[30px] "> <div className="w-fit bg-[#264C4D] rounded-full text-[24px] px-16 py-2 text-white hover:cursor-pointer" onClick={()=>{props.login({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],selected:selected})}}>Se connecter</div> </div>
                             </div>:""}
+
                             <div className="w-fit flex flex-row mt-[50px] ">
                                 <div className={`bg-[#83C5BE] rounded-l-full  text-[24px] px-8 py-2 hover:cursor-pointer`} onClick={()=>{i === 0 ? null:setI(i - 1)}}>
                                     PRÉCÉDENT
@@ -93,7 +94,6 @@ const DiagnosticStart = (props)=>{
                             </div>
                         </div>
                     </div>
-                    </>}
                 </div>
             </div>
 

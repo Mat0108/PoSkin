@@ -1,6 +1,6 @@
 export const getW = (value,bool)=>{
     // en %
-    switch (value,bool) {
+    switch (value) {
       case 1:
         return bool ? "w-[1%]" : "h-[1%]";
       case 2:

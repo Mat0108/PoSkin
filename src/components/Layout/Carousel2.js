@@ -9,7 +9,7 @@ const Carousel2 =({props})=>{
     const [ratio,setRatio] = useState(15)
     
     const [Mratio,setMRatio] = useState(10)
-    
+    useEffect(()=>{if(props.start){setShow(props.start);setPos(props.start%3)}},[props.start])
     useEffect(() => {
         if(props.items){
             let i;
@@ -22,7 +22,6 @@ const Carousel2 =({props})=>{
                 }
             }
             setItems(list)
-        
         }
         if(props.ratio) {setRatio(props.ratio)}
         }, [props,show])
@@ -38,13 +37,13 @@ const Carousel2 =({props})=>{
     return (
         <div className="w-full flex flex-col">       
             <div className="flex flex-row w-full">
-                <div className={`${getW(Mratio)} sm:${getW(ratio)} flex center`}>
+                <div className={`${getW(Mratio,true)} sm:${getW(ratio,true)} flex center`}>
                 {!props.disableClic && <p className="text-5xl" onClick={()=>{setShow(show === 0 ? Object.keys(props.items).length-1 :show-1);setPos(pos === 0 ? 2:pos-1);}}>{"<"}</p>}
                 </div>
-                <div className={`flex flex-row ${getW(100-2*Mratio)} sm:${getW(100-2*ratio)}  h-full ${props.nbShow === 1 ? "center":"justify-between space-x-4"}`}>
+                <div className={`flex flex-row ${getW(100-2*Mratio,true)} sm:${getW(100-2*ratio,true)}  h-full ${props.nbShow === 1 ? "center":"justify-between space-x-4"}`}>
                     {items}
                 </div>
-                <div className={`${getW(Mratio)} sm:${getW(ratio)} flex center`}>
+                <div className={`${getW(Mratio,true)} sm:${getW(ratio,true)} flex center`}>
                     {!props.disableClic &&<p className="text-5xl" onClick={()=>{setShow(show>=Object.keys(props.items).length-1 ? 0:show+1);setPos(pos >= 2 ? 0:pos+1);}}>{">"}</p>}
                 </div>
 
