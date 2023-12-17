@@ -80,7 +80,6 @@ function App() {
   , [connected,login])
 
   function ScrollNewsletter(){
-    console.log('props.newsletterRef : ', newsletterRef)
     if (newsletterRef.current) {
         newsletterRef.current.scrollIntoView({
           behavior: 'smooth', // Vous pouvez également utiliser 'auto' à la place de 'smooth'
@@ -102,7 +101,7 @@ function App() {
           {divModal}
         </Modal>
         <Routes>
-          <Route exact path="/activate/:userId" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
+          <Route exact path="/Activate/:userId" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
           <Route exact path="/Blog/:BlogId" element={<Blog/>}></Route> 
           {/* <Route path="/Expertise" element={<Expertise/>}></Route> 
           <Route path="/APropos" element={<QuiSommesNous />}></Route>
@@ -117,6 +116,7 @@ function App() {
           <Route path="/MesDiagnostics" element={<MesDiagnostics openModal={openModal} closeModal={closeModal}/>} ></Route> 
           <Route path="/PriseDeRdv" element={<PriseDeRdv />}></Route>
           <Route exact path="/" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
+          <Route exact path="/Logout" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
           
         </Routes>
         <div ref={newsletterRef}></div>

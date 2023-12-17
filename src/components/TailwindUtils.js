@@ -293,3 +293,56 @@ export function getGrid(n,bool ){
   }
   
 }
+
+export function getBG(colorName) {
+  switch (colorName) {
+    case "blue":
+      return "bg-blue";
+    case "light-blue":
+      return "bg-light-blue"
+    case "russet":
+      return "bg-russet";
+    case "cyan":
+      return "bg-cyan";
+    case "vivid_tangerine":
+      return "bg-vivid_tangerine";
+    case "white_coffee":
+      return "bg-white_coffee";
+    case "white":
+      return "bg-white";
+    case "white2":
+      return "bg-white2";
+    case "green":
+      return "bg-green";
+    case "red":
+      return "bg-red";
+    default:
+      return ""; 
+  }
+}
+export function getBorder(colorName) {
+  switch (colorName) {
+    case "blue":
+      return "border-blue";
+    case "light-blue":
+      return "border-light-blue";
+    case "russet":
+      return "border-russet";
+    case "cyan":
+      return "border-cyan";
+    case "vivid_tangerine":
+      return "border-vivid_tangerine";
+    case "white_coffee":
+      return "border-white_coffee";
+    case "white":
+      return "border-white";
+    case "white2":
+      return "border-white2";
+    case "green":
+      return "border-green";
+    case "red":
+      return "border-red";
+    default:
+      return "";
+  }
+}

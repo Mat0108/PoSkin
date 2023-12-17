@@ -2,7 +2,10 @@ import react,{ useEffect,useState } from "react";
 import { GetAllExperts, getRdvOfExpert } from "../services/rdv";
 import { getDate, getTime, getShowDate } from "../components/dateUtils";
 import { useMemo } from "react";
-import {getGrid} from "../components/TailwindUtils"
+import {getBorder, getGrid} from "../components/TailwindUtils"
+import { getBG } from './../components/TailwindUtils';
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const PriseDeRdv = ()=>{
     const [experts,setExperts] = useState([]);
@@ -29,6 +32,15 @@ const PriseDeRdv = ()=>{
         "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
         "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
         );
+    const navigate = useNavigate();
+    useEffect(() => {
+      if(localStorage.length == 0){
+        setTimeout(()=>{
+            toast.info("Merci de vous connecter d'abord")
+        },2000)
+        navigate("/")
+      }
+    }, [])
     useEffect(() => {
         async function fetchData(){
             let data = await GetAllExperts();
@@ -134,11 +146,16 @@ const PriseDeRdv = ()=>{
         }
         setMonth(newMonth);    
     }
-    useEffect(() => {
-      console.log('newRdv : ', newRdv)
-    }, [newRdv])
+    // useEffect(() => {
+    //   console.log('newRdv : ', newRdv)
+    // }, [newRdv])
     
     const element = useMemo(() => {
+        function BG(color1,color2){
+            return `${getBG(color1)} border-4 ${getBorder(color1)} hover:${getBorder(color2)}`
+        }
+        let selected = "bg-light-blue border-4 border-light-blue hover:border-blue";
+        let unselected = "bg-blue border-4 border-blue hover:border-light-blue";
         if(Object.keys(listRdvLibre).length){
             // console.log('listRdvLibre : ', listRdvLibre)
 
@@ -148,13 +165,13 @@ const PriseDeRdv = ()=>{
                     return <div className="relative w-full h-full flex p-4 flex flex-col gap-8">
                         <div className="w-full text-[28px] text-center font-mt-bold mt-[10px]"> Choisissiez votre motif de consultation</div>
                         <div className="w-full flex center">
-                            <div className={`${newRdv.Type == true ?"bg-light-blue":"bg-blue"}  px-10 py-6 rounded-full text-[24px] w-[600px] text-center text-white font-mt-demi hover:cursor-pointer`} onClick={()=>{setNewRdv({...newRdv,Type:true})}}> Consultation de suivi avec votre expert</div>
+                            <div className={`${newRdv.Type == true ? BG("light-blue","blue") : BG("blue","light-blue")}  px-10 py-3 rounded-full text-[24px] w-[600px] text-center text-white font-mt-demi hover:cursor-pointer `} onClick={()=>{setNewRdv({...newRdv,Type:true})}}> Consultation de suivi avec votre expert</div>
                         </div>
                         <div className="w-full flex center">
-                            <div className={`${newRdv.Type == false ?"bg-light-blue":"bg-blue"}  px-10 py-6 rounded-full text-[24px] w-[600px] text-center text-white font-mt-demi hover:cursor-pointer`} onClick={()=>{setNewRdv({...newRdv,Type:false})}}> Première consultation avec un expert</div>
+                            <div className={`${newRdv.Type == false ? BG("light-blue","blue") : BG("blue","light-blue")}  px-10 py-3 rounded-full text-[24px] w-[600px] text-center text-white font-mt-demi hover:cursor-pointer  `} onClick={()=>{setNewRdv({...newRdv,Type:false})}}> Première consultation avec un expert</div>
                         </div>
                         <div className="w-full flex center">
-                            <div className="bg-cyan px-8 py-2 rounded-full text-[24px] text-center text-black font-mt-demi mt-[30px] hover:cursor-pointer" onClick={()=>{setGlobal(global+1)}}> Suivant</div>
+                            <div className= {`${BG("cyan","light-blue")} border-cyan px-8 py-2 rounded-full text-[24px] text-center text-black font-mt-demi mt-[30px] hover:cursor-pointer`} onClick={()=>{newRdv.Type == "null" ? toast.info("Merci de sélectionner un motif de rdv"):setGlobal(global+1)}}> Suivant</div>
                         </div>
                     </div>  
                 case 1:
@@ -186,27 +203,28 @@ const PriseDeRdv = ()=>{
                     }
                     datebefore.reverse();
 
-                    return <div className="relative w-full h-full flex p-4 flex flex-col gap-8">
+                    return <div className="relative w-full h-full flex p-4 flex flex-col gap-6">
                         <div className="absolute top-3 left-3 ">
-                         <div className="bg-cyan rounded-full text-[24px] text-center text-black font-mt-demi hover:cursor-pointer" onClick={()=>{setGlobal(global-1)}}><img src={"/images/fleche.png"} alt={"fleche"} className={"scale-[-0.75]"}/></div>
+                         <div className={`${BG("cyan","light-blue")} w-[50px] h-[50px] rounded-full text-[24px] text-center text-black font-mt-demi hover:cursor-pointer`} onClick={()=>{setGlobal(global-1)}}><img src={"/images/fleche.png"} alt={"fleche"} className={"scale-[-0.75] w-fit h-fit"}/></div>
                        
                         </div>
   
                         <div className="w-full text-[28px] text-center font-mt-bold mt-[10px]" key={"title"}> Choisissiez la date</div>
                         <div className="w-full h-fit flex flex-row">
                             <div className="w-1/3 flex ">
-                                <div className="bg-cyan px-8 py-2 rounded-full text-[24px] text-center text-black font-mt-demi " onClick={()=>{PreviousMonth()}}> Mois précendant</div>
+                                <div className={`${BG("cyan","light-blue")} px-8 py-1 rounded-full text-[24px] text-center text-black font-mt-demi `} onClick={()=>{PreviousMonth()}} key={"backmonth"}> Mois précendant</div>
                             </div>
                             <div className="w-1/3 flex ">
                                 <div className="w-full text-[28px] text-center text-black font-mt-bold " > {months[firstDay.getMonth()]}</div>
                             </div>
                             <div className="w-1/3 flex justify-end">
-                                <div className="bg-cyan px-8 py-2 rounded-full text-[24px] text-center text-black font-mt-demi " onClick={()=>{NextMonth()}}> Mois suivant</div>
+                                <div className={`${BG("cyan","light-blue")} px-8 py-1 rounded-full text-[24px] text-center text-black font-mt-demi `} onClick={()=>{NextMonth()}} key={"nextmonth"}> Mois suivant</div>
                             </div>
                         </div>
-                        <div className="w-full h-fit grid grid-cols-5 center gap-4">
+                        <div className="h-[450px] overflow-hidden hover:overflow-auto">
+                            <div className="w-full h-fit grid grid-cols-5 center gap-2 ">
                             {datebefore && datebefore.map((item,pos)=>{
-                                return <div key={`datebefore-${pos}`} className={`w-full h-fit bg-gray px-4 py-4 rounded-full text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{weekday[item.i]} {getShowDate(item.date)}</div></div>
+                                return <div key={`datebefore-${pos}`} className={`w-full h-fit bg-gray px-4 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{weekday[item.i]} {getShowDate(item.date)}</div></div>
                             })}
                             {selectDate != "" && Object.entries(listRdvLibre).map((posrdv,rdv)=>{
                                 incrementx++;
@@ -220,7 +238,7 @@ const PriseDeRdv = ()=>{
                                         {Object.entries(posrdv[1]).map((poshours,pos2)=>{
                                             let date = `${posrdv[0]}T${poshours[0].split("h")[0]}:${poshours[0].split("h")[1]}:00`
                                             
-                                            return <div onClick={()=> {setNewRdv({...newRdv,DateDebut:new Date(date),listExpert:poshours[1]})}} key={`hours-${poshours}`} className={`w-full h-fit ${newRdv.DateDebut != "" && newRdv.DateDebut.getTime() == new Date(date).getTime() ? "bg-light-blue": Object.keys(poshours[1]).length ? Object.keys(poshours[1]).length == Object.keys(experts).length ? "bg-green": "bg-vivid_tangerine" :"bg-red"} px-2 py-2 rounded-full text-[20px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{getTime(new Date(2000,1,1,poshours[0].split("h")[0],poshours[0].split("h")[1]))}</div><div className="text-[14px]">{!Object.keys(poshours[1]).length ? "0 expert":`${Object.keys(poshours[1]).length} experts`}</div></div>
+                                            return <div onClick={()=> {setNewRdv({...newRdv,DateDebut:new Date(date),listExpert:poshours[1]})}} key={`hours-${poshours}`} className={`w-full h-fit ${newRdv.DateDebut != "" && newRdv.DateDebut.getTime() == new Date(date).getTime() ?  BG("light-blue","blue") : Object.keys(poshours[1]).length ? Object.keys(poshours[1]).length == Object.keys(experts).length ?  BG("green","blue") :  BG("vivid_tangerine","blue") :"bg-red"} px-2 py-2 rounded-full text-[20px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{getTime(new Date(2000,1,1,poshours[0].split("h")[0],poshours[0].split("h")[1]))}</div><div className="text-[14px]">{!Object.keys(poshours[1]).length ? "0 expert":`${Object.keys(poshours[1]).length} experts`}</div></div>
                             
                                         })}
                                     </div>
@@ -237,15 +255,17 @@ const PriseDeRdv = ()=>{
                                     incrementx2 = 1;
                                     incrementy2 += 2;
                                 }
-                               return <div key={`rdv-${rdv}`} className={`w-full h-fit ${getGrid(incrementy2,false)} ${getGrid(incrementx2,true)} bg-blue px-4 py-4 rounded-full text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`}  onClick={()=>{setSelectDate(selectDate == rdv[0] ? "":rdv[0])}} ><div>{weekday[incrementx2]} {getShowDate(rdv)}</div></div>
+                               return <div key={`rdv-${rdv}`} className={`w-full h-fit ${getGrid(incrementy2,false)} ${getGrid(incrementx2,true)} ${selectDate != "" && selectDate == rdv[0] ? BG("light-blue","blue") :BG("blue","light-blue") }  px-4 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`}  onClick={()=>{setSelectDate(selectDate == rdv[0] ? "":rdv[0])}} ><div>{weekday[incrementx2]} {getShowDate(rdv)}</div></div>
                             })}
                             {dateafter && dateafter.map((item,pos)=>{
-                                return <div key={`datebefore-${pos}`} className={`w-full h-fit ${getGrid(incrementy2,false)} bg-gray px-4 py-4 rounded-full text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{weekday[item.i]} {getShowDate(item.date)}</div></div>
+                                return <div key={`datebefore-${pos}`} className={`w-full h-fit ${getGrid(incrementy2,false)}  bg-gray px-4 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{weekday[item.i]} {getShowDate(item.date)}</div></div>
                             })}
                         </div>
+                        </div>
                         
-                        <div className="w-full flex center">
-                            <div className="bg-cyan px-8 py-2 rounded-full text-[24px] text-center text-black font-mt-demi my-[30px] " onClick={()=>{setGlobal(global+1)}}> Suivant</div>
+                        
+                        <div className="w-full h-[60px] flex center">
+                            <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{selectDate == "" ? toast.info("Merci de sélectionner une date"): newRdv.DateDebut == "" ? toast.info("Merci de sélectionner un créneau")  : setGlobal(global+1)}}> Suivant</div>
                         </div>
                     </div>  
             case 2:
@@ -258,7 +278,7 @@ const PriseDeRdv = ()=>{
                         <div className="w-full grid grid-cols-3 place-content-start">
                             {newRdv.listExpert.map(expert=>{
                                 return <div className="w-full flex center">
-                                        <div className={`p-4 w-fit ${newRdv.CompteExpert != "" && newRdv.CompteExpert == expert ? "bg-light-blue":"bg-white_coffee"} flex flex-col rounded-3xl`} onClick={()=>{setNewRdv({...newRdv,CompteExpert:expert})}}>
+                                        <div className={`p-4 w-fit ${newRdv.CompteExpert != "" && newRdv.CompteExpert == expert ? BG("light-blue","blue"):BG("white_coffee","blue")} flex flex-col rounded-3xl`} onClick={()=>{setNewRdv({...newRdv,CompteExpert:expert})}}>
                                         <div><img src={expert.imageBase64} alt={`${expert.firstname}-${expert.lastname}-image`} className={`${newRdv.CompteExpert != "" && newRdv.CompteExpert == expert ? "bg-light-blue":"bg-white_coffee"} rounded-lg`}/></div>
                                         <div className="pt-4 text-[16px] text-center font-mt-demi">{`${expert.firstname} ${expert.lastname}`}</div>
                                     </div>
@@ -279,17 +299,17 @@ const PriseDeRdv = ()=>{
     return (
         <div className="">
             <div className="w-full h-full flex flex-col">
-                <div className="w-full h-[150px] bg-cyan drop-shadow-2">
-                    <div className="text-[32px] font-mt-demi mt-[50px]">Prenez votre rendez-vous en ligne </div>
+                <div className="w-full h-[100px] bg-cyan drop-shadow-2">
+                    <div className="text-[32px] font-mt-demi mt-[10px]">Prenez votre rendez-vous en ligne </div>
                     <div className="text-[20px] font-mt-demi">Renseignez les informations suivantes : </div>
                     
                 </div>
                 <div className="w-full h-full flex flex-row flex ">
-                    <div className="w-[32%] h-full relative ">
-                        <img src={"/images/Compte/Compte1.jpg"} alt={"visage21"} className="w-full h-[1200px]"/>
+                    <div className="w-[30%] h-[800px] relative flex center">
+                        <img src={"/images/Diagnostic/diagnostic1.png"} alt={"visage21"} className="w-full h-full"/>
                     </div>
-                    <div className="w-[68%] h-full p-[30px] ">
-                        <div className="bg-white rounded-3xl w-full h-full  flex flex-col overflow-hidden hover:overflow-auto">
+                    <div className="w-[70%] h-[800px] p-[30px] ">
+                        <div className="bg-white rounded-3xl w-full h-full  flex flex-col">
                             {element}
                         </div>
                 

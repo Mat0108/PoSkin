@@ -8,10 +8,10 @@ import {switchtext} from './../components/textdivers';
 
 import Carousel2 from '../components/Layout/Carousel2';
 
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams,useLocation  } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import { getBlogs } from '../services/Blog';
-import { activateAccount } from '../services/user';
+import { activateAccount, logout } from '../services/user';
 import { toast } from 'react-toastify';
 
 const Home = (props)=>{
@@ -19,6 +19,8 @@ const Home = (props)=>{
     const [itemList,setItemList]= useState([]);
     const params = useParams()
     const navigate = useNavigate();
+    const location = useLocation();
+    console.log('location : ', location)
     useEffect(() => {
         const fetchData = async() => {
             const blogs = await getBlogs();
@@ -26,6 +28,19 @@ const Home = (props)=>{
             
         };
         fetchData();
+        if(location.pathname == "/Logout"){
+            async function Logout(){
+                console.log('localStorage : ', localStorage)
+                let res = await logout(localStorage.getItem("userId"));
+                console.log('res : ', res)
+                if(res.status === 200){
+                  toast.success("Vous êtes deconnecté !")
+                  localStorage.clear()
+                  navigate("/")
+                }
+              } 
+            Logout();
+        }
         if(params.userId){
             const activate = async() => {
                 const user = await activateAccount(params.userId);
