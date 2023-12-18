@@ -12,6 +12,9 @@ const PriseDeRdv = ()=>{
     const [experts,setExperts] = useState([]);
     const [listRdv,setListRdv] = useState([]);
     const [listRdvLibre, setListRdvLibre] = useState([]);
+    const [suiviRdv,setSuiviRdv] = useState([]);
+    const [suiviRdvLibre,setSuiviRdvLibre] = useState([]);
+    
     const [newRdv,setNewRdv] = useState({
         DateDebut:"",
         Confirmation:"",
@@ -55,7 +58,8 @@ const PriseDeRdv = ()=>{
         
     }
     useEffect(() => {
-        let listRdvLocal = []
+        let listRdvLocal = [];
+        let listRdvExpert = [];
         const date20 = new Date();
        
 
@@ -63,6 +67,7 @@ const PriseDeRdv = ()=>{
         if(Object.keys(experts).length){
             async function fetchData(email){
                 let data = await getRdvOfExpert(email);
+                
                 if(data.status == 200){
                     if(Object.keys(data.data).length){
                         data.data.map(rdv=>{
@@ -75,6 +80,18 @@ const PriseDeRdv = ()=>{
                     }
                 }
             }
+            async function fetchCompte(){
+                let rdvClient = await getRdvOfExpert(localStorage.getItem("userEmail"));
+                if(rdvClient.status == 200 && Object.keys(rdvClient.data).length){
+                    let rdvExpert = await getRdvOfExpert(rdvClient.data[0].CompteExpert.email);
+                    if(rdvExpert.status == 200){
+
+                        setSuiviRdv(rdvExpert.data.map(item=>{return {DateDebut:item.DateDebut}}));
+                    }
+                    
+            }
+            }
+            fetchCompte();
             const promises = experts.map(expert=>fetchData(expert.email))
             // console.log('experts : ', experts)
             Promise.all(promises).then(() => {
@@ -86,13 +103,14 @@ const PriseDeRdv = ()=>{
     }, [experts,firstDay])
     useEffect(() => {
         let listRdvAll = []
+        let suiviRdvAll = []
         const currentDate = new Date(firstDay.getTime());
         for(let i=0;i<lastDay.getDate();i++){
             let datei = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
             datei.setDate(datei.getDate()+i)
              
             if(datei.getDay() != 0 && datei.getDay() != 6){
-                         
+            suiviRdvAll[getDate(datei)] = new Array();        
             listRdvAll[getDate(datei)] = new Array();
             for(let j=9;j<=16;j++){
                 if(j!=11){
@@ -113,14 +131,19 @@ const PriseDeRdv = ()=>{
                                 })
                                 return cond;
                             })
-                            
                             // console.log('expert : ',`${j>9?j:`0${j}`}h${k*2}0`, expert)
                             if (Object.keys(expert).length){                                
                                 // listRdvAll[getDate(datei)][`${j>9?j+1:`0${j+1}`}h${k*2}0`] = new Array()
                                 listRdvAll[getDate(datei)][`${j>8?j+1:`0${j+1}`}h${k*2}0`] = expert;
                            
                             }
-                            
+                            if(Object.keys(suiviRdv).length){
+                                
+                                let filter = suiviRdv.filter(item=>new Date(item.DateDebut).getTime() == new Date(`${getDate(datei)}T${j>8?j+1:`0${j+1}`}:${k*2}0:00`).getTime())
+                                if(!Object.keys(filter).length){
+                                    listRdvAll[getDate(datei)][`${j>8?j+1:`0${j+1}`}h${k*2}0`] ;
+                                }
+                            }
                         }
                     }
                 }
@@ -147,9 +170,9 @@ const PriseDeRdv = ()=>{
         }
         setMonth(newMonth);    
     }
-    useEffect(() => {
-      console.log('newRdv : ', newRdv)
-    }, [newRdv])
+    // useEffect(() => {
+    //   console.log('newRdv : ', newRdv)
+    // }, [newRdv])
 
     const element = useMemo(() => {
         

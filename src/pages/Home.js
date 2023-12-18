@@ -20,7 +20,6 @@ const Home = (props)=>{
     const params = useParams()
     const navigate = useNavigate();
     const location = useLocation();
-    console.log('location : ', location)
     useEffect(() => {
         const fetchData = async() => {
             const blogs = await getBlogs();

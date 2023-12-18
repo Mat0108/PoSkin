@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { BG } from "../components/TailwindUtils";
 import { toast } from "react-toastify";
+import { patchUser } from "../services/user";
 
 const MoreInfo = (props)=>{
     const [user, setUser] = useState({
@@ -17,7 +18,6 @@ const MoreInfo = (props)=>{
       });
     const onChangeHandler = (event) => {
         const { id, value } = event.target;
-        console.log(id,value)
         setUser({ ...user, [id]: value });
 
       };
@@ -54,11 +54,17 @@ const MoreInfo = (props)=>{
             </div>
         </div>)
     }
-    function NextFunction(){
+    async function NextFunction(){
         const isUserValid = Object.values(user).slice(0, Object.keys(user).length - 1).every((value) => value !== "" && value !== "null");
         
         if(isUserValid && user.allergiestype == true ? user.allergies != "" : isUserValid){
-            props.next();
+            const userData = await patchUser(localStorage.getItem("userId"),user);
+            if(userData.status == 200){
+                toast.success("Vos informations ont bien été sauvegardées");
+                setTimeout(()=>{
+                    props.next();   
+                },200)
+            }
         }else{
             toast.info("Merci de remplir tous les champs")
         }
