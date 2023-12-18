@@ -41,15 +41,15 @@ const MoreInfo = (props)=>{
     }
     function Select(question,set1,set2,value){
         return (<div className="w-full flex flex-col mt-[30px] ml-[10px]">
-            <div className="text-left text-[20px] font-mt-demi">{question}</div>
+            <div className="text-left text-[16px] font-mt-demi">{question}</div>
             <div className="w-[60%] flex flex-row gap-8 mt-4">
                 <div className="flex flex-row " onClick={set1}>
                     <div className={`w-4 h-4 mt-1 mr-3 rounded-full border-2 ${value == true ? "bg-cyan":"bg-white" } border-black `}></div>
-                    <div className="text-[20px] font-mt-demi">OUI</div>
+                    <div className="text-[16px] font-mt-demi">OUI</div>
                 </div>
                 <div className="flex flex-row " onClick={set2}>
                     <div className={`w-4 h-4 mt-1 mr-3 rounded-full border-2 ${value == false ? "bg-cyan":"bg-white" } border-black `}></div>
-                    <div className="text-[20px] font-mt-demi ">NON</div>
+                    <div className="text-[16px] font-mt-demi ">NON</div>
                 </div>
             </div>
         </div>)

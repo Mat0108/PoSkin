@@ -24,6 +24,7 @@ import PasswordEdit from './pages/PasswordEdit';
 import Compte from './pages/Compte';
 import MesDiagnostics from './pages/MesDiagnostics';
 import PriseDeRdv from './pages/PriseDeRdv';
+import MesRdv from './pages/MesRdv';
 
 
 function App() {
@@ -121,6 +122,7 @@ function App() {
           <Route path="/Compte" element={<Compte/>}></Route> 
           <Route path="/MesDiagnostics" element={<MesDiagnostics openModal={openModal} closeModal={closeModal}/>} ></Route> 
           <Route path="/PriseDeRdv" element={<PriseDeRdv />}></Route>
+          <Route path="/MesRdv" element={<MesRdv />}></Route>
           <Route exact path="/" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
           <Route exact path="/Logout" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
           

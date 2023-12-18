@@ -14,6 +14,9 @@ const Carousel2 =({props})=>{
         if(props.items){
             let i;
             let list = [];
+            if(typeof props.setShow == "function"){
+                props.setShow(show);
+            }
             for (i=show;i<props.nbShow+show;i++){
                 if(i>=Object.keys(props.items).length){
                     list.push(props.items[i-Object.keys(props.items).length])
