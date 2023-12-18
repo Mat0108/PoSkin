@@ -25,6 +25,7 @@ const MesRdv = ()=>{
       const fetchData = async ()=>{
         let res = await getRdvOfExpert(localStorage.getItem("userEmail"));
         if(res.status == 200){
+            console.log('res.data : ', res.data)
             setListRdvAvant(res.data.filter(rdv => new Date(rdv.DateDebut) < new Date()).sort((a, b) => new Date(a.DateDebut).getTime() - new Date(b.DateDebut).getTime()));
             setListRdvApres(res.data.filter(rdv => new Date(rdv.DateDebut) >= new Date()).sort((a, b) => new Date(a.DateDebut).getTime() - new Date(b.DateDebut).getTime()));
         }
@@ -64,15 +65,18 @@ const MesRdv = ()=>{
         </div> 
     }
     const Element = useMemo(()=>{
-        console.log('listRdvAvant : ', !!Object.keys(listRdvApres).length)
+        
+        console.log('listRdvAvant : ', listRdvAvant)
         return <div className="flex flex-col justify-left">
             {!!Object.keys(listRdvAvant).length && <Carousel2 props={{items:listRdvAvant.reverse().map(item=>{return Recap(item)}),nbShow:1,ratio:10,showPoint:false,start:Object.keys(listRdvAvant).length-1,setShow:setShowRdv}}/>}
-            {!!Object.keys(listRdvAvant).length && <div className="w-full h-full flex flex-col p-8">
+            <div className="w-full h-full flex flex-col p-8">
+            {!!Object.keys(listRdvAvant).length && <>
                 {listRdvAvant[showRdv].Observation && <div className="text-[32px]  text-left font-mt-demi">Observations :</div>}
-                <div className="text-[20px] text-left">{listRdvAvant[showRdv].Observation}</div>
-                {!!Object.keys(listRdvApres).length && <>
-                <div className="flex center mt-[30px]">{NextRdv(listRdvApres[0])}</div></>}
-            </div>}
+                <div className="text-[20px] text-left">{listRdvAvant[showRdv].Observation}</div></>
+           }
+            {!!Object.keys(listRdvApres).length && <>
+            <div className="flex center mt-[30px]">{NextRdv(listRdvApres[0])}</div></>}
+                </div>
         </div>
     },[listRdvAvant,listRdvApres,showRdv])
     return (

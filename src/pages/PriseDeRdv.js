@@ -178,7 +178,12 @@ const PriseDeRdv = ()=>{
     }, [newRdv])
     async function CreateNewRdv(){
         console.log('newRdv : ', newRdv)
-        const res = await CreateRdv(newRdv)
+        const res = await CreateRdv({
+            DateDebut:newRdv.DateDebut,
+            Confirmation:false,
+            Type:newRdv.Type,
+            CompteClient:localStorage.getItem("userEmail"),
+            CompteExpert:newRdv.CompteExpert})
         if(res.status == 200){
             toast.success("Rendez vous crée");
             navigate("/MesRdv")

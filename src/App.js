@@ -48,7 +48,6 @@ function App() {
   };
   async function Logout(){
     let res = await logout(localStorage.getItem("userId"));
-    console.log('res : ', res)
     if(res.status === 200){
       setConnected(false);
       toast.success("Vous êtes deconnecté !")
