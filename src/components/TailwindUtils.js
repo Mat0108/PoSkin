@@ -346,3 +346,6 @@ export function getBorder(colorName) {
       return "";
   }
 }
+export function BG(color1,color2){
+  return `${getBG(color1)} border-4 ${getBorder(color1)} hover:${getBorder(color2)}`
+}

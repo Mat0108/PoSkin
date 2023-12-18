@@ -2,10 +2,11 @@ import react,{ useEffect,useState } from "react";
 import { GetAllExperts, getRdvOfExpert } from "../services/rdv";
 import { getDate, getTime, getShowDate } from "../components/dateUtils";
 import { useMemo } from "react";
-import {getBorder, getGrid} from "../components/TailwindUtils"
+import {BG, getBorder, getGrid} from "../components/TailwindUtils"
 import { getBG } from './../components/TailwindUtils';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import MoreInfo from "./MoreInfo";
 
 const PriseDeRdv = ()=>{
     const [experts,setExperts] = useState([]);
@@ -116,7 +117,7 @@ const PriseDeRdv = ()=>{
                             // console.log('expert : ',`${j>9?j:`0${j}`}h${k*2}0`, expert)
                             if (Object.keys(expert).length){                                
                                 // listRdvAll[getDate(datei)][`${j>9?j+1:`0${j+1}`}h${k*2}0`] = new Array()
-                                listRdvAll[getDate(datei)][`${j>9?j+1:`0${j+1}`}h${k*2}0`] = expert;
+                                listRdvAll[getDate(datei)][`${j>8?j+1:`0${j+1}`}h${k*2}0`] = expert;
                            
                             }
                             
@@ -146,14 +147,12 @@ const PriseDeRdv = ()=>{
         }
         setMonth(newMonth);    
     }
-    // useEffect(() => {
-    //   console.log('newRdv : ', newRdv)
-    // }, [newRdv])
-    
+    useEffect(() => {
+      console.log('newRdv : ', newRdv)
+    }, [newRdv])
+
     const element = useMemo(() => {
-        function BG(color1,color2){
-            return `${getBG(color1)} border-4 ${getBorder(color1)} hover:${getBorder(color2)}`
-        }
+        
         let selected = "bg-light-blue border-4 border-light-blue hover:border-blue";
         let unselected = "bg-blue border-4 border-blue hover:border-light-blue";
         if(Object.keys(listRdvLibre).length){
@@ -171,10 +170,13 @@ const PriseDeRdv = ()=>{
                             <div className={`${newRdv.Type == false ? BG("light-blue","blue") : BG("blue","light-blue")}  px-10 py-3 rounded-full text-[24px] w-[600px] text-center text-white font-mt-demi hover:cursor-pointer  `} onClick={()=>{setNewRdv({...newRdv,Type:false})}}> Première consultation avec un expert</div>
                         </div>
                         <div className="w-full flex center">
-                            <div className= {`${BG("cyan","light-blue")} border-cyan px-8 py-2 rounded-full text-[24px] text-center text-black font-mt-demi mt-[30px] hover:cursor-pointer`} onClick={()=>{newRdv.Type == "null" ? toast.info("Merci de sélectionner un motif de rdv"):setGlobal(global+1)}}> Suivant</div>
+                            <div className= {`${BG("cyan","light-blue")} border-cyan px-8 py-2 rounded-full text-[24px] text-center text-black font-mt-demi mt-[30px] hover:cursor-pointer`} onClick={()=>{newRdv.Type == "null" ? toast.info("Merci de sélectionner un motif de rdv"):setGlobal(newRdv.Type ? global+2:global+1)}}> Suivant</div>
                         </div>
                     </div>  
                 case 1:
+                    
+                    return <MoreInfo back={()=>{setGlobal(global - 1)}} next={()=>{setGlobal(global + 1)}}/>
+                case 2:
                     let incrementx = firstDay.getDay()-1;
                     if(incrementx == -1){incrementx++;}
                     let incrementy = 1;
@@ -237,7 +239,6 @@ const PriseDeRdv = ()=>{
                                     return <div className={`w-full h-fit ${incrementy} ${getGrid(incrementy+1,false)} col-span-5 grid grid-cols-8 gap-4`}>
                                         {Object.entries(posrdv[1]).map((poshours,pos2)=>{
                                             let date = `${posrdv[0]}T${poshours[0].split("h")[0]}:${poshours[0].split("h")[1]}:00`
-                                            
                                             return <div onClick={()=> {setNewRdv({...newRdv,DateDebut:new Date(date),listExpert:poshours[1]})}} key={`hours-${poshours}`} className={`w-full h-fit ${newRdv.DateDebut != "" && newRdv.DateDebut.getTime() == new Date(date).getTime() ?  BG("light-blue","blue") : Object.keys(poshours[1]).length ? Object.keys(poshours[1]).length == Object.keys(experts).length ?  BG("green","blue") :  BG("vivid_tangerine","blue") :"bg-red"} px-2 py-2 rounded-full text-[20px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{getTime(new Date(2000,1,1,poshours[0].split("h")[0],poshours[0].split("h")[1]))}</div><div className="text-[14px]">{!Object.keys(poshours[1]).length ? "0 expert":`${Object.keys(poshours[1]).length} experts`}</div></div>
                             
                                         })}
@@ -268,10 +269,10 @@ const PriseDeRdv = ()=>{
                             <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{selectDate == "" ? toast.info("Merci de sélectionner une date"): newRdv.DateDebut == "" ? toast.info("Merci de sélectionner un créneau")  : setGlobal(global+1)}}> Suivant</div>
                         </div>
                     </div>  
-            case 2:
+            case 3:
                 return <div className="relative w-full h-full flex p-4 flex flex-col gap-8">
                         <div className="absolute top-3 left-3 ">
-                         <div className="bg-cyan rounded-full text-[24px] text-center text-black font-mt-demi" onClick={()=>{setGlobal(global-1)}}><img src={"/images/fleche.png"} alt={"fleche"} className={"scale-[-0.75]"}/></div>
+                         <div className={`${BG("cyan","light-blue")} w-[50px] h-[50px] rounded-full text-[24px] text-center text-black font-mt-demi hover:cursor-pointer`} onClick={()=>{setGlobal(global-1)}}><img src={"/images/fleche.png"} alt={"fleche"} className={"scale-[-0.75] w-fit h-fit"}/></div>
                        
                         </div>
                         <div className="w-full text-[28px] text-center font-mt-bold mt-[10px]"> Choisissez votre expert</div>

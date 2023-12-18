@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, { useMemo, useState,useRef } from 'react';
+import React, { useMemo, useState,useRef, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {Route,Routes} from 'react-router';
 
@@ -54,6 +54,12 @@ function App() {
       localStorage.clear()
     }
   } 
+  useEffect(() => {
+    if(!connected){
+      localStorage.clear()
+    }
+  }, [connected])
+  
 
   let register = <Register type={false} close={()=>closeModal()} login={()=>{}}/>
   let login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}}/>
