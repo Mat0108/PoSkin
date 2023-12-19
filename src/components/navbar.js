@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import MesDiagnostics from './../pages/MesDiagnostics';
 
 const Navbar = (props) => {
@@ -50,7 +50,17 @@ const Navbar = (props) => {
     //         return <div onClick={props.Register}><div className={`flex flex-row w-[140px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>Register</div></div></div>
     //     }
     // },[registerbool])
-
+    const location = useLocation();
+    const navigate = useNavigate();
+    useEffect(()=>{
+         if(location.pathname === "/Login"){
+            props.Login();
+            navigate("/");
+        }else if(location.pathname === "/Register"){
+            props.Register();
+            navigate("/");
+        }
+    },[])
     const Login = useMemo(()=>{
         if(login){
             return <div onClick={props.LoginCond ? props.Logout: props.Login}><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>{props.LoginCond ? "Se deconnecter" : "Se connecter"}</div></div></div>
@@ -89,7 +99,6 @@ const Navbar = (props) => {
     
     return (
     <>
-    
     <div className='w-full h-[40px] sm:h-[80px] border-b-2 border-white grid grid-cols-5 bg-[#EEE8E4] p-2'>
         <div className='col-start-1 ml-[20px]  sm:ml-[35px] mt-[4px] sm:mt-[12px] p-x-2 flex items-start ' ><a href="/" className='w-fit h-full'><img src={'/images/logo.png'} alt="logo" className='h-[30%] sm:h-[70%] '/></a></div>
         <div className='col-start-4 col-span-2 flex '>

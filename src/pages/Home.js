@@ -27,9 +27,8 @@ const Home = (props)=>{
             
         };
         fetchData();
-        if(location.pathname == "/Logout"){
+        if(location.pathname === "/Logout"){
             async function Logout(){
-                console.log('localStorage : ', localStorage)
                 let res = await logout(localStorage.getItem("userId"));
                 console.log('res : ', res)
                 if(res.status === 200){
@@ -40,6 +39,7 @@ const Home = (props)=>{
               } 
             Logout();
         }
+        
         if(params.userId){
             const activate = async() => {
                 const user = await activateAccount(params.userId);

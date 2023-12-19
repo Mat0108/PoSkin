@@ -26,7 +26,6 @@ import MesDiagnostics from './pages/MesDiagnostics';
 import PriseDeRdv from './pages/PriseDeRdv';
 import MesRdv from './pages/MesRdv';
 
-
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [divModal,setDivModal] = useState(<></>)

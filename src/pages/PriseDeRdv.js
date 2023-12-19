@@ -38,7 +38,7 @@ const PriseDeRdv = ()=>{
         );
     const navigate = useNavigate();
     useEffect(() => {
-      if(localStorage.length == 0){
+      if(localStorage.length === 0){
         setTimeout(()=>{
             toast.info("Merci de vous connecter d'abord")
         },2000)
@@ -68,7 +68,7 @@ const PriseDeRdv = ()=>{
             async function fetchData(email){
                 let data = await getRdvOfExpert(email);
                 
-                if(data.status == 200){
+                if(data.status === 200){
                     if(Object.keys(data.data).length){
                         data.data.map(rdv=>{
                             const dateRdv = new Date(rdv.DateDebut);
@@ -82,9 +82,9 @@ const PriseDeRdv = ()=>{
             }
             async function fetchCompte(){
                 let rdvClient = await getRdvOfExpert(localStorage.getItem("userEmail"));
-                if(rdvClient.status == 200 && Object.keys(rdvClient.data).length){
+                if(rdvClient.status === 200 && Object.keys(rdvClient.data).length){
                     let rdvExpert = await getRdvOfExpert(rdvClient.data[0].CompteExpert.email);
-                    if(rdvExpert.status == 200){
+                    if(rdvExpert.status === 200){
 
                         setSuiviRdv(rdvExpert.data.map(item=>{return {DateDebut:item.DateDebut,expert:item.CompteExpert.email}}));
                     }
@@ -109,23 +109,23 @@ const PriseDeRdv = ()=>{
             let datei = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
             datei.setDate(datei.getDate()+i)
              
-            if(datei.getDay() != 0 && datei.getDay() != 6){
+            if(datei.getDay() !== 0 && datei.getDay() !== 6){
             suiviRdvAll[getDate(datei)] = new Array();        
             listRdvAll[getDate(datei)] = new Array();
             for(let j=9;j<=16;j++){
-                if(j!=11){
+                if(j!==11){
                     for(let k = 0;k<3;k++){
                             let rdv = listRdv.filter(rdv =>{
                                 datei.setHours(j+1);
                                 datei.setMinutes(k*20);
                                 let datedebut = new Date(rdv.DateDebut);
                                 datedebut.setHours(datedebut.getHours()-1)
-                                return datedebut.getTime() == datei.getTime()
+                                return datedebut.getTime() === datei.getTime()
                             })
                             let expert = experts.filter(expert=>{
                                 let cond = true;
                                 rdv.map(rdvvar=>{
-                                    if(rdvvar.CompteExpert._id == expert._id){
+                                    if(rdvvar.CompteExpert._id === expert._id){
                                         cond = false;
                                     }
                                 })
@@ -139,7 +139,7 @@ const PriseDeRdv = ()=>{
                             }
                             if(Object.keys(suiviRdv).length){
                                 console.log('suiviRdv : ', suiviRdv)
-                                let filter = suiviRdv.filter(item=>new Date(item.DateDebut).getTime() == new Date(`${getDate(datei)}T${j>8?j+1:`0${j+1}`}:${k*2}0:00`).getTime())
+                                let filter = suiviRdv.filter(item=>new Date(item.DateDebut).getTime() === new Date(`${getDate(datei)}T${j>8?j+1:`0${j+1}`}:${k*2}0:00`).getTime())
                                 console.log('filter : ', !Object.keys(filter).length,filter)
                                 if(!Object.keys(filter).length){
                                     suiviRdvAll[getDate(datei)][`${j>8?j+1:`0${j+1}`}h${k*2}0`] = [suiviRdv[0].expert] ;
@@ -177,14 +177,13 @@ const PriseDeRdv = ()=>{
       console.log('newRdv : ', newRdv)
     }, [newRdv])
     async function CreateNewRdv(){
-        console.log('newRdv : ', newRdv)
         const res = await CreateRdv({
             DateDebut:newRdv.DateDebut,
             Confirmation:false,
             Type:newRdv.Type,
             CompteClient:localStorage.getItem("userEmail"),
             CompteExpert:newRdv.CompteExpert})
-        if(res.status == 200){
+        if(res.status === 200){
             toast.success("Rendez vous crée");
             navigate("/MesRdv")
         }
@@ -202,13 +201,13 @@ const PriseDeRdv = ()=>{
                     return <div className="relative w-full h-full flex p-4 flex flex-col gap-8">
                         <div className="w-full text-[28px] text-center font-mt-bold mt-[10px]"> Choisissiez votre motif de consultation</div>
                         <div className="w-full flex center">
-                            <div className={`${newRdv.Type == true ? BG("light-blue","blue") : BG("blue","light-blue")}  px-10 py-3 rounded-full text-[24px] w-[600px] text-center text-white font-mt-demi hover:cursor-pointer `} onClick={()=>{setNewRdv({...newRdv,Type:true})}}> Consultation de suivi avec votre expert</div>
+                            <div className={`${newRdv.Type === true ? BG("light-blue","blue") : BG("blue","light-blue")}  px-10 py-3 rounded-full text-[24px] w-[600px] text-center text-white font-mt-demi hover:cursor-pointer `} onClick={()=>{setNewRdv({...newRdv,Type:true})}}> Consultation de suivi avec votre expert</div>
                         </div>
                         <div className="w-full flex center">
-                            <div className={`${newRdv.Type == false ? BG("light-blue","blue") : BG("blue","light-blue")}  px-10 py-3 rounded-full text-[24px] w-[600px] text-center text-white font-mt-demi hover:cursor-pointer  `} onClick={()=>{setNewRdv({...newRdv,Type:false})}}> Première consultation avec un expert</div>
+                            <div className={`${newRdv.Type === false ? BG("light-blue","blue") : BG("blue","light-blue")}  px-10 py-3 rounded-full text-[24px] w-[600px] text-center text-white font-mt-demi hover:cursor-pointer  `} onClick={()=>{setNewRdv({...newRdv,Type:false})}}> Première consultation avec un expert</div>
                         </div>
                         <div className="w-full flex center">
-                            <div className= {`${BG("cyan","light-blue")} border-cyan px-8 py-2 rounded-full text-[24px] text-center text-black font-mt-demi mt-[30px] hover:cursor-pointer`} onClick={()=>{newRdv.Type == "null" ? toast.info("Merci de sélectionner un motif de rdv"):setGlobal(newRdv.Type ? global+2:global+1)}}> Suivant</div>
+                            <div className= {`${BG("cyan","light-blue")} border-cyan px-8 py-2 rounded-full text-[24px] text-center text-black font-mt-demi mt-[30px] hover:cursor-pointer`} onClick={()=>{newRdv.Type === "null" ? toast.info("Merci de sélectionner un motif de rdv"):setGlobal(newRdv.Type ? global+2:global+1)}}> Suivant</div>
                         </div>
                     </div>  
                 case 1:
@@ -216,10 +215,10 @@ const PriseDeRdv = ()=>{
                     return <MoreInfo back={()=>{setGlobal(global - 1)}} next={()=>{setGlobal(global + 1)}}/>
                 case 2:
                     let incrementx = firstDay.getDay()-1;
-                    if(incrementx == -1){incrementx++;}
+                    if(incrementx === -1){incrementx++;}
                     let incrementy = 1;
                     let incrementx2 = firstDay.getDay()-1;
-                    if(incrementx2 == -1){incrementx2++;}
+                    if(incrementx2 === -1){incrementx2++;}
                     
                     let incrementy2 = 1;
                     let datebefore = [];
@@ -231,7 +230,7 @@ const PriseDeRdv = ()=>{
                         }
                     }
                     let last = lastDay.getDay();
-                    if(last == -1){last++;}
+                    if(last === -1){last++;}
                     let dateafter = [];
                     if(last <= 5 && last >= 1){
           
@@ -245,7 +244,7 @@ const PriseDeRdv = ()=>{
                     
                     return <div className="relative w-full h-full flex p-4 flex flex-col gap-6">
                         <div className="absolute top-3 left-3 ">
-                         <div className={`${BG("cyan","light-blue")} w-[50px] h-[50px] rounded-full text-[24px] text-center text-black font-mt-demi hover:cursor-pointer`} onClick={()=>{setGlobal(newRdv.Type == true ? global-2: global-1)}}><img src={"/images/fleche.png"} alt={"fleche"} className={"scale-[-0.75] w-fit h-fit"}/></div>
+                         <div className={`${BG("cyan","light-blue")} w-[50px] h-[50px] rounded-full text-[24px] text-center text-black font-mt-demi hover:cursor-pointer`} onClick={()=>{setGlobal(newRdv.Type === true ? global-2: global-1)}}><img src={"/images/fleche.png"} alt={"fleche"} className={"scale-[-0.75] w-fit h-fit"}/></div>
                        
                         </div>
   
@@ -266,37 +265,37 @@ const PriseDeRdv = ()=>{
                             {datebefore && datebefore.map((item,pos)=>{
                                 return <div key={`datebefore-${pos}`} className={`w-full h-fit bg-gray px-4 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{weekday[item.i]} {getShowDate(item.date)}</div></div>
                             })}
-                            {selectDate != "" && (newRdv.Type == false ? Object.entries(listRdvLibre) : Object.entries(suiviRdvLibre)).map((posrdv,rdv)=>{
+                            {selectDate !== "" && (newRdv.Type === false ? Object.entries(listRdvLibre) : Object.entries(suiviRdvLibre)).map((posrdv,rdv)=>{
                                 incrementx++;
-                                if(incrementx == 6){
+                                if(incrementx === 6){
                                     incrementx = 1;
                                     incrementy += 2;
                                 }
 
-                                if(posrdv[0] == selectDate){
+                                if(posrdv[0] === selectDate){
                                     return <div className={`w-full h-fit ${incrementy} ${getGrid(incrementy+1,false)} col-span-5 grid grid-cols-8 gap-4`}>
                                         {Object.entries(posrdv[1]).map((poshours,pos2)=>{
                                             let date = `${posrdv[0]}T${poshours[0].split("h")[0]}:${poshours[0].split("h")[1]}:00`
                                             return <div onClick={()=> {
-                                                newRdv.Type == true ? setNewRdv({...newRdv,DateDebut:new Date(date),CompteExpert:poshours[1][0],listExpert:poshours[1]}):setNewRdv({...newRdv,DateDebut:new Date(date),listExpert:poshours[1]})
-                                            }} key={`hours-${poshours}`} className={`w-full h-fit ${newRdv.DateDebut != "" && newRdv.DateDebut.getTime() == new Date(date).getTime() ?  BG("light-blue","blue") : newRdv.Type == true ? BG("green","blue") : Object.keys(poshours[1]).length ? Object.keys(poshours[1]).length == Object.keys(experts).length ?  BG("green","blue") :  BG("vivid_tangerine","blue") :"bg-red"} px-2 py-2 rounded-full text-[20px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{getTime(new Date(2000,1,1,poshours[0].split("h")[0],poshours[0].split("h")[1]))}</div><div className="text-[14px]">{newRdv.Type == true ? "":`${Object.keys(poshours[1]).length} experts`}</div></div>
+                                                newRdv.Type === true ? setNewRdv({...newRdv,DateDebut:new Date(date),CompteExpert:poshours[1][0],listExpert:poshours[1]}):setNewRdv({...newRdv,DateDebut:new Date(date),listExpert:poshours[1]})
+                                            }} key={`hours-${poshours}`} className={`w-full h-fit ${newRdv.DateDebut !== "" && newRdv.DateDebut.getTime() === new Date(date).getTime() ?  BG("light-blue","blue") : newRdv.Type === true ? BG("green","blue") : Object.keys(poshours[1]).length ? Object.keys(poshours[1]).length === Object.keys(experts).length ?  BG("green","blue") :  BG("vivid_tangerine","blue") :"bg-red"} px-2 py-2 rounded-full text-[20px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{getTime(new Date(2000,1,1,poshours[0].split("h")[0],poshours[0].split("h")[1]))}</div><div className="text-[14px]">{newRdv.Type === true ? "":`${Object.keys(poshours[1]).length} experts`}</div></div>
                             
                                         })}
                                     </div>
                                 }
                             })}
-                            {(newRdv.Type == false ? Object.entries(listRdvLibre) : Object.entries(suiviRdvLibre)).map((rdv,pos)=>{
+                            {(newRdv.Type === false ? Object.entries(listRdvLibre) : Object.entries(suiviRdvLibre)).map((rdv,pos)=>{
                                 
                                 let nbCreneau = 0;
                                 Object.entries(rdv[1]).map((posrdv2)=>{
                                     Object.entries(posrdv2[1]).map(()=>{nbCreneau++})
                                 })
                                 incrementx2++;
-                                if(incrementx2 == 6){
+                                if(incrementx2 === 6){
                                     incrementx2 = 1;
                                     incrementy2 += 2;
                                 }
-                               return <div key={`rdv-${rdv}`} className={`w-full h-fit ${getGrid(incrementy2,false)} ${getGrid(incrementx2,true)} ${selectDate != "" && selectDate == rdv[0] ? BG("light-blue","blue") :BG("blue","light-blue") }  px-4 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`}  onClick={()=>{setSelectDate(selectDate == rdv[0] ? "":rdv[0])}} ><div>{weekday[incrementx2]} {getShowDate(rdv)}</div></div>
+                               return <div key={`rdv-${rdv}`} className={`w-full h-fit ${getGrid(incrementy2,false)} ${getGrid(incrementx2,true)} ${selectDate !== "" && selectDate === rdv[0] ? BG("light-blue","blue") :BG("blue","light-blue") }  px-4 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`}  onClick={()=>{setSelectDate(selectDate === rdv[0] ? "":rdv[0])}} ><div>{weekday[incrementx2]} {getShowDate(rdv)}</div></div>
                             })}
                             {dateafter && dateafter.map((item,pos)=>{
                                 return <div key={`datebefore-${pos}`} className={`w-full h-fit ${getGrid(incrementy2,false)}  bg-gray px-4 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{weekday[item.i]} {getShowDate(item.date)}</div></div>
@@ -306,7 +305,7 @@ const PriseDeRdv = ()=>{
                         
                         
                         <div className="w-full h-[60px] flex center">
-                            <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{selectDate == "" ? toast.info("Merci de sélectionner une date"): newRdv.DateDebut == "" ? toast.info("Merci de sélectionner un créneau")  :  newRdv.Type == true ? CreateNewRdv():setGlobal(global+1)}}> Suivant</div>
+                            <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{selectDate === "" ? toast.info("Merci de sélectionner une date"): newRdv.DateDebut === "" ? toast.info("Merci de sélectionner un créneau")  :  newRdv.Type === true ? CreateNewRdv():setGlobal(global+1)}}> Suivant</div>
                         </div>
                     </div>  
             case 3:
@@ -319,8 +318,8 @@ const PriseDeRdv = ()=>{
                         <div className="w-full grid grid-cols-3 place-content-start">
                             {newRdv.listExpert.map(expert=>{
                                 return <div className="w-full flex center">
-                                        <div className={`p-4 w-fit ${newRdv.CompteExpert != "" && newRdv.CompteExpert == expert.email ? BG("light-blue","blue"):BG("white_coffee","blue")} flex flex-col rounded-3xl`} onClick={()=>{setNewRdv({...newRdv,CompteExpert:expert.email})}}>
-                                        <div><img src={expert.imageBase64} alt={`${expert.firstname}-${expert.lastname}-image`} className={`${newRdv.CompteExpert != "" && newRdv.CompteExpert == expert.email ? "bg-light-blue":"bg-white_coffee"} rounded-lg`}/></div>
+                                        <div className={`p-4 w-fit ${newRdv.CompteExpert !== "" && newRdv.CompteExpert === expert.email ? BG("light-blue","blue"):BG("white_coffee","blue")} flex flex-col rounded-3xl`} onClick={()=>{setNewRdv({...newRdv,CompteExpert:expert.email})}}>
+                                        <div><img src={expert.imageBase64} alt={`${expert.firstname}-${expert.lastname}-image`} className={`${newRdv.CompteExpert !== "" && newRdv.CompteExpert === expert.email ? "bg-light-blue":"bg-white_coffee"} rounded-lg`}/></div>
                                         <div className="pt-4 text-[16px] text-center font-mt-demi">{`${expert.firstname} ${expert.lastname}`}</div>
                                     </div>
                                 </div>
@@ -328,7 +327,7 @@ const PriseDeRdv = ()=>{
                             
                         </div>
                         <div className="w-full h-[60px] flex center">
-                            <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{newRdv.CompteExpert == "" ? toast.info("Merci de sélectionner un expert"):CreateNewRdv()}}> Suivant</div>
+                            <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{newRdv.CompteExpert === "" ? toast.info("Merci de sélectionner un expert"):CreateNewRdv()}}> Suivant</div>
                         </div>
                     </div>  
 
@@ -346,7 +345,7 @@ const PriseDeRdv = ()=>{
                 <div className="w-full h-full flex flex-row flex ">
                     <div className="w-[30%] h-[800px] relative flex center">
                         <img src={"/images/Diagnostic/diagnostic1.png"} alt={"visage21"} className="w-full h-full"/>
-                        
+                        <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-black text-[48px] font-mt-bold">PRISE DE RDV</div></div>
                     </div>
                     <div className="w-[70%] h-[800px] p-[30px] ">
                         <div className="bg-white rounded-3xl w-full h-full  flex flex-col">

@@ -84,11 +84,11 @@ const MesDiagnostics = (props) =>{
     return (
     <div className="">
       <div className="w-full h-[870px] flex flex-row">
-          <div className="w-1/3 h-full relative">
-              <img src={"/images/Compte/Compte1.jpg"} alt={"visage21"} className="w-full h-full"/>
+          <div className="w-fit h-full relative">
+              <img src={"/images/Compte/Compte1.jpg"} alt={"visage21"} className="w-fit h-full"/>
               <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-white text-[48px] font-mt-bold">VOS DIAGNOSTICS</div></div>
           </div>
-          <div className="w-2/3 h-full p-[30px]">
+          <div className="w-full h-full p-[30px]">
               <div className="bg-white rounded-3xl w-full h-full flex flex-col ">
                   {showPDF}
               </div>

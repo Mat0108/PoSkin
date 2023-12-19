@@ -41,7 +41,7 @@ const MesRdv = ()=>{
         return `${local.getHours()}h${local.getMinutes()<10?"0":""}${local.getMinutes()}`
     }
     function Recap(item){
-        return <div className="flex flex-col w-[600px]"> 
+        return <div className="flex flex-col w-full" key={`${item.DateDebut}`}> 
             <div className="text-[22px] text-white bg-[#264C4D] py-4 px-8 rounded-t-2xl font-mt-bold">Récapitulatif de votre précédent rendez-vous</div>
             <div className="flex flex-col py-4 px-8 shadow rounded-b-2xl">
                 <div className="text-left font-mt-demi text-[20px]"> <span className="font-mt-bold">Date :</span> {DateFormat(item.DateDebut,false)}</div>
@@ -53,7 +53,7 @@ const MesRdv = ()=>{
         </div> 
     }
     function NextRdv(item){
-        return <div className="flex flex-col w-[600px]  "> 
+        return <div className="flex flex-col w-full  "> 
             <div className="text-[22px] text-white bg-[#83C5BE] py-4 px-8 rounded-t-2xl font-mt-bold">Votre prochain rendez-vous</div>
             <div className="flex flex-col py-4 px-8 shadow rounded-b-2xl">
                 <div className="text-left font-mt-bold text-[20px]"> {DateFormat(item.DateDebut,true)}</div>
@@ -66,17 +66,16 @@ const MesRdv = ()=>{
     }
     const Element = useMemo(()=>{
         
-        console.log('listRdvAvant : ', listRdvAvant)
         return <div className="flex flex-col justify-left">
             {!!Object.keys(listRdvAvant).length && <Carousel2 props={{items:listRdvAvant.reverse().map(item=>{return Recap(item)}),nbShow:1,ratio:10,showPoint:false,start:Object.keys(listRdvAvant).length-1,setShow:setShowRdv}}/>}
-            <div className="w-full h-full flex flex-col p-8">
+            <div className="w-[80%] h-[180px] overflow-hidden hover:overflow-auto flex flex-col mt-[30px] mx-[10%]">
             {!!Object.keys(listRdvAvant).length && <>
-                {listRdvAvant[showRdv].Observation && <div className="text-[32px]  text-left font-mt-demi">Observations :</div>}
-                <div className="text-[20px] text-left">{listRdvAvant[showRdv].Observation}</div></>
+                {listRdvAvant[showRdv].Observation && <div className="text-[32px] mt-[20px] text-left font-mt-demi">Observations :</div>}
+                <div className="text-[20px] text-justify ">{listRdvAvant[showRdv].Observation}</div></>
            }
+            </div>
             {!!Object.keys(listRdvApres).length && <>
-            <div className="flex center mt-[30px]">{NextRdv(listRdvApres[0])}</div></>}
-                </div>
+            <div className="flex center mt-[40px] mx-[10%]">{NextRdv(listRdvApres[0])}</div></>}
         </div>
     },[listRdvAvant,listRdvApres,showRdv])
     return (
@@ -85,7 +84,7 @@ const MesRdv = ()=>{
                 <div className="w-full h-full flex flex-row flex ">
                     <div className="w-[30%] h-[800px] relative flex center">
                         <img src={"/images/MesRdv.jpg"} alt={"MesRdv"} className="w-full h-full"/>
-                        <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-[#EEE8E4] text-[48px] font-mt-bold">MON SUIVI</div></div>
+                        <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-black text-[48px] font-mt-bold">MON SUIVI</div></div>
         
                     </div>
                     <div className="w-[70%] h-[800px] p-[30px] ">
