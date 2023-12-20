@@ -24,6 +24,7 @@ import PasswordEdit from './pages/PasswordEdit';
 import Compte from './pages/Compte';
 import MesDiagnostics from './pages/MesDiagnostics';
 import PriseDeRdv from './pages/PriseDeRdv';
+import Checkout from './stripe/CheckoutForm';
 
 
 function App() {
@@ -118,6 +119,7 @@ function App() {
           <Route path="/Compte" element={<Compte/>}></Route> 
           <Route path="/MesDiagnostics" element={<MesDiagnostics openModal={openModal} closeModal={closeModal}/>} ></Route> 
           <Route path="/PriseDeRdv" element={<PriseDeRdv />}></Route>
+          <Route path="/CheckoutForm" element={<Checkout />}></Route>
         </Routes>
         <div ref={newsletterRef}></div>
         <Newsletter />
