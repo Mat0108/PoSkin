@@ -47,7 +47,6 @@ const Login = (props) => {
 
   return (
     <div className="w-fit h-fit flex flex-row">
-      <div className="w-[34px] h-[34px] bg-[#264C4D] flex center hover:cursor-pointer" onClick={props.close}><img src={"/images/icon_close.png"} alt={"close"}/></div>
       <div className="w-fit h-fit bg-[#264C4D] flex flex-row">
           <div><img src={"/images/visage/visage29.png"} alt={"visage"} className="w-[530px] h-[680px]"/> </div>
           <div className="flex flex-col center w-[530px] h-[680px]">
@@ -126,6 +125,8 @@ const Login = (props) => {
           </div>
 
       </div>
+      <div className="w-[34px] h-[34px] bg-[#264C4D] flex center hover:cursor-pointer" onClick={props.close}><img src={"/images/icon_close.png"} alt={"close"}/></div>
+      
     </div>
     
   );

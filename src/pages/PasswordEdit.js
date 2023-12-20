@@ -30,8 +30,7 @@ function PasswordEdit(props) {
     if(user.password1 === user.password2){
       const response = await forgotPasswordValider({resetToken:params.TokenId,newPassword:user.password1});
   
-      console.log(response)
-      if(response.status === "200" && response.data.status === true){
+      if(response.status === 200 && response.data.status === true){
         toast.success("Mot de passe modifié avec succes")
         navigate("/")
         props.login()
@@ -54,7 +53,7 @@ function PasswordEdit(props) {
   const element = useMemo(() => {
     if(condToken){
       return (
-      <form className="w-full h-full bg-[#EEE8E4] px-[60px] py-[30px]">
+      <form className="w-full h-full bg-[#EEE8E4] px-[60px] py-[30px] border-[6px] border-red-Venetian">
         <h2 className="text-[20px] font-av-bold text-[#264C4D] font-mt-bold ">
           MODIFICATION DE MOT DE PASSE 
         </h2>
@@ -92,7 +91,7 @@ function PasswordEdit(props) {
 
       </form>)
       }else{
-        return <div className="w-full h-full flex flex-col center bg-[#EEE8E4]">
+        return <div className="w-full h-full flex flex-col center bg-[#EEE8E4] border-[6px] border-red-Venetian">
           <h2 className="w-full mb-[30px] text-[18px] font-av-bold text-[#264C4D] font-mt-bold ">
             Votre lien de validation n'est plus valide  
           </h2>
@@ -110,14 +109,13 @@ function PasswordEdit(props) {
     <div className='w-full h-full flex center'>
 
       <div className="w-fit h-fit flex flex-row">
-        <Link to="/" className="w-[34px] h-[34px] bg-[#264C4D] flex center hover:cursor-pointer" ><img src={"/images/icon_close.png"} alt={"close"}/></Link>
         <div className="w-fit h-fit bg-[#264C4D] grid grid-cols-2">
             <div><img src={"/images/visage/visage29.png"} alt={"visage"} className="w-[530px] h-[680px]"/> </div>
             <div className="flex flex-col center w-[530px] h-[680px]">
               <img src={"/images/logowhite.png"} alt={"logo"} className="w-[66px] h-[56px] mt-[30px]"/>
               <p className="text-[16px] text-center text-white mt-[20px]">Rejoignez le mouvement et découvrez</p>
               <p className="text-[16px] text-center text-white">  votre nouvelle peau</p>
-              <div className="grid grid-cols-1 w-full mt-[22px]">
+              <div className="grid grid-cols-1 w-full mt-[22px] ">
                 {/* <div className={`${props.type === false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
                   <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.register} >INSCRIPTION</div>
                 </div> */}
@@ -129,6 +127,8 @@ function PasswordEdit(props) {
             </div>
 
         </div>
+        <Link to="/" className="w-[34px] h-[34px] bg-[#264C4D] flex center hover:cursor-pointer" ><img src={"/images/icon_close.png"} alt={"close"}/></Link>
+        
       </div>
     </div>
   );

@@ -185,7 +185,7 @@ const PriseDeRdv = ()=>{
             CompteExpert:newRdv.CompteExpert})
         if(res.status === 200){
             toast.success("Rendez vous crée");
-            navigate("/MesRdv")
+            setGlobal(global + 1);
         }
     }
     const element = useMemo(() => {
@@ -330,7 +330,8 @@ const PriseDeRdv = ()=>{
                             <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{newRdv.CompteExpert === "" ? toast.info("Merci de sélectionner un expert"):CreateNewRdv()}}> Suivant</div>
                         </div>
                     </div>  
-
+            case 4:
+                
             }
         }
         

@@ -346,6 +346,36 @@ export function getBorder(colorName) {
       return "";
   }
 }
-export function BG(color1,color2){
-  return `${getBG(color1)} border-4 ${getBorder(color1)} hover:${getBorder(color2)}`
+export function getTextColor(colorName) {
+  switch (colorName) {
+    case "blue":
+      return "text-blue";
+    case "light-blue":
+      return "text-light-blue"
+    case "russet":
+      return "text-russet";
+    case "cyan":
+      return "text-cyan";
+    case "vivid_tangerine":
+      return "text-vivid_tangerine";
+    case "white_coffee":
+      return "text-white_coffee";
+    case "white":
+      return "text-white";
+    case "white2":
+      return "text-white2";
+    case "green":
+      return "text-green";
+    case "red":
+      return "text-red";
+    default:
+      return ""; 
+  }
+}
+export function BG(maincolor,hovercolor){
+  return `${getBG(maincolor)} border-4 ${getBorder(maincolor)} hover:${getBorder(hovercolor)}`
+}
+
+export function BGTEXT(maincolor,hovercolor,textcolor){
+  return `${getBG(maincolor)} border-4 ${getBorder(maincolor)} hover:${getBorder(hovercolor)} ${getTextColor(textcolor)}`
 }
