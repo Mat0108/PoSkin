@@ -25,15 +25,15 @@ function PasswordForgot(props) {
               <p className="text-[16px] text-center text-white">  votre nouvelle peau</p>
               <div className="grid grid-cols-2 w-full mt-[22px]">
                 <div className={`${props.type === true ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
-                  <div className={`${props.type === false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.register} >INSCRIPTION</div>
+                  <div className={`${props.type === false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-extra-bold hover:cursor-pointer`} onClick={props.register} >INSCRIPTION</div>
                 </div>
                 <div className={`${props.type === true ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
-                  <div className={`${props.type === false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`} onClick={props.login} >DÈJA INSCRIT </div>
+                  <div className={`${props.type === false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-extra-bold hover:cursor-pointer`} onClick={props.login} >DÈJA INSCRIT </div>
                 </div>
               </div>
 
               <form className="w-full h-full bg-[#EEE8E4] px-[60px] py-[30px] border-[6px] border-red-Venetian">
-                <h2 className="text-[20px] font-av-bold text-[#264C4D] font-mt-bold ">
+                <h2 className="text-[20px] font-av-bold text-[#264C4D] font-mt-extra-bold ">
                   MOT DE PASSE OUBLIÉ
                 </h2>
 

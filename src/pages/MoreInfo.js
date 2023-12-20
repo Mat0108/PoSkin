@@ -15,6 +15,7 @@ const MoreInfo = (props)=>{
         showDermatoloque:"null",
         allergiestype:"null",
         allergies:"",
+        sexe:""
       });
     const onChangeHandler = (event) => {
         const { id, value } = event.target;
@@ -79,13 +80,14 @@ const MoreInfo = (props)=>{
             </div>
             <div className="col-span-3 text-center text-[24px] mt-[20px]">Nous souhaitons vous connaître un peu plus... </div>
             {Input(user.lastname,"NOM","lastname","text","Votre nom")}
-            {Input(user.adresse,"ADRESSE","adresse","text","Votre adresse ")}
+            {Input(user.telephone,"TELEPHONE","telephone","text","Votre telephone")} 
             {Select("AVEZ-VOUS DÉJÀ VU UN DERMATOLOQUE ?",()=>setUser({ ...user, showDermatoloque: true }),()=>setUser({ ...user, showDermatoloque: false }),user.showDermatoloque)}
             {Input(user.firstname,"PRENOM","firstname","text","Votre prenom")}
-            {Input(user.ville,"VILLE","ville","text","Votre ville")}
+            {Input(user.adresse,"ADRESSE","adresse","text","Votre adresse ")}
             {Select("AVEZ-VOUS DES ALLERGIES ?",()=>setUser({ ...user, allergiestype: true }),()=>setUser({ ...user, allergiestype: false }),user.allergiestype)}
-            {Input(user.email,"EMAIL","email","text","Votre email")}
-            {Input(user.codepostal,"CODE POSTAL","codepostal","text","Vote code postal")}
+            
+            {Input(user.sexe,"SEXE","sexe","text","Votre sexe")}  
+            {Input(user.ville,"VILLE","ville","text","Votre ville")} 
             <div className="flex flex-row  ">
                 <div className="text-[16px] font-mt-demi mt-3 mr-4">Si oui, lesquels ? : </div>
                 <input
@@ -98,7 +100,9 @@ const MoreInfo = (props)=>{
                     required
                     />
             </div>
-            {Input(user.telephone,"TELEPHONE","telephone","text","Votre telephone")}   
+            
+            {Input(user.email,"EMAIL","email","text","Votre email")}
+            {Input(user.codepostal,"CODE POSTAL","codepostal","text","Vote code postal")}
             <div className="col-start-3">
                 <div className="w-full h-[60px] flex center mt-[30px]">
                     <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{NextFunction()}}> Suivant</div>

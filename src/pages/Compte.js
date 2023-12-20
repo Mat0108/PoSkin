@@ -92,11 +92,11 @@ const Compte = (props) =>{
     <div className="w-full h-[870px] flex flex-row">
         <div className="w-1/3 h-full relative">
             <img src={"/images/Compte/Compte1.jpg"} alt={"visage21"} className="w-full h-full"/>
-            <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-white text-[48px] font-mt-bold">MON COMPTE</div></div>
+            <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-white text-[48px] font-mt-extra-bold">MON COMPTE</div></div>
         </div>
         <div className="w-2/3 h-full p-[30px]">
             <div className="bg-white rounded-3xl w-full h-full flex flex-col ">
-                <div className="font-mt-bold text-[40px] mt-[40px]">{`BIENVENUE ${localStorage.getItem("userFirstname") && localStorage.getItem("userFirstname").toUpperCase()}`}</div>
+                <div className="font-mt-extra-bold text-[40px] mt-[40px]">{`BIENVENUE ${localStorage.getItem("userFirstname") && localStorage.getItem("userFirstname").toUpperCase()}`}</div>
                 <div className="text-[20px] mt-[10px]">{`Po. vous remercie pour votre confiance`}</div>
                 <div className="flex center mt-[35px] gap-8"> 
                     <div className="bg-[#83C5BE] px-8 py-2 w-[270px] h-fit rounded-full text-[24px] font-mt-demi hover:cursor-pointer" onClick={()=>{navigate("/MesRdv")}}>Mon suivi</div>

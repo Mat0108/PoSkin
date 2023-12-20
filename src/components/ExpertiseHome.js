@@ -5,7 +5,7 @@ const ExpertiseHome =()=>{
                 <div className="p-2 sm:p-[40px] w-full h-full flex center"> <div><img src={"./images/visage/visage6.png"} alt={"visage"} /></div></div>  
             </div>
             <div className="col-start-2 col-span-3">
-                <p className="mt-[10px] sm:mt-[40px] text-[10px] sm:text-[20px] text-white font-mt-bold">NOTRE EXPERTISE</p>
+                <p className="mt-[10px] sm:mt-[40px] text-[10px] sm:text-[20px] text-white font-mt-extra-bold">NOTRE EXPERTISE</p>
                 <p className="ml-[10%] mt-[10px] sm:mt-[30px] w-[80%] text-white text-[6px] sm:text-[16px]">Nos partenaires sont diplômés et reconnus comme des Experts dans leur domaine et garantissent une prise en charge honnête et réfléchie</p>
                 <div className="w-[100%] mt-[15px] sm:mt-[80px] grid grid-cols-3 ">
                     <div className="col-start-1 flex flex-col items-center">

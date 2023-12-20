@@ -51,7 +51,7 @@ const MesDiagnostics = (props) =>{
             let date= new Date(item.date)
             return <div className={` h-[60px] bg-blue  flex rounded-2xl  `} key={`diagnostic-${pos}`}>
                 <div className="flex w-1/2">
-                  <div className="col-start-1 ml-[30px]  flex center text-white text-[20px] font-mt-bold">
+                  <div className="col-start-1 ml-[30px]  flex center text-white text-[20px] font-mt-extra-bold">
                   {`Votre diagnostic du ${date.getDate() < 10 ? '0' : ''}${date.getDate()}/${
                 date.getMonth() + 1 < 10 ? '0' : ''}${date.getMonth() + 1}/${date.getFullYear()}`}
                   </div> 
@@ -86,7 +86,7 @@ const MesDiagnostics = (props) =>{
       <div className="w-full h-[870px] flex flex-row">
           <div className="w-fit h-full relative">
               <img src={"/images/Compte/Compte1.jpg"} alt={"visage21"} className="w-fit h-full"/>
-              <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-white text-[48px] font-mt-bold">VOS DIAGNOSTICS</div></div>
+              <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-white text-[48px] font-mt-extra-bold">VOS DIAGNOSTICS</div></div>
           </div>
           <div className="w-full h-full p-[30px]">
               <div className="bg-white rounded-3xl w-full h-full flex flex-col ">

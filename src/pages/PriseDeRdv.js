@@ -7,6 +7,7 @@ import { getBG } from './../components/TailwindUtils';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import MoreInfo from "./MoreInfo";
+import { url } from "../services/config";
 
 const PriseDeRdv = ()=>{
     const [experts,setExperts] = useState([]);
@@ -26,7 +27,7 @@ const PriseDeRdv = ()=>{
     const [global,setGlobal] = useState(0);
     const [selectDate,setSelectDate] = useState("")
     const [month,setMonth] = useState(new Date(new Date().getFullYear(),new Date().getMonth()-1,new Date().getDate()));
-    
+    const [rdvId,setRdvId] = useState("")
     const firstDay = useMemo(()=>{return new Date(new Date().getFullYear(), month.getMonth()+1, 1) },[month])
     const lastDay = useMemo(()=>{return new Date(new Date().getFullYear(), month.getMonth()+2, 0)},[month])
     const dateplus = useMemo(()=>{return lastDay.getDate()},[month])
@@ -185,6 +186,7 @@ const PriseDeRdv = ()=>{
             CompteExpert:newRdv.CompteExpert})
         if(res.status === 200){
             toast.success("Rendez vous crée");
+            setRdvId(res.data.id);
             setGlobal(global + 1);
         }
     }
@@ -199,7 +201,7 @@ const PriseDeRdv = ()=>{
             switch(global){
                 case 0:
                     return <div className="relative w-full h-full flex p-4 flex flex-col gap-8">
-                        <div className="w-full text-[28px] text-center font-mt-bold mt-[10px]"> Choisissiez votre motif de consultation</div>
+                        <div className="w-full text-[28px] text-center font-mt-extra-bold mt-[10px]"> Choisissiez votre motif de consultation</div>
                         <div className="w-full flex center">
                             <div className={`${newRdv.Type === true ? BG("light-blue","blue") : BG("blue","light-blue")}  px-10 py-3 rounded-full text-[24px] w-[600px] text-center text-white font-mt-demi hover:cursor-pointer `} onClick={()=>{setNewRdv({...newRdv,Type:true})}}> Consultation de suivi avec votre expert</div>
                         </div>
@@ -248,13 +250,13 @@ const PriseDeRdv = ()=>{
                        
                         </div>
   
-                        <div className="w-full text-[28px] text-center font-mt-bold mt-[10px]" key={"title"}> Choisissiez la date</div>
+                        <div className="w-full text-[28px] text-center font-mt-extra-bold mt-[10px]" key={"title"}> Choisissiez la date</div>
                         <div className="w-full h-fit flex flex-row">
                             <div className="w-1/3 flex ">
                                 <div className={`${BG("cyan","light-blue")} px-8 py-1 rounded-full text-[24px] text-center text-black font-mt-demi `} onClick={()=>{PreviousMonth()}} key={"backmonth"}> Mois précédent</div>
                             </div>
                             <div className="w-1/3 flex ">
-                                <div className="w-full text-[28px] text-center text-black font-mt-bold " > {months[firstDay.getMonth()]}</div>
+                                <div className="w-full text-[28px] text-center text-black font-mt-extra-bold " > {months[firstDay.getMonth()]}</div>
                             </div>
                             <div className="w-1/3 flex justify-end">
                                 <div className={`${BG("cyan","light-blue")} px-8 py-1 rounded-full text-[24px] text-center text-black font-mt-demi `} onClick={()=>{NextMonth()}} key={"nextmonth"}> Mois suivant</div>
@@ -314,7 +316,7 @@ const PriseDeRdv = ()=>{
                          <div className={`${BG("cyan","light-blue")} w-[50px] h-[50px] rounded-full text-[24px] text-center text-black font-mt-demi hover:cursor-pointer`} onClick={()=>{setGlobal(global-1)}}><img src={"/images/fleche.png"} alt={"fleche"} className={"scale-[-0.75] w-fit h-fit"}/></div>
                        
                         </div>
-                        <div className="w-full text-[28px] text-center font-mt-bold mt-[10px]"> Choisissez votre expert</div>
+                        <div className="w-full text-[28px] text-center font-mt-extra-bold mt-[10px]"> Choisissez votre expert</div>
                         <div className="w-full grid grid-cols-3 place-content-start">
                             {newRdv.listExpert.map(expert=>{
                                 return <div className="w-full flex center">
@@ -331,6 +333,16 @@ const PriseDeRdv = ()=>{
                         </div>
                     </div>  
             case 4:
+                return <div className="relative w-full h-full flex p-4 flex flex-col center">
+                        <h1 className="text-[38px] font-mt-extra-bold mb-[30px]">VOTRE RENDEZ VOUS A BIEN ÉTÉ ENREGISTRÉE </h1>
+                        <h2 className="text-[20px] w-[50%]">Po. vous remercie pour votre réservation.</h2>
+
+                        <h2 className="text-[20px] w-[50%] text-justify"> Afin de confirmer votre rendez-vous, nous vous prions de bien vouloir procéder au paiement. Merci infiniment pour votre compréhension et votre collaboration </h2>    
+                        <form className="" action={`${url}/create-checkout-session/${rdvId}`} method="POST">
+                            <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} > Procéder au paiement</div>
+                            
+                        </form>
+                </div>
                 
             }
         }
@@ -346,7 +358,7 @@ const PriseDeRdv = ()=>{
                 <div className="w-full h-full flex flex-row flex ">
                     <div className="w-[30%] h-[800px] relative flex center">
                         <img src={"/images/Diagnostic/diagnostic1.png"} alt={"visage21"} className="w-full h-full"/>
-                        <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-black text-[48px] font-mt-bold">PRISE DE RDV</div></div>
+                        <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-black text-[48px] font-mt-extra-bold">PRISE DE RDV</div></div>
                     </div>
                     <div className="w-[70%] h-[800px] p-[30px] ">
                         <div className="bg-white rounded-3xl w-full h-full  flex flex-col">

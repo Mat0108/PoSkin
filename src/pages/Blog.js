@@ -34,7 +34,7 @@ const Blog = () =>{
                 <Link to={url}>
                     <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt={altimage} className='h-[100px] sm:h-[250px] w-fit'/></div>  
                     <div className="h-[100px] sm:h-[150px] flex center flex-col">
-                        <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">{title}</p>    
+                        <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">{title}</p>    
                         <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">{text}</p>
                     </div>
                 </Link>
@@ -48,14 +48,14 @@ const Blog = () =>{
     function returnTextWithImage(titre,text,image,altimage,pos){
         if(pos === false){
             return <div className={`w-[90%] sm:w-[86%] h-fit ${margin}`}>
-                {!!titre &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[20px] sm:text-[50px] text-blue font-mt-bold'>{titre}</h1></div>}
+                {!!titre &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[20px] sm:text-[50px] text-blue font-mt-extra-bold'>{titre}</h1></div>}
                 {(!!image || !!text) && <div className={`flex center w-full h-fit gap-2 sm:gap-8`}>
                     {!!image && <div className={`${text ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image} alt={altimage} className='w-fit h-full'></img></div>}
                     {!!text && <div className={`${image ? "w-2/3" : "w-full"} h-fit flex `}><div className='text-[8px] sm:text-[22px] text-justify'>{text}</div></div>}
                 </div>}</div>
         }else{
             return <div className={`w-[90%] sm:w-[86%] h-fit ${margin}`}>
-                {!!titre &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-bold'>{titre}</h1></div>}
+                {!!titre &&<div className={`w-full h-fit ${margin}`}><h1 className='text-left text-[12px] sm:text-[50px] text-blue font-mt-extra-bold'>{titre}</h1></div>}
                 {(!!image ||!!text ) && <div className={`flex center w-full h-fit gap-2 sm:gap-8`}>
                 {!!text && <div className={`${image ? "w-2/3" : "w-full"} h-fit flex`}><div className='text-[8px] sm:text-[20px] text-justify'>{text}</div></div>}
                 {!!image && <div className={`${text ? "w-1/3" : "w-full"} h-fit flex center`}><img src={image} alt={altimage} className='w-fit h-full'></img></div>}
@@ -66,7 +66,7 @@ const Blog = () =>{
     function returnFullImageWithTitre(titre,image,altimage,textcolor){
         return <>{!!image && <div className='relative w-full h-fit'>
             <img className='w-full h-fit max-h-[200px] sm:max-h-[600px]' src={image} alt={altimage}></img>
-            {!!titre && <div className='absolute top-0 left-0 w-full h-full flex center'><p className={`w-[80%] ${textcolor ? textcolor : "text-white"} mt-2 text-[20px] sm:text-[50px] font-mt-bold`}>{titre}</p></div>}
+            {!!titre && <div className='absolute top-0 left-0 w-full h-full flex center'><p className={`w-[80%] ${textcolor ? textcolor : "text-white"} mt-2 text-[20px] sm:text-[50px] font-mt-extra-bold`}>{titre}</p></div>}
         </div>}</>
     }
     function returnFullImage(image,altimage){
@@ -87,7 +87,7 @@ const Blog = () =>{
         {(!!image ||!!text ) && <div className={`flex center flex-col w-full h-full  gap-2 sm:gap-8`}>
             {!!image && <div className='relative w-full h-fit'>
             <img className='w-full h-fit max-h-[200px] sm:max-h-[600px]' src={image} alt={altimage}></img>
-            {!!titre && <div className='absolute top-0 left-0 w-full h-full flex center'><p className={`w-[80%] ${textcolor ? textcolor : "text-white"} mt-2 text-[20px] sm:text-[50px] font-mt-bold`}>{titre}</p></div>}
+            {!!titre && <div className='absolute top-0 left-0 w-full h-full flex center'><p className={`w-[80%] ${textcolor ? textcolor : "text-white"} mt-2 text-[20px] sm:text-[50px] font-mt-extra-bold`}>{titre}</p></div>}
             </div>}
             {!!text && <div className={`w-[90%] sm:w-[86%] h-fit flex center`}><div className='mx-auto text-[8px] sm:text-[20px] text-justify'>{text}</div></div>}
         </div>}
@@ -153,7 +153,7 @@ const Blog = () =>{
     return (<div className='w-full h-full flex center flex-col'>
         {items}
         <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div>
-        <div><h1 className="mt-[12px] sm:mt-[30px] text-[12px] sm:text-[50px] font-mt-bold text-blue ">Articles connexes :</h1></div>
+        <div><h1 className="mt-[12px] sm:mt-[30px] text-[12px] sm:text-[50px] font-mt-extra-bold text-blue ">Articles connexes :</h1></div>
         {BlogCarousel}
         <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div>
         

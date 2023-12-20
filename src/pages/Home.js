@@ -69,7 +69,7 @@ const Home = (props)=>{
                 <Link to={url}>
                     <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt={altimage} className='h-[100px] sm:h-[250px] w-fit'/></div>  
                     <div className="h-[100px] sm:h-[150px] flex center flex-col">
-                        <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-bold text-blue">{title}</p>    
+                        <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">{title}</p>    
                         <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">{text}</p>
                        </div>
                 </Link>
@@ -81,7 +81,7 @@ const Home = (props)=>{
     
     let buttondiv = <div className="absolute z-[100] top-0 left-0 w-full h-full flex flex-col center">
         <div className='mt-[20%] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] flex center'> Et révélez votre beauté naturelle</div>
-        <Link to="/Diagnostic" className="mt-[10px] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] font-mt-bold py-2 px-6 bg-blue rounded-3xl" >Faire mon diagnostic</Link>
+        <Link to="/Diagnostic" className="mt-[10px] w-fit h-fit p-2 text-white_coffee text-[12px] sm:text-[40px] font-mt-extra-bold py-2 px-6 bg-blue rounded-3xl" >Faire mon diagnostic</Link>
     </div>
     
     return (<div>
@@ -102,7 +102,7 @@ const Home = (props)=>{
             </div>
         </div>
          <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
-        <div><p className="mt-[30px] text-[12px] sm:text-[50px] font-mt-bold text-blue ">Nos conseils </p></div>
+        <div><p className="mt-[30px] text-[12px] sm:text-[50px] font-mt-extra-bold text-blue ">Nos conseils </p></div>
         {BlogCarousel}
         {/* <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
         <div className='mt-[20px]'></div>
