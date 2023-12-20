@@ -25,9 +25,6 @@ const Compte = (props) =>{
     };
     const onClick = async (event) => {
         event.preventDefault();
-        console.log(!(user.firstname === localStorage.getItem("userFirstname") &&
-        user.lastname === localStorage.getItem("userLastname") &&
-        user.email === localStorage.getItem("userEmail")))
         if (!(user.firstname === localStorage.getItem("userFirstname") &&
         user.lastname === localStorage.getItem("userLastname") &&
         user.email === localStorage.getItem("userEmail"))) {
@@ -102,8 +99,8 @@ const Compte = (props) =>{
                 <div className="font-mt-bold text-[40px] mt-[40px]">{`BIENVENUE ${localStorage.getItem("userFirstname") && localStorage.getItem("userFirstname").toUpperCase()}`}</div>
                 <div className="text-[20px] mt-[10px]">{`Po. vous remercie pour votre confiance`}</div>
                 <div className="flex center mt-[35px] gap-8"> 
-                    <div className="bg-[#83C5BE] px-8 py-2 w-[270px] h-fit rounded-full text-[24px] font-mt-demi">Mon suivi</div>
-                    <div className="bg-[#83C5BE] px-8 py-2 w-[270px] h-fit rounded-full text-[24px] font-mt-demi">Mes diagnostic</div>
+                    <div className="bg-[#83C5BE] px-8 py-2 w-[270px] h-fit rounded-full text-[24px] font-mt-demi hover:cursor-pointer" onClick={()=>{navigate("/MesRdv")}}>Mon suivi</div>
+                    <div className="bg-[#83C5BE] px-8 py-2 w-[270px] h-fit rounded-full text-[24px] font-mt-demi hover:cursor-pointer" onClick={()=>{navigate("/MesDiagnostics")}}>Mes diagnostic</div>
                 </div>
                 <div className="text-[32px] mt-[40px] font-mt-demi">{`MES INFORMATIONS `}</div>
                 <div className="w-full flex flex-row center"> 

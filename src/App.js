@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, { useMemo, useState,useRef } from 'react';
+import React, { useMemo, useState,useRef, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {Route,Routes} from 'react-router';
 
@@ -24,7 +24,9 @@ import PasswordEdit from './pages/PasswordEdit';
 import Compte from './pages/Compte';
 import MesDiagnostics from './pages/MesDiagnostics';
 import PriseDeRdv from './pages/PriseDeRdv';
+
 import Checkout from './stripe/CheckoutForm';
+import MesRdv from './pages/MesRdv';
 
 
 function App() {
@@ -48,13 +50,18 @@ function App() {
   };
   async function Logout(){
     let res = await logout(localStorage.getItem("userId"));
-    console.log('res : ', res)
     if(res.status === 200){
       setConnected(false);
       toast.success("Vous êtes deconnecté !")
       localStorage.clear()
     }
   } 
+  useEffect(() => {
+    if(!connected){
+      localStorage.clear()
+    }
+  }, [connected])
+  
 
   let register = <Register type={false} close={()=>closeModal()} login={()=>{}}/>
   let login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}}/>
@@ -81,7 +88,6 @@ function App() {
   , [connected,login])
 
   function ScrollNewsletter(){
-    console.log('props.newsletterRef : ', newsletterRef)
     if (newsletterRef.current) {
         newsletterRef.current.scrollIntoView({
           behavior: 'smooth', // Vous pouvez également utiliser 'auto' à la place de 'smooth'
@@ -103,23 +109,25 @@ function App() {
           {divModal}
         </Modal>
         <Routes>
-          <Route path="/" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
-          <Route path="/activate/:userId" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
-          
+          <Route exact path="/Activate/:userId" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
+          <Route exact path="/Blog/:BlogId" element={<Blog/>}></Route> 
           {/* <Route path="/Expertise" element={<Expertise/>}></Route> 
           <Route path="/APropos" element={<QuiSommesNous />}></Route>
           <Route path="/Community" element={<Commu/>}></Route>
           <Route path='/Conseils' element={<Conseils/>}></Route>*/}
-          <Route path='/ForgotPassword/:TokenId' element={<PasswordEdit login={()=>openModal(login)} password={()=>openModal(password)}/>}></Route>
+          <Route exact path='/ForgotPassword/:TokenId' element={<PasswordEdit login={()=>openModal(login)} password={()=>openModal(password)}/>}></Route>
           <Route path='/Login' element={<Login/>}></Route>
           <Route path='/Register' element={<Register/>}></Route>
           <Route path='/Diagnostic' element={<Diagnostic/>}></Route>
           <Route path="/Diagnostic/start/" element={<DiagnosticStart login={LoginDiagnostic}/>}></Route>
-          <Route path="/Blog/:BlogId" element={<Blog/>}></Route> 
           <Route path="/Compte" element={<Compte/>}></Route> 
           <Route path="/MesDiagnostics" element={<MesDiagnostics openModal={openModal} closeModal={closeModal}/>} ></Route> 
           <Route path="/PriseDeRdv" element={<PriseDeRdv />}></Route>
           <Route path="/CheckoutForm" element={<Checkout />}></Route>
+          <Route path="/MesRdv" element={<MesRdv />}></Route>
+          <Route exact path="/" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
+          <Route exact path="/Logout" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
+
         </Routes>
         <div ref={newsletterRef}></div>
         <Newsletter />
