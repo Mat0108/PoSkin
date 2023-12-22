@@ -47,7 +47,6 @@ const Register = (props) => {
 
   return (
     <div className="w-fit h-fit flex flex-row">
-      <div className="w-[34px] h-[34px] bg-[#264C4D] flex center hover:cursor-pointer" onClick={props.close}><img src={"/images/icon_close.png"} alt={"close"}/></div>
       <div className="w-fit h-fit bg-[#264C4D] flex flex-row">
           <div><img src={"/images/visage/visage30.png"} alt={"visage"} className="w-[530px] h-[680px]"/> </div>
           <div className="flex flex-col center w-[530px] h-[680px]">
@@ -56,10 +55,10 @@ const Register = (props) => {
             <p className="text-[16px] text-center text-white">  votre nouvelle peau</p>
             <div className="grid grid-cols-2 w-full mt-[22px]">
               <div className={`${props.type === false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center border-t-[6px] border-x-[6px] border-red-Venetian`}>
-                <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer`}>INSCRIPTION</div>
+                <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-extra-bold hover:cursor-pointer`}>INSCRIPTION</div>
               </div>
               <div className={`${props.type === true ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center border-b-[6px] border-red-Venetian` }>
-                <div className={`${props.type === false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-bold hover:cursor-pointer `} onClick={props.login}>DÈJA INSCRIT </div>
+                <div className={`${props.type === false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-extra-bold hover:cursor-pointer `} onClick={props.login}>DÈJA INSCRIT </div>
               </div>
             </div>
             {/* <div className="w-full h-fit bg-white flex flex-col px-[60px] py-[30px] gap-8">
@@ -77,7 +76,7 @@ const Register = (props) => {
               </div>
             </div> */}
         <form className="relative w-full h-fit bg-[#EEE8E4] px-[60px] py-[30px] flex flex-col gap-4 border-b-[6px] border-x-[6px] border-red-Venetian">
-           <h2 className="text-[20px] font-av-bold text-[#264C4D] font-mt-bold ">
+           <h2 className="text-[20px] font-av-bold text-[#264C4D] font-mt-extra-bold ">
             CRÉER UN COMPTE
           </h2>
           <div className="relative w-full flex flex-row gap-2">
@@ -129,7 +128,7 @@ const Register = (props) => {
           />
           
           <button
-              className="w-full mt-3 py-3 bg-blue text-white font-mt-bold rounded-full text-[20px] hover:cursor-pointer"
+              className="w-full mt-3 py-3 bg-blue text-white font-mt-extra-bold rounded-full text-[20px] hover:cursor-pointer"
               onClick={onClick}
             >
             S'INCRIRE
@@ -140,6 +139,8 @@ const Register = (props) => {
         </form>
         </div>
       </div>
+      <div className="w-[34px] h-[34px] bg-[#264C4D] flex center hover:cursor-pointer" onClick={props.close}><img src={"/images/icon_close.png"} alt={"close"}/></div>
+      
     </div>
   );
 };

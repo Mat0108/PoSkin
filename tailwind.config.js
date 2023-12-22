@@ -9,7 +9,8 @@ module.exports = {
       fontFamily: {
         'mt':['Montserrat', 'sans-serif'],
         'mt-demi': ['MontserratDemi', 'sans-serif'],
-        'mt-bold': ['MontserratBold', 'sans-serif']
+        'mt-bold': ['MontserratBold', 'sans-serif'],
+        'mt-extra-bold': ['MontserratExtraBold', 'sans-serif']
       },
       gridTemplateColumns:{
         'rectangle':'200px 300px 700px 150px',

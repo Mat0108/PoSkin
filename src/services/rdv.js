@@ -10,6 +10,15 @@ export const getRdvOfExpert = async (email) =>{
     return res;
 }
 export const CreateRdv = async (body)=>{
-    const res = await axios.post(`${url}/rdv/set`,body)
+    const res = await axios.post(`${url}/rdv/set`,body);
+    return res;
+}
+export const getRdv = async (rdvId)=>{
+    const res = await axios.get(`${url}/rdv/get/${rdvId}`);
+    return res;
+}
+
+export const confirmRdv = async (rdvId)=>{
+    const res = await axios.post(`${url}/rdv/update/${rdvId}`,{Confirmation:true})
     return res;
 }

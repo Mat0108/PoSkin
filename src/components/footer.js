@@ -12,7 +12,7 @@ const Footer = ()=>{
         <div className="w-[14%] sm:w-[14%]"></div>
         <div className="w-[12%] mt-[20px] text-left "> 
             <div>
-                <p className="h-[30px] sm:h-fit font-mt-bold text-[10px] sm:text-[24px]">Menu</p>
+                <p className="h-[30px] sm:h-fit font-mt-extra-bold text-[10px] sm:text-[24px]">Menu</p>
                 <p className="mt-[10px] text-[6px] sm:text-[12px]">Expert facialiste</p>
                 {/* <p className="text-[12px]">Diagnostiques</p> */}
                 <p className="text-[6px] sm:text-[12px]">Soins</p>
@@ -21,7 +21,7 @@ const Footer = ()=>{
         </div>
             <div className="w-[16%] sm:w-[16%] mt-[20px] text-left "> 
             <div>
-                <p className="font-mt-bold text-[10px] sm:text-[24px]">Découvrir Po.</p>
+                <p className="font-mt-extra-bold text-[10px] sm:text-[24px]">Découvrir Po.</p>
                 <p className="mt-[10px] text-[6px] sm:text-[12px]">Notre histoire</p>
                 <p className="text-[6px] sm:text-[12px]">Charte de formulation</p>
                 
@@ -29,14 +29,14 @@ const Footer = ()=>{
         </div>   
         <div className="w-[22%] mt-[20px] text-left "> 
             <div>
-                <p className="font-mt-bold text-[10px] sm:text-[24px]">Avis et évaluations</p>
+                <p className="font-mt-extra-bold text-[10px] sm:text-[24px]">Avis et évaluations</p>
                 <p className="mt-[10px] text-[6px] sm:text-[12px]">Expertise</p>
                 <p className="text-[6px] sm:text-[12px]">Avis Clients</p>
             </div>
         </div> 
         <div className="w-[16%] mt-[20px] text-left "> 
             <div>
-                <p className="font-mt-bold text-[10px] sm:text-[24px]">Nous rejoindre</p>
+                <p className="font-mt-extra-bold text-[10px] sm:text-[24px]">Nous rejoindre</p>
                 <p className="mt-[10px] text-[6px] sm:text-[12px]">Rejoindre l'équipe</p>
                 <p className="text-[6px] sm:text-[12px]">Affilation</p>
                 <p className="text-[6px] sm:text-[12px]">Communauté</p>

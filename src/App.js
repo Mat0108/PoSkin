@@ -25,8 +25,8 @@ import Compte from './pages/Compte';
 import MesDiagnostics from './pages/MesDiagnostics';
 import PriseDeRdv from './pages/PriseDeRdv';
 
-import Checkout from './stripe/CheckoutForm';
 import MesRdv from './pages/MesRdv';
+import ConfirmRdv from './pages/ConfirmRdv';
 
 
 function App() {
@@ -123,7 +123,7 @@ function App() {
           <Route path="/Compte" element={<Compte/>}></Route> 
           <Route path="/MesDiagnostics" element={<MesDiagnostics openModal={openModal} closeModal={closeModal}/>} ></Route> 
           <Route path="/PriseDeRdv" element={<PriseDeRdv />}></Route>
-          <Route path="/CheckoutForm" element={<Checkout />}></Route>
+          <Route path="/ConfirmRdv/:rdvId" element={<ConfirmRdv />}></Route>
           <Route path="/MesRdv" element={<MesRdv />}></Route>
           <Route exact path="/" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
           <Route exact path="/Logout" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
@@ -145,7 +145,7 @@ function App() {
           className={"w-fit"}
           // toastClassName={() => "w-full bg-[#264C4D] rounded-t-2xl"}
           // toastClassName={" relative bg-[#264C4D] flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"}
-          // bodyClassName={() => "text-[14px] text-white font-mt-bold"}
+          // bodyClassName={() => "text-[14px] text-white font-mt-extra-bold"}
           // closeClassName={"bg-white"}
         />
       </Router>

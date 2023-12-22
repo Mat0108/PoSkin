@@ -19,7 +19,7 @@
 //         return (<div className="relative w-[250px] h-[200px]" key={`item-${titre}`}>
 //             <img src={image} alt={titre} className="w-full h-full rounded-2xl"/>
 //             <div className="absolute top-0 left-0 h-full w-full flex center ">
-//                 <div className="h-fit w-[80%] mt-[30px] text-white text-[36px] font-mt-bold">{titre}</div>
+//                 <div className="h-fit w-[80%] mt-[30px] text-white text-[36px] font-mt-extra-bold">{titre}</div>
 
 //             </div>
 
@@ -78,26 +78,26 @@
 //                 <p className="text-[50px]">La communauté qui te ressemble</p>
 //                 <div className='w-full flex center mt-[60px]'><img src={v18} alt={"v18"} className="w-full"/></div>
 //                 <div className="w-full flex center ">{switchtext("Commu")}</div>
-//                 <div className="flex center mt-[60px]"><div className="text-[40px]  w-fit px-16 py-6 bg-[#264C4D] rounded-full font-mt-bold text-white text-left"><p>Rejoigner la communauté</p></div></div>
+//                 <div className="flex center mt-[60px]"><div className="text-[40px]  w-fit px-16 py-6 bg-[#264C4D] rounded-full font-mt-extra-bold text-white text-left"><p>Rejoigner la communauté</p></div></div>
 //                 <div className="flex flex-row center mt-[80px] mb-[80px] ">
 
 //                     <div className="w-[220px] h-[220px] bg-[#D9D9D9] rounded-l-3xl">
 //                     <img src={v19} alt="v19" className="w-full h-full rounded-3xl"/>
 //                 </div>
 //                 <div className="w-[1100px] h-[220px]  p-4 flex flex-col bg-[#D9D9D9] rounded-r-3xl">
-//                     <div className="text-[36px] font-mt-bold text-left">Nouveau venu ?</div>
+//                     <div className="text-[36px] font-mt-extra-bold text-left">Nouveau venu ?</div>
 //                     <div className="h-[10px]"></div>
-//                     <div className="text-[30px] mt-[1Opx] font-mt-bold text-left">On vous montre comment ça marche ?</div>
+//                     <div className="text-[30px] mt-[1Opx] font-mt-extra-bold text-left">On vous montre comment ça marche ?</div>
 //                 </div>
 //                 </div>
 //             </div>
 //         </div>
 //         <div className="w-[80%] flex flex-col mx-auto mb-[20px]">
-//             <p className="text-[50px] text-left text-blue font-mt-bold">Pour bien démarrer sur la commununauté</p>
+//             <p className="text-[50px] text-left text-blue font-mt-extra-bold">Pour bien démarrer sur la commununauté</p>
 //         </div>
 //         <Carousel2 props={{items:listCarousel,nbShow:4,ratio:10,showPoint:false}}/>
 //         <div className="w-[80%] mx-auto mt-[50px]">
-//             <p className="text-[40px] text-left text-blue font-mt-bold">Explorer</p>
+//             <p className="text-[40px] text-left text-blue font-mt-extra-bold">Explorer</p>
 //             <div className="border-2 border-blue rounded-3xl w-full h-[62px] flex flex-row relative">
 //                 <div className="w-[10%] h-fit p-4 flex center relative">
 //                     <img src={search} alt={search} height={30} width={30}/>
@@ -129,7 +129,7 @@
 //             <div className="w-[60%] mx-auto mt-[40px]">
 //                 <div className="border-2 border-blue rounded-full w-[740px] h-[62px] px-8 py-2 flex flex-row relative"> 
 //                     <div className="w-full h-fit flex relative">
-//                         <p className="text-black text-[28px]"><span className="text-blue font-mt-bold text-[29px] ">Léa community manager :</span> à posté une photo</p>
+//                         <p className="text-black text-[28px]"><span className="text-blue font-mt-extra-bold text-[29px] ">Léa community manager :</span> à posté une photo</p>
 //                     </div>
 //                 </div>
 //                 <div className="h-[520px] overflow-hidden hover:overflow-auto mb-[20px]">
