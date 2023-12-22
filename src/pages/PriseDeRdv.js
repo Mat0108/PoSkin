@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import MoreInfo from "./MoreInfo";
 import { url } from "../services/config";
+import { useCookies } from "react-cookie";
 
 const PriseDeRdv = ()=>{
     const [experts,setExperts] = useState([]);
@@ -15,12 +16,12 @@ const PriseDeRdv = ()=>{
     const [listRdvLibre, setListRdvLibre] = useState([]);
     const [suiviRdv,setSuiviRdv] = useState([]);
     const [suiviRdvLibre,setSuiviRdvLibre] = useState([]);
-    
+    const [cookies, setCookies] = useCookies(["user"]);
     const [newRdv,setNewRdv] = useState({
         DateDebut:"",
         Confirmation:false,
         Type:"null",
-        CompteClient:localStorage.getItem("userEmail"),
+        CompteClient:typeof cookies.user === "object" ? cookies.user.email : "",
         CompteExpert:"",
         listExpert:""
     });
@@ -28,9 +29,10 @@ const PriseDeRdv = ()=>{
     const [selectDate,setSelectDate] = useState("")
     const [month,setMonth] = useState(new Date(new Date().getFullYear(),new Date().getMonth()-1,new Date().getDate()));
     const [rdvId,setRdvId] = useState("")
-    const firstDay = useMemo(()=>{return new Date(new Date().getFullYear(), month.getMonth()+1, 1) },[month])
-    const lastDay = useMemo(()=>{return new Date(new Date().getFullYear(), month.getMonth()+2, 0)},[month])
+    const firstDay = useMemo(()=>{return new Date(month.getFullYear(), month.getMonth()+1, 1)   },[month])
+    const lastDay = useMemo(()=>{return new Date(month.getFullYear(), month.getMonth()+2, 0)},[month])
     const dateplus = useMemo(()=>{return lastDay.getDate()},[month])
+    
     var weekday = new Array("Dimanche", "Lundi", "Mardi", "Mercredi",
                     "Jeudi", "Vendredi", "Samedi");
     var months = new Array(
@@ -39,7 +41,7 @@ const PriseDeRdv = ()=>{
         );
     const navigate = useNavigate();
     useEffect(() => {
-      if(localStorage.length === 0){
+      if(typeof cookies.user != "object"){
         setTimeout(()=>{
             toast.info("Merci de vous connecter d'abord")
         },2000)
@@ -82,11 +84,10 @@ const PriseDeRdv = ()=>{
                 }
             }
             async function fetchCompte(){
-                let rdvClient = await getRdvOfExpert(localStorage.getItem("userEmail"));
+                let rdvClient = await getRdvOfExpert(typeof cookies.user === "object"  ? cookies.user.email : null);
                 if(rdvClient.status === 200 && Object.keys(rdvClient.data).length){
                     let rdvExpert = await getRdvOfExpert(rdvClient.data[0].CompteExpert.email);
                     if(rdvExpert.status === 200){
-
                         setSuiviRdv(rdvExpert.data.map(item=>{return {DateDebut:item.DateDebut,expert:item.CompteExpert.email}}));
                     }
                     
@@ -106,6 +107,7 @@ const PriseDeRdv = ()=>{
         let listRdvAll = []
         let suiviRdvAll = []
         const currentDate = new Date(firstDay.getTime());
+        console.log('currentDate : ', currentDate)
         for(let i=0;i<lastDay.getDate();i++){
             let datei = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
             datei.setDate(datei.getDate()+i)
@@ -139,9 +141,7 @@ const PriseDeRdv = ()=>{
                            
                             }
                             if(Object.keys(suiviRdv).length){
-                                console.log('suiviRdv : ', suiviRdv)
                                 let filter = suiviRdv.filter(item=>new Date(item.DateDebut).getTime() === new Date(`${getDate(datei)}T${j>8?j+1:`0${j+1}`}:${k*2}0:00`).getTime())
-                                console.log('filter : ', !Object.keys(filter).length,filter)
                                 if(!Object.keys(filter).length){
                                     suiviRdvAll[getDate(datei)][`${j>8?j+1:`0${j+1}`}h${k*2}0`] = [suiviRdv[0].expert] ;
                                 }
@@ -157,11 +157,11 @@ const PriseDeRdv = ()=>{
         
         setSuiviRdvLibre(suiviRdvAll);
         setListRdvLibre(listRdvAll);
-    }, [listRdv,month])
+    }, [listRdv,month,suiviRdv])
     function NextMonth(){
         const newMonth = new Date(month);
         newMonth.setMonth(newMonth.getMonth() + 1);
-        if (newMonth.getMonth() === 0) {
+        if (newMonth.getMonth() === 10) {
             newMonth.setFullYear(newMonth.getFullYear() + 1);
         }
         setMonth(newMonth);
@@ -174,28 +174,32 @@ const PriseDeRdv = ()=>{
         }
         setMonth(newMonth);    
     }
-    useEffect(() => {
-      console.log('newRdv : ', newRdv)
-    }, [newRdv])
+    // useEffect(() => {
+    //   console.log('newRdv : ', newRdv)
+    // }, [newRdv])
     async function CreateNewRdv(){
         const res = await CreateRdv({
             DateDebut:newRdv.DateDebut,
             Confirmation:false,
             Type:newRdv.Type,
-            CompteClient:localStorage.getItem("userEmail"),
+            CompteClient: typeof cookies.user === "object"  ? cookies.user.email : null,
             CompteExpert:newRdv.CompteExpert})
         if(res.status === 200){
             toast.success("Rendez vous crée");
-            setRdvId(res.data.id);
-            setGlobal(global + 1);
-        }
+            console.log('res.data : ', res.data)
+            setRdvId(res.data.summary.id);
+            if(newRdv.Type == true){
+                setGlobal(global + 2);
+            }else{
+                setGlobal(global+1)
+            }
+            }
     }
     const element = useMemo(() => {
         
         let selected = "bg-light-blue border-4 border-light-blue hover:border-blue";
         let unselected = "bg-blue border-4 border-blue hover:border-light-blue";
         if(Object.keys(listRdvLibre).length){
-            console.log('listRdvLibre : ', suiviRdvLibre)
 
             
             switch(global){
@@ -277,11 +281,16 @@ const PriseDeRdv = ()=>{
                                 if(posrdv[0] === selectDate){
                                     return <div className={`w-full h-fit ${incrementy} ${getGrid(incrementy+1,false)} col-span-5 grid grid-cols-8 gap-4`}>
                                         {Object.entries(posrdv[1]).map((poshours,pos2)=>{
+                                            let today = new Date().getTime();
                                             let date = `${posrdv[0]}T${poshours[0].split("h")[0]}:${poshours[0].split("h")[1]}:00`
-                                            return <div onClick={()=> {
-                                                newRdv.Type === true ? setNewRdv({...newRdv,DateDebut:new Date(date),CompteExpert:poshours[1][0],listExpert:poshours[1]}):setNewRdv({...newRdv,DateDebut:new Date(date),listExpert:poshours[1]})
-                                            }} key={`hours-${poshours}`} className={`w-full h-fit ${newRdv.DateDebut !== "" && newRdv.DateDebut.getTime() === new Date(date).getTime() ?  BG("light-blue","blue") : newRdv.Type === true ? BG("green","blue") : Object.keys(poshours[1]).length ? Object.keys(poshours[1]).length === Object.keys(experts).length ?  BG("green","blue") :  BG("vivid_tangerine","blue") :"bg-red"} px-2 py-2 rounded-full text-[20px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{getTime(new Date(2000,1,1,poshours[0].split("h")[0],poshours[0].split("h")[1]))}</div><div className="text-[14px]">{newRdv.Type === true ? "":`${Object.keys(poshours[1]).length} experts`}</div></div>
-                            
+                                            
+                                            if(today < new Date(date).getTime()){
+
+                                                return <div onClick={()=> {
+                                                    newRdv.Type === true ? setNewRdv({...newRdv,DateDebut:new Date(date),CompteExpert:poshours[1][0],listExpert:poshours[1]}):setNewRdv({...newRdv,DateDebut:new Date(date),listExpert:poshours[1]})
+                                                }} key={`hours-${poshours}`} className={`w-full h-fit ${newRdv.DateDebut !== "" && newRdv.DateDebut.getTime() === new Date(date).getTime() ?  BG("light-blue","blue") : newRdv.Type === true ? BG("green","blue") : Object.keys(poshours[1]).length ? Object.keys(poshours[1]).length === Object.keys(experts).length ?  BG("green","blue") :  BG("vivid_tangerine","blue") :"bg-red"} px-2 py-2 rounded-full text-[20px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{getTime(new Date(2000,1,1,poshours[0].split("h")[0],poshours[0].split("h")[1]))}</div><div className="text-[14px]">{newRdv.Type === true ? "":`${Object.keys(poshours[1]).length} experts`}</div></div>
+                                
+                                            }
                                         })}
                                     </div>
                                 }
@@ -297,7 +306,10 @@ const PriseDeRdv = ()=>{
                                     incrementx2 = 1;
                                     incrementy2 += 2;
                                 }
-                               return <div key={`rdv-${rdv}`} className={`w-full h-fit ${getGrid(incrementy2,false)} ${getGrid(incrementx2,true)} ${selectDate !== "" && selectDate === rdv[0] ? BG("light-blue","blue") :BG("blue","light-blue") }  px-4 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`}  onClick={()=>{setSelectDate(selectDate === rdv[0] ? "":rdv[0])}} ><div>{weekday[incrementx2]} {getShowDate(rdv)}</div></div>
+                                let today = new Date();
+                                today.setDate(today.getDate() -1);
+                                // console.log('new Date(rdv[0]).getTime() < today.getTime() : ', rdv[0],new Date(rdv[0]).getTime() < today.getTime())
+                               return <div key={`rdv-${rdv}`} className={`w-full h-fit ${getGrid(incrementy2,false)} ${getGrid(incrementx2,true)} ${new Date(rdv[0]).getTime() < today.getTime() ? "bg-gray" :selectDate !== "" && selectDate === rdv[0] ? BG("light-blue","blue") :BG("blue","light-blue") }  px-4 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`}  onClick={()=>{setSelectDate(selectDate === rdv[0] ? "":rdv[0])}} ><div>{weekday[incrementx2]} {getShowDate(rdv)}</div></div>
                             })}
                             {dateafter && dateafter.map((item,pos)=>{
                                 return <div key={`datebefore-${pos}`} className={`w-full h-fit ${getGrid(incrementy2,false)}  bg-gray px-4 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{weekday[item.i]} {getShowDate(item.date)}</div></div>
@@ -339,7 +351,7 @@ const PriseDeRdv = ()=>{
 
                         <h2 className="text-[20px] w-[50%] text-justify"> Afin de confirmer votre rendez-vous, nous vous prions de bien vouloir procéder au paiement. Merci infiniment pour votre compréhension et votre collaboration </h2>    
                         <form className="" action={`${url}/create-checkout-session/${rdvId}`} method="POST">
-                            <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} > Procéder au paiement</div>
+                            <button className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} > Procéder au paiement</button>
                             
                         </form>
                 </div>
@@ -347,7 +359,7 @@ const PriseDeRdv = ()=>{
             }
         }
         
-    }, [global,listRdvLibre,suiviRdvLibre,selectDate,firstDay,newRdv])
+    }, [global,listRdvLibre,suiviRdvLibre,selectDate,firstDay,newRdv,rdvId])
     useEffect(() => {
         // console.log('selectDate : ', selectDate)
     }, [selectDate])
@@ -358,7 +370,7 @@ const PriseDeRdv = ()=>{
                 <div className="w-full h-full flex flex-row flex ">
                     <div className="w-[30%] h-[800px] relative flex center">
                         <img src={"/images/Diagnostic/diagnostic1.png"} alt={"visage21"} className="w-full h-full"/>
-                        <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-black text-[48px] font-mt-extra-bold">PRISE DE RDV</div></div>
+                        <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-white text-[48px] font-mt-extra-bold">PRISE DE RDV</div></div>
                     </div>
                     <div className="w-[70%] h-[800px] p-[30px] ">
                         <div className="bg-white rounded-3xl w-full h-full  flex flex-col">

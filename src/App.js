@@ -27,16 +27,22 @@ import PriseDeRdv from './pages/PriseDeRdv';
 
 import MesRdv from './pages/MesRdv';
 import ConfirmRdv from './pages/ConfirmRdv';
+import { useCookies } from 'react-cookie';
 
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [divModal,setDivModal] = useState(<></>)
-  const [connected,setConnected] = useState(false)
+  const [connected,setConnected] = useState(false);
+  const [cookies, setCookies,removeCookie] = useCookies(["user"]);
   const newsletterRef = useRef();
   const customStyles = {
     overlay: {zIndex: 1000}
-  };
+    };
+  useEffect(() => {
+    console.log('cookies : ', typeof cookies.user == "object")
+  }, [cookies])
+  
   const openModal = (element) => {
    
     setIsModalOpen(true);
@@ -48,44 +54,45 @@ function App() {
     setIsModalOpen(false);
     setDivModal(<></>)
   };
+  
   async function Logout(){
-    let res = await logout(localStorage.getItem("userId"));
+    let res = await logout(typeof cookies.user === "object" ? cookies.user._id : null );
     if(res.status === 200){
       setConnected(false);
       toast.success("Vous êtes deconnecté !")
-      localStorage.clear()
+      removeCookie("user", { path: "/" });
     }
   } 
-  useEffect(() => {
-    if(!connected){
-      localStorage.clear()
-    }
-  }, [connected])
+  // useEffect(() => {
+  //   if(!connected){
+  //     localStorage.clear()
+  //   }
+  // }, [connected])
   
 
   let register = <Register type={false} close={()=>closeModal()} login={()=>{}}/>
-  let login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}}/>
+  let login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} setCookies={setCookies}/>
 
   register = <Register type={false} close={()=>closeModal()} login={()=>{openModal(login)}}/>
   
   let password = <PasswordForgot type={false} close={()=>closeModal()} login={()=>openModal(login)} register={()=>{openModal(register)}}/>
   
-  login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} password_forgot={()=>{openModal(password)}}/>
+  login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} password_forgot={()=>{openModal(password)}} setCookies={setCookies}/>
   function LoginDiagnostic(data){
     let register = <Register type={false} close={()=>closeModal()} login={()=>{}} diagnostic_data={data}/>
-    let login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} diagnostic_data={data}/>
+    let login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} diagnostic_data={data} setCookies={setCookies}/>
   
     register = <Register type={false} close={()=>closeModal()} login={()=>{openModal(login)}} diagnostic_data={data}/>
     
     let password = <PasswordForgot type={false} close={()=>closeModal()} login={()=>openModal(login)} register={()=>{openModal(register)}} diagnostic_data={data}/>
     
-    login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} password_forgot={()=>{openModal(password)}} diagnostic_data={data}/>
+    login = <Login type={true} close={()=>closeModal()} login={()=>closeModal(true)} register={()=>{openModal(register)}} password_forgot={()=>{openModal(password)}} diagnostic_data={data} setCookies={setCookies}/>
     openModal(login)
   }
   const Nav = useMemo(() => 
-  {return <Navbar Login={()=>openModal(login)} LoginCond={connected} Logout={()=>{Logout()}} />
+  {return <Navbar Login={()=>openModal(login)} LoginCond={typeof cookies.user === "object" ? true:false} Logout={()=>{Logout()}} />
 }
-  , [connected,login])
+  , [cookies,login])
 
   function ScrollNewsletter(){
     if (newsletterRef.current) {

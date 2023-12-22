@@ -4,17 +4,19 @@ import { forgotPassword, patchUser } from "../services/user";
 import { toast } from "react-toastify";
 import { getAllDiagnostic, getDiagnosticPDF } from "../services/Diagnostic";
 import { PdfViewer } from "../components/PdfViewer";
+import { useCookies } from "react-cookie";
 
 const MesDiagnostics = (props) =>{
     const [diagnostic,setDiagnostic]= useState([])
+    const [cookies, setCookies] = useCookies(["user"]);
     const navigate = useNavigate();
     const [pdf,setPdf] = useState("")
     useEffect(() => {
-      if(localStorage.length == 0){
+      if(typeof cookies.user !== "object"){
         navigate("/")
       }else{
         async function fetchData(){
-          let data = await getAllDiagnostic({email:localStorage.getItem("userEmail")})
+          let data = await getAllDiagnostic({email:typeof cookies.user === "object"  ? cookies.user.email:null})
           setDiagnostic(data.data)
         }
         fetchData()

@@ -13,9 +13,11 @@ import { useEffect, useMemo, useState } from 'react';
 import { getBlogs } from '../services/Blog';
 import { activateAccount, logout } from '../services/user';
 import { toast } from 'react-toastify';
+import { useCookies } from 'react-cookie';
 
 const Home = (props)=>{
 
+    const [cookies, setCookies] = useCookies(["user"]);
     const [itemList,setItemList]= useState([]);
     const params = useParams()
     const navigate = useNavigate();
@@ -29,8 +31,7 @@ const Home = (props)=>{
         fetchData();
         if(location.pathname === "/Logout"){
             async function Logout(){
-                let res = await logout(localStorage.getItem("userId"));
-                console.log('res : ', res)
+                let res = await logout(typeof cookies.user === "object"  ? cookies.user._id : null);
                 if(res.status === 200){
                   toast.success("Vous êtes deconnecté !")
                   localStorage.clear()
@@ -41,11 +42,12 @@ const Home = (props)=>{
         }
         
         if(params.userId){
-            const activate = async() => {
-                const user = await activateAccount(params.userId);
-                if(user.status == 200){
-                    toast.succes(user.message)
-                    navigate("/")
+            async function activate(){
+                let res = await activateAccount(params.userId);
+                console.log('res : ', res,res.status === 200)
+                if(res.status === 200){
+                    toast.success("Votre compte a bien été confirmé !");
+                    navigate("/");
                 }
             };
             activate();

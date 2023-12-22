@@ -4,24 +4,25 @@ import { toast } from "react-toastify";
 import { getRdvOfExpert } from "../services/rdv";
 import Carousel2 from './../components/Layout/Carousel2';
 import { DateFormat, Heure } from "../components/dateUtils";
+import { useCookies } from "react-cookie";
 
 const MesRdv = ()=>{
     const [listRdvAvant,setListRdvAvant] = useState([]);
     const [listRdvApres,setListRdvApres] = useState([]);
     const [showRdv,setShowRdv] = useState(0)
 
+    const [cookies, setCookies] = useCookies(["user"]);
     const navigate = useNavigate();
     useEffect(() => {
-      if(localStorage.length == 0){
+      if(typeof cookies.user !== "object" ){
         setTimeout(()=>{
             toast.info("Merci de vous connecter d'abord")
         },2000)
         navigate("/")
       }
       const fetchData = async ()=>{
-        let res = await getRdvOfExpert(localStorage.getItem("userEmail"));
+        let res = await getRdvOfExpert(typeof cookies.user === "object"  ? cookies.user.email : null);
         if(res.status == 200){
-            console.log('res.data : ', res.data)
             setListRdvAvant(res.data.filter(rdv => new Date(rdv.DateDebut) < new Date()).sort((a, b) => new Date(a.DateDebut).getTime() - new Date(b.DateDebut).getTime()));
             setListRdvApres(res.data.filter(rdv => new Date(rdv.DateDebut) >= new Date()).sort((a, b) => new Date(a.DateDebut).getTime() - new Date(b.DateDebut).getTime()));
         }

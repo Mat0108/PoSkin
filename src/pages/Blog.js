@@ -6,7 +6,6 @@ import { getBlogbyField, getBlogs } from '../services/Blog';
 
 const Blog = () =>{
     const params = useParams();
-    console.log('params : ', params)
     const [margin,setMargin] = useState("my-2 sm:my-8");
     const [listItem,setListItem] = useState({
         titre:[],

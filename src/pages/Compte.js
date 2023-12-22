@@ -2,17 +2,15 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { forgotPassword, patchUser } from "../services/user";
 import { toast } from "react-toastify";
+import { useCookies } from "react-cookie";
 
 const Compte = (props) =>{
-    const [user, setUser] = useState({
-        firstname:localStorage.getItem("userFirstname"),
-        lastname:localStorage.getItem("userLastname"),
-        email: localStorage.getItem("userEmail"),
-      });
+    const [cookies, setCookies] = useCookies(["user"]);
+    const [user, setUser] = useState(typeof cookies.user === "object"  ? cookies.user : null);
     const [edit,setEdit] = useState(false);
     const navigate = useNavigate();
     useEffect(() => {
-      if(localStorage.length == 0){
+      if(typeof cookies.user !== "object" ){
         navigate("/")
       }
     }, [])
@@ -25,12 +23,11 @@ const Compte = (props) =>{
     };
     const onClick = async (event) => {
         event.preventDefault();
-        if (!(user.firstname === localStorage.getItem("userFirstname") &&
-        user.lastname === localStorage.getItem("userLastname") &&
-        user.email === localStorage.getItem("userEmail"))) {
-          const userData = await patchUser(localStorage.getItem('userId'),user);
-          console.log('userData : ', userData)
+        if (typeof cookies.user === "object" ) {
+          const userData = await patchUser(typeof cookies.user === "object"  ? cookies.user._id : null,user);
           if(userData.status === 200){
+            setCookies("user", userData.data.user, { path: "/" });
+            
             localStorage.setItem("userEmail", user.email);
             localStorage.setItem("userId", userData.data.user._id);
             localStorage.setItem("userFirstname", userData.data.user.firstname);
@@ -96,7 +93,7 @@ const Compte = (props) =>{
         </div>
         <div className="w-2/3 h-full p-[30px]">
             <div className="bg-white rounded-3xl w-full h-full flex flex-col ">
-                <div className="font-mt-extra-bold text-[40px] mt-[40px]">{`BIENVENUE ${localStorage.getItem("userFirstname") && localStorage.getItem("userFirstname").toUpperCase()}`}</div>
+                <div className="font-mt-extra-bold text-[40px] mt-[40px]">{`BIENVENUE ${typeof cookies.user === "object"  ? cookies.user.firstname.toUpperCase() : ""}`}</div>
                 <div className="text-[20px] mt-[10px]">{`Po. vous remercie pour votre confiance`}</div>
                 <div className="flex center mt-[35px] gap-8"> 
                     <div className="bg-[#83C5BE] px-8 py-2 w-[270px] h-fit rounded-full text-[24px] font-mt-demi hover:cursor-pointer" onClick={()=>{navigate("/MesRdv")}}>Mon suivi</div>

@@ -2,12 +2,15 @@ import { useEffect, useMemo, useState } from "react";
 import { BG } from "../components/TailwindUtils";
 import { toast } from "react-toastify";
 import { patchUser } from "../services/user";
+import { useCookies } from "react-cookie";
 
 const MoreInfo = (props)=>{
+    
+    const [cookies, setCookies] = useCookies(["user"]);
     const [user, setUser] = useState({
-        firstname: localStorage.getItem("userFirstname"),
-        lastname: localStorage.getItem("userLastname"),
-        email: localStorage.getItem("userEmail"),
+        firstname: typeof cookies.user === "object"  ? cookies.user.firstname : null,
+        lastname: typeof cookies.user === "object"  ? cookies.user.lastname : null,
+        email: typeof cookies.user === "object"  ? cookies.user.email : null,
         adresse:"",
         ville:"",
         codepostal:"",
@@ -59,7 +62,7 @@ const MoreInfo = (props)=>{
         const isUserValid = Object.values(user).slice(0, Object.keys(user).length - 1).every((value) => value !== "" && value !== "null");
         
         if(isUserValid && user.allergiestype == true ? user.allergies != "" : isUserValid){
-            const userData = await patchUser(localStorage.getItem("userId"),user);
+            const userData = await patchUser(typeof cookies.user === "object"  ? cookies.user._id : null,user);
             if(userData.status == 200){
                 toast.success("Vos informations ont bien été sauvegardées");
                 setTimeout(()=>{

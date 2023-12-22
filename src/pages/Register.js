@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { login, register } from "../services/user";
+import { register } from "../services/user";
 import { toast } from "react-toastify";
 import { saveDiagnostic } from "../services/Diagnostic";
 
 const Register = (props) => {
-  console.log('props : ', props)
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",
@@ -21,19 +20,16 @@ const Register = (props) => {
     if (user.email !== "" && user.password !== "" && user.confirmpassword !== "" && user.password === user.confirmpassword && user.firstname !== "" && user.lastname !== "") {
       const res = await register(user);
       if (res.status === 200) {
-        const resLogin = await login({email:user.email,password:user.password})
-        if(resLogin.status === 200){
-          if(props.diagnostic_data){
-            let response = await saveDiagnostic({mail:user.email,...props.diagnostic_data})
-            console.log('response : ', response)
-            if(response.status === 200){
-              toast.success("Mail envoyé !")
-            }else{
-                toast.error("Erreur api")
-            }
+        if(props.diagnostic_data){
+          let response = await saveDiagnostic({mail:user.email,...props.diagnostic_data})
+          if(response.status === 200){      
+              toast.success("Mail de confirmation envoyé !")
+          }else{
+              toast.error("Erreur api")
           }
-          props.close()
-        }  
+        }
+        toast.success("Mail de confirmation envoyé !")
+        props.close()
       }
     } else {
       alert("Please fill all the fields!");
@@ -131,7 +127,7 @@ const Register = (props) => {
               className="w-full mt-3 py-3 bg-blue text-white font-mt-extra-bold rounded-full text-[20px] hover:cursor-pointer"
               onClick={onClick}
             >
-            S'INCRIRE
+            S'INSCRIRE
           </button>
           <div className="w-full h-full grid grid-cols-2"></div>
           

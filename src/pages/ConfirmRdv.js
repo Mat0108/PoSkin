@@ -10,8 +10,7 @@ const ConfirmRdv = ()=>{
     console.log('rdvId : ', rdvId)
     const navigate = useNavigate();
     const queryParams = new URLSearchParams(window.location.search);
-    const success = queryParams.get('success'); 
-    console.log('success : ', success)
+    const success = queryParams.get('success');
     const [rdv,setRdv] = useState()
 
     useEffect(()=>{

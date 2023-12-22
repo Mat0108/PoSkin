@@ -17,6 +17,7 @@ const Login = (props) => {
     if (user.password !== "" && user.email !== "") {
       const userData = await login({email:user.email,password:user.password});
       if(userData.status === 200){
+        props.setCookies("user", userData.data.user, { path: "/" });
         localStorage.setItem("userEmail", user.email);
         localStorage.setItem("userId", userData.data.user._id);
         localStorage.setItem("userFirstname", userData.data.user.firstname);

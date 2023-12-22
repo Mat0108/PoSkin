@@ -34,8 +34,8 @@ const Newsletter =(props)=>{
             <div className="col-start-3 col-span-4 flex flex-col center ">
                 <p className="text-[12px] sm:text-[30px] ">Votre adresse mail:</p>
                 <div className="flex flex-row w-[90%]">
-                    <input className="w-[80%] bg-[#83C5BE] border-b-2 mt-5 text-[16px] sm:text-[18px]" placeholder="votre mail " value={value} onChange={e=>setValue(e.target.value)}></input>
-                    <div className="w-[20%]"><div className="mt-[20px] w-[20px] sm:w-[40px] ml-[10px] flex center border-2 " onClick={()=>createUser(value)}> <img src={"/images/fleche.png"} alt={"fleche"} /></div></div>
+                    <input className="w-[80%] bg-[#83C5BE] mt-5 text-[16px] sm:text-[18px] border-2 border-blue bg-white rounded-lg" placeholder="    Votre mail " value={value} onChange={e=>setValue(e.target.value)}></input>
+                    <div className="w-[20%]"><div className="mt-[20px] w-[20px] sm:w-[40px] ml-[10px] flex center border-2 rounded-lg " onClick={()=>createUser(value)}> <img src={"/images/fleche.png"} alt={"fleche"} /></div></div>
                 </div>
             </div>
         </div>
