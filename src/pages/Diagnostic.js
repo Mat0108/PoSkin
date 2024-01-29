@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { dictionnaire } from "../data";
 
 const Diagnostic = ()=>{
     return (<>
@@ -8,14 +9,16 @@ const Diagnostic = ()=>{
                     <img src={"/images/visage/visage21.png"} alt={"visage21"} className="w-full h-full"/>
                 </div>
                 <div className="w-2/3 h-full bg-[#264C4D]">
-                    <div><p className="mt-[160px] text-white text-[50px] font-mt-extra-bold">FAIRE MON DIAGNOSTIC</p></div>
+                    <div><p className="mt-[160px] text-white text-[50px] font-mt-extra-bold">{dictionnaire.Diagnostic.Diagnostic.toUpperCase()}</p></div>
                     <div className="w-full flex center mt-[120px]">
-                        <div className="bg-[#EEE8E4] hover:bg-[#264C4D] border-2 border-[#EEE8E4] w-[330px] rounded-full"><Link to={"/Diagnostic/start/"} className="text-[40px] text-[#264C4D] hover:text-[#EEE8E4]">C'est parti !</Link></div>
+                        <div className="bg-[#EEE8E4] hover:bg-[#264C4D] border-2 border-[#EEE8E4] w-[330px] rounded-full"><Link to={"/Diagnostic/start/"} className="text-[40px] text-[#264C4D] hover:text-[#EEE8E4]">{dictionnaire.Diagnostic.Go}</Link></div>
                         <p></p>
                     </div>
                     <div className="w-full flex center mt-[30px]">
-                        <div className="w-[60%] text-xl text-white">En complétant ce formulaire, vous autorisez Po. à utiliser vos données personnelles, à vous adresser des 
-offres et communications par email ou par SMS.En savoir plus </div>
+                        <div className="w-[60%] text-xl text-white">
+                            {dictionnaire.Diagnostic.Info1}
+                            {dictionnaire.Diagnostic.Info2}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -23,10 +26,9 @@ offres et communications par email ou par SMS.En savoir plus </div>
         </div>
         <div className="w-full h-full ">
                 <div className="flex flex-col center mt-[80px]">
-                    <div><p className="text-[50px] text-[#264C4D]">Po. pour une belle peau </p></div>
-                    <div className="w-[800px] mt-[30px]"><p>Chez Po. nous sommes convaincus que prendre soin de sa peau devrait être à la portée de tous et de toutes. C’est pour cela que nous voulons rendre accessible les soins, les conseils, les expertises.</p></div>
-
-                    <div className="w-[800px] mt-[30px] mb-[80px]"><p>Nous sommes fiers de mettre à votre disposition des formules de soins cleans et de vous mettre en contact avec  nos partenaires expert dans les problèmes de peaux. </p></div>
+                    <div><p className="text-[50px] text-[#264C4D]">{dictionnaire.Diagnostic.Po}</p></div>
+                    <div className="w-[800px] mt-[30px]"><p>{dictionnaire.Diagnostic.Info3}</p></div>
+                    <div className="w-[800px] mt-[30px] mb-[80px]"><p>{dictionnaire.Diagnostic.Info4}</p></div>
                 </div>
             </div>
         </>

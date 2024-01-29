@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { saveDiagnostic } from "../services/Diagnostic";
 import { useNavigate } from "react-router";
 import { useCookies } from "react-cookie";
+import { dictionnaire } from "../data";
 const DiagnosticStart = (props)=>{
 
     const [cookies, setCookies] = useCookies(["user"]);
@@ -78,7 +79,7 @@ const DiagnosticStart = (props)=>{
                         <div>
                             {i === DiagnosticData.length-1 ?<div className="flex flex-col">
                                 {typeof cookies.user === "object" ? <>
-                                <div className="text-[20px] text-[#264C4D] text-left mt-[10px]">Vous recevrez une copie de votre diagnostic de peau prochainement</div>
+                                <div className="text-[20px] text-[#264C4D] text-left mt-[10px]">{dictionnaire.DiagnosticStart.copie}</div>
                                 <input
                                     className="rounded-lg w-[500px] bg-gray-700 mt-2 py-2 px-4 border-[#264C4D] border-2 focus:bg-black-800 focus:outline-none form-control"
                                     type="text"
@@ -87,12 +88,12 @@ const DiagnosticStart = (props)=>{
                                     placeholder="Email*"
                                     required
                                 />
-                                <div className="flex flex-col w-full mt-[30px] "> <div className="w-fit bg-[#264C4D] rounded-full text-[24px] px-16 py-2 text-white hover:cursor-pointer" onClick={()=>{Envoyer()}}>Envoyer</div> </div>
-                                <div className="text-[24px] font-mt-demi w-[70%] text-justify mt-[20px] ">Vous avez également la possibilité de vous connecter ou de vous inscrire pour sauvegardé votre diagnostic de la peau et ainsi profiter de fonctionnalités supplémentaires. </div>
-                                <div className="flex flex-col w-full mt-[30px] "> <div className="w-fit bg-[#264C4D] rounded-full text-[24px] px-16 py-2 text-white hover:cursor-pointer" onClick={()=>{props.login({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],selected:selected})}}>Se connecter</div> </div>
+                                <div className="flex flex-col w-full mt-[30px] "> <div className="w-fit bg-[#264C4D] rounded-full text-[24px] px-16 py-2 text-white hover:cursor-pointer" onClick={()=>{Envoyer()}}>{dictionnaire.send}</div> </div>
+                                <div className="text-[24px] font-mt-demi w-[70%] text-justify mt-[20px] ">{dictionnaire.DiagnosticStart.connect}</div>
+                                <div className="flex flex-col w-full mt-[30px] "> <div className="w-fit bg-[#264C4D] rounded-full text-[24px] px-16 py-2 text-white hover:cursor-pointer" onClick={()=>{props.login({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],selected:selected})}}>{dictionnaire.connect}</div> </div>
                                 
-                                </> : <><div className="flex flex-col w-full mt-[30px] "> <div className="w-fit bg-[#83C5BE] rounded-full text-[24px] px-16 py-2 text-[#264C4D] hover:cursor-pointer" onClick={()=>{Envoyer()}}>Sauvegarde le diagnostic</div> </div>
-                                <div className="flex flex-col w-full mt-[30px] "> <div className="w-fit bg-[#264C4D] rounded-full text-[24px] px-16 py-2 text-white hover:cursor-pointer" onClick={()=>{navigate("/PriseDeRdv")}}>Créer un rendez vous</div> </div>
+                                </> : <><div className="flex flex-col w-full mt-[30px] "> <div className="w-fit bg-[#83C5BE] rounded-full text-[24px] px-16 py-2 text-[#264C4D] hover:cursor-pointer" onClick={()=>{Envoyer()}}>{dictionnaire.DiagnosticStart.save}</div> </div>
+                                <div className="flex flex-col w-full mt-[30px] "> <div className="w-fit bg-[#264C4D] rounded-full text-[24px] px-16 py-2 text-white hover:cursor-pointer" onClick={()=>{navigate("/PriseDeRdv")}}>{dictionnaire.DiagnosticStart.rdv}</div> </div>
                                 </>
                                 }
                                 
@@ -100,10 +101,10 @@ const DiagnosticStart = (props)=>{
 
                             <div className="w-full flex flex-row justify-between mt-[50px] pr-[20%] ">
                                 <div className={`bg-[#83C5BE] rounded-full  text-[24px] px-8 py-2 hover:cursor-pointer`} onClick={()=>{i === 0 ? null:setI(i - 1)}}>
-                                    PRÉCÉDENT
+                                    {dictionnaire.previous}
                                 </div>
                                  <div className={`bg-[#264C4D] rounded-full text-[24px] px-16 py-2 ${i === DiagnosticData.length-1 ? "text-[#264C4D]":"text-white"}  hover:cursor-pointer`} onClick={()=>{valider()}}>
-                                     SUIVANT
+                                     {dictionnaire.next}
                                 </div>
                             </div>
                         </div>

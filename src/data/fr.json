@@ -1,0 +1,54 @@
+{
+    "HomeTitle":"DECOUVREZ VOTRE PEAU",
+    "Compte":{
+        "Nom":"Nom",
+        "VNom":"Votre nom",
+        "Prenom":"Prénom",
+        "VPrenom":"Votre prénom",
+        "Email":"E-mail",
+        "VEmail": "Votre email",
+        "Suivi":"Mon suivi",
+        "Compte":"Mon compte",
+        "Diagnostics":"Mes Diagnostics",
+        "Info":"Modifier mes informations",
+        "Motdepasse":"Réinitialisation du mot de passe"
+    },
+    "RdvConfirm":{
+        "Confirm":"RENDEZ VOUS CONFIRMÉ",
+        "Reservation":"Po. vous remercie pour votre réservation.",
+        "Info":"Votre information",
+        "Genre":"Genre",
+        "Motif":"Motif",
+        "Expert":"Expert",
+        "RdvNotConfirm":"LE RENDEZ-VOUS N'AS PAS PU ÉTRE CONFIRMÉ",
+        "error_payement":"Nous vous informons respectueusement que le paiement n'a pas été effectué avec succès.",
+        "check_payement":"Merci de vérifier vos informations et de réessayer. Nous restons à votre disposition pour toute assistance nécessaire.",
+        "payement":"Procéder au paiement"
+    },
+    "Diagnostic":{
+        "Diagnostic":"Faire mon Diagnostic",
+        "Go":"C'est parti !",
+        "Info1":"En complétant ce formulaire, vous autorisez Po. à utiliser vos données personnelles, à vous adresser des",
+        "Info2":"offres et communications par email ou par SMS. En savoir plus",
+        "Po":"Po. pour une belle peau",
+        "Info3":"Chez Po. nous sommes convaincus que prendre soin de sa peau devrait être à la portée de tous et de toutes. C’est pour cela que nous voulons rendre accessible les soins, les conseils, les expertises.",
+        "Info4":"Nous sommes fiers de mettre à votre disposition des formules de soins cleans et de vous mettre en contact avec  nos partenaires expert dans les problèmes de peaux."
+    },
+    "DiagnosticStart":{
+        "copie":"Vous recevrez une copie de votre diagnostic de peau prochainement",
+        "connect":"Vous avez également la possibilité de vous connecter ou de vous inscrire pour sauvegardé votre diagnostic de la peau et ainsi profiter de fonctionnalités supplémentaires.",
+        "save":"Sauvegardé le diagnostic",
+        "rdv":"Créer un rendez-vous"
+    
+    },
+    "Login":{
+        "mouvement":"Rejoignez le mouvement et découvrez",
+        "peau":"votre nouvelle peau"
+    },
+    "votre":"votre",
+    "rdv":"Rendez-vous",
+    "send":"Envoyer",
+    "connect": "Se connecter",
+    "next":"Suivant",
+    "previous":"Précédent"
+}

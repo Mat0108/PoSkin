@@ -14,7 +14,7 @@ import { getBlogs } from '../services/Blog';
 import { activateAccount, logout } from '../services/user';
 import { toast } from 'react-toastify';
 import { useCookies } from 'react-cookie';
-
+import { dictionnaire } from '../data';
 const Home = (props)=>{
 
     const [cookies, setCookies] = useCookies(["user"]);
@@ -95,7 +95,7 @@ const Home = (props)=>{
         >
           {divModal}
         </Modal> */}
-        <LayoutFullImage props={{titre:"DECOUVREZ VOTRE PEAU",button:buttondiv,image1:{url:"/images/visage/fullvisage.png",alt:"fullvisage"}}}/>
+        <LayoutFullImage props={{titre:dictionnaire.HomeTitle,button:buttondiv,image1:{url:"/images/visage/fullvisage.png",alt:"fullvisage"}}}/>
         <Layout1image props={{col1:switchtext("presentation",props.scroll),image1:{url:"/images/visage/visage2.png",alt:"visage2"}}} />
         <Layout2image props={{col1:switchtext("apropos"),col2:switchtext("apropos2"),image1:{url:"/images/visage/visage7.png",alt:"visage7"},image2:{url:"/images/visage/visage8.png",alt:"visage8"}}} />
         {/* <div className='w-full flex center'>

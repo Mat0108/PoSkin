@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { forgotPassword, patchUser } from "../services/user";
 import { toast } from "react-toastify";
 import { useCookies } from "react-cookie";
+import { dictionnaire } from "../data";
 
 const Compte = (props) =>{
     const [cookies, setCookies] = useCookies(["user"]);
@@ -47,36 +48,35 @@ const Compte = (props) =>{
     const element = useMemo(() => {
         return <><div className=" w-1/2 flex flex-col gap-3">
                 <div className="flex flex-col">
-                  <label className="text-left font-mt-demi text-[20px]">NOM</label>
+                  <label className="text-left font-mt-demi text-[20px]">{dictionnaire.Compte.Nom.toUpperCase()}</label>
                   <input
                   className="rounded-xl bg-gray-700 mt-2 py-2 px-4 border-[#A29F9F] border-2 bg-[#F3F3F3]"
                   type="text"
                   onChange={onChangeHandler}
                   value={user.firstname}
-                  placeholder="Votre nom"
+                  placeholder={dictionnaire.Compte.VNom}
                   id="firstname"
                   />  
                 </div>
                 <div className="flex flex-col">
-                  <label className="text-left font-mt-demi text-[20px]">PRÉNOM</label>
+                  <label className="text-left font-mt-demi text-[20px]">{dictionnaire.Compte.Prenom.toUpperCase()}</label>
                   <input
                   className="rounded-xl bg-gray-700 mt-2 py-2 px-4 border-[#A29F9F] border-2 bg-[#F3F3F3]"
                   type="text"
                   onChange={onChangeHandler}
                   value={user.lastname}
-                  placeholder="Votre prénom"
+                  placeholder={dictionnaire.Compte.VPrenom}
                   id="lastname"
                   />
                 </div>
                 <div className="flex flex-col">
-            
-                  <label className="text-left font-mt-demi text-[20px]">E-MAIL</label>
+                  <label className="text-left font-mt-demi text-[20px]">{dictionnaire.Compte.Email.toUpperCase()}</label>
                   <input
                   className="rounded-xl bg-gray-700 mt-2 py-2 px-4 border-[#A29F9F] border-2 bg-[#F3F3F3]"
                   type="text"
                   onChange={onChangeHandler}
                   value={user.email}
-                  placeholder="Votre émail"
+                  placeholder={dictionnaire.Compte.VEmail}
                   id="email"
                   />
                 </div>  
@@ -89,23 +89,23 @@ const Compte = (props) =>{
     <div className="w-full h-[870px] flex flex-row">
         <div className="w-1/3 h-full relative">
             <img src={"/images/Compte/Compte1.jpg"} alt={"visage21"} className="w-full h-full"/>
-            <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-white text-[48px] font-mt-extra-bold">MON COMPTE</div></div>
+            <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-white text-[48px] font-mt-extra-bold">{dictionnaire.Compte.Compte}</div></div>
         </div>
         <div className="w-2/3 h-full p-[30px]">
             <div className="bg-white rounded-3xl w-full h-full flex flex-col ">
                 <div className="font-mt-extra-bold text-[40px] mt-[40px]">{`BIENVENUE ${typeof cookies.user === "object"  ? cookies.user.firstname.toUpperCase() : ""}`}</div>
                 <div className="text-[20px] mt-[10px]">{`Po. vous remercie pour votre confiance`}</div>
                 <div className="flex center mt-[35px] gap-8"> 
-                    <div className="bg-[#83C5BE] px-8 py-2 w-[270px] h-fit rounded-full text-[24px] font-mt-demi hover:cursor-pointer" onClick={()=>{navigate("/MesRdv")}}>Mon suivi</div>
-                    <div className="bg-[#83C5BE] px-8 py-2 w-[270px] h-fit rounded-full text-[24px] font-mt-demi hover:cursor-pointer" onClick={()=>{navigate("/MesDiagnostics")}}>Mes diagnostic</div>
+                    <div className="bg-[#83C5BE] px-8 py-2 w-[270px] h-fit rounded-full text-[24px] font-mt-demi hover:cursor-pointer" onClick={()=>{navigate("/MesRdv")}}>{dictionnaire.Compte.Suivi}</div>
+                    <div className="bg-[#83C5BE] px-8 py-2 w-[270px] h-fit rounded-full text-[24px] font-mt-demi hover:cursor-pointer" onClick={()=>{navigate("/MesDiagnostics")}}>{dictionnaire.Compte.Diagnostics}</div>
                 </div>
                 <div className="text-[32px] mt-[40px] font-mt-demi">{`MES INFORMATIONS `}</div>
                 <div className="w-full flex flex-row center"> 
                     {element}
                     
                 </div>
-                <div className="flex center mt-[30px]"> <div className="bg-[#264C4D] px-8 py-2 w-fit h-fit rounded-full text-[24px] font-mt-demi text-white hover:cursor-pointer" onClick={onClick}>Modifier mes informations</div></div>
-                <div className="flex center mt-[20px]"> <div className="bg-[#264C4D] px-8 py-2 w-fit h-fit rounded-full text-[24px] font-mt-demi text-white hover:cursor-pointer" onClick={handleChangePassword}>Réinitialisation du mot de passe</div></div>
+                <div className="flex center mt-[30px]"> <div className="bg-[#264C4D] px-8 py-2 w-fit h-fit rounded-full text-[24px] font-mt-demi text-white hover:cursor-pointer" onClick={onClick}>{dictionnaire.Compte.Info}</div></div>
+                <div className="flex center mt-[20px]"> <div className="bg-[#264C4D] px-8 py-2 w-fit h-fit rounded-full text-[24px] font-mt-demi text-white hover:cursor-pointer" onClick={handleChangePassword}>{dictionnaire.Compte.Motdepasse}</div></div>
             </div>
 
         </div>
