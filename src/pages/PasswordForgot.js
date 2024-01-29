@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { forgotPassword } from '../services/user';
 import { toast } from 'react-toastify';
-import { dictionnaire } from '../data';
+import { LanguageContext } from '../data';
 
 
 function PasswordForgot(props) {
+  const { dictionnaire } = useContext(LanguageContext);
   const [email, setEmail] = useState('');
 
   const handleForgotPassword = async (event) => {

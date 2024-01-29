@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
-import { dictionnaire } from "../data";
+import { LanguageContext } from "../data";
+import { useContext } from "react";
 
 const Diagnostic = ()=>{
+    const { dictionnaire } = useContext(LanguageContext);
     return (<>
         <div className="">
             <div className="w-full h-[870px] flex flex-row">

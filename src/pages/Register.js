@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { register } from "../services/user";
 import { toast } from "react-toastify";
 import { saveDiagnostic } from "../services/Diagnostic";
-import { dictionnaire } from "../data";
+import { LanguageContext } from "../data";
 
 const Register = (props) => {
+  
+  const { dictionnaire } = useContext(LanguageContext);
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",
@@ -52,7 +54,7 @@ const Register = (props) => {
             <p className="text-[16px] text-center text-white">  {dictionnaire.Login.peau}</p>
             <div className="grid grid-cols-2 w-full mt-[22px]">
               <div className={`${props.type === false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center border-t-[6px] border-x-[6px] border-red-Venetian`}>
-                <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-extra-bold hover:cursor-pointer`}>{dictionnaire.login.inscription.toUpperCase()}</div>
+                <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-extra-bold hover:cursor-pointer`}>{dictionnaire.Login.inscription.toUpperCase()}</div>
               </div>
               <div className={`${props.type === true ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center border-b-[6px] border-red-Venetian` }>
                 <div className={`${props.type === false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-extra-bold hover:cursor-pointer `} onClick={props.login}>{dictionnaire.Login.registered.toUpperCase()} </div>

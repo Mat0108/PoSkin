@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import MesDiagnostics from './../pages/MesDiagnostics';
+import LanguageSelector from '../constants/LanguageSelector';
 
 const Navbar = (props) => {
 //   const [aproposbool, setAproposbool] = useState(false);
@@ -103,6 +104,7 @@ const Navbar = (props) => {
         <div className='col-start-1 ml-[20px]  sm:ml-[35px] mt-[4px] sm:mt-[12px] p-x-2 flex items-start ' ><a  className='w-fit h-full'><img src={'/images/logo.png'} alt="logo" className='h-[30%] sm:h-[70%] ' onClick={()=>{navigate("/")}}/></a></div>
         <div className='col-start-4 col-span-2 flex '>
             <div className='w-full flex flex-row text-lg space-x-2 mr-[100px] center justify-end '>
+                <LanguageSelector />
                 {/* <div onMouseEnter={()=>{setRegisterbool(true)}}
                 onMouseLeave={()=>{setRegisterbool(false)}}>{Register}</div> */}
                 {props.LoginCond ? <>

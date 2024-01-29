@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { login } from "../services/user";
 import { toast } from "react-toastify";
 import { saveDiagnostic } from "../services/Diagnostic";
-import { dictionnaire } from "../data";
+import { LanguageContext } from "../data";
 
 
 const Login = (props) => {
+  
+  const { dictionnaire } = useContext(LanguageContext);
   const [user, setUser] = useState({
     email: "",
     password: "",

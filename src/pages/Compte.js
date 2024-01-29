@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { forgotPassword, patchUser } from "../services/user";
 import { toast } from "react-toastify";
 import { useCookies } from "react-cookie";
-import { dictionnaire } from "../data";
+import { LanguageContext } from "../data";
 
 const Compte = (props) =>{
+    const { dictionnaire } = useContext(LanguageContext);
     const [cookies, setCookies] = useCookies(["user"]);
     const [user, setUser] = useState(typeof cookies.user === "object"  ? cookies.user : null);
     const [edit,setEdit] = useState(false);

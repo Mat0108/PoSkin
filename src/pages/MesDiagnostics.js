@@ -1,13 +1,14 @@
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { forgotPassword, patchUser } from "../services/user";
 import { toast } from "react-toastify";
 import { getAllDiagnostic, getDiagnosticPDF } from "../services/Diagnostic";
 import { PdfViewer } from "../components/PdfViewer";
 import { useCookies } from "react-cookie";
-import { dictionnaire } from "../data";
+import { LanguageContext } from "../data";
 
 const MesDiagnostics = (props) =>{
+    const { dictionnaire } = useContext(LanguageContext);
     const [diagnostic,setDiagnostic]= useState([])
     const [cookies, setCookies] = useCookies(["user"]);
     const navigate = useNavigate();

@@ -1,0 +1,82 @@
+{
+    "HomeTitle": "DISCOVER YOUR SKIN",
+    "Compte": {
+        "Nom": "Last name",
+        "VNom": "Your last name",
+        "Prenom": "First name",
+        "VPrenom": "Your first name",
+        "Email": "Email",
+        "VEmail": "Your email",
+        "Suivi": "My tracking",
+        "Compte": "My account",
+        "Diagnostics": "My diagnostics",
+        "Info": "Modify my information",
+        "Motdepasse": "Reset password"
+    },
+    "RdvConfirm": {
+        "Confirm": "CONFIRMED APPOINTMENT",
+        "Reservation": "Po. thanks you for your reservation.",
+        "Info": "Your information",
+        "Genre": "Genre",
+        "Motif": "Reason",
+        "Expert": "Expert",
+        "RdvNotConfirm": "THE APPOINTMENT COULD NOT BE CONFIRMED",
+        "error_payement": "We respectfully inform you that the payment was not successful.",
+        "check_payement": "Please verify your information and try again. We remain at your disposal for any necessary assistance.",
+        "payement": "Proceed to payment"
+    },
+    "Diagnostic": {
+        "Diagnostic": "Do my diagnosis",
+        "Go": "Let's go!",
+        "Info1": "By completing this form, you authorize Po. to use your personal data, to send you",
+        "Info2": "offers and communications by email or SMS. Learn more",
+        "Po": "Po. for beautiful skin",
+        "Info3": "At Po., we are convinced that taking care of your skin should be accessible to everyone. That's why we want to make care, advice, expertise accessible.",
+        "Info4": "We are proud to provide you with clean care formulas and to put you in touch with our expert partners in skin issues."
+    },
+    "DiagnosticStart": {
+        "copie": "You will receive a copy of your skin diagnosis soon",
+        "connect": "You also have the option to log in or register to save your skin diagnosis and take advantage of additional features.",
+        "save": "Save the diagnosis",
+        "rdv": "Create an appointment"
+    },
+    "Login": {
+        "mouvement": "Join the movement and discover",
+        "peau": "your new skin",
+        "inscription": "Registration",
+        "registered": "Already registered",
+        "connect": "Log in",
+        "password": "Password",
+        "confirmpassword": "Confirm your password"
+    },
+    "Rdv": {
+        "recap": "Summary of your previous appointment",
+        "suivi": "Follow-up consultation with your expert.",
+        "first_suivi": "First consultation with an expert.",
+        "next": "Your next appointment",
+        "mon_suivi": "My follow-up"
+    },
+    "Password": {
+        "edit": "Password change",
+        "password": "Enter your password",
+        "not_valide": "Your validation link is no longer valid",
+        "new_request": "Make a new request for",
+        "rejoignez": "Join the movement and discover",
+        "email": "Enter your email address",
+        "ask": "Request a reset link"
+    },
+    "votre": "your",
+    "rdv": "Appointment",
+    "send": "Send",
+    "register": "Register",
+    "connect": "Log in",
+    "passwordforgot": "Forgot password",
+    "next": "Next",
+    "previous": "Previous",
+    "diagnostic": "your diagnostics",
+    "date": "Date",
+    "heure": "Time",
+    "expert": "Expert",
+    "motif": "Reason",
+    "observations": "Observations"
+}

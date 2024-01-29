@@ -1,12 +1,14 @@
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router";
 import { confirmRdv, getRdv } from "../services/rdv";
 import { DateFormat } from "../components/dateUtils";
 import { BG } from "../components/TailwindUtils";
 import { url } from "../services/config";
-import { dictionnaire } from "../data";
+import { LanguageContext } from "../data";
 
 const ConfirmRdv = ()=>{
+    
+    const { dictionnaire } = useContext(LanguageContext);
     const {rdvId} = useParams();
     console.log('rdvId : ', rdvId)
     const navigate = useNavigate();

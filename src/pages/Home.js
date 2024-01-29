@@ -9,14 +9,15 @@ import {switchtext} from './../components/textdivers';
 import Carousel2 from '../components/Layout/Carousel2';
 
 import { Link, useNavigate, useParams,useLocation  } from 'react-router-dom';
-import { useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { getBlogs } from '../services/Blog';
 import { activateAccount, logout } from '../services/user';
 import { toast } from 'react-toastify';
 import { useCookies } from 'react-cookie';
-import { dictionnaire } from '../data';
+import { LanguageContext } from '../data';
 const Home = (props)=>{
-
+    
+    const { dictionnaire } = useContext(LanguageContext);
     const [cookies, setCookies] = useCookies(["user"]);
     const [itemList,setItemList]= useState([]);
     const params = useParams()

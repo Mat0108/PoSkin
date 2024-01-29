@@ -1,13 +1,14 @@
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { useMatch, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { getRdvOfExpert } from "../services/rdv";
 import Carousel2 from './../components/Layout/Carousel2';
 import { DateFormat, Heure } from "../components/dateUtils";
 import { useCookies } from "react-cookie";
-import { dictionnaire } from "../data";
+import { LanguageContext } from "../data";
 
 const MesRdv = ()=>{
+    const { dictionnaire } = useContext(LanguageContext);
     const [listRdvAvant,setListRdvAvant] = useState([]);
     const [listRdvApres,setListRdvApres] = useState([]);
     const [showRdv,setShowRdv] = useState(0)

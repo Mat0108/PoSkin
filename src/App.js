@@ -28,6 +28,7 @@ import PriseDeRdv from './pages/PriseDeRdv';
 import MesRdv from './pages/MesRdv';
 import ConfirmRdv from './pages/ConfirmRdv';
 import { useCookies } from 'react-cookie';
+import { LanguageProvider } from './data/index';
 
 
 function App() {
@@ -104,58 +105,60 @@ function App() {
 }
   return (
     <div className="App w-full h-full relative bg-[#EEE8E4] font-mt">
-      <Router>
-        <ScrollToTop />
-        {Nav}
-        <Modal
-          isOpen={isModalOpen}
-          onRequestClose={closeModal}
-          className={"bg-transparent w-screen h-screen z-[10000] flex center"}
-          style={customStyles}
-        >
-          {divModal}
-        </Modal>
-        <Routes>
-          <Route exact path="/Activate/:userId" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
-          <Route exact path="/Blog/:BlogId" element={<Blog/>}></Route> 
-          {/* <Route path="/Expertise" element={<Expertise/>}></Route> 
-          <Route path="/APropos" element={<QuiSommesNous />}></Route>
-          <Route path="/Community" element={<Commu/>}></Route>
-          <Route path='/Conseils' element={<Conseils/>}></Route>*/}
-          <Route exact path='/ForgotPassword/:TokenId' element={<PasswordEdit login={()=>openModal(login)} password={()=>openModal(password)}/>}></Route>
-          <Route path='/Login' element={<Login/>}></Route>
-          <Route path='/Register' element={<Register/>}></Route>
-          <Route path='/Diagnostic' element={<Diagnostic/>}></Route>
-          <Route path="/Diagnostic/start/" element={<DiagnosticStart login={LoginDiagnostic}/>}></Route>
-          <Route path="/Compte" element={<Compte/>}></Route> 
-          <Route path="/MesDiagnostics" element={<MesDiagnostics openModal={openModal} closeModal={closeModal}/>} ></Route> 
-          <Route path="/PriseDeRdv" element={<PriseDeRdv />}></Route>
-          <Route path="/ConfirmRdv/:rdvId" element={<ConfirmRdv />}></Route>
-          <Route path="/MesRdv" element={<MesRdv />}></Route>
-          <Route exact path="/" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
-          <Route exact path="/Logout" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
+      <LanguageProvider >
+        <Router>
+          <ScrollToTop />
+          {Nav}
+          <Modal
+            isOpen={isModalOpen}
+            onRequestClose={closeModal}
+            className={"bg-transparent w-screen h-screen z-[10000] flex center"}
+            style={customStyles}
+          >
+            {divModal}
+          </Modal>
+          <Routes>
+            <Route exact path="/Activate/:userId" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
+            <Route exact path="/Blog/:BlogId" element={<Blog/>}></Route> 
+            {/* <Route path="/Expertise" element={<Expertise/>}></Route> 
+            <Route path="/APropos" element={<QuiSommesNous />}></Route>
+            <Route path="/Community" element={<Commu/>}></Route>
+            <Route path='/Conseils' element={<Conseils/>}></Route>*/}
+            <Route exact path='/ForgotPassword/:TokenId' element={<PasswordEdit login={()=>openModal(login)} password={()=>openModal(password)}/>}></Route>
+            <Route path='/Login' element={<Login/>}></Route>
+            <Route path='/Register' element={<Register/>}></Route>
+            <Route path='/Diagnostic' element={<Diagnostic/>}></Route>
+            <Route path="/Diagnostic/start/" element={<DiagnosticStart login={LoginDiagnostic}/>}></Route>
+            <Route path="/Compte" element={<Compte/>}></Route> 
+            <Route path="/MesDiagnostics" element={<MesDiagnostics openModal={openModal} closeModal={closeModal}/>} ></Route> 
+            <Route path="/PriseDeRdv" element={<PriseDeRdv />}></Route>
+            <Route path="/ConfirmRdv/:rdvId" element={<ConfirmRdv />}></Route>
+            <Route path="/MesRdv" element={<MesRdv />}></Route>
+            <Route exact path="/" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
+            <Route exact path="/Logout" element={<Home scroll={()=>{ScrollNewsletter()}}/>}></Route>
 
-        </Routes>
-        <div ref={newsletterRef}></div>
-        <Newsletter />
-        <Footer />
-        <ToastContainer
-          position="bottom-center"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          className={"w-fit"}
-          // toastClassName={() => "w-full bg-[#264C4D] rounded-t-2xl"}
-          // toastClassName={" relative bg-[#264C4D] flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"}
-          // bodyClassName={() => "text-[14px] text-white font-mt-extra-bold"}
-          // closeClassName={"bg-white"}
-        />
-      </Router>
+          </Routes>
+          <div ref={newsletterRef}></div>
+          <Newsletter />
+          <Footer />
+          <ToastContainer
+            position="bottom-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            className={"w-fit"}
+            // toastClassName={() => "w-full bg-[#264C4D] rounded-t-2xl"}
+            // toastClassName={" relative bg-[#264C4D] flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"}
+            // bodyClassName={() => "text-[14px] text-white font-mt-extra-bold"}
+            // closeClassName={"bg-white"}
+          />
+        </Router>
+      </LanguageProvider>
     </div>
   );
 }

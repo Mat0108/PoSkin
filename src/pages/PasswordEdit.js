@@ -1,11 +1,13 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { forgotPasswordCheckToken, forgotPasswordValider } from '../services/user';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { dictionnaire } from '../data';
+import { LanguageContext } from '../data';
 
 
 function PasswordEdit(props) {
+  
+  const { dictionnaire } = useContext(LanguageContext);
   const [user, setUser] = useState({
     password1: "",
     password2: ""

@@ -1,13 +1,14 @@
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { DiagnosticData } from "../constants/DiagnosticData";
 import { getW } from "../components/TailwindUtils";
 import { toast } from "react-toastify";
 import { saveDiagnostic } from "../services/Diagnostic";
 import { useNavigate } from "react-router";
 import { useCookies } from "react-cookie";
-import { dictionnaire } from "../data";
+import { LanguageContext } from "../data";
 const DiagnosticStart = (props)=>{
 
+    const { dictionnaire } = useContext(LanguageContext);
     const [cookies, setCookies] = useCookies(["user"]);
     const [selected,setSelected] = useState(DiagnosticData.map(()=>{return new Array()}))
     const [i,setI] = useState(0)
