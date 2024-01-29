@@ -55,7 +55,7 @@ const LanguageSelector = () => {
         onClick={handleClick}
         onMouseEnter={onMouseEnterButton}
         onMouseLeave={onMouseLeaveButton}
-        className={`flex rounded-xl px-4 py-2 text-sm font-medium ${
+        className={`flex rounded-xl w-[100px] px-4 py-2 text-sm font-medium ${
           showOptions
             ? "bg-blue dark:bg-green text-white"
             : "text-dark-blue dark:text-white"

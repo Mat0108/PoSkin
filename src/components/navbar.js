@@ -1,9 +1,13 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import MesDiagnostics from './../pages/MesDiagnostics';
 import LanguageSelector from '../constants/LanguageSelector';
+import { LanguageContext } from '../data';
 
 const Navbar = (props) => {
+    
+  const { dictionnaire,userLanguage } = useContext(LanguageContext);
+
 //   const [aproposbool, setAproposbool] = useState(false);
 //   const [conseilbool, setConseilbool] = useState(false);
 //   const [expertisebool, setExpertisebool] = useState(false);
@@ -64,39 +68,39 @@ const Navbar = (props) => {
     },[])
     const Login = useMemo(()=>{
         if(login){
-            return <div onClick={props.LoginCond ? props.Logout: props.Login}><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>{props.LoginCond ? "Se deconnecter" : "Se connecter"}</div></div></div>
+            return <div onClick={props.LoginCond ? props.Logout: props.Login}><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>{props.LoginCond ? dictionnaire.Navbar.logout : dictionnaire.Navbar.login}</div></div></div>
         }else{
-            return <div onClick={props.LoginCond ? props.Logout: props.Login}><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>{props.LoginCond ? "Se deconnecter" : "Se connecter"}</div></div></div>
+            return <div onClick={props.LoginCond ? props.Logout: props.Login}><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>{props.LoginCond ? dictionnaire.Navbar.logout : dictionnaire.Navbar.login}</div></div></div>
         }
-    },[login,props])
+    },[login,props,dictionnaire])
     const Compte = useMemo(()=>{
         if(compte){
-            return <Link to="/Compte" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>Mon compte</div></div></Link>
+            return <Link to="/Compte" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>{dictionnaire.Navbar.account}</div></div></Link>
         }else{
-            return <Link to="/Compte" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>Mon Compte</div></div></Link>
+            return <Link to="/Compte" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>{dictionnaire.Navbar.account}</div></div></Link>
         }
-    },[compte])
+    },[compte,dictionnaire])
     const MesDiagnostics = useMemo(()=>{
         if(diagnostic){
-            return <Link to="/MesDiagnostics" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>Mes Diagnostics</div></div></Link>
+            return <Link to="/MesDiagnostics" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>{dictionnaire.Navbar.diagnostic}</div></div></Link>
         }else{
-            return <Link to="/MesDiagnostics" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>Mes Diagnostics</div></div></Link>
+            return <Link to="/MesDiagnostics" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>{dictionnaire.Navbar.diagnostic}</div></div></Link>
         }
-    },[diagnostic])
+    },[diagnostic,dictionnaire])
     const TakeRdv = useMemo(()=>{
         if(takeRdv){
-            return <Link to="/PriseDeRdv" ><div className={`flex flex-row w-[250px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>Prendre rendez vous</div></div></Link>
+            return <Link to="/PriseDeRdv" ><div className={`flex flex-row ${userLanguage == "en" ? "w-[270px]":"w-[240px]" } ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>{dictionnaire.Navbar.take_rdv}</div></div></Link>
         }else{
-            return <Link to="/PriseDeRdv" ><div className={`flex flex-row w-[250px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>Prendre rendez vous</div></div></Link>
+            return <Link to="/PriseDeRdv" ><div className={`flex flex-row ${userLanguage == "en" ? "w-[270px]":"w-[240px]" } ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>{dictionnaire.Navbar.take_rdv}</div></div></Link>
         }
-    },[takeRdv])
+    },[takeRdv,dictionnaire])
     const Rdv = useMemo(()=>{
         if(rdv){
-            return <Link to="/MesRdv" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>Mes rendez vous</div></div></Link>
+            return <Link to="/MesRdv" ><div className={`flex flex-row w-[220px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointwhite.png"} alt={"pw"} /></div><div>{dictionnaire.Navbar.rdv}</div></div></Link>
         }else{
-            return <Link to="/MesRdv" ><div className={`flex flex-row w-[200px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>Mes rendez vous</div></div></Link>
+            return <Link to="/MesRdv" ><div className={`flex flex-row w-[220px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>{dictionnaire.Navbar.rdv}</div></div></Link>
         }
-    },[rdv])
+    },[rdv,dictionnaire])
     
     return (
     <>
