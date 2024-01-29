@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { register } from "../services/user";
 import { toast } from "react-toastify";
 import { saveDiagnostic } from "../services/Diagnostic";
+import { dictionnaire } from "../data";
 
 const Register = (props) => {
   const [user, setUser] = useState({
@@ -47,14 +48,14 @@ const Register = (props) => {
           <div><img src={"/images/visage/visage30.png"} alt={"visage"} className="w-[530px] h-[680px]"/> </div>
           <div className="flex flex-col center w-[530px] h-[680px]">
             <img src={"/images/logowhite.png"} alt={"logo"} className="w-[66px] h-[56px] mt-[30px]"/>
-            <p className="text-[16px] text-center text-white mt-[20px]">Rejoignez le mouvement et découvrez</p>
-            <p className="text-[16px] text-center text-white">  votre nouvelle peau</p>
+            <p className="text-[16px] text-center text-white mt-[20px]">{dictionnaire.Login.mouvement}</p>
+            <p className="text-[16px] text-center text-white">  {dictionnaire.Login.peau}</p>
             <div className="grid grid-cols-2 w-full mt-[22px]">
               <div className={`${props.type === false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center border-t-[6px] border-x-[6px] border-red-Venetian`}>
-                <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-extra-bold hover:cursor-pointer`}>INSCRIPTION</div>
+                <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-extra-bold hover:cursor-pointer`}>{dictionnaire.login.inscription.toUpperCase()}</div>
               </div>
               <div className={`${props.type === true ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center border-b-[6px] border-red-Venetian` }>
-                <div className={`${props.type === false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-extra-bold hover:cursor-pointer `} onClick={props.login}>DÈJA INSCRIT </div>
+                <div className={`${props.type === false ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-extra-bold hover:cursor-pointer `} onClick={props.login}>{dictionnaire.Login.registered.toUpperCase()} </div>
               </div>
             </div>
             {/* <div className="w-full h-fit bg-white flex flex-col px-[60px] py-[30px] gap-8">
@@ -81,7 +82,7 @@ const Register = (props) => {
               type="text"
               onChange={onChangeHandler}
               value={user.firstname}
-              placeholder="Prenom*"
+              placeholder={`${dictionnaire.Compte.Prenom}*`}
               id="firstname"
               required
             />
@@ -90,7 +91,7 @@ const Register = (props) => {
               type="text"
               onChange={onChangeHandler}
               value={user.lastname}
-              placeholder="Nom*"
+              placeholder={`${dictionnaire.Compte.Nom}*`}
               id="lastname"
               required
             />
@@ -100,7 +101,7 @@ const Register = (props) => {
             type="text"
             onChange={onChangeHandler}
             value={user.email}
-            placeholder="E-mail*"
+            placeholder={`${dictionnaire.Compte.Email}*`}
             id="email"
             required
           />
@@ -109,7 +110,7 @@ const Register = (props) => {
             type="password"
             onChange={onChangeHandler}
             value={user.password}
-            placeholder="Mot de passe*"
+            placeholder={`${dictionnaire.Login.password}*`}
             id="password"
             required
           />
@@ -118,7 +119,7 @@ const Register = (props) => {
             type="password"
             onChange={onChangeHandler}
             value={user.confirmpassword}
-            placeholder="Confirmer mot de passe*"
+            placeholder={`${dictionnaire.Login.confirmpassword}*`}
             id="confirmpassword"
             required
           />
@@ -127,7 +128,7 @@ const Register = (props) => {
               className="w-full mt-3 py-3 bg-blue text-white font-mt-extra-bold rounded-full text-[20px] hover:cursor-pointer"
               onClick={onClick}
             >
-            S'INSCRIRE
+            {dictionnaire.register}
           </button>
           <div className="w-full h-full grid grid-cols-2"></div>
           

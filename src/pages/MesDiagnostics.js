@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { getAllDiagnostic, getDiagnosticPDF } from "../services/Diagnostic";
 import { PdfViewer } from "../components/PdfViewer";
 import { useCookies } from "react-cookie";
+import { dictionnaire } from "../data";
 
 const MesDiagnostics = (props) =>{
     const [diagnostic,setDiagnostic]= useState([])
@@ -88,7 +89,7 @@ const MesDiagnostics = (props) =>{
       <div className="w-full h-[870px] flex flex-row">
           <div className="w-fit h-full relative">
               <img src={"/images/Compte/Compte1.jpg"} alt={"visage21"} className="w-fit h-full"/>
-              <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-white text-[48px] font-mt-extra-bold">VOS DIAGNOSTICS</div></div>
+              <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-white text-[48px] font-mt-extra-bold">{dictionnaire.diagnostic.toUpperCase()}</div></div>
           </div>
           <div className="w-full h-full p-[30px]">
               <div className="bg-white rounded-3xl w-full h-full flex flex-col ">
