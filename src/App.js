@@ -12,7 +12,7 @@ import Diagnostic from './pages/Diagnostic';
 import DiagnosticStart from './pages/DiagnosticStart';
 
 import { ToastContainer, toast } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
+import "./ReactToastify.css";
 import Blog from './pages/Blog';
 import ScrollToTop from './components/ScrollToTop';
 import Login from './pages/Login';
@@ -42,9 +42,6 @@ function App() {
   const customStyles = {
     overlay: {zIndex: 1000}
     };
-  useEffect(() => {
-    console.log('cookies : ', typeof cookies.user == "object")
-  }, [cookies])
   
   const openModal = (element) => {
    
@@ -144,8 +141,24 @@ function App() {
           <Newsletter />
           <Footer />
           <ToastContainer
+            icon={(type) =>
+              type.type === "error" ? (
+                <img src="./images/svg-site/toast/error.svg" alt={type.type}></img>
+              ) : (
+                type.type === "info" ? (
+                  <img src="./images/svg-site/toast/info.svg" alt={type.type}></img>
+                ) : (
+                  type.type === "success" ? (
+                    <img src="./images/svg-site/toast/success.svg" alt={type.type}></img>
+                  ) : (
+                    <img src="./images/svg-site/toast/warning.svg" alt={type.type}></img>
+                  )
+                )
+                
+              )
+            }
             position="bottom-center"
-            autoClose={5000}
+            autoClose={10000}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick
@@ -154,10 +167,7 @@ function App() {
             draggable
             pauseOnHover
             className={"w-fit"}
-            // toastClassName={() => "w-full bg-[#264C4D] rounded-t-2xl"}
-            // toastClassName={" relative bg-[#264C4D] flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"}
-            // bodyClassName={() => "text-[14px] text-white font-mt-extra-bold"}
-            // closeClassName={"bg-white"}
+
           />
         </Router>
       </LanguageProvider>
