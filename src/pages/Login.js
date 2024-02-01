@@ -26,21 +26,21 @@ const Login = (props) => {
         localStorage.setItem("userFirstname", userData.data.user.firstname);
         localStorage.setItem("userLastname", userData.data.user.lastname);
         localStorage.setItem("userConnected", userData.data.user.connected);
-        toast.success("Vous êtes connecté !")
+        toast.success(dictionnaire.Toast.login)
         if(props.diagnostic_data){
           let response = await saveDiagnostic({mail:userData.data.email,...props.diagnostic_data})
           if(response.status === 200){
-            toast.success("Mail envoyé !")
+            toast.success(dictionnaire.Toast.send_mail);
           }else{
-            toast.error("Erreur api")
+            toast.error(dictionnaire.Toast.error_api)
           }
         }
         props.login()
       } else {
-        toast.error("Le compte n'existe pas !");
+        toast.error(dictionnaire.Toast.account_not_exist);
       }
     } else {
-      toast.info("Merci de remplir tous les champs !");
+      toast.info(dictionnaire.Toast.required_field_all);
     }
   };
 

@@ -45,7 +45,7 @@ const PriseDeRdv = ()=>{
     useEffect(() => {
       if(typeof cookies.user != "object"){
         setTimeout(()=>{
-            toast.info("Merci de vous connecter d'abord")
+            toast.info(dictionnaire.Toast.first_login);
         },2000)
         navigate("/")
       }
@@ -187,8 +187,7 @@ const PriseDeRdv = ()=>{
             CompteClient: typeof cookies.user === "object"  ? cookies.user.email : null,
             CompteExpert:newRdv.CompteExpert})
         if(res.status === 200){
-            toast.success("Rendez vous crée");
-            console.log('res.data : ', res.data)
+            toast.success(dictionnaire.Toast.created_rdv);
             setRdvId(res.data.summary.id);
             if(newRdv.Type == true){
                 setGlobal(global + 2);
@@ -215,7 +214,7 @@ const PriseDeRdv = ()=>{
                             <div className={`${newRdv.Type === false ? BG("light-blue","blue") : BG("blue","light-blue")}  px-10 py-3 rounded-full text-[24px] w-[600px] text-center text-white font-mt-demi hover:cursor-pointer  `} onClick={()=>{setNewRdv({...newRdv,Type:false})}}>{dictionnaire.Rdv.first_suivi}</div>
                         </div>
                         <div className="w-full flex center">
-                            <div className= {`${BG("cyan","light-blue")} border-cyan px-8 py-2 rounded-full text-[24px] text-center text-black font-mt-demi mt-[30px] hover:cursor-pointer`} onClick={()=>{newRdv.Type === "null" ? toast.info("Merci de sélectionner un motif de rdv"):setGlobal(newRdv.Type ? global+2:global+1)}}> {dictionnaire.next}</div>
+                            <div className= {`${BG("cyan","light-blue")} border-cyan px-8 py-2 rounded-full text-[24px] text-center text-black font-mt-demi mt-[30px] hover:cursor-pointer`} onClick={()=>{newRdv.Type === "null" ? toast.info(dictionnaire.Toast.selected_motif):setGlobal(newRdv.Type ? global+2:global+1)}}> {dictionnaire.next}</div>
                         </div>
                     </div>  
                 case 1:
@@ -321,7 +320,7 @@ const PriseDeRdv = ()=>{
                         
                         
                         <div className="w-full h-[60px] flex center">
-                            <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{selectDate === "" ? toast.info("Merci de sélectionner une date"): newRdv.DateDebut === "" ? toast.info("Merci de sélectionner un créneau")  :  newRdv.Type === true ? CreateNewRdv():setGlobal(global+1)}}>{dictionnaire.next}</div>
+                            <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{selectDate === "" ? toast.info(dictionnaire.Toast.selected_date): newRdv.DateDebut === "" ? toast.info(dictionnaire.Toast.selected_rdv)  :  newRdv.Type === true ? CreateNewRdv():setGlobal(global+1)}}>{dictionnaire.next}</div>
                         </div>
                     </div>  
             case 3:
@@ -343,7 +342,7 @@ const PriseDeRdv = ()=>{
                             
                         </div>
                         <div className="w-full h-[60px] flex center">
-                            <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{newRdv.CompteExpert === "" ? toast.info("Merci de sélectionner un expert"):CreateNewRdv()}}> Suivant</div>
+                            <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{newRdv.CompteExpert === "" ? toast.info(dictionnaire.Toast.selected_expert):CreateNewRdv()}}> Suivant</div>
                         </div>
                     </div>  
             case 4:

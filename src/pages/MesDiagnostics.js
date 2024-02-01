@@ -56,7 +56,7 @@ const MesDiagnostics = (props) =>{
             return <div className={` h-[60px] bg-blue  flex rounded-2xl  `} key={`diagnostic-${pos}`}>
                 <div className="flex w-1/2">
                   <div className="col-start-1 ml-[30px]  flex center text-white text-[20px] font-mt-extra-bold">
-                  {`Votre diagnostic du ${date.getDate() < 10 ? '0' : ''}${date.getDate()}/${
+                  {`${dictionnaire.Diagnostic.Info5} ${date.getDate() < 10 ? '0' : ''}${date.getDate()}/${
                 date.getMonth() + 1 < 10 ? '0' : ''}${date.getMonth() + 1}/${date.getFullYear()}`}
                   </div> 
                 </div>
@@ -65,7 +65,7 @@ const MesDiagnostics = (props) =>{
                     <div className="w-fit h-fit bg-green p-2 rounded-lg" onClick={()=>props.openModal(
                     <PdfViewer 
                       pdfId={item._id} 
-                      title={`Votre diagnostic du ${date.getDate() < 10 ? '0' : ''}${date.getDate()}/${date.getMonth() + 1 < 10 ? '0' : ''}${date.getMonth() + 1}/${date.getFullYear()}`} 
+                      title={`${dictionnaire.Diagnostic.Info5} ${date.getDate() < 10 ? '0' : ''}${date.getDate()}/${date.getMonth() + 1 < 10 ? '0' : ''}${date.getMonth() + 1}/${date.getFullYear()}`} 
                       closeModal={props.closeModal} 
                       filename={`Diagnostic_${date.getDate() < 10 ? '0' : ''}${date.getDate()}.${date.getMonth() + 1 < 10 ? '0' : ''}${date.getMonth() + 1}.${date.getFullYear()}.pdf`}/>)}
                     >
@@ -83,7 +83,7 @@ const MesDiagnostics = (props) =>{
         // if(pdf){return <PdfViewer pdfString={pdf} />}
         
 
-    }, [pdf])
+    }, [pdf,dictionnaire])
     
     return (
     <div className="">

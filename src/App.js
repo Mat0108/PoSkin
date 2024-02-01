@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, { useMemo, useState,useRef, useEffect } from 'react';
+import React, { useMemo, useState,useRef, useEffect, useContext } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {Route,Routes} from 'react-router';
 
@@ -28,10 +28,12 @@ import PriseDeRdv from './pages/PriseDeRdv';
 import MesRdv from './pages/MesRdv';
 import ConfirmRdv from './pages/ConfirmRdv';
 import { useCookies } from 'react-cookie';
-import { LanguageProvider } from './data/index';
+import { LanguageContext, LanguageProvider } from './data/index';
 
 
 function App() {
+  
+  const { dictionnaire } = useContext(LanguageContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [divModal,setDivModal] = useState(<></>)
   const [connected,setConnected] = useState(false);
@@ -60,7 +62,7 @@ function App() {
     let res = await logout(typeof cookies.user === "object" ? cookies.user._id : null );
     if(res.status === 200){
       setConnected(false);
-      toast.success("Vous êtes deconnecté !")
+      toast.success(dictionnaire.Toast.logout)
       removeCookie("user", { path: "/" });
     }
   } 

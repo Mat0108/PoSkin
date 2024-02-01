@@ -26,16 +26,15 @@ const Register = (props) => {
         if(props.diagnostic_data){
           let response = await saveDiagnostic({mail:user.email,...props.diagnostic_data})
           if(response.status === 200){      
-              toast.success("Mail de confirmation envoyé !")
+              toast.success(dictionnaire.Toast.send_confirm_mail);
           }else{
-              toast.error("Erreur api")
+              toast.error(dictionnaire.Toast.error_api)
           }
         }
-        toast.success("Mail de confirmation envoyé !")
         props.close()
       }
     } else {
-      alert("Please fill all the fields!");
+      toast.info(dictionnaire.Toast.required_field_all);
     }
   };
 

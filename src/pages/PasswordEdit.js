@@ -34,18 +34,18 @@ function PasswordEdit(props) {
       const response = await forgotPasswordValider({resetToken:params.TokenId,newPassword:user.password1});
   
       if(response.status === 200 && response.data.status === true){
-        toast.success("Mot de passe modifié avec succes")
+        toast.success(dictionnaire.Toast.modif_password);
         navigate("/")
         props.login()
       }else{
-        toast.error("Erreur Api") 
+        toast.error(dictionnaire.Toast.error_api); 
       } 
     }else{
-      toast.info("Les mots de passes sont différents !") 
+      toast.info(dictionnaire.Toast.different_password); 
     }
    
   }else{
-    toast.info("Merci de remplir tous les champs !")
+    toast.info(dictionnaire.Toast.required_field_all);
     }
   }
   const onChangeHandler = (event) => {

@@ -37,7 +37,8 @@
         "Info2": "offers and communications by email or SMS. Learn more",
         "Po": "Po. for beautiful skin",
         "Info3": "At Po., we are convinced that taking care of your skin should be accessible to everyone. That's why we want to make care, advice, and expertise accessible.",
-        "Info4": "We are proud to provide you with clean skincare formulas and to connect you with our expert partners in skin problems."
+        "Info4": "We are proud to provide you with clean skincare formulas and to connect you with our expert partners in skin problems.",
+        "Info5": "Your diagnosis of"
     },
     "DiagnosticStart": {
         "copie": "You will receive a copy of your skin diagnosis soon",
@@ -250,6 +251,31 @@
             "key": "The 10 Steps of a Skincare Routine for Perfect Skin",
             "key2": "Taking care of your skin is an act of self-love. A well-established skincare routine can help you maintain healthy, luminous, and beautiful skin. For an effective skincare routine, there are a few rules and steps to follow. Steps that are sometimes forgotten, neglected, or simply unknown. Here, we reveal the different steps to have healthy and radiant skin!"
         }
+    },
+    "Toast": {
+        "logout": "You are logged out!",
+        "login": "You are logged in!",
+        "first_login": "Please log in first!",
+        "newsletter": "Email subscribed to the newsletter",
+        "reset_password": "Password reset email sent",
+        "modif_password": "Password successfully changed!",
+        "different_password": "Passwords do not match",
+        "info_modif": "Your information has been successfully modified!",
+        "required_field": "Please modify at least one of the fields!",
+        "required_field_all": "Please fill in all fields!",
+        "required_answer": "Please select an answer",
+        "save_diagnostic": "Diagnostic saved",
+        "save_info": "Your information has been successfully saved",
+        "send_mail": "Email sent",
+        "send_confirm_mail": "Confirmation email sent!",
+        "error_api": "API Error",
+        "confirm_account": "Your account has been confirmed!",
+        "account_not_exist": "Account does not exist!",
+        "created_rdv": "Appointment successfully created!",
+        "selected_motif": "Please select an appointment reason!",
+        "selected_date": "Please select a date!",
+        "selected_rdv": "Please select a time slot!",
+        "selected_expert": "Please select an expert!"
     },
     "week": "Week",
     "month": "Month",

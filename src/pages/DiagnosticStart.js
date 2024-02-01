@@ -1,13 +1,13 @@
 import { useContext, useEffect, useMemo, useState } from "react";
-import { DiagnosticData } from "../constants/DiagnosticData";
 import { getW } from "../components/TailwindUtils";
 import { toast } from "react-toastify";
 import { saveDiagnostic } from "../services/Diagnostic";
 import { useNavigate } from "react-router";
 import { useCookies } from "react-cookie";
 import { LanguageContext } from "../data";
+import { Diagnostic } from "../constants/Diagnostic";
 const DiagnosticStart = (props)=>{
-
+    const DiagnosticData = Diagnostic();
     const { dictionnaire } = useContext(LanguageContext);
     const [cookies, setCookies] = useCookies(["user"]);
     const [selected,setSelected] = useState(DiagnosticData.map(()=>{return new Array()}))
@@ -41,7 +41,7 @@ const DiagnosticStart = (props)=>{
             if(Object.keys(selected[i]).length){
                 setI(i+1)
             }else{
-                toast.info("Merci de selectionner une réponse")
+                toast.info(dictionnaire.Toast.required_answer);
             }
         }
         
@@ -50,12 +50,12 @@ const DiagnosticStart = (props)=>{
         let response = await saveDiagnostic({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],mail:typeof cookies.user == "object" ? cookies.user.email :mail,selected:selected})
         if(response.status === 200){
             if(typeof cookies.user == "object"){
-                toast.success("Diagnostic sauvegadé")
+                toast.success(dictionnaire.Toast.save_diagnostic);
             }else{
-                toast.success("Mail envoyé !")
+                toast.success(dictionnaire.Toast.send_mail);
             }
         }else{
-            toast.error("Erreur api")
+            toast.error(dictionnaire.Toast.error_api);
         }
     } 
     /* eslint-disable no-unused-expressions */

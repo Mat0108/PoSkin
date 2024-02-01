@@ -12,7 +12,7 @@ function PasswordForgot(props) {
     event.preventDefault();
     const response = await forgotPassword({email:email});
     if(response.status === 200){
-      toast.success("Mail envoyé !")
+      toast.success(dictionnaire.Toast.send_mail);
     }
   };
 

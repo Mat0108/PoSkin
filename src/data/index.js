@@ -39,7 +39,7 @@ export const LanguageProvider = ({ children }) => {
       userLanguage,
       dictionnaire: dictionaryList[userLanguage],
       userLanguageChange: (selected) => {
-        const newLanguage = languageOptions[selected] ? selected : "en";
+        const newLanguage = languageOptions[selected] ? selected : "fr";
         setUserLanguage(newLanguage);
         window.localStorage.setItem("rcml-lang", newLanguage);
       },

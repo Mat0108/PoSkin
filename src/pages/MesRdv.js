@@ -18,7 +18,7 @@ const MesRdv = ()=>{
     useEffect(() => {
       if(typeof cookies.user !== "object" ){
         setTimeout(()=>{
-            toast.info("Merci de vous connecter d'abord")
+            toast.info(dictionnaire.Toast.first_login);
         },2000)
         navigate("/")
       }

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { toast } from "react-toastify";
+import { LanguageContext } from "../data";
 // import env from "react-dotenv";
 const Newsletter =(props)=>{
+    const { dictionnaire } = useContext(LanguageContext);
     const [value, setValue] = useState();
     const firebaseConfig = {
         apiKey: "AIzaSyA44Ehyz0Fu6pISrwKaI5rALkfAUr-LpQ8",
@@ -21,7 +23,7 @@ const Newsletter =(props)=>{
             mail: mail
           };
         // await db.collection('User').doc('User').set(user);
-        await setDoc(doc(db, "User", mail), user).then(e=>{setValue("");toast.success("Email inscript pour la newsletter")});
+        await setDoc(doc(db, "User", mail), user).then(e=>{setValue("");toast.success(dictionnaire.Toast.newsletter)});
       }
       
     return (<>

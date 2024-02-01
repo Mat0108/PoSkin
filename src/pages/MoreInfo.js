@@ -3,6 +3,7 @@ import { BG } from "../components/TailwindUtils";
 import { toast } from "react-toastify";
 import { patchUser } from "../services/user";
 import { useCookies } from "react-cookie";
+import { dictionnaire } from "../data";
 
 const MoreInfo = (props)=>{
     
@@ -64,13 +65,13 @@ const MoreInfo = (props)=>{
         if(isUserValid && user.allergiestype == true ? user.allergies != "" : isUserValid){
             const userData = await patchUser(typeof cookies.user === "object"  ? cookies.user._id : null,user);
             if(userData.status == 200){
-                toast.success("Vos informations ont bien été sauvegardées");
+                toast.success(dictionnaire.Toast.save_info);
                 setTimeout(()=>{
                     props.next();   
                 },200)
             }
         }else{
-            toast.info("Merci de remplir tous les champs")
+            toast.info(dictionnaire.Toast.required_field_all);
         }
     
     }

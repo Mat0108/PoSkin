@@ -20,7 +20,7 @@ const Compte = (props) =>{
       event.preventDefault();
       const response = await forgotPassword({email:user.email});
       if(response.status === 200){
-        toast.success("Mail de réinitialisation de mot de passe envoyé !")
+        toast.success(dictionnaire.Toast.reset_passord);
       }
     };
     const onClick = async (event) => {
@@ -35,11 +35,11 @@ const Compte = (props) =>{
             localStorage.setItem("userFirstname", userData.data.user.firstname);
             localStorage.setItem("userLastname", userData.data.user.lastname);
             localStorage.setItem("userConnected", userData.data.user.connected);
-            toast.success("Vos informations ont bien été modifié !")
+            toast.success(dictionnaire.Toast.info_modif);
           }
         }
         else {
-          toast.info("Merci de modifier au moins un des champs !");
+          toast.info(dictionnaire.Toast.required_field);
         }
       };
     const onChangeHandler = (event) => {

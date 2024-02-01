@@ -12,6 +12,7 @@ export const PdfViewer = (props) => {
     useEffect(() => {
         async function fetchData(){
             let data64 = await getDiagnosticPDF(props.pdfId);
+            console.log('data64 : ', data64)
             setPdf(data64.data)
         }
         if(props.pdfId){fetchData()}

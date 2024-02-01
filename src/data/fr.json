@@ -37,7 +37,8 @@
         "Info2": "offres et communications par email ou par SMS. En savoir plus",
         "Po": "Po. pour une belle peau",
         "Info3": "Chez Po. nous sommes convaincus que prendre soin de sa peau devrait être à la portée de tous et de toutes. C’est pour cela que nous voulons rendre accessible les soins, les conseils, les expertises.",
-        "Info4": "Nous sommes fiers de mettre à votre disposition des formules de soins cleans et de vous mettre en contact avec nos partenaires experts dans les problèmes de peaux."
+        "Info4": "Nous sommes fiers de mettre à votre disposition des formules de soins cleans et de vous mettre en contact avec nos partenaires experts dans les problèmes de peaux.",
+        "Info5": "Votre diagnostic du"
     },
     "DiagnosticStart": {
         "copie": "Vous recevrez une copie de votre diagnostic de peau prochainement",
@@ -252,7 +253,31 @@
             "key2": "Prendre soin de sa peau est un acte d'amour envers soi-même. Une routine de soin de la peau bien établie peut vous aider à maintenir une peau saine, lumineuse et belle. Pour qu’une routine visage soit efficace, il y a quelques règles et étapes à respecter. Des étapes que l’on oublie, que l’on néglige, ou simplement que l’on ne connaît pas parfois. On vous dévoile ici les différentes étapes pour avoir une peau saine et éclatante !"
         }
     },
-    
+    "Toast":{
+        "logout":"Vous êtes déconnecté !",
+        "login":"Vous êtes connecté !",
+        "first_login":"Merci de vous connecter d'abord !",
+        "newsletter":"Email inscrit pour la newsletter",
+        "reset_password":"Mail de réinitialisation de mot de passe envoyé",
+        "modif_password":"Mot de passe modifié avec succès ! ",
+        "different_password":"Les mots de passe sont différents",
+        "info_modif":"Vos informations ont bien été modifiées !",
+        "required_field":"Merci de modifier au moins un des champs !",
+        "required_field_all":"Merci de remplir tous les champs !",
+        "required_answer":"Merci de sélectionner une réponse",
+        "save_diagnostic":"Diagnostic sauvegardé",
+        "save_info":"Vos informations ont bien été sauvegardées",
+        "send_mail":"Mail envoyé",
+        "send_confirm_mail":"Mail de confirmation envoyé !",
+        "error_api":"Erreur API",
+        "confirm_account":"Votre compte a bien été confirmé !",
+        "account_not_exist":"Le compte n'existe pas ! ",
+        "created_rdv":"Le rendez-vous a bien été créé !",
+        "selected_motif":"Merci de sélectionner un motif de rendez-vous !",
+        "selected_date":"Merci de sélectionner une date !",
+        "selected_rdv":"Merci de sélectionner un créneau !",
+        "selected_expert":"Merci de sélectionner un expert !"
+    },    
     "week": "Semaine",
     "month": "Mois",
     "votre": "votre",

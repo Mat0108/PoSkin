@@ -34,7 +34,7 @@ const Home = (props)=>{
             async function Logout(){
                 let res = await logout(typeof cookies.user === "object"  ? cookies.user._id : null);
                 if(res.status === 200){
-                  toast.success("Vous êtes deconnecté !")
+                  toast.success(dictionnaire.Toast.logout);
                   localStorage.clear()
                   navigate("/")
                 }
@@ -47,7 +47,7 @@ const Home = (props)=>{
                 let res = await activateAccount(params.userId);
                 console.log('res : ', res,res.status === 200)
                 if(res.status === 200){
-                    toast.success("Votre compte a bien été confirmé !");
+                    toast.success(dictionnaire.Toast.confirm_accont);
                     navigate("/");
                 }
             };
