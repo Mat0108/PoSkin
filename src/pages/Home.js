@@ -14,7 +14,7 @@ import { getBlogs } from '../services/Blog';
 import { activateAccount, logout } from '../services/user';
 import { toast } from 'react-toastify';
 import { useCookies } from 'react-cookie';
-import { LanguageContext } from '../data';
+import { LanguageContext } from '../languages';
 const Home = (props)=>{
     
     const { dictionnaire } = useContext(LanguageContext);

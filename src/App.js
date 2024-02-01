@@ -28,7 +28,7 @@ import PriseDeRdv from './pages/PriseDeRdv';
 import MesRdv from './pages/MesRdv';
 import ConfirmRdv from './pages/ConfirmRdv';
 import { useCookies } from 'react-cookie';
-import { LanguageContext, LanguageProvider } from './data/index';
+import { LanguageContext, LanguageProvider } from './languages/index';
 
 
 function App() {

@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 import MoreInfo from "./MoreInfo";
 import { url } from "../services/config";
 import { useCookies } from "react-cookie";
-import { LanguageContext } from './../data/index';
+import { LanguageContext } from '../languages/index';
 
 const PriseDeRdv = ()=>{
     const { dictionnaire } = useContext(LanguageContext);

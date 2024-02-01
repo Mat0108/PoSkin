@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { toast } from "react-toastify";
-import { LanguageContext } from "../data";
+import { LanguageContext } from "../languages";
 // import env from "react-dotenv";
 const Newsletter =(props)=>{
     const { dictionnaire } = useContext(LanguageContext);

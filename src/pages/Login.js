@@ -2,12 +2,12 @@ import React, { useContext, useState } from "react";
 import { login } from "../services/user";
 import { toast } from "react-toastify";
 import { saveDiagnostic } from "../services/Diagnostic";
-import { LanguageContext } from "../data";
+import { LanguageContext } from "../languages";
 
 
 const Login = (props) => {
   
-  const { dictionnaire } = useContext(LanguageContext);
+  const { dictionnaire, userLanguage } = useContext(LanguageContext);
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -28,7 +28,7 @@ const Login = (props) => {
         localStorage.setItem("userConnected", userData.data.user.connected);
         toast.success(dictionnaire.Toast.login)
         if(props.diagnostic_data){
-          let response = await saveDiagnostic({mail:userData.data.email,...props.diagnostic_data})
+          let response = await saveDiagnostic({mail:userData.data.email,language:userLanguage,...props.diagnostic_data})
           if(response.status === 200){
             toast.success(dictionnaire.Toast.send_mail);
           }else{

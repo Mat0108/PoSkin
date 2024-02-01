@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { forgotPassword } from '../services/user';
 import { toast } from 'react-toastify';
-import { LanguageContext } from '../data';
+import { LanguageContext } from '../languages';
 
 
 function PasswordForgot(props) {

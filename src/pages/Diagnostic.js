@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LanguageContext } from "../data";
+import { LanguageContext } from "../languages";
 import { useContext } from "react";
 
 const Diagnostic = ()=>{

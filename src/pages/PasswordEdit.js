@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { forgotPasswordCheckToken, forgotPasswordValider } from '../services/user';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { LanguageContext } from '../data';
+import { LanguageContext } from '../languages';
 
 
 function PasswordEdit(props) {

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import Flag from "react-world-flags";
-import { LanguageContext, LanguageProvider, languageOptions } from "../data";
+import { LanguageContext, LanguageProvider, languageOptions } from "../languages";
 const LanguageSelector = () => {
   const [showOptions, setShowOptions] = useState(false);
   const [isButtonHovering, setIsButtonHovered] = useState(false);

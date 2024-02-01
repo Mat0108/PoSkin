@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { LanguageContext } from "../data";
+import { LanguageContext } from "../languages";
 
 const switchtext=(params,action)=>{
   switch(params){

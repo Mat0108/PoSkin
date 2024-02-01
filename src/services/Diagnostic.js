@@ -9,7 +9,7 @@ export const getAllDiagnostic = async (data)=>{
     const res = await axios.post(`${url}/form/mail`,data)
     return res;
 }
-export const getDiagnosticPDF = async (pdf)=>{
-    const res = await axios.get(`${url}/form/pdf/${pdf}`)
+export const getDiagnosticPDF = async (pdf,body)=>{
+    const res = await axios.post(`${url}/form/pdf/${pdf}`,{language:body})
     return res;
 }

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { forgotPassword, patchUser } from "../services/user";
 import { toast } from "react-toastify";
 import { useCookies } from "react-cookie";
-import { LanguageContext } from "../data";
+import { LanguageContext } from "../languages";
 
 const Compte = (props) =>{
     const { dictionnaire } = useContext(LanguageContext);

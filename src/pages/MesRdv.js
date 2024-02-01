@@ -5,7 +5,7 @@ import { getRdvOfExpert } from "../services/rdv";
 import Carousel2 from './../components/Layout/Carousel2';
 import { DateFormat, Heure } from "../components/dateUtils";
 import { useCookies } from "react-cookie";
-import { LanguageContext } from "../data";
+import { LanguageContext } from "../languages";
 
 const MesRdv = ()=>{
     const { dictionnaire } = useContext(LanguageContext);

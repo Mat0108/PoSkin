@@ -4,7 +4,7 @@ import { confirmRdv, getRdv } from "../services/rdv";
 import { DateFormat } from "../components/dateUtils";
 import { BG } from "../components/TailwindUtils";
 import { url } from "../services/config";
-import { LanguageContext } from "../data";
+import { LanguageContext } from "../languages";
 
 const ConfirmRdv = ()=>{
     

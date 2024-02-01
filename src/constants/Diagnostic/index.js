@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { LanguageContext } from "../../data"
+import { LanguageContext } from "../../languages"
 import { FR_Diagnostic } from "./FR_Diagnostic"
 import { EN_Diagnostic } from "./EN_Diagnostic"
 

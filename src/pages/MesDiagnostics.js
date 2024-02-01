@@ -5,10 +5,10 @@ import { toast } from "react-toastify";
 import { getAllDiagnostic, getDiagnosticPDF } from "../services/Diagnostic";
 import { PdfViewer } from "../components/PdfViewer";
 import { useCookies } from "react-cookie";
-import { LanguageContext } from "../data";
+import { LanguageContext } from "../languages";
 
 const MesDiagnostics = (props) =>{
-    const { dictionnaire } = useContext(LanguageContext);
+    const { dictionnaire, userLanguage } = useContext(LanguageContext);
     const [diagnostic,setDiagnostic]= useState([])
     const [cookies, setCookies] = useCookies(["user"]);
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ const MesDiagnostics = (props) =>{
     useEffect(() => {
        
         async function fetchData(){
-          let data64 = await getDiagnosticPDF(diagnostic[0]._id);
+          let data64 = await getDiagnosticPDF(diagnostic[0]._id,userLanguage);
           setPdf(data64.data)
         }
         if(Object.keys(diagnostic).length){fetchData()}
@@ -37,7 +37,7 @@ const MesDiagnostics = (props) =>{
 
     const downloadPdf = (pdfId,filename) => {
       async function fetchData(){
-        let data64 = await getDiagnosticPDF(pdfId);
+        let data64 = await getDiagnosticPDF(pdfId, userLanguage);
         if(data64.status == 200){
           const link = document.createElement('a');
           link.href = pdf

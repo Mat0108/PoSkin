@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect, useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import MesDiagnostics from './../pages/MesDiagnostics';
 import LanguageSelector from '../constants/LanguageSelector';
-import { LanguageContext } from '../data';
+import { LanguageContext } from '../languages';
 
 const Navbar = (props) => {
     

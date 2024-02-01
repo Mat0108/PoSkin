@@ -3,7 +3,7 @@ import { BG } from "../components/TailwindUtils";
 import { toast } from "react-toastify";
 import { patchUser } from "../services/user";
 import { useCookies } from "react-cookie";
-import { dictionnaire } from "../data";
+import { dictionnaire } from "../languages";
 
 const MoreInfo = (props)=>{
     

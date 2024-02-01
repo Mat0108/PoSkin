@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import { register } from "../services/user";
 import { toast } from "react-toastify";
 import { saveDiagnostic } from "../services/Diagnostic";
-import { LanguageContext } from "../data";
+import { LanguageContext } from "../languages";
 
 const Register = (props) => {
   
-  const { dictionnaire } = useContext(LanguageContext);
+  const { dictionnaire, userLanguage } = useContext(LanguageContext);
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",
@@ -24,7 +24,7 @@ const Register = (props) => {
       const res = await register(user);
       if (res.status === 200) {
         if(props.diagnostic_data){
-          let response = await saveDiagnostic({mail:user.email,...props.diagnostic_data})
+          let response = await saveDiagnostic({mail:user.email,language:userLanguage,...props.diagnostic_data})
           if(response.status === 200){      
               toast.success(dictionnaire.Toast.send_confirm_mail);
           }else{
