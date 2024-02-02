@@ -109,7 +109,8 @@ const Navbar = (props) => {
         <div className='col-start-4 col-span-2 flex '>
             <div className='w-full flex flex-row text-lg space-x-2 mr-[100px] center justify-end '>
                 <LanguageSelector />
-                {/* <div onMouseEnter={()=>{setRegisterbool(true)}}
+                {/*
+                <div onMouseEnter={()=>{setRegisterbool(true)}}
                 onMouseLeave={()=>{setRegisterbool(false)}}>{Register}</div> */}
                 {props.LoginCond ? <>
                 <div onMouseEnter={()=>{setTakeRdv(true)}}

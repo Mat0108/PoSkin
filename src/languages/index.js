@@ -1,6 +1,6 @@
 import * as fr from "./fr.json";
 import * as en from "./en.json";
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const dictionnaire = fr;
 
@@ -32,9 +32,8 @@ export const LanguageProvider = ({ children }) => {
         navigator.languages.find((element) =>
           Object.keys(languageOptions).includes(element)
         ) ||
-        "en"
+        "fr"
     );
-  
     const provider = {
       userLanguage,
       dictionnaire: dictionaryList[userLanguage],

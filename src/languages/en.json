@@ -6,8 +6,8 @@
         "key2": "Take my diagnosis"
     },
     "Compte": {
-        "Nom": "Name",
-        "VNom": "Your name",
+        "Nom": "Last name",
+        "VNom": "Your last name",
         "Prenom": "First name",
         "VPrenom": "Your first name",
         "Email": "E-mail",
@@ -16,7 +16,22 @@
         "Compte": "My account",
         "Diagnostics": "My diagnostics",
         "Info": "Edit my information",
-        "Motdepasse": "Reset password"
+        "Motdepasse": "Reset password",
+        "Telephone":"Telephone",
+        "VTelephone":"Your telephone",
+        "Adresse":"Address",
+        "VAdresse":"Your address",
+        "Sexe":"Gender",
+        "VSexe":"Your gender",
+        "Ville":"City",
+        "VVille":"Your city",
+        "Codepostal":"postal code",
+        "VCodepostal":"your postal code"
+    },
+    "MoreInfo":{
+        "show_dermato":"HAVE YOU EVER SEEN A DERMATOLOGIST?",
+        "allergies":"DO YOU HAVE ALLERGIES ?",
+        "ifyes":"If yes, which ones ? :"
     },
     "RdvConfirm": {
         "Confirm": "APPOINTMENT CONFIRMED",
@@ -44,7 +59,8 @@
         "copie": "You will receive a copy of your skin diagnosis soon",
         "connect": "You also have the option to log in or register to save your skin diagnosis and thus benefit from additional features.",
         "save": "Save diagnosis",
-        "rdv": "Create an appointment"
+        "rdv": "Create an appointment",
+        "trace":"To keep track of your diagnosis:"
     },
     "Login": {
         "mouvement": "Join the movement and discover",
@@ -277,6 +293,36 @@
         "selected_rdv": "Please select a time slot!",
         "selected_expert": "Please select an expert!"
     },
+    "NewsLetter": {
+        "info": "Follow our news and don't miss any of our updates by subscribing to our newsletter",
+        "mail": "Your email address:",
+        "placeholder": "     Your email address"
+    },
+    "Footer":{
+        "peau":"Discover your skin.",
+        "menu":"Menu",
+        "expert":"Skincare Expert",
+        "soins":"Treatments",
+        "conseil":"Advice",
+        "Po":"Discover Po.",
+        "histoire":"Our Story",
+        "charte":"Training Charter",
+        "avis":"Reviews and Ratings",
+        "expertise":"Expertise",
+        "avis2":"Customer Reviews",
+        "rejoindre":"Join Us",
+        "equipe":"Join the Team",
+        "affiliation":"Affiliation",
+        "communauté":"Community",
+        "rejoindrepo":"JOIN PO. ON:"
+    },
+    "Expertise":{
+    "expertise":"OUR EXPERTISE",
+    "domain":"Our partners are graduates and recognized as experts in their field, ensuring honest and thoughtful care.",
+    "academie":"Certification - Facialists Academy - Paris",
+    "ecole":"Certification - Delphine Langlois School - Facialist Paris",
+    "produit":"All our products are tested and certified cruelty free"
+    },
     "week": "Week",
     "month": "Month",
     "votre": "your",
@@ -292,5 +338,7 @@
     "heure": "Time",
     "expert": "Expert",
     "motif": "Reason",
-    "observations": "Observations"
+    "observations": "Observations",
+    "oui":"Yes",
+    "non":"No"
 }

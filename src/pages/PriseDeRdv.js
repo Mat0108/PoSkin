@@ -258,7 +258,7 @@ const PriseDeRdv = ()=>{
                         <div className="w-full text-[28px] text-center font-mt-extra-bold mt-[10px]" key={"title"}> {dictionnaire.Rdv.date}</div>
                         <div className="w-full h-fit flex flex-row">
                             <div className="w-1/3 flex ">
-                                <div className={`${BG("cyan","light-blue")} px-8 py-1 rounded-full text-[24px] text-center text-black font-mt-demi `} onClick={()=>{PreviousMonth()}} key={"backmonth"}> {dictionnaire.Rdv.mois_precendent}</div>
+                                <div className={`${BG("cyan","light-blue")} px-8 py-1 rounded-full text-[24px] text-center text-black font-mt-demi `} onClick={()=>{PreviousMonth()}} key={"backmonth"}> {dictionnaire.Rdv.mois_precedent}</div>
                             </div>
                             <div className="w-1/3 flex ">
                                 <div className="w-full text-[28px] text-center text-black font-mt-extra-bold " > {months[firstDay.getMonth()]}</div>
@@ -342,7 +342,7 @@ const PriseDeRdv = ()=>{
                             
                         </div>
                         <div className="w-full h-[60px] flex center">
-                            <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{newRdv.CompteExpert === "" ? toast.info(dictionnaire.Toast.selected_expert):CreateNewRdv()}}> Suivant</div>
+                            <div className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] 3xl:text-[20px] text-center text-black font-mt-demi my-[30px] `} onClick={()=>{newRdv.CompteExpert === "" ? toast.info(dictionnaire.Toast.selected_expert):CreateNewRdv()}}> Suivant</div>
                         </div>
                     </div>  
             case 4:
@@ -352,7 +352,7 @@ const PriseDeRdv = ()=>{
 
                         <h2 className="text-[20px] w-[50%] text-justify">{dictionnaire.Rdv.confirm3}  </h2>    
                         <form className="" action={`${url}/create-checkout-session/${rdvId}`} method="POST">
-                            <button className={`${BG("cyan","light-blue")} px-8 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-black font-mt-demi my-[30px] `} >{dictionnaire.RdvConfirm.payement}</button>
+                            <button className={`${BG("cyan","light-blue")} px-4 py-2 rounded-full text-[14px]  3xl:text-[20px] text-center text-black font-mt-demi my-[30px] `} >{dictionnaire.RdvConfirm.payement}</button>
                             
                         </form>
                 </div>
@@ -369,11 +369,11 @@ const PriseDeRdv = ()=>{
         <div className="">
             <div className="w-full h-full flex flex-col">
                 <div className="w-full h-full flex flex-row flex ">
-                    <div className="w-[30%] h-[800px] relative flex center">
+                    <div className="w-[25%] h-[800px] relative flex center">
                         <img src={"/images/Diagnostic/diagnostic1.png"} alt={"visage21"} className="w-full h-full"/>
                         <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-white text-[48px] font-mt-extra-bold">{dictionnaire.Rdv.rdv.toUpperCase()}</div></div>
                     </div>
-                    <div className="w-[70%] h-[800px] p-[30px] ">
+                    <div className="w-[75%] h-[800px] p-[30px] ">
                         <div className="bg-white rounded-3xl w-full h-full  flex flex-col">
                             {element}
                         </div>

@@ -16,7 +16,22 @@
         "Compte": "Mon compte",
         "Diagnostics": "Mes diagnostics",
         "Info": "Modifier mes informations",
-        "Motdepasse": "Réinitialisation du mot de passe"
+        "Motdepasse": "Réinitialisation du mot de passe",
+        "Telephone":"Telephone",
+        "VTelephone":"Votre telephone",
+        "Adresse":"Adresse",
+        "VAdresse":"Votre adresse",
+        "Sexe":"Sexe",
+        "VSexe":"Votre sexe",
+        "Ville":"Ville",
+        "VVille":"Votre ville",
+        "Codepostal":"Code postal",
+        "VCodepostal":"Votre code postal"
+    },
+    "MoreInfo":{
+        "show_dermato":"AVEZ-VOUS DÉJÀ VU UN DERMATOLOQUE ?",
+        "allergies":"AVEZ-VOUS DES ALLERGIES ?",
+        "ifyes":"Si oui, lesquels ? :"
     },
     "RdvConfirm": {
         "Confirm": "RENDEZ-VOUS CONFIRMÉ",
@@ -44,7 +59,8 @@
         "copie": "Vous recevrez une copie de votre diagnostic de peau prochainement",
         "connect": "Vous avez également la possibilité de vous connecter ou de vous inscrire pour sauvegarder votre diagnostic de la peau et ainsi profiter de fonctionnalités supplémentaires.",
         "save": "Sauvegarder le diagnostic",
-        "rdv": "Créer un rendez-vous"
+        "rdv": "Créer un rendez-vous",
+        "trace":"Pour garder une trace de votre diagnostic :"
     },
     "Login": {
         "mouvement": "Rejoignez le mouvement et découvrez",
@@ -277,6 +293,36 @@
         "selected_date":"Merci de sélectionner une date !",
         "selected_rdv":"Merci de sélectionner un créneau !",
         "selected_expert":"Merci de sélectionner un expert !"
+    },
+    "NewsLetter":{
+        "info":"Suivez notre actualité et ne manquez aucune de nos nouveautés en vous inscrivant à notre newsletter",
+        "mail":"Votre adresse e-mail :",
+        "placeholder":"     Votre adresse e-mail"
+    },
+    "Footer":{
+        "peau":"Découvrez votre peau.",
+        "menu":"Menu",
+        "expert":"Expert facialiste",
+        "soins":"Soins",
+        "conseil":"Conseils",
+        "Po":"Découvrir Po.",
+        "histoire":"Notre histoire",
+        "charte":"Charte de formation",
+        "avis":"Avis et évaluations",
+        "expertise":"Expertise",
+        "avis2":"Avis clients",
+        "rejoindre":"Nous rejoindre",
+        "equipe":"Rejoindre l'équipe",
+        "affiliation":"Affiliation",
+        "communauté":"Communauté",
+        "rejoindrepo":"REJOIGNEZ PO. SUR :"
+    },
+    "Expertise":{
+        "expertise":"NOTRE EXPERTISE",
+        "domain":"Nos partenaires sont diplômés et reconnus comme des experts dans leur domaine et garantissent une prise en charge honnête et réfléchie.",
+        "academie":"Certification - Académie des Facialistes - Paris",
+        "ecole":"Certification - École Delphine Langlois - Facialiste Paris",
+        "produit":"Tous nos produits sont testés et certifiés cruelty free"
     },    
     "week": "Semaine",
     "month": "Mois",
@@ -293,5 +339,7 @@
     "heure": "Heure",
     "expert": "Expert",
     "motif": "Motif",
-    "observations": "Observations"
+    "observations": "Observations",
+    "oui":"Oui",
+    "non":"Non"
 }
