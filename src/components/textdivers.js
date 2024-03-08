@@ -1,27 +1,30 @@
+import { useContext } from "react";
+import { LanguageContext } from "../languages";
+
 const switchtext=(params,action)=>{
   switch(params){
     case "presentation":
-      return presentation(action);
+      return Presentation(action);
     case "apropos":
-      return apropos();
+      return Apropos();
     case "apropos2":
-      return apropos2();
+      return Apropos2();
     case "produittitre":
-      return produittitre();
+      return Produittitre();
     case "produitcol1":
-      return produitcol1()
+      return Produitcol1()
     case "produitcol2":
-      return produitcol2(); 
+      return Produitcol2(); 
     case "produitcol3":
-      return produitcol3();
+      return Produitcol3();
     case "quisommesnous":
-      return quisommesnous();
+      return Quisommesnous();
     case "quisommesnous2":
-      return quisommesnous2();
+      return Quisommesnous2();
     case "quisommesnous3":
-      return quisommesnous3();
+      return Quisommesnous3();
     case "quisommesnous4":
-      return quisommesnous4();
+      return Quisommesnous4();
     case "Carousel1":
       return Carousel1();
     case "Carousel2":
@@ -70,207 +73,239 @@ const switchtext=(params,action)=>{
       return "Not Found";
   }
 }
-const presentation = (action)=>{
-    return (<>
-      <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">Po.</p>
-      <p className="text-[10px] sm:text-[50px] font-mt-extra-bold text-blue text-left ">Pour une belle peau</p>
-      <p className="text-[8px] sm:text-[16px] mt-[30px] text-left ">
-      Chez Po. nous sommes convaincus que prendre soin de sa peau devrait être à la portée de tous et de toutes.
-      </p><p className="text-[8px] sm:text-[16px] mt-[10px] text-left ">C’est pour cela que nous voulons rendre accessible les soins, les conseils, les expertises.
-      </p>
-      <p className="text-[8px] sm:text-[16px]  text-left ">
-      Nous sommes fiers de mettre à votre disposition des formules de soins cleans et de vous mettre en contact avec  nos partenaires expert dans les problèmes de peaux. 
-      </p>
-      
-      <div className="mt-[20px] text-[10px] sm:text-[30px] w-fit px-4 sm:px-8 py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue hover:cursor-pointer" onClick={action}><p>S'inscrire à la newsletter</p></div>
-      </>
-    )
-  }
-const apropos=()=>{
-    return (<>
-    <p className="mt-[35px] text-[12px] sm:text-[60px] font-mt-extra-bold text-blue text-left">A propos...</p>
-    <p className="mt-[20px] text-[8px] sm:text-[16px] text-left">Nous avons choisi de collaborer avec des experts facialistes pour VOUS !</p>
-    <p className="text-[8px] sm:text-[16px] text-left">Pour que vous puissez bénéficier d’un diagnostic fiable et personnalisé.</p>
-    <p className="text-[8px] sm:text-[16px] text-left">Vous pourrez donc vous orienter vers ce dont vous avez réellement besoin.</p>
-    <div className="mt-[20px] text-[10px] sm:text-[30px] w-fit px-4 sm:px-8 py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue"><p>En savoir plus</p></div>
-    </>)
-  }
-const apropos2=()=>{
-    return(<>
-    <p className="mt-[20px] text-[8px] sm:text-[16px] text-left w-[80%] sm:w-[65%] mx-auto"> En plus de pouvoir bénéficier d’un savoir-faire hors-pair, profitez également d’une technologie hors-pair !</p>
-    <p className="mt-[20px] text-[8px] sm:text-[16px] text-left w-[80%] sm:w-[65%] mx-auto">L’Intelligence Artificielle saura parfaire votre diagnostic afin de le rendre encore   plus précis !
-    Un simple selfie servira à déterminer la ligne directrice de votre diagnostic.</p>
-    <div className="ml-[17%] mt-[20px] text-[10px] sm:text-[30px] w-fit px-4 sm:px-8 py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue"><p>En savoir plus</p></div>
-     </>)
+const Presentation = (action)=>{
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.presentation.po}</p>
+      <p className="text-[10px] sm:text-[50px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.presentation.peau}</p>
+      <p className="text-[8px] sm:text-[16px] mt-[30px] text-left ">{dictionnaire.TextDivers.presentation.slogan}</p>
+      <p className="text-[8px] sm:text-[16px] mt-[10px] text-left ">{dictionnaire.TextDivers.presentation.accessibilite}</p>
+      <p className="text-[8px] sm:text-[16px]  text-left ">{dictionnaire.TextDivers.presentation.formules}</p>
+      <div className="mt-[20px] text-[10px] sm:text-[30px] w-fit px-4 sm:px-8 py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue hover:cursor-pointer" onClick={action}><p>{dictionnaire.TextDivers.presentation.newsletter}</p></div>
+    </>
+  )
 }
 
-const produittitre = ()=>{
-  return(<>
-    <div className="row-start-1 flex flex-col center">
-      <p className="text-blue text-[50px] font-mt-extra-bold">Les iconiques</p>
-      <p className="text-blue text-[16px]">Découvrez notre gamme “Iconiques” avec nos produits incontournables, recommandés par notre fidèle communauté </p>
-  </div></>)
+const Apropos=()=>{
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <p className="mt-[35px] text-[12px] sm:text-[60px] font-mt-extra-bold text-blue text-left">{dictionnaire.TextDivers.apropos.titre}</p>
+      <p className="mt-[20px] text-[8px] sm:text-[16px] text-left">{dictionnaire.TextDivers.apropos.collaborer}</p>
+      <p className="text-[8px] sm:text-[16px] text-left">{dictionnaire.TextDivers.apropos.diagnostic}</p>
+      <p className="text-[8px] sm:text-[16px] text-left">{dictionnaire.TextDivers.apropos.orientation}</p>
+      <div className="mt-[20px] text-[10px] sm:text-[30px] w-fit px-4 sm:px-8 py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue"><p>{dictionnaire.TextDivers.apropos.en_savoir_plus}</p></div>
+    </>
+  )
 }
 
-const produitcol1 = ()=>{
+const Apropos2 = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <p className="mt-[20px] text-[8px] sm:text-[16px] text-left w-[80%] sm:w-[65%] mx-auto">{dictionnaire.TextDivers.Apropos2.paragraphe1}</p>
+      <p className="mt-[20px] text-[8px] sm:text-[16px] text-left w-[80%] sm:w-[65%] mx-auto">{dictionnaire.TextDivers.Apropos2.paragraphe2}</p>
+      <div className="ml-[17%] mt-[20px] text-[10px] sm:text-[30px] w-fit px-4 sm:px-8 py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue"><p>{dictionnaire.TextDivers.Apropos2.enSavoirPlus}</p></div>
+    </>
+  );
+};
+
+const Produittitre = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <div className="row-start-1 flex flex-col center">
+        <p className="text-blue text-[50px] font-mt-extra-bold">{dictionnaire.TextDivers.Produittitre.titre}</p>
+        <p className="text-blue text-[16px]">{dictionnaire.TextDivers.Produittitre.description}</p>
+      </div>
+    </>
+  );
+};
+
+
+const Produitcol1 = ()=>{
+  const { dictionnaire } = useContext(LanguageContext);
   return(<>
-  <p className="mx-auto mt-[35px] w-[350px] text-[30px] font-mt-extra-bold text-blue text-left">Sérum Yeux</p>
-  <p className="mx-auto mt-[20px] w-[350px] text-[16px] text-left">Caféine 5% + Niacinamide 5%</p>
-  <p className="mx-auto mt-[10px] w-[350px] text-[16px] text-left">Favorise la microcirculation sanguine et lymphatique pour atténuer les cernes.  </p>
+  <p className="mx-auto mt-[35px] w-[350px] text-[30px] font-mt-extra-bold text-blue text-left">{dictionnaire.TextDivers.Produitcol1.title}</p>
+  <p className="mx-auto mt-[20px] w-[350px] text-[16px] text-left">{dictionnaire.TextDivers.Produitcol1.subtitle}</p>
+  <p className="mx-auto mt-[10px] w-[350px] text-[16px] text-left">{dictionnaire.TextDivers.Produitcol1.description}</p>
   <div className="w-[270px] mt-[30px] flex flex-row center">
-      {/* <div className="w-[40px] ml-[10px] my-auto"> <img src={buy}  /></div>         */}
-      <div className="text-[20px] w-fit px-4 py-2 bg-[#83C5BE] rounded-3xl font-mt-extra-bold text-[#264C4D] text-left hover:text-white hover:bg-blue"><p>Je découvre</p></div>    
+      <div className="text-[20px] w-fit px-4 py-2 bg-[#83C5BE] rounded-3xl font-mt-extra-bold text-[#264C4D] text-left hover:text-white hover:bg-blue"><p>{dictionnaire.Produitcol1.buttonText}</p></div>    
   </div>
   </>)
 }
 
-const produitcol2 = ()=>{
+const Produitcol2 = ()=>{
+  const { dictionnaire } = useContext(LanguageContext);
   return (<>
-  <p className="mx-auto mt-[35px] w-[350px] text-[30px] font-mt-extra-bold text-blue text-left">Assemblage botanique </p>
-  <p className="mx-auto text-[30px] w-[350px] font-mt-extra-bold text-blue text-left">tenseurau nopal</p>
-  <p className="mx-auto mt-[10px] w-[350px] text-[16px] text-left ">7 extraits botaniques pour tonifier et régénérer la peau pendant la nuit. Sérum de nuit visage et cou.</p>
+  <p className="mx-auto mt-[35px] w-[350px] text-[30px] font-mt-extra-bold text-blue text-left">{dictionnaire.TextDivers.Produitcol2.title}</p>
+  <p className="mx-auto text-[30px] w-[350px] font-mt-extra-bold text-blue text-left">{dictionnaire.TextDivers.Produitcol2.subtitle}</p>
+  <p className="mx-auto mt-[10px] w-[350px] text-[16px] text-left ">{dictionnaire.TextDivers.Produitcol2.description}</p>
   <div className="w-[340px] mt-[10px] flex flex-row center">
-      {/* <div className="w-[40px] ml-[10px] my-auto"> <img src={buy}  /></div>         */}
-      <div className="text-[20px] w-fit px-4 py-2 bg-[#83C5BE] rounded-3xl font-mt-extra-bold text-[#264C4D] text-left hover:text-white hover:bg-blue"><p>Je découvre</p></div>    
+      <div className="text-[20px] w-fit px-4 py-2 bg-[#83C5BE] rounded-3xl font-mt-extra-bold text-[#264C4D] text-left hover:text-white hover:bg-blue"><p>{dictionnaire.Produitcol2.buttonText}</p></div>    
   </div>
   </>)
 }
 
-const produitcol3 = () =>{
+const Produitcol3 = () =>{
+  const { dictionnaire } = useContext(LanguageContext);
   return (<>
-  <p className="mx-auto mt-[35px] w-[350px] text-[30px] font-mt-extra-bold text-blue text-left">Gel nettoyant exfoliant</p>
-  <p className="mx-auto mt-[20px] w-[350px] text-[16px] text-left ">PHA 5% + aloe vera</p>
-  <p className="mx-auto mt-[10px] w-[350px] text-[16px] text-left ">Micro-exfolie la peau et stimule le renouvellement cellulaire pour désincruster les pores et unifier le teint.</p>
+  <p className="mx-auto mt-[35px] w-[350px] text-[30px] font-mt-extra-bold text-blue text-left">{dictionnaire.TextDivers.Produitcol3.title}</p>
+  <p className="mx-auto mt-[20px] w-[350px] text-[16px] text-left ">{dictionnaire.TextDivers.Produitcol3.subtitle}</p>
+  <p className="mx-auto mt-[10px] w-[350px] text-[16px] text-left ">{dictionnaire.TextDivers.Produitcol3.description}</p>
   <div className="w-[330px] mt-[10px] flex flex-row center">
-      {/* <div className="w-[40px] ml-[10px] my-auto"> <img src={buy}  /></div>         */}
-      <div className="text-[20px] w-fit px-4 py-2 bg-[#83C5BE] rounded-3xl font-mt-extra-bold text-[#264C4D] text-left hover:text-white hover:bg-blue"><p>Je découvre</p></div>    
+      <div className="text-[20px] w-fit px-4 py-2 bg-[#83C5BE] rounded-3xl font-mt-extra-bold text-[#264C4D] text-left hover:text-white hover:bg-blue"><p>{dictionnaire.Produitcol3.buttonText}</p></div>    
   </div>
   </>)
 }
 
 
-const quisommesnous = () =>{
+const Quisommesnous = () =>{
+  const { dictionnaire } = useContext(LanguageContext);
   return (<>
     
-    <p className="text-[50px] font-mt-extra-bold text-blue text-left w-[50%] mt-[4%] ">Notre histoire</p>
-    <p className="text-[50px] font-mt-extra-bold text-blue text-left w-[50%]">et votre histoire</p>
+    <p className="text-[50px] font-mt-extra-bold text-blue text-left w-[50%] mt-[4%] ">{dictionnaire.TextDivers.Quisommesnous.key1}</p>
+    <p className="text-[50px] font-mt-extra-bold text-blue text-left w-[50%]">{dictionnaire.TextDivers.Quisommesnous.key2}</p>
     <div className="w-[85%] h-full text-left text-[16px]">
-      <p className="mt-[20px]">Chez Po, nous mettons tout en œuvre pour vous offrir une expérience de soin de peau exceptionnelle. Notre équipe dévouée d'experts en skincare est là pour vous accompagner à chaque étape de votre parcours. Que vous cherchiez à résoudre des problèmes de peau spécifiques, à améliorer votre routine existante ou à découvrir de nouveaux produits, nous sommes là pour vous guider.</p>
-      <p className="mt-[20px]">Grâce à notre expertise et à notre passion pour la peau, nous vous proposons des conseils personnalisés, des recommandations de produits adaptés à votre type de peau et des informations de qualité basées sur des recherches scientifiques. Nous croyons en l'importance de la transparence et de l'éducation, c'est pourquoi nous partageons des ressources utiles et des guides d'achat détaillés pour vous aider à prendre des décisions éclairées.</p>
-      <p className="mt-[20px]">En nous rejoignant, vous bénéficierez également de l'accès à notre communauté d'experts facialistes et d'autres passionnés de skincare. Vous pourrez échanger des conseils, partager votre expérience et trouver du soutien tout au long de votre parcours de soin de peau.</p> 
-      <p className="mt-[20px]">Chez Po, nous sommes là pour vous aider à atteindre une peau saine, équilibrée et rayonnante.</p>
+      <p className="mt-[20px]">{dictionnaire.TextDivers.Quisommesnous.key3}</p>
+      <p className="mt-[20px]">{dictionnaire.TextDivers.Quisommesnous.key4}</p>
+      <p className="mt-[20px]">{dictionnaire.TextDivers.Quisommesnous.key5}</p> 
+      <p className="mt-[20px]">{dictionnaire.TextDivers.Quisommesnous.key6}</p>
     </div>
   <div className="absolute bottom-0 left-0 w-full"><div className="w-[70%]  flex center"><div className="ml-[10px] text-[30px] w-fit px-6 py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-[#264C4D] text-left hover:text-white hover:bg-blue"><p>En savoir plus</p></div></div>   
   </div>
   </>)
 }
-const quisommesnous2 = () =>{
+const Quisommesnous2 = () => {
+  const { dictionnaire } = useContext(LanguageContext);
   return (<>
-    <p className="text-[50px] font-mt-extra-bold text-blue text-center w-full">NOTRE CONCEPT & NOTRE TEAM</p>
-      
-  </>)
-}
-const quisommesnous3 = () =>{
-  return (<div className="w-[450px]">
-    <p className="mt-[32px] mb-[32px] text-[24px] font-mt-extra-bold text-blue text-center w-full">CONCEPT</p>
-    <div className=""><p className="mt-[32px] mb-[32px] text-[16px] font-mt-extra-bold text-blue text-center w-full">Po. est bien plus qu'une simple application de soins de la peau, c'est une véritable solution complète pour vous accompagner dans votre parcours de beauté. Avec Po, vous avez accès à une multitude d'outils et de ressources pour prendre soin de votre peau de manière personnalisée et efficace.</p>
-    </div>
-      
-  </div>)
-}
-const quisommesnous4 = () =>{
-  return (<div className="w-[450px]">
-    <p className="mt-[32px] mb-[32px] text-[24px] font-mt-extra-bold text-blue text-center w-full">TEAM</p>
-    <div className=""><p className="mt-[32px] mb-[32px] text-[16px] font-mt-extra-bold text-blue text-center w-full">Nous sommes une équipe passionnée et dévouée, composée d'experts en soins de la peau, de spécialistes en technologie et de professionnels du marketing. Notre objectif principal est de vous offrir une expérience personnalisée et de haute qualité, en vous proposant les meilleurs conseils, produits et services pour prendre soin de votre peau.</p>
-    </div>
-  </div>)
-}
+    <p className="text-[50px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous2.key1}</p>
+  </>);
+};
 
-const Carousel1 = () =>{
-  return (<>
-  <p className="mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">4 types de peau, 4 types de soins </p>    
-  <div className="h-[120px]"><p className="text-[8px] sm:text-[16px] mt-[5px]">Quel nettoyant choisir ? quel serum vous correspond ? </p>
-  <p className="text-[8px] sm:text-[16px]">Comprenez et accepter la nature de votre peau grâce à nos conseils ciblés pour vous.</p>  
-  </div>
-  </>)
-}
+const Quisommesnous3 = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (<div className="w-[450px]">
+    <p className="mt-[32px] mb-[32px] text-[24px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous3.key1}</p>
+    <div className=""><p className="mt-[32px] mb-[32px] text-[16px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous3.key2}</p>
+    </div>
+  </div>);
+};
 
-const Carousel2 = () =>{
-  return (<>
-  <p className="mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue"> Bien choisir son masque  </p>    
-  <p className="text-[8px] sm:text-[16px] w-[80%] mx-auto mt-[5px] h-[120px]">Les masques sont devenus un incontournable de nos routines de soins de la peau, offrant une expérience indulgente et des bienfaits immédiats. Que vous recherchiez une hydratation intense, une purification en profondeur ou un éclat instantané, il existe un masque adapté à vos besoins spécifiques.</p>
-  
-  </>)
-}
-const Carousel3 = () =>{
-  return (<>
-  <p className="mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">Une solution contre l'acné ?</p>    
-  <p className="text-[8px] sm:text-[16px]  w-[80%] mx-auto mt-[5px] h-[120px]">L'acné est un problème de peau courant qui peut affecter notre confiance en nous. Mais saviez-vous qu'il existe des solutions naturelles pour traiter l'acné et retrouver une peau saine et équilibrée. Nous allons explorer les remèdes naturels les plus efficaces pour lutter contre l'acné, en mettant l'accent sur des ingrédients naturels et des méthodes douces pour apaiser et réduire les imperfections cutanées.</p>
-  </>)
-}
+const Quisommesnous4 = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (<div className="w-[450px]">
+    <p className="mt-[32px] mb-[32px] text-[24px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous4.key1}</p>
+    <div className=""><p className="mt-[32px] mb-[32px] text-[16px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous4.key2}</p>
+    </div>
+  </div>);
+};
+
+const Carousel1 = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <p className="mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">{dictionnaire.TextDivers.carousel1.key}</p>
+      <div className="h-[120px]">
+        <p className="text-[8px] sm:text-[16px] mt-[5px]">{dictionnaire.TextDivers.carousel1.subKey1}</p>
+        <p className="text-[8px] sm:text-[16px]">{dictionnaire.TextDivers.carousel1.subKey2}</p>
+      </div>
+    </>
+  );
+};
+
+const Carousel2 = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <p className="mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">{dictionnaire.TextDivers.carousel2.key}</p>
+      <p className="text-[8px] sm:text-[16px] w-[80%] mx-auto mt-[5px] h-[120px]">{dictionnaire.TextDivers.carousel2.subKey}</p>
+    </>
+  );
+};
+
+const Carousel3 = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <p className="mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">{dictionnaire.TextDivers.carousel3.key}</p>
+      <p className="text-[8px] sm:text-[16px] w-[80%] mx-auto mt-[5px] h-[120px]">{dictionnaire.TextDivers.carousel3.subKey}</p>
+    </>
+  );
+};
 
 const NotreHistoire = ()=>{
+  const { dictionnaire } = useContext(LanguageContext);
   return <div className="w-[90%]">
-      <p className="text-[50px] font-mt-extra-bold text-left ">Nos experts</p>
-      <p className="text-[16px] text-justify mt-[50px]">Plongez dans l'univers de nos experts facialistes passionnés, dévoués à l'amélioration de votre peau. Leur expertise approfondie et leur savoir-faire leur permettent de vous offrir des soins personnalisés, adaptés à vos besoins spécifiques. Grâce à une combinaison de techniques avancées et de produits de qualité, nos facialistes travailleront avec vous pour révéler l'éclat naturel de votre peau. Que vous recherchiez une hydratation intense, une réduction des rides ou une solution pour les problèmes de peau spécifiques, nos experts sauront vous guider avec professionnalisme et attention. En plus de leur expertise technique, nos facialistes créent un environnement chaleureux et accueillant pour vous offrir une expérience de soin relaxante et revitalisante. Faites confiance à nos experts facialistes pour vous accompagner dans votre voyage vers une peau saine, radieuse et épanouie.</p>
+      <p className="text-[50px] font-mt-extra-bold text-left ">{dictionnaire.TextDivers.NotreHistoire.NosExperts}</p>
+      <p className="text-[16px] text-justify mt-[50px]">{dictionnaire.TextDivers.NotreHistoire.PlongezDansLUnivers}</p>
       </div>
 }
 const ExpertisePassion = ()=>{
+  const { dictionnaire } = useContext(LanguageContext);
 return <div className="w-[90%]">
-      <p className="text-[50px] font-mt-extra-bold text-left ">Une expertise, une passion</p>
-      <p className="text-[16px] text-justify mt-[40px]">Nos experts facialistes sont des professionnels hautement qualifiés et expérimentés dans le domaine des soins de la peau. Leur expertise repose sur une formation rigoureuse et une connaissance approfondie des techniques et des produits adaptés à chaque type de peau. </p>
-      <p className="text-[16px] text-justify mt-[10px]">Grâce à leur expérience pratique et à leur sensibilité aux besoins individuels, nos experts facialistes sont en mesure de proposer des soins personnalisés et efficaces pour améliorer la santé et l'apparence de votre peau. Leur passion pour les soins de la peau se reflète dans leur approche attentionnée et leur volonté de vous offrir une expérience de soin exceptionnelle.</p> 
-      <p className="text-[16px] text-justify  mt-[10px]">Faites confiance à nos experts facialistes pour vous guider vers une peau saine, éclatante et radieuse.</p>
+      <p className="text-[50px] font-mt-extra-bold text-left ">{dictionnaire.TextDivers.ExpertisePassion.UneExpertiseUnePassion}</p>
+      <p className="text-[16px] text-justify mt-[40px]">{dictionnaire.TextDivers.ExpertisePassion.NosExpertsFacialistes}</p>
+      <p className="text-[16px] text-justify mt-[10px]">{dictionnaire.TextDivers.ExpertisePassion.GrâceÀLeurExpérience}</p> 
+      <p className="text-[16px] text-justify  mt-[10px]">{dictionnaire.TextDivers.ExpertisePassion.FaitesConfianceÀNosExperts}</p>
   </div>
 }
 const EcoleDelphine = ()=>{
+  const { dictionnaire } = useContext(LanguageContext);
   return <div className="w-[80%] ml-[30px]">
-      <p className="text-[40px] font-mt-extra-bold text-left ">École Delphine Langlois - </p>
-      <p className="text-[40px] font-mt-extra-bold text-left ">Facialiste Paris</p>
-      <p className="text-[16px] text-justify mt-[30px]">Nos experts en soins de la peau sont tous diplômés de l'École Delphine Langlois - Facialiste Paris, une référence dans le domaine de l'esthétique et des soins de la peau. Cette formation de renommée internationale garantit que nos clients bénéficient des compétences et des connaissances les plus pointues en matière de soins de la peau. </p>
-      <p className="text-[16px] text-justify mt-[10px]">En collaborant avec des experts formés par cette prestigieuse école, nous nous assurons de vous offrir des conseils et des traitements de qualité, adaptés à vos besoins spécifiques. Faites confiance à notre équipe d'experts qualifiés pour prendre soin de votre peau et vous offrir une expérience de soin exceptionnelle.</p>
-      <div className="flex center"><div className="mt-[20px] text-[30px] w-fit px-8 py-4 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue"><p>En savoir plus</p></div>
+      <p className="text-[40px] font-mt-extra-bold text-left ">{dictionnaire.TextDivers.EcoleDelphine.EcoleDelphineLanglois}</p>
+      <p className="text-[40px] font-mt-extra-bold text-left ">{dictionnaire.TextDivers.EcoleDelphine.FacialisteParis}</p>
+      <p className="text-[16px] text-justify mt-[30px]">{dictionnaire.TextDivers.EcoleDelphine.NosExpertsEnSoinsDeLaPeau}</p>
+      <p className="text-[16px] text-justify mt-[10px]">{dictionnaire.TextDivers.EcoleDelphine.EnCollaborantAvecDesExperts}</p>
+      <div className="flex center"><div className="mt-[20px] text-[30px] w-fit px-8 py-4 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue"><p>{dictionnaire.TextDivers.EcoleDelphine.EnSavoirPlus}</p></div>
       </div>
   </div>
 }
 
 const Commu = ()=>{
+  const { dictionnaire } = useContext(LanguageContext);
   return <div className="w-[100%] mt-[10px]">
     <p className="text-[22px]">
-    Notre communauté est un espace dédié aux passionnés de soins de la peau qui voudraient des conseils beauté et skincare, où vous pouvez partager vos expériences, poser des questions, échanger des conseils et trouver une source d'inspiration pour prendre soin de votre peau et vous acceptez vous-mêmes. Ici, nous encourageons l'ouverture d'esprit, le respect mutuel et l'entraide. 
-Vous êtes le bienvenu pour contribuer à agrandir notre communauté.
+      {dictionnaire.TextDivers.Commu.key}
+      <br />
+      {dictionnaire.TextDivers.Commu.key2}
     </p>
  </div>
-}
+};
+
 const Commu1 = ()=>{
+  const { dictionnaire } = useContext(LanguageContext);
   return <>
   <div className="font-mt-extra-bold text-[28px]">
-    Gagnez de la confiance en soi malgré votre acné
+    {dictionnaire.TextDivers.Commu1.key}
   </div>
   <div className="text-[22px] mt-[10px]">
-    Votre beauté ne se résume pas à votre peau. L'acné peut être un défi, mais vous êtes bien plus que cela. Apprenez à vous aimer et à embrasser votre individualité. La confiance en soi ne dépend pas de votre apparence, mais de la façon dont vous vous percevez et vous affirmez. 
+    {dictionnaire.TextDivers.Commu1.key2}
   </div>
   </>
-}
+};
 const Expertise1 = ()=>{
-  return<div className="w-full flex flex-col center">
-   <p className="text-[30px] bg-[#264C4D] font-mt-extra-bold text-center text-white w-[312px] p-2">Personnalisé</p>
-   <p className="text-[16px] bg-[#264C4D] font-mt-extra-bold text-justify  text-white w-[312px] h-[280px] px-4 pb-10">Chez Po, nous comprenons que chaque peau est unique. C'est pourquoi nous vous offrons des recommandations personnalisées en fonction de votre type de peau, de vos préoccupations et de vos objectifs. Notre approche sur mesure vous permet d'obtenir les meilleurs résultats pour votre peau.</p>
-   
+  const { dictionnaire } = useContext(LanguageContext);
+  return <div className="w-full flex flex-col center">
+   <p className="text-[30px] bg-[#264C4D] font-mt-extra-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise1.key1}</p>
+   <p className="text-[16px] bg-[#264C4D] font-mt-extra-bold text-justify  text-white w-[312px] h-[280px] px-4 pb-10">{dictionnaire.TextDivers.Expertise1.key2}</p>
   </div>
 }
+
 const Expertise2 = ()=>{
-  return<div className="w-full flex flex-col center">
-   <p className="text-[30px] bg-[#264C4D] font-mt-extra-bold text-center text-white w-[312px] p-2">Accompagnement</p>
-   <p className="text-[16px] bg-[#264C4D] font-mt-extra-bold text-justify  text-white w-[312px] h-[280px] px-4 pb-10">Nous offrons un accompagnement personnalisé pour vous aider à retrouver une peau saine et éclatante. Notre équipe d'experts est là pour vous écouter, vous conseiller et vous soutenir tout au long de votre parcours de soins de la peau, afin que vous puissiez retrouver confiance en vous et vous sentir bien dans votre peau.</p>
-   
+  const { dictionnaire } = useContext(LanguageContext);
+  return <div className="w-full flex flex-col center">
+   <p className="text-[30px] bg-[#264C4D] font-mt-extra-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise2.key1}</p>
+   <p className="text-[16px] bg-[#264C4D] font-mt-extra-bold text-justify  text-white w-[312px] h-[280px] px-4 pb-10">{dictionnaire.TextDivers.Expertise2.key2}</p>
   </div>
 }
+
 const Expertise3 = ()=>{
-  return<div className="w-full flex flex-col center">
-   <p className="text-[30px] bg-[#264C4D] font-mt-extra-bold text-center text-white w-[312px] p-2">Suivi</p>
-   <p className="text-[16px] bg-[#264C4D] font-mt-extra-bold text-justify  text-white w-[312px] h-[280px] px-4 pb-10">Votre progression est importante pour nous. Nous restons en contact régulier avec vous pour suivre l'évolution de votre peau. Nous ajustons votre routine au besoin, vous offrons des conseils personnalisés et nous assurons que vous atteignez vos objectifs de beauté et de santé de la peau.</p>
-   
+  const { dictionnaire } = useContext(LanguageContext);
+  return <div className="w-full flex flex-col center">
+   <p className="text-[30px] bg-[#264C4D] font-mt-extra-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise3.key1}</p>
+   <p className="text-[16px] bg-[#264C4D] font-mt-extra-bold text-justify  text-white w-[312px] h-[280px] px-4 pb-10">{dictionnaire.TextDivers.Expertise3.key2}</p>
   </div>
 }
 
@@ -278,90 +313,115 @@ const Expertise3 = ()=>{
 
 //Carousel1
 const ConseilCarousel1Image1 = () =>{
+  const { dictionnaire } = useContext(LanguageContext);
   return (<>
-  <p className="mt-[20px] text-[25px] font-mt-extra-bold text-blue">Vitamine C pour la peau : les bienfaits</p>    
-  <p className="text-[16px]">Quel nettoyant choisir ? Quel serum vous correspond ? </p>
-  <p className="text-[16px]">Comprenez et accepter la nature de votre peau grâce à nos conseils ciblés pour vous.</p>  
-  </>)
+    <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel1Image1.key}</p>
+    <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel1Image1.key2}</p>
+  </>);
 }
 
-//Carousel2
 const ConseilCarousel2Image1 = () =>{
+  const { dictionnaire } = useContext(LanguageContext);
   return (<>
-  <p className="mt-[20px] text-[25px] font-mt-extra-bold text-blue">Choisissez la bonne skincare</p>    
-  <p className="text-[16px]">Une bonne skincare permet à votre peau de rester hydrater et en bonne santé ...</p>  
-  </>)
+    <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel2Image1.key}</p>
+    <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel2Image1.key2}</p>
+  </>);
 }
+
 const ConseilCarousel2Image2 = () =>{
+  const { dictionnaire } = useContext(LanguageContext);
   return (<>
-  <p className="mt-[20px] text-[25px] font-mt-extra-bold text-blue">Prenez soin de vos cheveux</p>    
-  <p className="text-[16px]">On rêve tous de beaux cheveux mais il faut une bonne routine pour leur  santé ...</p>
-  </>)
+    <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel2Image2.key}</p>
+    <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel2Image2.key2}</p>
+  </>);
 }
+
 const ConseilCarousel2Image3 = () =>{
+  const { dictionnaire } = useContext(LanguageContext);
   return (<>
-  <p className="mt-[20px] text-[25px] font-mt-extra-bold text-blue">5 min maquillage idéale</p>    
-  <p className="text-[16px]">Une technique de maquillage  avec des produits adaptés n’affecte pas votre peau ...</p>
-  </>)
+    <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel2Image3.key}</p>
+    <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel2Image3.key2}</p>
+  </>);
 }
 
 // Carousel 3
 
 //Carousel 4
-const ConseilCarousel4Image1 = () =>{
-  return (<div className="w-full flex center">
-    <div className="w-[70%]">  
-      <p className="mt-[20px] text-[25px] font-mt-extra-bold text-blue">Marie ROBERT</p>    
-      <p className="text-[16px]">Mon expérience avec Po. est la meilleure de ma vie. Une marque qui se soucie de votre peau, de votre bien être en vous donnant des conseils appropriés.</p>
-    </div>
-  </div>)
-}
-const ConseilCarousel4Image2 = () =>{
-  return (<div className="w-full flex center">
-  <div className="w-[70%]">
-      <p className="mt-[20px] text-[25px] font-mt-extra-bold text-blue">Dr Agathe AOUN</p>    
-      <p className="text-[16px]">Situé à Fort de France en Martinique, le Dr Agathe, dermathologue a voulu  apprendre les spécificités des peaux noires.</p>
-    </div>
-  </div>)
-}
-const ConseilCarousel4Image3 = () =>{
-  return (<div className="w-full flex center">
-  <div className="w-[70%]">
-    <p className="mt-[20px] text-[25px] font-mt-extra-bold text-blue">Augustinus Bader</p>    
-    <p className="text-[16px]">Interview d’un professeur qui révolutionne la skincare avec sa marque de cosmétiques adaptée pour les peaux</p>
-    </div>
-  </div>)
-}
-const VitamineC = () =>{
-  return (<>
-   <div className="h-[100px] sm:h-[150px] flex center flex-col">
-    <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">La vitamine c  </p>    
-    <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify w-[70%]">Découvrez les bienfaits incroyables de la vitamine C pour votre santé, votre beauté et votre bien-être. Cet article explore les sources, les avantages, et les meilleures façons d'intégrer cette vitamine essentielle dans votre quotidien. Plongez dans le monde de la vitamine C et apprenez comment elle peut renforcer votre système immunitaire, améliorer l'apparence de votre peau et bien plus encore.</p>  
-  </div>
-  </>)
-}
-const CremeSolaire = () =>{
-  return (<>
-  <div className="h-[100px] sm:h-[150px] flex center flex-col">
-    <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">La creme solaire : un indispensable pour votre routine skincare  </p>    
-    <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">Vous pouvez développer davantage en parlant des avantages de la protection solaire, des types de crèmes solaires, des erreurs courantes à éviter, et donner des conseils pour une application efficace.  Si vous avez besoin d'aide pour écrire le contenu de l'article ou d'autres informations, n'hésitez pas à demander.</p> </div>
-  </>)
-}
-const AvoirUneBellePeau = ()=>{
-  return (<>
-    <div className="h-[100px] sm:h-[150px] flex center flex-col">
-      <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">Les gestes à éviter pour avoir une belle peau</p>    
-      <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">Avoir une belle peau, c'est l’objectif de beaucoup d'entre nous. Pourtant, il est parfois plus difficile de savoir ce qu'il faut éviter que ce qu'il faut faire pour obtenir une peau radieuse. Dans cet article, nous allons passer en revue les gestes à éviter absolument pour préserver la santé et la beauté de votre peau.</p>
-    </div>
-    </>)
-}
-const PeauParfaite = ()=>{
-  return (<>
-    <div className="h-[100px] sm:h-[150px] flex center flex-col">
-      <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">Les 10 étapes d'une routine de soin pour une peau parfaite</p>    
-      <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">Prendre soin de sa peau est un acte d'amour envers soi-même. Une routine de soin de la peau bien établie peut vous aider à maintenir une peau saine, lumineuse et belle. Pour qu’une routine visage soit efficace, il y a quelques règles et étapes à respecter. Des étapes que l’on oublie, que l’on néglige, ou simplement que l’on ne connaît pas parfois. On vous dévoile ici les différentes étapes pour avoir une peau saine et éclatante !</p>
-    </div>
-    </>)
-}
+const ConseilCarousel4Image1 = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel4Image1.key}</p>
+      <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel4Image1.key2}</p>
+    </>
+  );
+};
+
+const ConseilCarousel4Image2 = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel4Image2.key}</p>
+      <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel4Image2.key2}</p>
+    </>
+  );
+};
+
+const ConseilCarousel4Image3 = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel4Image3.key}</p>
+      <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.ConseilCarousel4Image3.key2}</p>
+    </>
+  );
+};
+const VitamineC = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <div className="h-[100px] sm:h-[150px] flex center flex-col">
+        <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.VitamineC.key}</p>
+        <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.VitamineC.key2}</p>
+      </div>
+    </>
+  );
+};
+
+const CremeSolaire = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <div className="h-[100px] sm:h-[150px] flex center flex-col">
+        <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.CremeSolaire.key}</p>
+        <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.CremeSolaire.key2}</p>
+      </div>
+    </>
+  );
+};
+
+const AvoirUneBellePeau = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <div className="h-[100px] sm:h-[150px] flex center flex-col">
+        <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.AvoirUneBellePeau.key}</p>
+        <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.AvoirUneBellePeau.key2}</p>
+      </div>
+    </>
+  );
+};
+
+const PeauParfaite = () => {
+  const { dictionnaire } = useContext(LanguageContext);
+  return (
+    <>
+      <div className="h-[100px] sm:h-[150px] flex center flex-col">
+        <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.PeauParfaite.key}</p>
+        <p className="text-[20px] sm:text-[100px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.PeauParfaite.key2}</p>
+      </div>
+    </>
+  );
+};
 // PAGES CONSEILS & ASTUCES
 export {switchtext}

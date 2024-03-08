@@ -1,8 +1,10 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { pdfjs, Document, Page,  } from 'react-pdf';
 import { getDiagnosticPDF } from '../services/Diagnostic';
+import { LanguageContext } from '../languages';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 export const PdfViewer = (props) => {
+    const {userLanguage} = useContext(LanguageContext);
     const [numPages, setNumPages] = useState();
     const [pageNumber, setPageNumber] = useState(1);
     const [pdf,setPdf]=useState("");
@@ -11,7 +13,8 @@ export const PdfViewer = (props) => {
     }
     useEffect(() => {
         async function fetchData(){
-            let data64 = await getDiagnosticPDF(props.pdfId);
+            let data64 = await getDiagnosticPDF(props.pdfId,userLanguage);
+            console.log('data64 : ', data64)
             setPdf(data64.data)
         }
         if(props.pdfId){fetchData()}

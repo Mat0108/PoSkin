@@ -1,20 +1,24 @@
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { forgotPassword, patchUser } from "../services/user";
 import { toast } from "react-toastify";
 import { getAllDiagnostic, getDiagnosticPDF } from "../services/Diagnostic";
 import { PdfViewer } from "../components/PdfViewer";
+import { useCookies } from "react-cookie";
+import { LanguageContext } from "../languages";
 
 const MesDiagnostics = (props) =>{
+    const { dictionnaire, userLanguage } = useContext(LanguageContext);
     const [diagnostic,setDiagnostic]= useState([])
+    const [cookies, setCookies] = useCookies(["user"]);
     const navigate = useNavigate();
     const [pdf,setPdf] = useState("")
     useEffect(() => {
-      if(localStorage.length == 0){
+      if(typeof cookies.user !== "object"){
         navigate("/")
       }else{
         async function fetchData(){
-          let data = await getAllDiagnostic({email:localStorage.getItem("userEmail")})
+          let data = await getAllDiagnostic({email:typeof cookies.user === "object"  ? cookies.user.email:null})
           setDiagnostic(data.data)
         }
         fetchData()
@@ -24,7 +28,7 @@ const MesDiagnostics = (props) =>{
     useEffect(() => {
        
         async function fetchData(){
-          let data64 = await getDiagnosticPDF(diagnostic[0]._id);
+          let data64 = await getDiagnosticPDF(diagnostic[0]._id,userLanguage);
           setPdf(data64.data)
         }
         if(Object.keys(diagnostic).length){fetchData()}
@@ -33,7 +37,7 @@ const MesDiagnostics = (props) =>{
 
     const downloadPdf = (pdfId,filename) => {
       async function fetchData(){
-        let data64 = await getDiagnosticPDF(pdfId);
+        let data64 = await getDiagnosticPDF(pdfId, userLanguage);
         if(data64.status == 200){
           const link = document.createElement('a');
           link.href = pdf
@@ -52,7 +56,7 @@ const MesDiagnostics = (props) =>{
             return <div className={` h-[60px] bg-blue  flex rounded-2xl  `} key={`diagnostic-${pos}`}>
                 <div className="flex w-1/2">
                   <div className="col-start-1 ml-[30px]  flex center text-white text-[20px] font-mt-extra-bold">
-                  {`Votre diagnostic du ${date.getDate() < 10 ? '0' : ''}${date.getDate()}/${
+                  {`${dictionnaire.Diagnostic.Info5} ${date.getDate() < 10 ? '0' : ''}${date.getDate()}/${
                 date.getMonth() + 1 < 10 ? '0' : ''}${date.getMonth() + 1}/${date.getFullYear()}`}
                   </div> 
                 </div>
@@ -61,7 +65,7 @@ const MesDiagnostics = (props) =>{
                     <div className="w-fit h-fit bg-green p-2 rounded-lg" onClick={()=>props.openModal(
                     <PdfViewer 
                       pdfId={item._id} 
-                      title={`Votre diagnostic du ${date.getDate() < 10 ? '0' : ''}${date.getDate()}/${date.getMonth() + 1 < 10 ? '0' : ''}${date.getMonth() + 1}/${date.getFullYear()}`} 
+                      title={`${dictionnaire.Diagnostic.Info5} ${date.getDate() < 10 ? '0' : ''}${date.getDate()}/${date.getMonth() + 1 < 10 ? '0' : ''}${date.getMonth() + 1}/${date.getFullYear()}`} 
                       closeModal={props.closeModal} 
                       filename={`Diagnostic_${date.getDate() < 10 ? '0' : ''}${date.getDate()}.${date.getMonth() + 1 < 10 ? '0' : ''}${date.getMonth() + 1}.${date.getFullYear()}.pdf`}/>)}
                     >
@@ -79,14 +83,14 @@ const MesDiagnostics = (props) =>{
         // if(pdf){return <PdfViewer pdfString={pdf} />}
         
 
-    }, [pdf])
+    }, [pdf,dictionnaire])
     
     return (
     <div className="">
       <div className="w-full h-[870px] flex flex-row">
           <div className="w-fit h-full relative">
               <img src={"/images/Compte/Compte1.jpg"} alt={"visage21"} className="w-fit h-full"/>
-              <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-white text-[48px] font-mt-extra-bold">VOS DIAGNOSTICS</div></div>
+              <div className="absolute top-0 left-0 w-full h-full flex center"><div className="text-white text-[48px] font-mt-extra-bold">{dictionnaire.diagnostic.toUpperCase()}</div></div>
           </div>
           <div className="w-full h-full p-[30px]">
               <div className="bg-white rounded-3xl w-full h-full flex flex-col ">
