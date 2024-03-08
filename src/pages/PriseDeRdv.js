@@ -270,7 +270,7 @@ const PriseDeRdv = ()=>{
                         <div className="h-[450px] overflow-hidden hover:overflow-auto">
                             <div className="w-full h-fit grid grid-cols-5 center gap-2 ">
                             {datebefore && datebefore.map((item,pos)=>{
-                                return <div key={`datebefore-${pos}`} className={`w-full h-fit bg-gray px-4 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{weekday[item.i]} {getShowDate(item.date)}</div></div>
+                                return <div key={`datebefore-${pos}`} className={`w-full h-fit bg-gray px-4 py-2 rounded-full text-[14px] xl:text-[18px] 3xl:text-[24px] text-center text-white font-mt-demi hover:cursor-pointer flex flex-col`} ><div>{weekday[item.i-1]} {getShowDate(item.date)}</div></div>
                             })}
                             {selectDate !== "" && (newRdv.Type === false ? Object.entries(listRdvLibre) : Object.entries(suiviRdvLibre)).map((posrdv,rdv)=>{
                                 incrementx++;

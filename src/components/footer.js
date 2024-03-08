@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { LanguageContext } from "../languages";
 
 const Footer = ()=>{
@@ -46,9 +46,9 @@ const Footer = ()=>{
                 <p className="text-[8px] sm:text-[16px] my-[6px] sm:my-[10px]">{dictionnaire.rejoindrepo}</p>
 
                 <div className="grid grid-cols-3 gap-2 w-full sm:w-[60%]">
-                        <div className="col-start-1"><a href="https://www.tiktok.com/@po.skin_?is_from_webapp=1&sender_device=pc"> <img src={"/images/tiktok.png"} alt={"tiktok"}  /></a></div>
-                        <div className="col-start-2"><a href="https://instagram.com/po.skin__?igshid=MzRlODBiNWFlZA=="> <img src={"/images/instagram.png"} alt={"instagram"}  /></a></div>
-                        <div className="col-start-3"><a href="https://www.pinterest.fr/poskinnn/?invite_code=20394619d86b4527a76a7cb5758afad2&sender=1093671228167842742"> <img src={"/images/pinterest.png"}  alt={"pinterest"} /></a></div>
+                        <div className="col-start-1"><a href="https://www.tiktok.com/@po.skin_?is_from_webapp=1&sender_device=pc" target="_blank" > <img src={"/images/tiktok.png"} alt={"tiktok"}  /></a></div>
+                        <div className="col-start-2"><a href="https://instagram.com/po.skin__?igshid=MzRlODBiNWFlZA==" target="_blank"> <img src={"/images/instagram.png"} alt={"instagram"}  /></a></div>
+                        <div className="col-start-3"><a href="https://www.pinterest.fr/poskinnn/?invite_code=20394619d86b4527a76a7cb5758afad2&sender=1093671228167842742" target="_blank"> <img src={"/images/pinterest.png"}  alt={"pinterest"} /></a></div>
                     </div>
             </div>
         </div> 
