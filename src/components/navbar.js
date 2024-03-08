@@ -211,7 +211,7 @@ const Navbar = (props) => {
   return (
     <>
       <div className="w-full h-[40px] sm:h-[80px] border-b-2 border-white grid grid-cols-5 bg-[#EEE8E4] p-2">
-        <div className="col-start-1 ml-[20px]  sm:ml-[35px] mt-[4px] sm:mt-[12px] p-x-2 flex items-start ">
+        <div className="col-start-1 ml-[20px] sm:ml-[35px] mt-[4px] sm:mt-[12px] p-x-2 flex items-start ">
           <a className="w-fit h-full">
             <img
               src={"/images/logo.png"}
@@ -224,7 +224,7 @@ const Navbar = (props) => {
           </a>
         </div>
         <div className="col-start-4 col-span-2 flex ">
-          <div className="w-full flex flex-row text-lg space-x-2 mr-[100px] center justify-end ">
+          <div className="w-full h-fit sm:h-full flex flex-row text-[12px] sm:text-lg space-x-2 mr-[100px] center justify-end ">
             <LanguageSelector />
             {/*
                 <div onMouseEnter={()=>{setRegisterbool(true)}}

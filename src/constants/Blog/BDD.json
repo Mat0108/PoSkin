@@ -1,0 +1,422 @@
+{
+
+    "titlelist": ["title1","null","title2","title3","null","title4","title5","title6"],
+    "textlist": ["null","text1","text2","text3","null","text4","text5","text6"],
+    "imagelist": [
+      "/images/Blog/vitaminec/vitaminec.png",
+      "/images/Blog/vitaminec/vitaminec1.png",
+      "null",
+      "null",
+      "/images/Blog/vitaminec/vitaminec2.png",
+      "null",
+      "/images/Blog/vitaminec/vitaminec3.png",
+      "/images/Blog/vitaminec/vitaminec4.png"
+    ],
+    "altimage": [
+      "vitaminec",
+      "vitaminec1",
+      "null",
+      "null",
+      "vitaminec2",
+      "null",
+      "vitaminec3",
+      "vitaminec4"
+    ],
+    "textcolor": [
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null"
+    ],
+    "layout": [
+      "IFT",
+      "TL",
+      "TF",
+      "TF",
+      "IF",
+      "TF",
+      "TR",
+      "TL"
+    ],
+    "imagepresentation": "/images/Blog/vitaminec/vitaminec.png",
+    "altimagepresentation": "vitaminec"
+},
+  {
+
+    "titlelist": ["title1","null","title2","title3","null","title4"],
+    "textlist": ["null","text1","text2","text3","text4","text5","text6"],
+    "imagelist": [
+      "/images/Blog/cremesolaire/cremesolaire.png",
+      "null",
+      "/images/Blog/cremesolaire/cremesolaire1.png",
+      "null",
+      "/images/Blog/cremesolaire/cremesolaire2.png",
+      "/images/Blog/cremesolaire/cremesolaire3.png"
+    ],
+    "altimage": [
+      "cremesolaire",
+      "cremesolaire1",
+      "null",
+      "cremesolaire2",
+      "cremesolaire3"
+    ],
+    "textcolor": [
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null"
+    ],
+    "layout": [
+      "IFT",
+      "TF",
+      "TL",
+      "TF",
+      "IFD",
+      "TR",
+      "TF"
+    ],
+    "imagepresentation": "/images/Blog/cremesolaire/cremesolaire.png",
+    "altimagepresentation": "cremesolaire"
+  },
+  {
+    "titlelist": ["title1","title2","title3","title4","null","title5","title6","null","title7","title8"],
+    "textlist": ["text1","text2","text3","text4","null","text5","text6","null","text7","text8","text9"],
+    "imagelist": [
+      "/images/Blog/avoirunebellepeau/avoirunebellepeau1.png",
+      "null",
+      "null",
+      "null",
+      "/images/Blog/avoirunebellepeau/avoirunebellepeau2.png",
+      "null",
+      "null",
+      "/images/Blog/avoirunebellepeau/avoirunebellepeau3.png",
+      "null"
+    ],
+    "altimage": [
+      "avoirunebellepeau1",
+      "null",
+      "null",
+      "null",
+      "avoirunebellepeau2",
+      "null",
+      "null",
+      "avoirunebellepeau3",
+      "null"
+    ],
+    "textcolor": [
+      "text-black",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null"
+    ],
+    "layout": [
+      "IFTD",
+      "TF",
+      "TF",
+      "TF",
+      "IF",
+      "TF",
+      "TF",
+      "IF",
+      "TF",
+      "TF",
+      "TF"
+    ],
+    "imagepresentation": "/images/Blog/avoirunebellepeau/avoirunebellepeau1.png  ",
+    "altimagepresentation": "avoirunebellepeau",
+  },
+  {
+    "titlelist": ["title1","title2","title3","title4","title5","null","title6","title7","title8","null","title9","title10","title11","null"],
+    "textlist": ["text1","text2","text3","text4","text5","null","text6","text7","text8","null","text9","text10","text11","text12"],
+    "imagelist": [
+      "/images/Blog/peauparfaite/peauparfaite1.png",
+      "null",
+      "null",
+      "null",
+      "null",
+      "/images/Blog/peauparfaite/peauparfaite2.png",
+      "null",
+      "null",
+      "null",
+      "/images/Blog/peauparfaite/peauparfaite3.png",
+      "null",
+      "null",
+      "null"
+    ],
+    "altimage": [
+      "peauparfaite",
+      "null",
+      "null",
+      "null",
+      "null",
+      "peauparfaite2",
+      "null",
+      "null",
+      "null",
+      "peauparfaite3",
+      "null",
+      "null",
+      "null"
+    ],
+    "textcolor": [
+      "text-black",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null",
+      "null"
+    ],
+    "layout": [
+      "IFTD",
+      "TF",
+      "TF",
+      "TF",
+      "TF",
+      "IF",
+      "TF",
+      "TF",
+      "TF",
+      "IF",
+      "TF",
+      "TF",
+      "TF",
+      "TF"
+    ],
+    "imagepresentation": "/images/Blog/peauparfaite/peauparfaite1.png",
+    "altimagepresentation": "peauparfaite",
+    },
+  {
+    "_id": {
+      "$oid": "657b79dbccc244de8e01760f"
+    },
+    "titlelist": [
+      "Les bienfaits des masques dans une bonne routine skincare",
+      "1. Hydratation profonde :",
+      "2. Purification et Détoxification :",
+      "3. Éclat et Luminosité :",
+      null,
+      "4. Apaisement et Réduction des Rougeurs :",
+      "5. Anti-Âge et Raffermissant :",
+      null
+    ],
+    "textlist": [
+      "La recherche du teint parfait et d'une peau lumineuse nous pousse à explorer diverses avenues de soins cutanés. Parmi les éléments essentiels d'une routine de beauté, les masques occupent une place de choix. Leur utilisation régulière peut apporter des bienfaits significatifs à votre peau, contribuant ainsi à une routine de soin skincare complète et efficace.",
+      "Les masques hydratants sont des alliés incontournables pour nourrir en profondeur la peau. En choisissant des masques riches en ingrédients hydratants tels que l'acide hyaluronique ou l'aloe vera, vous offrez à votre peau une recharge d'hydratation. Cela contribue à maintenir l'élasticité de la peau, prévient la sécheresse et lui donne un éclat naturel.",
+      "Les masques purifiants aident à éliminer les impuretés incrustées dans les pores. L'argile, le charbon actif ou les masques à base d'enzymes naturelles agissent comme des agents de détoxification, absorbant l'excès de sébum et débarrassant la peau des toxines. Une utilisation régulière de ces masques contribue à réduire l'apparence des pores et à laisser la peau plus nette.",
+      "Les masques éclatants sont spécialement formulés pour raviver la luminosité naturelle de la peau. Enrichis en ingrédients tels que la vitamine C ou les extraits de fruits, ils aident à atténuer les taches sombres, à uniformiser le teint et à donner à la peau un éclat revitalisé.",
+      null,
+      "Les masques apaisants, souvent formulés avec des ingrédients tels que la camomille ou l'aloe vera, sont idéaux pour calmer les peaux sensibles ou sujettes aux rougeurs. Ils offrent un soulagement instantané, réduisent l'inflammation et renforcent la barrière cutanée.",
+      "Les masques anti-âge, généralement riches en peptides, collagènes ou acides aminés, aident à prévenir les signes du vieillissement cutané. Ils favorisent la régénération cellulaire, améliorent l'élasticité de la peau et réduisent l'apparence des rides et ridules.",
+      "Intégrer judicieusement des masques dans votre routine skincare peut être la clé pour atteindre une peau saine, équilibrée et rayonnante. N'oubliez pas d'adapter votre choix de masque en fonction des besoins spécifiques de votre peau et de profiter des bienfaits de ces moments de soin indulgents. Une peau choyée est une peau qui respire la vitalité et la jeunesse !"
+    ],
+    "imagelist": [
+      "/images/Blog/bienfaitsmasques/bienfaitsmasques1.png",
+      null,
+      null,
+      null,
+      "/images/Blog/bienfaitsmasques/bienfaitsmasques2.png",
+      null,
+      null,
+      null
+    ],
+    "altimage": [
+      "bienfaitsmasques1.png",
+      null,
+      null,
+      null,
+      "bienfaitsmasques2.png",
+      null,
+      null,
+      null
+    ],
+    "textcolor": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "layout": [
+      "IFTD",
+      "TF",
+      "TF",
+      "TF",
+      "IF",
+      "TF",
+      "TF",
+      "TF"
+    ],
+    "title": "Les bienfaits des masques dans une bonne routine skincare",
+    "imagepresentation": "/images/Blog/bienfaitsmasques/bienfaitsmasques1.png",
+    "altimagepresentation": "bienfaitsmasqes1.png",
+    "textpresentation": "La recherche du teint parfait et d'une peau lumineuse nous pousse à explorer diverses avenues de soins cutanés. Parmi les éléments essentiels d'une routine de beauté, les masques occupent une place de choix. Leur utilisation régulière peut apporter des bienfaits significatifs à votre peau, contribuant ainsi à une routine de soin skincare complète et efficace."
+  },
+  {
+    "_id": {
+      "$oid": "657b79dbccc244de8e017611"
+    },
+    "titlelist": [
+      "L’importance de la crème solaire pour la peau ",
+      "Protection contre les rayons UV ",
+      null,
+      "Prévention des maladies de la peau",
+      "Uniformité du teint",
+      null,
+      "Protection contre les radicaux libres ",
+      null,
+      null
+    ],
+    "textlist": [
+      "La crème solaire est bien plus qu'un simple produit cosmétique. C'est un bouclier protecteur essentiel pour la santé de notre peau. En comprenant l'importance de la crème solaire, vous pouvez prendre des mesures cruciales pour préserver votre peau des effets néfastes du soleil et des rayons UV. Découvrez pourquoi la crème solaire est un incontournable de votre routine de soin.",
+      "Les rayons ultraviolets (UV) émis par le soleil sont la principale cause du vieillissement prématuré de la peau. Ils peuvent causer des rides, des ridules, des taches de vieillesse et un relâchement cutané. La crème solaire agit comme un bouclier en absorbant ou en réfléchissant les rayons UV, réduisant ainsi les dommages causés à la peau.",
+      "En appliquant de la crème solaire régulièrement, on aide à préserver la jeunesse de la peau en limitant ces signes de vieillissement.",
+      "Les effets néfastes des UV ne se limitent pas à l'esthétique ; ils peuvent également causer des dommages au niveau cellulaire, augmentant le risque de développer des maladies de la peau, dont le redoutable cancer cutané. La crème solaire devient ainsi un rempart essentiel contre ces risques.",
+      "L'utilisation régulière de la crème solaire contribue à prévenir la formation de taches pigmentaires, garantissant un teint plus uniforme et radieux.",
+      null,
+      "Les rayons UV génèrent des radicaux libres dans la peau, provoquant un stress oxydatif. La crème solaire intervient comme un bouclier, aidant à neutraliser ces radicaux et à prévenir les dommages cellulaires.",
+      "En conclusion, la crème solaire transcende son rôle de simple produit de beauté pour devenir un allié incontournable dans la protection de notre peau. Préserver la santé cutanée va au-delà de l'aspect esthétique, et la crème solaire s'impose comme la première ligne de défense contre les effets dévastateurs du soleil. Dans cette quête pour une peau saine et éclatante, il est important de mettre sa crème solaire chaque jour avant une exposition au soleil. ",
+      "N'oublions pas : prendre soin de notre peau aujourd'hui garantit sa beauté et sa santé demain."
+    ],
+    "imagelist": [
+      "/images/Blog/peaucremesolaire/peaucremesolaire1.png",
+      null,
+      null,
+      null,
+      null,
+      "/images/Blog/peaucremesolaire/peaucremesolaire2.png",
+      null,
+      null,
+      null
+    ],
+    "altimage": [
+      "peaucremesolaire1.png",
+      null,
+      null,
+      null,
+      null,
+      "peaucremesolaire2.png"
+    ],
+    "textcolor": [
+      "text-black",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "layout": [
+      "IFTD",
+      "TF",
+      "TF",
+      "TF",
+      "TF",
+      "IF",
+      "TF",
+      "TF",
+      "TF"
+    ],
+    "title": "L’importance de la crème solaire pour la peau",
+    "imagepresentation": "/images/Blog/peaucremesolaire/peaucremesolaire1.png",
+    "altimagepresentation": "peaucremesolaire1.png",
+    "textpresentation": "La crème solaire est bien plus qu'un simple produit cosmétique. C'est un bouclier protecteur essentiel pour la santé de notre peau. En comprenant l'importance de la crème solaire, vous pouvez prendre des mesures cruciales pour préserver votre peau des effets néfastes du soleil et des rayons UV. Découvrez pourquoi la crème solaire est un incontournable de votre routine de soin."
+  },
+  {
+    "_id": {
+      "$oid": "657b79dbccc244de8e017610"
+    },
+    "titlelist": [
+      "Comment choisir le sérum adapté à votre peau ? ",
+      "1. Déterminez votre type de peau :",
+      "2. Ciblez vos préoccupations cutanées :",
+      null,
+      "3. Consultez les ingrédients clés :",
+      "4. Adaptez-vous à la saison :",
+      "5. Testez le sérum sur une petite zone :",
+      "6. Intégrez le sérum dans votre routine :",
+      "7. Soyez cohérent :",
+      null
+    ],
+    "textlist": [
+      "Le monde des soins de la peau offre une multitude d'options, et parmi elles, les sérums sont des joyaux précieux qui peuvent transformer votre routine de beauté. Cependant, avec la variété de sérums disponibles sur le marché, il est crucial de choisir celui qui convient parfaitement à votre type de peau. Voici un guide pour vous aider à faire le choix judicieux d'un sérum adapté à vos besoins spécifiques.",
+      "Avant de choisir un sérum, identifiez votre type de peau. Est-elle sèche, grasse, mixte ou sujette à l'acné ? Comprendre les besoins spécifiques de votre peau vous aidera à sélectionner un sérum qui répondra à ces besoins.",
+      null,
+      "Chaque personne a des préoccupations cutanées spécifiques, que ce soit des ridules, des taches pigmentaires, des pores dilatés ou une perte d'élasticité. Choisissez un sérum qui cible vos préoccupations spécifiques pour des résultats ciblés.",
+      "Les ingrédients sont la clé d'un sérum efficace. Recherchez des ingrédients actifs tels que l'acide hyaluronique pour l'hydratation, la vitamine C pour l'éclat, le rétinol pour le renouvellement cellulaire ou les antioxydants pour la protection contre les radicaux libres.",
+      "Les besoins de la peau peuvent varier en fonction des saisons. En hiver, optez pour des sérums plus hydratants, tandis qu'en été, privilégiez des formules légères et matifiantes. Adaptez votre choix de sérum en fonction des besoins saisonniers de votre peau.",
+      "Avant d'appliquer un nouveau sérum sur l'ensemble du visage, effectuez un test sur une petite zone pour vous assurer que votre peau réagit favorablement. Cela vous permettra d'éviter des réactions indésirables.",
+      "Un sérum ne remplace pas votre hydratant, mais il complète votre routine. Appliquez-le après le nettoyage et avant l'hydratation pour permettre aux ingrédients actifs de pénétrer en profondeur.",
+      "Les résultats des sérums peuvent prendre du temps. Soyez constant dans l'application et donnez à votre peau le temps de s'adapter aux nouveaux ingrédients et actifs.",
+      "En suivant ces conseils, vous serez en mesure de choisir un sérum qui nourrit, corrige et revitalise votre peau, ajoutant un plus à votre routine de soins de la peau. N'oubliez pas que la clé d'une belle peau réside dans des choix de soins adaptés et réguliers."
+    ],
+    "imagelist": [
+      "/images/Blog/serum/serum1.png",
+      null,
+      null,
+      "/images/Blog/serum/serum2.png",
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "altimage": [
+      "serum1.png",
+      null,
+      null,
+      "serum2.png",
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "textcolor": [
+      "text-black",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "layout": [
+      "IFTD",
+      "TF",
+      "TF",
+      "IFD",
+      "TF",
+      "TF",
+      "TF",
+      "TF",
+      "TF",
+      "TF"
+    ],
+    "title": "Comment choisir le sérum adapté à votre peau ?",
+    "imagepresentation": "/images/Blog/serum/serum1.png",
+    "altimagepresentation": "serum1.png",
+    "textpresentation": "Le monde des soins de la peau offre une multitude d'options, et parmi elles, les sérums sont des joyaux précieux qui peuvent transformer votre routine de beauté. Cependant, avec la variété de sérums disponibles sur le marché, il est crucial de choisir celui qui convient parfaitement à votre type de peau. Voici un guide pour vous aider à faire le choix judicieux d'un sérum adapté à vos besoins spécifiques."
+  }
