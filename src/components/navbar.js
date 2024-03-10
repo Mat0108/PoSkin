@@ -1,60 +1,17 @@
 import React, { useState, useMemo, useEffect, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import MesDiagnostics from "./../pages/MesDiagnostics";
 import LanguageSelector from "../constants/LanguageSelector";
 import { LanguageContext } from "../languages";
+import MenuSelector from "./MenuSelector";
 
 const Navbar = (props) => {
   const { dictionnaire, userLanguage } = useContext(LanguageContext);
-
-  //   const [aproposbool, setAproposbool] = useState(false);
-  //   const [conseilbool, setConseilbool] = useState(false);
-  //   const [expertisebool, setExpertisebool] = useState(false);
-  //   const [communitybool, setCommunitybool] = useState(false);
-  //   const [registerbool, setRegisterbool] = useState(false);
   const [login, setLogin] = useState(false);
-  const [compte, setCompte] = useState(false);
-  const [diagnostic, setDiagnostic] = useState(false);
   const [takeRdv, setTakeRdv] = useState(false);
-  const [rdv, setRdv] = useState(false);
-
+  const isMobile = window.screen.width < 600
   const cmhover =
     "text-black hover:bg-[#264C4D] hover:text-white px-4 py-2 hover:cursor-pointer rounded-full ";
-  // const apropos = useMemo(()=>{
-  //     if(aproposbool){
-  //         return <div><a href={"/APropos"} ><div className={`flex flex-row w-[130px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointhidden.png"} alt={"pw"} /></div><div> A propos</div></div></a></div>
-  //     }else{
-  //         return <div><a href={"/APropos"} ><div className={`flex flex-row w-[130px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div> A propos</div></div></a></div>
-  //     }
-  // },[aproposbool])
-  // const conseil = useMemo(()=>{
-  //     if(conseilbool){
-  //         return <div><a href={"/Expertise"} ><div className={`flex flex-row w-[130px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointhidden.png"} alt={"pw"} /></div><div> Expertise</div></div></a></div>
-  //     }else{
-  //         return <div><a href={"/Expertise"} ><div className={`flex flex-row w-[130px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div> Expertise</div></div></a></div>
-  //     }
-  // },[conseilbool])
-  // const expertise = useMemo(()=>{
-  //     if(expertisebool){
-  //         return <div><a href={"/Conseils"} ><div className={`flex flex-row w-[130px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointhidden.png"} alt={"pw"} /></div><div> Conseils</div></div></a></div>
-  //     }else{
-  //         return <div><a href={"/Conseils"} ><div className={`flex flex-row w-[130px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div> Conseils</div></div></a></div>
-  //     }
-  // },[expertisebool])
-  // const community = useMemo(()=>{
-  //     if(communitybool){
-  //         return <div><a href={"/Community"} ><div className={`flex flex-row w-[140px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointhidden.png"} alt={"pw"} /></div><div> Community</div></div></a></div>
-  //     }else{
-  //         return <div><a href={"/Community"} ><div className={`flex flex-row w-[140px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div> Community</div></div></a></div>
-  //     }
-  // },[communitybool])
-  // const Register = useMemo(()=>{
-  //     if(registerbool){
-  //         return <div onClick={props.Register}><div className={`flex flex-row w-[140px] ${cmhover}`}><div className='flex center w-fit mr-[10px]'><img src={"/images/pointhidden.png"} alt={"pw"} /></div><div>Register</div></div></div>
-  //     }else{
-  //         return <div onClick={props.Register}><div className={`flex flex-row w-[140px] ${cmhover}`}><div className='flex center w-fit mr-[10px] bg-[#EEE8E4]'><img src={"/images/pointhidden.png"} alt={"pw"}/></div><div>Register</div></div></div>
-  //     }
-  // },[registerbool])
+
   const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
@@ -64,149 +21,80 @@ const Navbar = (props) => {
     } else if (location.pathname === "/Register") {
       props.Register();
       navigate("/");
+    }else if (location.pathname === "/Logout") {
+      props.Logout();
+      setLogin(false);
+      navigate("/");
     }
-  }, []);
-  const Login = useMemo(() => {
-    if (login) {
-      return (
-        <div onClick={props.LoginCond ? props.Logout : props.Login}>
-          <div className={`flex flex-row w-[200px] ${cmhover}`}>
-            <div className="flex center w-fit mr-[10px]">
-              <img src={"/images/pointwhite.png"} alt={"pw"} />
-            </div>
-            <div>
-              {props.LoginCond
-                ? dictionnaire.Navbar.logout
-                : dictionnaire.Navbar.login}
-            </div>
-          </div>
+  }, [location,navigate,props]);
+
+
+  function BoutonMemo(action,setAction, link,name,width){
+    return useMemo(()=>{
+      let html = (
+      <div className={`flex flex-row ${width} ${cmhover}`}>
+        <div className="flex center w-fit mr-[10px]">
+          
+          {action ?   <img src={"/images/pointwhite.png"} alt={"pw"} /> : <img src={"/images/pointhidden.png"} alt={"pw"} />}
         </div>
-      );
-    } else {
-      return (
-        <div onClick={props.LoginCond ? props.Logout : props.Login}>
-          <div className={`flex flex-row w-[200px] ${cmhover}`}>
-            <div className="flex center w-fit mr-[10px] bg-[#EEE8E4]">
-              <img src={"/images/pointhidden.png"} alt={"pw"} />
-            </div>
-            <div>
-              {props.LoginCond
-                ? dictionnaire.Navbar.logout
-                : dictionnaire.Navbar.login}
-            </div>
-          </div>
+        <div>
+          {name}
         </div>
-      );
+      </div>)
+    let htmlNoAction = (
+    <div className={`flex flex-row ${width} ${cmhover}`}>
+      <div className="flex center w-fit mr-[10px] bg-[#EEE8E4]">
+        <img src={"/images/pointhidden.png"} alt={"pw"} />
+      </div>
+      <div>
+        {name}
+      </div>
+    </div>)      
+        if(link){
+            return (
+              <Link to={link}>{html}</Link>
+            )
+          }else{
+            return (
+              <div onClick={setAction}>{html}</div>
+            );
+          }
+      
+
+    },[action,setAction,link,name,width])
+  } 
+
+  const Login = useMemo(()=>{
+    const MobileOptions=[
+      {to:"/Compte",name:dictionnaire.Navbar.account},
+      {to:"/MesDiagnostics",name:dictionnaire.Navbar.diagnostic},
+      {to:"/MesRdv",name:dictionnaire.Navbar.rdv},
+      {to:"/takeRdv",name:dictionnaire.Navbar.take_rdv},
+      {to:"/Logout",name:dictionnaire.Navbar.logout},
+    ]
+    const options = [
+      {to:"/Compte",name:dictionnaire.Navbar.account},
+      {to:"/MesDiagnostics",name:dictionnaire.Navbar.diagnostic},
+      {to:"/MesRdv",name:dictionnaire.Navbar.rdv},
+      {to:"/Logout",name:dictionnaire.Navbar.logout},
+    ]
+    
+    if(props.LoginCond){
+      return <MenuSelector title={dictionnaire.Navbar.account} options={isMobile ? MobileOptions : options}/>
+    }else{
+        return (<div className={`flex flex-row w-[180px] ${cmhover}`} onClick={props.Login}>
+        <div className="flex center w-fit mr-[10px]">
+          {login ? <img src={"/images/pointwhite.png"} alt={"pw"} /> : <img src={"/images/pointhidden.png"} alt={"pw"} />}
+        </div>
+        <div>
+          {dictionnaire.Navbar.login}
+        </div>
+      </div>)    
     }
-  }, [login, props, dictionnaire]);
-  const Compte = useMemo(() => {
-    if (compte) {
-      return (
-        <Link to="/Compte">
-          <div className={`flex flex-row w-[200px] ${cmhover}`}>
-            <div className="flex center w-fit mr-[10px]">
-              <img src={"/images/pointwhite.png"} alt={"pw"} />
-            </div>
-            <div>{dictionnaire.Navbar.account}</div>
-          </div>
-        </Link>
-      );
-    } else {
-      return (
-        <Link to="/Compte">
-          <div className={`flex flex-row w-[200px] ${cmhover}`}>
-            <div className="flex center w-fit mr-[10px] bg-[#EEE8E4]">
-              <img src={"/images/pointhidden.png"} alt={"pw"} />
-            </div>
-            <div>{dictionnaire.Navbar.account}</div>
-          </div>
-        </Link>
-      );
-    }
-  }, [compte, dictionnaire]);
-  const MesDiagnostics = useMemo(() => {
-    if (diagnostic) {
-      return (
-        <Link to="/MesDiagnostics">
-          <div className={`flex flex-row w-[200px] ${cmhover}`}>
-            <div className="flex center w-fit mr-[10px]">
-              <img src={"/images/pointwhite.png"} alt={"pw"} />
-            </div>
-            <div>{dictionnaire.Navbar.diagnostic}</div>
-          </div>
-        </Link>
-      );
-    } else {
-      return (
-        <Link to="/MesDiagnostics">
-          <div className={`flex flex-row w-[200px] ${cmhover}`}>
-            <div className="flex center w-fit mr-[10px] bg-[#EEE8E4]">
-              <img src={"/images/pointhidden.png"} alt={"pw"} />
-            </div>
-            <div>{dictionnaire.Navbar.diagnostic}</div>
-          </div>
-        </Link>
-      );
-    }
-  }, [diagnostic, dictionnaire]);
-  const TakeRdv = useMemo(() => {
-    if (takeRdv) {
-      return (
-        <Link to="/PriseDeRdv">
-          <div
-            className={`flex flex-row ${
-              userLanguage == "en" ? "w-[270px]" : "w-[240px]"
-            } ${cmhover}`}
-          >
-            <div className="flex center w-fit mr-[10px]">
-              <img src={"/images/pointwhite.png"} alt={"pw"} />
-            </div>
-            <div>{dictionnaire.Navbar.take_rdv}</div>
-          </div>
-        </Link>
-      );
-    } else {
-      return (
-        <Link to="/PriseDeRdv">
-          <div
-            className={`flex flex-row ${
-              userLanguage == "en" ? "w-[270px]" : "w-[240px]"
-            } ${cmhover}`}
-          >
-            <div className="flex center w-fit mr-[10px] bg-[#EEE8E4]">
-              <img src={"/images/pointhidden.png"} alt={"pw"} />
-            </div>
-            <div>{dictionnaire.Navbar.take_rdv}</div>
-          </div>
-        </Link>
-      );
-    }
-  }, [takeRdv, dictionnaire]);
-  const Rdv = useMemo(() => {
-    if (rdv) {
-      return (
-        <Link to="/MesRdv">
-          <div className={`flex flex-row w-[220px] ${cmhover}`}>
-            <div className="flex center w-fit mr-[10px]">
-              <img src={"/images/pointwhite.png"} alt={"pw"} />
-            </div>
-            <div>{dictionnaire.Navbar.rdv}</div>
-          </div>
-        </Link>
-      );
-    } else {
-      return (
-        <Link to="/MesRdv">
-          <div className={`flex flex-row w-[220px] ${cmhover}`}>
-            <div className="flex center w-fit mr-[10px] bg-[#EEE8E4]">
-              <img src={"/images/pointhidden.png"} alt={"pw"} />
-            </div>
-            <div>{dictionnaire.Navbar.rdv}</div>
-          </div>
-        </Link>
-      );
-    }
-  }, [rdv, dictionnaire]);
+  },[props,dictionnaire,login])
+  const TakeRdv = BoutonMemo(takeRdv,null,"/takeRdv",dictionnaire.Navbar.take_rdv,userLanguage === "en" ? "w-[270px]" : "w-[240px]") 
+  
+
 
   return (
     <>
@@ -229,8 +117,9 @@ const Navbar = (props) => {
             {/*
                 <div onMouseEnter={()=>{setRegisterbool(true)}}
                 onMouseLeave={()=>{setRegisterbool(false)}}>{Register}</div> */}
-            {props.LoginCond ? (
+            {props.LoginCond  ? (
               <>
+              {!isMobile ? 
                 <div
                   onMouseEnter={() => {
                     setTakeRdv(true);
@@ -240,37 +129,7 @@ const Navbar = (props) => {
                   }}
                 >
                   {TakeRdv}
-                </div>
-                <div
-                  onMouseEnter={() => {
-                    setRdv(true);
-                  }}
-                  onMouseLeave={() => {
-                    setRdv(false);
-                  }}
-                >
-                  {Rdv}
-                </div>
-                <div
-                  onMouseEnter={() => {
-                    setDiagnostic(true);
-                  }}
-                  onMouseLeave={() => {
-                    setDiagnostic(false);
-                  }}
-                >
-                  {MesDiagnostics}
-                </div>
-                <div
-                  onMouseEnter={() => {
-                    setCompte(true);
-                  }}
-                  onMouseLeave={() => {
-                    setCompte(false);
-                  }}
-                >
-                  {Compte}
-                </div>
+                </div>:""}
               </>
             ) : (
               ""
@@ -285,15 +144,6 @@ const Navbar = (props) => {
             >
               {Login}
             </div>
-
-            {/* <div onMouseEnter={()=>{setAproposbool(true)}}
-                onMouseLeave={()=>{setAproposbool(false)}}>{apropos}</div>
-                <div onMouseEnter={()=>{setConseilbool(true)}}
-                onMouseLeave={()=>{setConseilbool(false)}}>{conseil}</div>
-                <div onMouseEnter={()=>{setExpertisebool(true)}}
-                onMouseLeave={()=>{setExpertisebool(false)}}>{expertise}</div>
-                <div onMouseEnter={()=>{setCommunitybool(true)}}
-                onMouseLeave={()=>{setCommunitybool(false)}}>{community}</div> */}
           </div>
         </div>
       </div>
