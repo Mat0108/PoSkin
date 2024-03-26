@@ -28,7 +28,7 @@ const MenuSelector = (props) => {
   };
   
   const cmhover =
-    "text-black hover:bg-[#264C4D] hover:text-white px-4 py-2 hover:cursor-pointer rounded-full ";
+    "text-black hover:bg-[#264C4D] hover:text-white px-4 py-1 sm:py-2 hover:cursor-pointer rounded-full ";
   return (
     <div className="relative inline-block">
       <button
@@ -36,12 +36,12 @@ const MenuSelector = (props) => {
         onClick={handleClick}
         onMouseEnter={onMouseEnterButton}
         onMouseLeave={onMouseLeaveButton}
-        className={`flex flex-row w-[180px] ${showOptions ? "bg-[#264C4D] text-white cursor-pointer":""} ${cmhover}`}
+        className={`flex flex-row w-[160px] sm:w-[180px] ${showOptions ? "bg-[#264C4D] text-white cursor-pointer":""} ${cmhover}`}
         id="menu-button"
         aria-expanded="true"
         aria-haspopup="true"
       >
-         <div className="flex center gap-2.5 w-fit mr-[10px]">
+         <div className="flex center gap-1 sm:gap-2.5 w-fit mr-[10px]">
        {showOptions ?   <img src={"/images/pointwhite.png"} alt={"pw"} /> : <img src={"/images/pointhidden.png"} alt={"pw"} />}
         
         <div >
@@ -70,18 +70,16 @@ const MenuSelector = (props) => {
               return (
                 <Link to={option.to}
                   key={key}
-                  className={`cursor-pointer inline text-md font-semibold hover:bg-[#264C4D] hover:text-white flex rounded-2xl`}
-                //   onClick={() => changeLanguage(id)}
-
+                  className={`cursor-pointer inline text-xs sm:text-md font-semibold hover:bg-[#264C4D] hover:text-white flex rounded-2xl`}
                   tabIndex="-1"
                   id={`Menu-choice-${option.to}`}
                 >
-                  <div className="flex h-12 w-[165px] px-1 align-left">
+                  <div className="flex h-6 w-[140px] sm:h-12 sm:w-[165px] sm:px-1 text-xs sm:text-md align-left">
 
                   </div>
 
                   <p
-                    className={`self-center absolute title-header ml-5`}
+                    className={`self-center absolute title-header ml-2 sm:ml-5`}
                   >
                     {option.name}
                   </p>

@@ -73,7 +73,7 @@ const DiagnosticStart = (props)=>{
 
                     <div><h2 className={`w-[70%] mt-[10px] sm:mt-[40px]  text-[16px] sm:text-[32px] text-[#264C4D] text-justify h-fit sm:h-[120px] ${i===DiagnosticData.length-1 ? "font-mt-demi":""}`}>{(i === DiagnosticData.length-1 && typeof cookies.user === "object" ) ?dictionnaire.DiagnosticStart.trace : DiagnosticData[i].title}</h2></div>
                     <div className="w-full flex flex-col">
-                        {i === DiagnosticData.length-1 ? "" :<div className={`w-[80%] sm:max-h-[280px] grid ${DiagnosticData[i].reponses.length > 4 ? "grid-cols-1":"grid-cols-1"}`}>
+                        {i === DiagnosticData.length-1 ? "" :<div className={`w-[80%] sm:max-h-[280px] grid ${DiagnosticData[i].reponses.length > 4 ? "grid-cols-2":"grid-cols-1"}`}>
                             {Object.keys(DiagnosticData[i].reponses).length ? DiagnosticData[i].reponses.map((item,pos)=>{return Button(item,pos,DiagnosticData[i])}):""}
                         </div>}
 

@@ -40,3 +40,7 @@
   height: 70vh; 
   width: auto; 
 }
+
+img{
+  object-fit: cover;
+}

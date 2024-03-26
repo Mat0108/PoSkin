@@ -40,16 +40,7 @@ const Navbar = (props) => {
         <div>
           {name}
         </div>
-      </div>)
-    let htmlNoAction = (
-    <div className={`flex flex-row ${width} ${cmhover}`}>
-      <div className="flex center w-fit mr-[10px] bg-[#EEE8E4]">
-        <img src={"/images/pointhidden.png"} alt={"pw"} />
-      </div>
-      <div>
-        {name}
-      </div>
-    </div>)      
+      </div>) 
         if(link){
             return (
               <Link to={link}>{html}</Link>
@@ -63,42 +54,31 @@ const Navbar = (props) => {
 
     },[action,setAction,link,name,width])
   } 
-
+  
   const Login = useMemo(()=>{
-    const MobileOptions=[
-      {to:"/Compte",name:dictionnaire.Navbar.account},
-      {to:"/MesDiagnostics",name:dictionnaire.Navbar.diagnostic},
-      {to:"/MesRdv",name:dictionnaire.Navbar.rdv},
-      {to:"/takeRdv",name:dictionnaire.Navbar.take_rdv},
-      {to:"/Logout",name:dictionnaire.Navbar.logout},
-    ]
-    const options = [
-      {to:"/Compte",name:dictionnaire.Navbar.account},
-      {to:"/MesDiagnostics",name:dictionnaire.Navbar.diagnostic},
-      {to:"/MesRdv",name:dictionnaire.Navbar.rdv},
-      {to:"/Logout",name:dictionnaire.Navbar.logout},
-    ]
-    
-    if(props.LoginCond){
-      return <MenuSelector title={dictionnaire.Navbar.account} options={isMobile ? MobileOptions : options}/>
-    }else{
-        return (<div className={`flex flex-row w-[180px] ${cmhover}`} onClick={props.Login}>
-        <div className="flex center w-fit mr-[10px]">
-          {login ? <img src={"/images/pointwhite.png"} alt={"pw"} /> : <img src={"/images/pointhidden.png"} alt={"pw"} />}
-        </div>
-        <div>
-          {dictionnaire.Navbar.login}
-        </div>
-      </div>)    
-    }
-  },[props,dictionnaire,login])
-  const TakeRdv = BoutonMemo(takeRdv,null,"/takeRdv",dictionnaire.Navbar.take_rdv,userLanguage === "en" ? "w-[270px]" : "w-[240px]") 
+    function NavBar(isConnected,isMobile){
+      return [
+        ...(isConnected ? [
+          {to:"/Compte",name:dictionnaire.Navbar.account},
+          {to:"/MesDiagnostics",name:dictionnaire.Navbar.diagnostic},
+          {to:"/MesRdv",name:dictionnaire.Navbar.rdv},
+          {to:"/Diagnostic",name:dictionnaire.Navbar.take_diagnostic},
+          ...(isMobile ? [{ to: "/PriseDeRdv", name: dictionnaire.Navbar.take_rdv }] : []),
+          {to:"/Logout",name:dictionnaire.Navbar.logout},
+        ] : [{to:"/Login",name:dictionnaire.Navbar.login}]),
+        ]
+      }
+     return <div className="flex justify-end">
+      <MenuSelector title={dictionnaire.Navbar.account} options={NavBar(props.LoginCond,isMobile)}/>  
+      </div>  
+  },[props,dictionnaire,login,isMobile])
+  const TakeRdv = BoutonMemo(takeRdv,null,"/PriseDeRdv",dictionnaire.Navbar.take_rdv,userLanguage === "en" ? "w-[270px]" : "w-[240px]") 
   
 
 
   return (
     <>
-      <div className="w-full h-[40px] sm:h-[80px] border-b-2 border-white grid grid-cols-5 bg-[#EEE8E4] p-2">
+      <div className="w-full h-[40px] sm:h-[80px] border-b-2 border-white grid grid-cols-2 sm:grid-cols-5 bg-[#EEE8E4] p-2">
         <div className="col-start-1 ml-[20px] sm:ml-[35px] mt-[4px] sm:mt-[12px] p-x-2 flex items-start ">
           <a className="w-fit h-full">
             <img
@@ -111,9 +91,9 @@ const Navbar = (props) => {
             />
           </a>
         </div>
-        <div className="col-start-4 col-span-2 flex ">
+        <div className="col-start-2 sm:col-start-4 sm:col-span-2 flex ">
           <div className="w-full h-fit sm:h-full flex flex-row text-[12px] sm:text-lg space-x-2 mr-[100px] center justify-end ">
-            <LanguageSelector />
+          <LanguageSelector />
             {/*
                 <div onMouseEnter={()=>{setRegisterbool(true)}}
                 onMouseLeave={()=>{setRegisterbool(false)}}>{Register}</div> */}

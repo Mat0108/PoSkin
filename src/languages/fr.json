@@ -69,7 +69,8 @@
         "registered": "Déjà inscrit",
         "connect": "Connexion",
         "password": "Password",
-        "confirmpassword": "Confirmer votre mot de passe"
+        "confirmpassword": "Confirmer votre mot de passe",
+        "create_account":"Créer un compte"
     },
     "Rdv": {
         "recap": "Récapitulatif de votre précédent rendez-vous",
@@ -126,6 +127,7 @@
         "account": "Mon compte",
         "diagnostic": "Mon diagnostic",
         "take_rdv": "Prendre rendez-vous",
+        "take_diagnostic":"Faire un diagnostic",
         "rdv": "Mes rendez-vous"
     },
     "TextDivers": {
