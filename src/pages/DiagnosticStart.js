@@ -14,7 +14,7 @@ const DiagnosticStart = (props)=>{
     const [i,setI] = useState(0)
     const [mail, setMail] = useState("")
     const navigate = useNavigate();
-    
+    const isMobile = window.screen.width < 600
     function UpdateArray(pos){
         if(DiagnosticData[i].type === "multi"){
             if(selected[i].includes(pos)){
@@ -29,9 +29,9 @@ const DiagnosticStart = (props)=>{
         setSelected(selected => [...selected]);
     }
     function Button(text,pos,data){
-        return <div className={`${window.screen.width < 600 ? "w-full" :data.width !== "" ? data.width : "w-fit"} mt-[8px] sm:mt-[20px]`} key={`diagnostic-${pos}`}>
-            <div className={`${(selected[i].includes(pos)) ? "bg-[#264C4D] text-[#EEE8E4]":"hover:bg-[#264C4D] bg-[#EEE8E4] text-[#264C4D] hover:text-[#EEE8E4]" } border-2 border-[#264C4D] ${window.screen.width < 600 ? "w-fit" :data.width !== "" ? data.width : "w-fit"} px-4 py-2 ${data.rounded !== "" ? data.rounded : "rounded-full"}`} onClick={()=>{UpdateArray(pos)}}>
-                <a className="text-[14px] sm:text-[20px]  ">{text}</a>
+        return <div className={`${isMobile ? "w-full h-full":"w-fit h-full"} `} key={`diagnostic-${pos}`}>
+        <div className={`flex center h-full ${(selected[i].includes(pos)) ? "bg-[#264C4D] text-[#EEE8E4]":"hover:bg-[#264C4D] bg-[#EEE8E4] text-[#264C4D] hover:text-[#EEE8E4] " } text-[14px] sm:text-[20px] border-2 border-[#264C4D] px-4 py-2 ${data.rounded !== "" ? data.rounded : isMobile ? "rounded-xl":"rounded-2xl"}`} onClick={()=>{UpdateArray(pos)}}>
+                <div>{text}</div>
             </div>
             
         </div>
@@ -60,9 +60,10 @@ const DiagnosticStart = (props)=>{
     } 
     /* eslint-disable no-unused-expressions */
     const Element = useMemo(() =>{        
+        console.log(parseInt(100*(i+1)/DiagnosticData.length))
         return <div className="flex flex-col">
             <div className="w-full h-3 bg-[#EEE8E4]">
-                <div className={`${getW(parseInt(100*(i+1)/DiagnosticData.length))} h-full bg-[#264C4D]`}></div>
+                <div className={`${getW(parseInt(100*(i+1)/DiagnosticData.length),true)} h-full bg-[#264C4D] rounded-r-2xl`}></div>
                 
             </div>
             <div className="w-full h-full sm:h-[870px] flex flex-row">
@@ -71,9 +72,9 @@ const DiagnosticStart = (props)=>{
                 </div>
                 <div className="w-full sm:w-2/3 h-full ml-[10%] bg-[#EEE8E4]">
 
-                    <div><h2 className={`w-[70%] mt-[10px] sm:mt-[40px]  text-[16px] sm:text-[32px] text-[#264C4D] text-justify h-fit sm:h-[120px] ${i===DiagnosticData.length-1 ? "font-mt-demi":""}`}>{(i === DiagnosticData.length-1 && typeof cookies.user === "object" ) ?dictionnaire.DiagnosticStart.trace : DiagnosticData[i].title}</h2></div>
+                    <div><h2 className={`w-[70%] mt-[10px] sm:mt-[40px] mb-[10px] text-[16px] sm:text-[32px] text-[#264C4D] text-justify h-fit sm:h-[120px] ${i===DiagnosticData.length-1 ? "font-mt-demi":""}`}>{(i === DiagnosticData.length-1 && typeof cookies.user === "object" ) ?dictionnaire.DiagnosticStart.trace : DiagnosticData[i].title}</h2></div>
                     <div className="w-full flex flex-col">
-                        {i === DiagnosticData.length-1 ? "" :<div className={`w-[80%] sm:max-h-[280px] grid ${DiagnosticData[i].reponses.length > 4 ? "grid-cols-2":"grid-cols-1"}`}>
+                        {i === DiagnosticData.length-1 ? "" :<div className={`w-[90%] sm:max-h-[280px] gap-4 relative grid ${DiagnosticData[i].reponses.length > 4 ? "grid-cols-2":"grid-cols-1"}`}>
                             {Object.keys(DiagnosticData[i].reponses).length ? DiagnosticData[i].reponses.map((item,pos)=>{return Button(item,pos,DiagnosticData[i])}):""}
                         </div>}
 
@@ -100,11 +101,11 @@ const DiagnosticStart = (props)=>{
                                 
                             </div>:""}
 
-                            <div className="w-full flex flex-row justify-between mt-[50px] pr-[20%] mb-[10px] ">
+                            <div className="w-full flex flex-row justify-between mt-[50px] pr-[20%] mb-[10px] gap-4 ">
                                 <div className={`bg-[#83C5BE] rounded-full  text-[12px] sm:text-[24px] px-8 py-2 hover:cursor-pointer`} onClick={()=>{i === 0 ? null:setI(i - 1)}}>
                                     {dictionnaire.previous}
                                 </div>
-                                 <div className={`bg-[#264C4D] rounded-full text-[12px] sm:text-[24px] px-16 py-2 ${i === DiagnosticData.length-1 ? "text-[#264C4D]":"text-white"}  hover:cursor-pointer`} onClick={()=>{valider()}}>
+                                 <div className={`bg-[#264C4D] rounded-full text-[12px] sm:text-[24px] px-10 py-2 ${i === DiagnosticData.length-1 ? "text-[#264C4D]":"text-white"}  hover:cursor-pointer`} onClick={()=>{valider()}}>
                                      {dictionnaire.next}
                                 </div>
                             </div>
