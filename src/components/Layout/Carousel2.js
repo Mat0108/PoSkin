@@ -14,7 +14,7 @@ const Carousel2 =({props})=>{
         if(props.items){
             let i;
             let list = [];
-            if(typeof props.setShow == "function"){
+            if(typeof props.setShow === "function"){
                 props.setShow(show);
             }
             
@@ -32,7 +32,7 @@ const Carousel2 =({props})=>{
             }
             setItems(list)
         }
-        if(props.ratio) {setRatio(props.ratio)}
+        if(props.ratio) {setMRatio(props.ratio);setRatio(props.ratio)}
         }, [props,show])
     const point = useMemo(() => {
         return (

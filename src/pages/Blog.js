@@ -21,6 +21,7 @@ const Blog = () =>{
             const blog = await getBlogbyField(params.BlogId);
             const blogs = await getBlogs();
             setListItem(blog[0])
+            setMargin(blog[0].margin);
             setListItems(blogs)
         };
         fetchData();
@@ -131,6 +132,7 @@ const Blog = () =>{
             }
         }
         return list;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [listItem]);
 
 
@@ -140,14 +142,16 @@ const Blog = () =>{
         let start = 0;
         if(Object.keys(listItems).length){
             listItems.map((blog,pos)=>{
+                
                 list2.push(itemCarousel(blog.imagepresentation,blog.altimagepresentation,blog.title,blog.textpresentation,`/Blog/${blog.altimagepresentation}`))
-                if(blog.altimagepresentation == params.BlogId){
+                if(blog.altimagepresentation === params.BlogId){
                     start = pos
                 }
+                return ""
             })
         }
         return <Carousel2 props={{items:list2,nbShow:1,ratio:25,showPoint:true,start:start}}/>
-    }, [listItems])
+    }, [listItems,params])
 
     return (<div className='w-full h-full flex center flex-col'>
         {items}

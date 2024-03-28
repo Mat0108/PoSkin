@@ -1,4 +1,4 @@
-export let DiagnosticData = [
+export let FR_Diagnostic = [
 	{
 		"image":"/images/Diagnostic/diagnostic1.png",
 		"title":"Quelle est votre plus grande préoccupation ?",
