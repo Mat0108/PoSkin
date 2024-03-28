@@ -1,12 +1,10 @@
 import { useContext, useState } from "react";
 import Flag from "react-world-flags";
-import { LanguageContext, LanguageProvider, languageOptions } from "../languages";
+import { LanguageContext, languageOptions } from "../languages";
 const LanguageSelector = () => {
   const [showOptions, setShowOptions] = useState(false);
   const [isButtonHovering, setIsButtonHovered] = useState(false);
   const [isMenuHovering, setIsMenuHovered] = useState(false);
-  const [menuItemHovering, setMenuItemHovered] = useState("");
-  const [managerName, setManagerName] = useState("");
   const { userLanguage, userLanguageChange } = useContext(LanguageContext);
 
   const handleClick = () => {
@@ -45,9 +43,6 @@ const LanguageSelector = () => {
     return FlagDictonary[userLanguage] || userLanguage;
   };
   
-  const x = false;
-  // set selected language by calling context method
-  const handleLanguageChange = (e) => userLanguageChange(e.target.value);
   return (
     <div className="relative inline-block">
       <button
@@ -55,7 +50,7 @@ const LanguageSelector = () => {
         onClick={handleClick}
         onMouseEnter={onMouseEnterButton}
         onMouseLeave={onMouseLeaveButton}
-        className={`flex rounded-xl w-[100px] px-4 py-2 text-sm font-medium ${
+        className={`flex rounded-xl w-[100px] px-4 py-2 text-[8px] sm:text-[16px] font-medium ${
           showOptions
             ? "bg-blue dark:bg-green text-white"
             : "text-dark-blue dark:text-white"
@@ -65,11 +60,12 @@ const LanguageSelector = () => {
         aria-haspopup="true"
       >
         <div className="flex gap-x-2.5">
+
           <Flag
             code={getCountryFlag(userLanguage)}
             alt="Language"
-            width="32"
-            height="32"
+            width={window.screen.width < 600 ? 16: 32}
+            height={window.screen.width < 600 ? 16: 32}
           />
           <div className="title-header uppercase">{userLanguage}</div>
           {/* <Image
@@ -103,13 +99,9 @@ const LanguageSelector = () => {
                 <div
                   key={key}
                   className={`cursor-pointer inline text-md font-semibold hover:bg-hover-menu hover:text-white ${
-                    id == userLanguage ? "bg-dark-blue" : ""
+                    id === userLanguage ? "bg-dark-blue" : ""
                   } flex rounded-2xl`}
                   onClick={() => changeLanguage(id)}
-                  onMouseEnter={() =>
-                    setMenuItemHovered(`language-choice-${id}`)
-                  }
-                  onMouseLeave={() => setMenuItemHovered("")}
                   tabIndex="-1"
                   id={`language-choice-${id}`}
                 >
@@ -124,7 +116,7 @@ const LanguageSelector = () => {
 
                   <p
                     className={`self-center absolute title-header ml-10 ${
-                      id == userLanguage ? "text-white" : ""
+                      id === userLanguage ? "text-white" : ""
                     }`}
                   >
                     {name}

@@ -125,6 +125,7 @@
         "account": "My account",
         "diagnostic": "My diagnosis",
         "take_rdv": "Make an appointment",
+        "take_diagnostic":"Make a diagnosis",
         "rdv": "My appointments"
     },
     "TextDivers": {

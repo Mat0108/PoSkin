@@ -7,6 +7,7 @@ import { LanguageContext } from '../languages';
 
 function PasswordEdit(props) {
   
+  const isMobile = window.screen.width < 600
   const { dictionnaire } = useContext(LanguageContext);
   const [user, setUser] = useState({
     password1: "",
@@ -54,10 +55,10 @@ function PasswordEdit(props) {
   };
 
   const element = useMemo(() => {
-    if(condToken){
+    if(!condToken){
       return (
-      <form className="w-full h-full bg-[#EEE8E4] px-[60px] py-[30px] border-[6px] border-red-Venetian">
-        <h2 className="text-[20px] font-av-bold text-[#264C4D] font-mt-extra-bold ">
+      <form className="w-full h-full bg-[#EEE8E4] px-[30px] sm:px-[60px] py-[15px] sm:py-[30px] border-[6px] border-red-Venetian">
+        <h2 className="text-[12px] sm:text-[20px] font-av-bold text-[#264C4D] font-mt-extra-bold ">
           {dictionnaire.Password.edit}
         </h2>
         <div className="flex flex-col text-black py-2 mb-2">
@@ -95,12 +96,12 @@ function PasswordEdit(props) {
       </form>)
       }else{
         return <div className="w-full h-full flex flex-col center bg-[#EEE8E4] border-[6px] border-red-Venetian">
-          <h2 className="w-full mb-[30px] text-[18px] font-av-bold text-[#264C4D] font-mt-extra-bold ">
+          <h2 className="w-full mb-[30px] mt-3 sm:mt-0 text-[10px] sm:text-[18px] font-av-bold text-[#264C4D] font-mt-extra-bold ">
             {dictionnaire.Password.not_valide} 
           </h2>
           <Link
           to="/"
-          className="w-fit px-10 mb-3 py-3 bg-blue text-white font-mt-extra-bold rounded-full text-[20px] hover:cursor-pointer flex flex-col"
+          className="w-fit px-10 mb-3 py-3 bg-blue text-white font-mt-extra-bold rounded-full text-[10px] sm:text-[20px] hover:cursor-pointer flex flex-col"
           onClick={props.password}
         >
          <a>{dictionnaire.Password.new_request} </a>
@@ -109,15 +110,15 @@ function PasswordEdit(props) {
           </div>}
     }, [condToken,user,id])
   return (
-    <div className='w-full h-full flex center'>
+    <div className='w-full h-fit flex center p-4 sm:p-0'>
 
-      <div className="w-fit h-fit flex flex-row">
-        <div className="w-fit h-fit bg-[#264C4D] grid grid-cols-2">
-            <div><img src={"/images/visage/visage29.png"} alt={"visage"} className="w-[530px] h-[680px]"/> </div>
-            <div className="flex flex-col center w-[530px] h-[680px]">
+      <div className="w-fit h-fit flex flex-row text-[12px] sm:text-[16px] ">
+        <div className="w-fit h-fit bg-[#264C4D] grid grid-cols-1 sm:grid-cols-2 ">
+            {isMobile ? "":<div><img src={"/images/visage/visage29.png"} alt={"visage"} className="w-[530px] h-[680px]"/> </div>}
+            <div className="flex flex-col center w-[320px] sm:w-[530px] h-fit sm:h-[680px]  ">
               <img src={"/images/logowhite.png"} alt={"logo"} className="w-[66px] h-[56px] mt-[30px]"/>
-              <p className="text-[16px] text-center text-white mt-[20px]">{dictionnaire.Password.rejoignez}</p>
-              <p className="text-[16px] text-center text-white"> {dictionnaire.Login.peau}</p>
+              <p className="text-center text-white mt-[20px]">{dictionnaire.Password.rejoignez}</p>
+              <p className="text-center text-white"> {dictionnaire.Login.peau}</p>
               <div className="grid grid-cols-1 w-full mt-[22px] ">
                 {/* <div className={`${props.type === false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center`}>
                   <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} font-mt-extra-bold hover:cursor-pointer`} onClick={props.register} >INSCRIPTION</div>

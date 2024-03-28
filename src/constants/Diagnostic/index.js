@@ -5,7 +5,6 @@ import { EN_Diagnostic } from "./EN_Diagnostic"
 
 export const Diagnostic = () =>{
     const {userLanguage} = useContext(LanguageContext);
-    console.log(userLanguage)
     switch (userLanguage){
         case 'fr':
             return FR_Diagnostic;
