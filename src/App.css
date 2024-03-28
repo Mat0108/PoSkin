@@ -44,3 +44,9 @@
 img{
   object-fit: cover;
 } */
+
+@media screen and (max-width: 599px) {
+  input {
+    font-size: 16px; /* Prevent zoom on focus on screens smaller than 600px */
+  }
+}

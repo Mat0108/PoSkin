@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { getW } from "../components/TailwindUtils";
 import { toast } from "react-toastify";
 import { saveDiagnostic } from "../services/Diagnostic";
@@ -9,8 +9,8 @@ import { Diagnostic } from "../constants/Diagnostic";
 const DiagnosticStart = (props)=>{
     const DiagnosticData = Diagnostic();
     const { dictionnaire, userLanguage } = useContext(LanguageContext);
-    const [cookies, setCookies] = useCookies(["user"]);
-    const [selected,setSelected] = useState(DiagnosticData.map(()=>{return new Array()}))
+    const [cookies] = useCookies(["user"]);
+    const [selected,setSelected] = useState(DiagnosticData.map(()=>{return []}))
     const [i,setI] = useState(0)
     const [mail, setMail] = useState("")
     const navigate = useNavigate();
@@ -47,9 +47,9 @@ const DiagnosticStart = (props)=>{
         
     }
     async function Envoyer(){
-        let response = await saveDiagnostic({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],mail:typeof cookies.user == "object" ? cookies.user.email :mail,selected:selected,language:userLanguage})
+        let response = await saveDiagnostic({question1:selected[0],question2:selected[1],question3:selected[2],question4:selected[3],question5:selected[4],mail:typeof cookies.user === "object" ? cookies.user.email :mail,selected:selected,language:userLanguage})
         if(response.status === 200){
-            if(typeof cookies.user == "object"){
+            if(typeof cookies.user === "object"){
                 toast.success(dictionnaire.Toast.save_diagnostic);
             }else{
                 toast.success(dictionnaire.Toast.send_mail);
@@ -114,7 +114,9 @@ const DiagnosticStart = (props)=>{
                 </div>
             </div>
 
-    </div>}, [i,mail,DiagnosticData,selected,cookies])
+    </div>}, 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [i,mail,DiagnosticData,selected,cookies,dictionnaire,props])
     return (<>
         {Element}
         </>

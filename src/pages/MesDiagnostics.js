@@ -40,7 +40,7 @@ const MesDiagnostics = (props) =>{
     const downloadPdf = (pdfId,filename) => {
       async function fetchData(){
         let data64 = await getDiagnosticPDF(pdfId, userLanguage);
-        if(data64.status == 200){
+        if(data64.status === 200){
           const link = document.createElement('a');
           link.href = pdf
           link.download = filename;

@@ -26,7 +26,7 @@ const MesRdv = ()=>{
       }
       const fetchData = async ()=>{
         let res = await getRdvOfExpert(typeof cookies.user === "object"  ? cookies.user.email : null);
-        if(res.status == 200){
+        if(res.status === 200){
             setListRdvAvant(res.data.filter(rdv => new Date(rdv.DateDebut) < new Date()).sort((a, b) => new Date(a.DateDebut).getTime() - new Date(b.DateDebut).getTime()));
             setListRdvApres(res.data.filter(rdv => new Date(rdv.DateDebut) >= new Date()).sort((a, b) => new Date(a.DateDebut).getTime() - new Date(b.DateDebut).getTime()));
         }
