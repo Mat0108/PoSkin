@@ -8,6 +8,7 @@ const Navbar = (props) => {
   const { dictionnaire, userLanguage } = useContext(LanguageContext);
   const [login, setLogin] = useState(false);
   const [takeRdv, setTakeRdv] = useState(false);
+  const [display, setDisplay] = useState(true);
   const isMobile = window.screen.width < 600
   const cmhover =
     "text-black hover:bg-[#264C4D] hover:text-white px-4 py-2 hover:cursor-pointer rounded-full ";
@@ -26,7 +27,12 @@ const Navbar = (props) => {
       setLogin(false);
       navigate("/");
     }
-  }, [location,navigate,props]);
+    if(location.pathname.includes('PanelExpert')){
+      setDisplay(false);
+    }else{
+      setDisplay(true)
+    }
+    }, [location,navigate,props]);
 
 
   function BoutonMemo(action,setAction, link,name,width){
@@ -77,7 +83,8 @@ const Navbar = (props) => {
 
 
   return (
-    <>
+     <>
+      {display &&
       <div className="w-full h-[40px] sm:h-[80px] border-b-2 border-white grid grid-cols-2 sm:grid-cols-5 bg-[#EEE8E4] p-2">
         <div className="col-start-1 ml-[20px] sm:ml-[35px] mt-[4px] sm:mt-[12px] p-x-2 flex items-start ">
           <a className="w-fit h-full">
@@ -126,8 +133,8 @@ const Navbar = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </div>}
     </>
-  );
+            );
 };
 export default Navbar;

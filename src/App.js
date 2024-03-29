@@ -2,7 +2,7 @@ import "./App.css";
 
 import React, { useMemo, useState, useRef, useEffect, useContext } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
 
 import Home from "./pages/Home";
 import Navbar from "./components/navbar";
@@ -29,6 +29,7 @@ import MesRdv from "./pages/MesRdv";
 import ConfirmRdv from "./pages/ConfirmRdv";
 import { useCookies } from "react-cookie";
 import { LanguageContext, LanguageProvider } from "./languages/index";
+import Tableaudebord from './pages/TableauDeBord';
 
 function App() {
   const { dictionnaire } = useContext(LanguageContext);
@@ -205,6 +206,7 @@ function App() {
       <LanguageProvider>
         <Router>
           <ScrollToTop />
+          
           {Nav}
           <Modal
             isOpen={isModalOpen}
@@ -280,6 +282,16 @@ function App() {
                 />
               }
             ></Route>
+            {cookies.user && cookies.user.type === 1 ? <>
+              <Route
+
+              path="/PanelExpert/*"
+              element={
+                <Tableaudebord />
+              }
+            ></Route>
+            </>:""}
+            
           </Routes>
           <div ref={newsletterRef}></div>
           <Newsletter />

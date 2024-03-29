@@ -1,11 +1,14 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { toast } from "react-toastify";
 import { LanguageContext } from "../languages";
 // import env from "react-dotenv";
+import { useLocation } from 'react-router-dom';
 const Newsletter =(props)=>{
     const { dictionnaire } = useContext(LanguageContext);
+    const location = useLocation();
+    const [display,setDisplay] = useState(true);
     const [value, setValue] = useState();
     const firebaseConfig = {
         apiKey: "AIzaSyA44Ehyz0Fu6pISrwKaI5rALkfAUr-LpQ8",
@@ -26,8 +29,15 @@ const Newsletter =(props)=>{
         await setDoc(doc(db, "User", mail), user).then(e=>{setValue("");toast.success(dictionnaire.Toast.newsletter)});
       }
       
+      useEffect(()=>{
+        if(location.pathname.includes('PanelExpert')){
+            setDisplay(false);
+          }else{
+            setDisplay(true)
+          }
+      },[location])
     return (<>
-
+        {display && 
         <div className="relative w-full h-[100px] sm:h-[260px] grid grid-cols-6 bg-[#83C5BE]" >
             <div className="col-start-1 col-span-2 flex flex-col text-center my-auto ml-[40px]">
                 <p className="text-[12px] sm:text-[30px] w-[80%] sm:w-[90%]">NEWSLETTER</p>
@@ -40,7 +50,7 @@ const Newsletter =(props)=>{
                     <div className="w-[20%]"><div className="mt-[20px] w-[20px] sm:w-[40px] ml-[10px] flex center border-2 rounded-lg " onClick={()=>createUser(value)}> <img src={"/images/fleche.png"} alt={"fleche"} /></div></div>
                 </div>
             </div>
-        </div>
+        </div>}
         </>
     )
 }
