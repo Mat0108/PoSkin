@@ -325,7 +325,17 @@
         "academie":"Certification - Académie des Facialistes - Paris",
         "ecole":"Certification - École Delphine Langlois - Facialiste Paris",
         "produit":"Tous nos produits sont testés et certifiés cruelty free"
-    },    
+    },   
+    "B2B":{
+        "rdv":"VOTRE RDV DU ",
+        "with":"AVEC",
+        "total":"TOTAL",
+        "TTC":"€ TTC",
+        "HT":"€ HT",
+        "prestations":"PRESTATIONS",
+        "add":"AJOUTER UNE PRESTATION",
+        "more":"VOIR PLUS"
+    },
     "week": "Semaine",
     "month": "Mois",
     "votre": "votre",

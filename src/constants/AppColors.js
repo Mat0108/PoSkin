@@ -27,6 +27,7 @@ const Colors = {
   "yellow": "#F4D345",
   "orange": "#FF990D",
   "lightgrey": "rgba(131, 138, 151, 0.7)",
+  "gray-cool":"#89969F",
   "gray-dark": "#323335",
   "gray-silver": "#838A97",
   "grey-circle": "#DDD7D7",
