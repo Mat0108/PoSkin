@@ -52,7 +52,7 @@ const Login = (props) => {
 
   return (
     <div className="w-fit h-fit flex flex-row p-4 sm:p-0">
-      <div className=" h-fit bg-[#264C4D] flex flex-row">
+      <div className="h-fit bg-[#264C4D] flex flex-row">
           {isMobile ? "":<div><img src={"/images/visage/visage29.png"} alt={"visage"} className="w-[530px] h-[680px]"/> </div>}
           <div className="flex flex-col center w-fit sm:w-[530px] h-fit sm:h-[680px]">
             <img src={"/images/logowhite.png"} alt={"logo"} className="w-[33px] sm:w-[66px] h-[28px] sm:h-[56px] mt-[15px] sm:mt-[30px]"/>

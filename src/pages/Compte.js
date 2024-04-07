@@ -8,7 +8,7 @@ import { LanguageContext } from "../languages";
 const Compte = (props) =>{
   
     const isMobile = window.screen.width < 600
-    const { dictionnaire } = useContext(LanguageContext);
+    const { dictionnaire, userLanguage } = useContext(LanguageContext);
     const [cookies, setCookies] = useCookies(["user"]);
     const [user, setUser] = useState(typeof cookies.user === "object"  ? cookies.user : null);
     const [edit,setEdit] = useState(false);
@@ -20,7 +20,7 @@ const Compte = (props) =>{
     }, [])
     const handleChangePassword = async (event) => {
       event.preventDefault();
-      const response = await forgotPassword({email:user.email});
+      const response = await forgotPassword({email:user.email,language:userLanguage});
       if(response.status === 200){
         toast.success(dictionnaire.Toast.reset_password);
       }

@@ -203,6 +203,7 @@ function App() {
   }
   return (
     <div className="App w-full h-full relative bg-[#EEE8E4] font-mt">
+      
       <LanguageProvider>
         <Router>
           <ScrollToTop />
@@ -333,6 +334,7 @@ function App() {
           />
         </Router>
       </LanguageProvider>
+
     </div>
   );
 }

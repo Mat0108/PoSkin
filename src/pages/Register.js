@@ -22,7 +22,7 @@ const Register = (props) => {
     event.preventDefault();
 
     if (user.email !== "" && user.password !== "" && user.confirmpassword !== "" && user.password === user.confirmpassword && user.firstname !== "" && user.lastname !== "") {
-      const res = await register(user);
+      const res = await register({user:user, language:userLanguage});
       if (res.status === 200) {
         if(props.diagnostic_data){
           let response = await saveDiagnostic({mail:user.email,language:userLanguage,...props.diagnostic_data})
@@ -114,18 +114,6 @@ const Register = (props) => {
                   value={user.email}
                   placeholder={`${dictionnaire.Compte.Email}*`}
                   id="email"
-                  required
-                />
-              </div>
-              <div className="flex flex-col text-black py-2 ">
-                {/* <label className="py-1">Email :</label> */}
-                <input
-                  className="rounded-lg bg-gray-700 mt-2 py-2 px-4 border-[#264C4D] border-2 focus:bg-black-800 focus:outline-none form-control"
-                  type="password"
-                  onChange={onChangeHandler}
-                  value={user.password}
-                  placeholder={`${dictionnaire.Login.password}*`}
-                  id="password"
                   required
                 />
               </div>

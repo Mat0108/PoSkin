@@ -7,12 +7,12 @@ import { LanguageContext } from '../languages';
 function PasswordForgot(props) {
   
   const isMobile = window.screen.width < 600
-  const { dictionnaire } = useContext(LanguageContext);
+  const { dictionnaire, userLanguage } = useContext(LanguageContext);
   const [email, setEmail] = useState('');
 
   const handleForgotPassword = async (event) => {
     event.preventDefault();
-    const response = await forgotPassword({email:email});
+    const response = await forgotPassword({email:email,language:userLanguage});
     if(response.status === 200){
       toast.success(dictionnaire.Toast.send_mail);
     }
@@ -20,8 +20,8 @@ function PasswordForgot(props) {
 
   return (
 
-      <div className="w-fit h-fit flex flex-row  p-4 sm:p-0">
-        <div className="relative w-[320px] sm:w-full h-fit bg-[#264C4D] ">
+      <div className="w-fit h-fit flex flex-row p-4 sm:p-0">
+        <div className="relative w-[320px] sm:w-full h-fit bg-[#264C4D] flex flex-row">
             {isMobile ? "":<div><img src={"/images/visage/visage29.png"} alt={"visage"} className="w-[530px] h-[680px]"/> </div>}
             <div className="flex flex-col center w-full sm:w-[530px] h-fit sm:h-[680px] text-[12px] sm:text-[16px]">
               <img src={"/images/logowhite.png"} alt={"logo"} className="w-[33px] sm:w-[66px] h-[28px] sm:h-[56px] mt-[15px] sm:mt-[30px]"/>
