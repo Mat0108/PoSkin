@@ -202,12 +202,10 @@ function App() {
     }
   }
   return (
-    <div className="App w-full h-full relative bg-[#EEE8E4] font-mt">
-      
+    <div className="App w-screen h-screen min-h-[700px] relative bg-[#EEE8E4] font-mt overflow-auto">
       <LanguageProvider>
         <Router>
           <ScrollToTop />
-          
           {Nav}
           <Modal
             isOpen={isModalOpen}

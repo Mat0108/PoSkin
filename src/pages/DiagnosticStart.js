@@ -29,8 +29,8 @@ const DiagnosticStart = (props)=>{
         setSelected(selected => [...selected]);
     }
     function Button(text,pos,data){
-        return <div className={`${isMobile ? "w-full h-full":"w-fit h-full"} `} key={`diagnostic-${pos}`}>
-        <div className={`flex center h-full ${(selected[i].includes(pos)) ? "bg-[#264C4D] text-[#EEE8E4]":"hover:bg-[#264C4D] bg-[#EEE8E4] text-[#264C4D] hover:text-[#EEE8E4] " } text-[14px] sm:text-[20px] border-2 border-[#264C4D] px-4 py-2 ${data.rounded !== "" ? data.rounded : isMobile ? "rounded-xl":"rounded-2xl"}`} onClick={()=>{UpdateArray(pos)}}>
+        return <div className={`${isMobile ? "w-full h-fit":"w-fit h-full"} `} key={`diagnostic-${pos}`}>
+        <div className={`flex center h-full ${(selected[i].includes(pos)) ? "bg-[#264C4D] text-[#EEE8E4]":"hover:bg-[#264C4D] bg-[#EEE8E4] text-[#264C4D] hover:text-[#EEE8E4] " } text-[14px] sm:text-[20px] border-2 border-[#264C4D] px-4 py-2 ${data.rounded !== "" ? data.rounded : isMobile ? "rounded-lg":"rounded-2xl"}`} onClick={()=>{UpdateArray(pos)}}>
                 <div>{text}</div>
             </div>
             
@@ -60,8 +60,7 @@ const DiagnosticStart = (props)=>{
     } 
     /* eslint-disable no-unused-expressions */
     const Element = useMemo(() =>{        
-        console.log(parseInt(100*(i+1)/DiagnosticData.length))
-        return <div className="flex flex-col">
+        return <div className="flex flex-col h-[calc(100%-250px)]  sm:h-full ">
             <div className="w-full h-3 bg-[#EEE8E4]">
                 <div className={`${getW(parseInt(100*(i+1)/DiagnosticData.length),true)} h-full bg-[#264C4D] rounded-r-2xl`}></div>
                 
@@ -70,11 +69,11 @@ const DiagnosticStart = (props)=>{
                 <div className="invisible sm:visible w-0 sm:w-1/3 h-full relative">
                     <img src={DiagnosticData[i].image} alt={DiagnosticData[i].image} className="w-full h-full"/>
                 </div>
-                <div className="w-full sm:w-2/3 h-full ml-[10%] bg-[#EEE8E4]">
+                <div className="w-full sm:w-2/3 h-full ml-[2%] sm:ml-[10%] bg-[#EEE8E4]">
 
                     <div><h2 className={`w-[70%] mt-[10px] sm:mt-[40px] mb-[10px] text-[16px] sm:text-[32px] text-[#264C4D] text-justify h-fit sm:h-[120px] ${i===DiagnosticData.length-1 ? "font-mt-demi":""}`}>{(i === DiagnosticData.length-1 && typeof cookies.user === "object" ) ?dictionnaire.DiagnosticStart.trace : DiagnosticData[i].title}</h2></div>
                     <div className="w-full flex flex-col">
-                        {i === DiagnosticData.length-1 ? "" :<div className={`w-[90%] sm:max-h-[280px] gap-4 relative grid ${DiagnosticData[i].reponses.length > 4 ? "grid-cols-2":"grid-cols-1"}`}>
+                        {i === DiagnosticData.length-1 ? "" :<div className={`w-[96%] sm:w-[90%] sm:max-h-[280px] gap-4 relative grid ${DiagnosticData[i].reponses.length > 4 ? "grid-cols-2":"grid-cols-1"}`}>
                             {Object.keys(DiagnosticData[i].reponses).length ? DiagnosticData[i].reponses.map((item,pos)=>{return Button(item,pos,DiagnosticData[i])}):""}
                         </div>}
 
@@ -101,7 +100,7 @@ const DiagnosticStart = (props)=>{
                                 
                             </div>:""}
 
-                            <div className="w-full flex flex-row justify-between mt-[50px] pr-[20%] mb-[10px] gap-4 ">
+                            <div className="w-full h-fit flex flex-row justify-between mt-[50px] pr-[2%] sm:pr-[20%] mb-[10px]  ">
                                 <div className={`bg-[#83C5BE] rounded-full  text-[12px] sm:text-[24px] px-8 py-2 hover:cursor-pointer`} onClick={()=>{i === 0 ? null:setI(i - 1)}}>
                                     {dictionnaire.previous}
                                 </div>
