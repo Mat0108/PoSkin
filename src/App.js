@@ -30,6 +30,7 @@ import ConfirmRdv from "./pages/ConfirmRdv";
 import { useCookies } from "react-cookie";
 import { LanguageContext, LanguageProvider } from "./languages/index";
 import Tableaudebord from './pages/TableauDeBord';
+import B2B from "./pages/B2B";
 
 function App() {
   const { dictionnaire } = useContext(LanguageContext);
@@ -216,6 +217,11 @@ function App() {
             {divModal}
           </Modal>
           <Routes>
+            <Route 
+              exact
+              path="/B2B"
+              element={<B2B />}
+            ></Route>
             <Route
               exact
               path="/Activate/:userId"

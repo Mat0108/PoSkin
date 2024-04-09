@@ -36,6 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+
 .react-pdf__Page__canvas {
   height: 70vh; 
   width: auto; 

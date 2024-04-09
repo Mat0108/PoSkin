@@ -334,7 +334,12 @@
         "HT":"€ HT",
         "prestations":"PRESTATIONS",
         "add":"AJOUTER UNE PRESTATION",
-        "more":"VOIR PLUS"
+        "more":"VOIR PLUS",
+        "offre":{
+            "offre1":"Des offres toutes douces vous attendent chez PO.",
+            "offre2":"Découvrez dès maintenant nos offres exclusives et réservez votre séance de dernière minute ou durant les heures creuses pour vivre un moment de soin inégalé. Offrez à votre peau l'attention spéciale qu'elle mérite et découvrez toutes les autres offres que nous mettons à votre disposition.",
+            "offre3":"DÉCOUVRIR NOS OFFRES"
+        }
     },
     "week": "Semaine",
     "month": "Mois",
