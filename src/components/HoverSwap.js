@@ -26,16 +26,18 @@ const HoverSwap = ({image,div1,div2}) => {
           },
         },
       });
-    return <div className="relative w-fit h-fit flex flex-col" onMouseEnter={()=>{setIsHover(true)}} onMouseLeave={()=>{setIsHover(false)}}>
-        <div>{image}</div>
-        {!isHover && div1}
-        <div className="absolute w-full h-full">
-            <ThemeProvider theme={theme}>
-                <Collapse in={isHover} sx={{width: '100%',height:'100%'}} >
-                    {div2}
-                </Collapse>
-          </ThemeProvider>
+    return <div className="w-full h-full flex center">
+            <div className="relative w-fit h-fit flex " onMouseEnter={()=>{setIsHover(true)}} onMouseLeave={()=>{setIsHover(false)}}>
+            <div>{image}</div>
+            {!isHover && div1}
+            <div className="absolute w-full h-full">
+                <ThemeProvider theme={theme}>
+                    <Collapse in={isHover} sx={{width: '100%',height:'100%'}} >
+                        {div2}
+                    </Collapse>
+            </ThemeProvider>
 
+            </div>
         </div>
     </div>
 }

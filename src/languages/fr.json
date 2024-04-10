@@ -294,7 +294,8 @@
         "selected_motif":"Merci de sélectionner un motif de rendez-vous !",
         "selected_date":"Merci de sélectionner une date !",
         "selected_rdv":"Merci de sélectionner un créneau !",
-        "selected_expert":"Merci de sélectionner un expert !"
+        "selected_expert":"Merci de sélectionner un expert !",
+        "newsletter_expert":"Nous avons bien reçu votre mail, nous allons bientot vous contacter"
     },
     "NewsLetter":{
         "info":"Suivez notre actualité et ne manquez aucune de nos nouveautés en vous inscrivant à notre newsletter",
@@ -335,6 +336,12 @@
         "prestations":"PRESTATIONS",
         "add":"AJOUTER UNE PRESTATION",
         "more":"VOIR PLUS",
+        "discover":"DÉCOUVRIR VOTRE PEAU GRÂCE À NOS EXPERTS",
+        "presentation1":"Chez Po. nous sommes convaincus que prendre soin de sa peau devrait être à la portée de tous et de toutes.",
+        "presentation2":"C’est pour cela que nous voulons rendre accessibles les soins, les conseils, les expertises.",
+        "presentation3":"Nous sommes fiers de mettre à votre disposition des formules de soins clean et de vous mettre en contact avec nos partenaires expert dans les problèmes de peaux.",
+        "contact":"NOUS CONTACTER",
+        "contactplaceholder":"Rejoignez notre réseau d'experts :",
         "offre":{
             "offre1":"Des offres toutes douces vous attendent chez PO.",
             "offre2":"Découvrez dès maintenant nos offres exclusives et réservez votre séance de dernière minute ou durant les heures creuses pour vivre un moment de soin inégalé. Offrez à votre peau l'attention spéciale qu'elle mérite et découvrez toutes les autres offres que nous mettons à votre disposition.",
