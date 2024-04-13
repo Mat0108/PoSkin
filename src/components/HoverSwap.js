@@ -1,4 +1,4 @@
-import { Box, Collapse, createTheme, Fade, ThemeProvider } from "@mui/material"
+import { Collapse, createTheme, ThemeProvider } from "@mui/material"
 import { useState } from "react"
 
 const HoverSwap = ({image,div1,div2}) => {
@@ -26,7 +26,7 @@ const HoverSwap = ({image,div1,div2}) => {
           },
         },
       });
-    return <div className="w-full h-full flex center">
+    return <div className="w-fit h-full flex center">
             <div className="relative w-fit h-fit flex " onMouseEnter={()=>{setIsHover(true)}} onMouseLeave={()=>{setIsHover(false)}}>
             <div>{image}</div>
             {!isHover && div1}

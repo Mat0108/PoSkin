@@ -337,6 +337,8 @@
         "add":"AJOUTER UNE PRESTATION",
         "more":"VOIR PLUS",
         "discover":"DÉCOUVRIR VOTRE PEAU GRÂCE À NOS EXPERTS",
+        "discover2":"Découvrez les réservations avec un expert facialiste ",
+        "Po":"PO. la référence en matière de soins beauté",
         "presentation1":"Chez Po. nous sommes convaincus que prendre soin de sa peau devrait être à la portée de tous et de toutes.",
         "presentation2":"C’est pour cela que nous voulons rendre accessibles les soins, les conseils, les expertises.",
         "presentation3":"Nous sommes fiers de mettre à votre disposition des formules de soins clean et de vous mettre en contact avec nos partenaires expert dans les problèmes de peaux.",
@@ -346,6 +348,28 @@
             "offre1":"Des offres toutes douces vous attendent chez PO.",
             "offre2":"Découvrez dès maintenant nos offres exclusives et réservez votre séance de dernière minute ou durant les heures creuses pour vivre un moment de soin inégalé. Offrez à votre peau l'attention spéciale qu'elle mérite et découvrez toutes les autres offres que nous mettons à votre disposition.",
             "offre3":"DÉCOUVRIR NOS OFFRES"
+        },
+        "reserver":{
+            "reserver1":"Réservez 24h/24 et 7j/7 avec PO.",
+            "reserver2":"Fatigué(e) des problèmes de peau et en quête de la routine parfaite ? Désormais, réservez simplement votre consultation avec nos experts facialistes chez PO. Prenez le contrôle de votre peau, à votre rythme et sans attente.",
+            "reserver3":"RÉSERVER MAINTENANT"
+        },
+        "discoverhs":{
+            "discover1":"Découvrez notre sélection d'expert facialiste chez PO.",
+            "discover2":"Avec une multitude d'experts certifiés chez PO, trouvez celui qui correspond parfaitement à vos besoins. Réservez dès maintenant et prenez le contrôle de votre beauté avec confiance.",
+            "discover3":"DÉCOUVRIR MAINTENANT"
+        },
+        "expert":{
+            "expert1":"Êtes-vous un expert en soins du visage ou un consultant ? Propulsez votre activité en ligne avec PO !",
+            "expert2":"PO Partenaire, notre logiciel de gestion dédié aux professionnels,  booste le développement de votre entreprise et de votre clientèle. Nous vous offrons une gamme d'outils pour simplifier la gestion des réservations en ligne en un clic :",
+            "expert3":"Agenda digital et rendez-vous en ligne",
+            "expert4":"Promotions et stratégies marketing",
+            "expert5":"Rapports et analyses détaillés",
+            "expert6":"Système de caisse, facturation et paiement intégré",
+            "expert7":"Accédez au Po Store pour commercialiser vos produits ",
+            "expert8":"Adhésion à la communauté des experts Po",
+            "expert9":"Devenez partenaire de PO dès maintenant !"
+
         }
     },
     "week": "Semaine",
