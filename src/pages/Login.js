@@ -59,10 +59,10 @@ const Login = (props) => {
             <p className="text-[12px] sm:text-[16px] text-center text-white mt-[20px]">{dictionnaire.Login.mouvement}</p>
             <p className="text-[12px] sm:text-[16px] text-center text-white"> {dictionnaire.Login.peau}</p>
             <div className="grid grid-cols-2 w-full mt-[22px]">
-              <div className={`${props.type === false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center border-b-[6px] border-red-Venetian`}>
+              <div className={`${props.type === false ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center border-b-[6px] border-cyan_medium`}>
                 <div className={`${props.type === true ? "text-[#EEE8E4]":"text-[#264C4D]"} text-[12px] sm:text-[16px] font-mt-extra-bold hover:cursor-pointer`} onClick={props.register} >{dictionnaire.Login.inscription.toUpperCase()}</div>
               </div>
-              <div className={`${props.type === true ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center border-t-[6px] border-x-[6px] border-red-Venetian`}>
+              <div className={`${props.type === true ? "bg-[#EEE8E4]":"bg-[#264C4D]"} w-full h-[60px] flex center border-t-[6px] border-x-[6px] border-cyan_medium`}>
                 <div className={`${props.type === false ? "text-[#EEE8E4]":"text-[#264C4D]"} text-[12px] sm:text-[16px] font-mt-extra-bold hover:cursor-pointer`}>{dictionnaire.Login.registered.toUpperCase()} </div>
               </div>
             </div>
@@ -80,7 +80,7 @@ const Login = (props) => {
                 <div className="text-[16px] text-[#A29F9F]">Continuer avec Apple</div>
               </div>
             </div> */}
-            <form className="w-fit h-full bg-[#EEE8E4] text-[12px] sm:text-[20px] px-[30px] sm:px-[60px] py-[15px] sm:py-[30px] border-b-[6px] border-x-[6px] border-red-Venetian">
+            <form className="w-fit h-full bg-[#EEE8E4] text-[12px] sm:text-[20px] px-[30px] sm:px-[60px] py-[15px] sm:py-[30px] border-b-[6px] border-x-[6px] border-cyan_medium">
               <h2 className="text-[14px] sm:text-[20px] font-av-bold text-[#264C4D] font-mt-extra-bold ">
                 {dictionnaire.Login.connect.toUpperCase()}
               </h2>
@@ -88,7 +88,7 @@ const Login = (props) => {
               <div className="flex flex-col text-black py-2 mb-2">
                 {/* <label className="py-1">Email :</label> */}
                 <input
-                  className="rounded-lg bg-gray-700 mt-2 py-2 px-4 border-[#264C4D] border-2 focus:bg-black-800 focus:outline-none form-control"
+                  className="rounded-lg bg-gray-700 mt-2 py-2 px-4 border-[#346C6D] border-2 focus:bg-black-800 focus:outline-none form-control"
                   type="text"
                   onChange={onChangeHandler}
                   value={user.email}
@@ -101,7 +101,7 @@ const Login = (props) => {
               <div className="flex flex-col text-black py-2 mb-2">
                 {/* <label className="py-1">Password :</label> */}
                 <input
-                  className="py-2 px-4 rounded-lg bg-gray-700 border-[#264C4D] border-2 focus:bg-gray-800 focus:outline-none form-control"
+                  className="py-2 px-4 rounded-lg bg-gray-700 border-[#346C6D] border-2 focus:bg-gray-800 focus:outline-none form-control"
                   type="password"
                   onChange={onChangeHandler}
                   value={user.password}

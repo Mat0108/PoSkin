@@ -36,7 +36,7 @@ function PasswordForgot(props) {
                 </div>
               </div>
 
-              <form className="text-[12px] sm:text-[20px] w-full h-full bg-[#EEE8E4] px-[30px] sm:px-[60px] py-[15px] sm:py-[30px] border-[6px] border-red-Venetian">
+              <form className="text-[12px] sm:text-[20px] w-full h-full bg-[#EEE8E4] px-[30px] sm:px-[60px] py-[15px] sm:py-[30px] border-[6px] border-cyan_medium">
                 <h2 className="font-av-bold text-[#264C4D] font-mt-extra-bold ">
                   {dictionnaire.passwordforgot.toUpperCase()}
                 </h2>
