@@ -47,31 +47,74 @@ const B2B = () =>{
         <div className="p-10 ">
             <div className="flex center font-mt-bold text-[36px]">{dictionnaire.B2B.discover2.toUpperCase()}</div>
             <div className="flex center text-[20px]">{dictionnaire.B2B.Po}</div>
-            <div className="flex justify-between mt-[50px]">
-                <HoverSwap  image={<img className="w-full h-full" src={'/images/B2B/B2B_1.png'} alt={'B2B1'} />} div1={div1(dictionnaire.B2B.offre.offre1)} div2={div2(dictionnaire.B2B.offre.offre1,dictionnaire.B2B.offre.offre2,dictionnaire.B2B.offre.offre3)}/>
-                <HoverSwap  image={<img className="w-full h-full" src={'/images/B2B/B2B_2.png'} alt={'B2B2'} />} div1={div1(dictionnaire.B2B.reserver.reserver1)} div2={div2(dictionnaire.B2B.reserver.reserver1,dictionnaire.B2B.reserver.reserver2,dictionnaire.B2B.reserver.reserver3)}/>
-                <HoverSwap  image={<img className="w-full h-full" src={'/images/B2B/B2B_3.png'} alt={'B2B3'} />} div1={div1(dictionnaire.B2B.discoverhs.discover1)} div2={div2(dictionnaire.B2B.discoverhs.discover1,dictionnaire.B2B.discoverhs.discover2,dictionnaire.B2B.discoverhs.discover3)}/>
+            <div className="flex center">
+                <div className="w-full 3xl:w-3/4 flex justify-between mt-[50px]">
+                    <HoverSwap  image={<img className="w-full h-full" src={'/images/B2B/B2B_1.png'} alt={'B2B1'} />} div1={div1(dictionnaire.B2B.offre.offre1)} div2={div2(dictionnaire.B2B.offre.offre1,dictionnaire.B2B.offre.offre2,dictionnaire.B2B.offre.offre3)}/>
+                    <HoverSwap  image={<img className="w-full h-full" src={'/images/B2B/B2B_2.png'} alt={'B2B2'} />} div1={div1(dictionnaire.B2B.reserver.reserver1)} div2={div2(dictionnaire.B2B.reserver.reserver1,dictionnaire.B2B.reserver.reserver2,dictionnaire.B2B.reserver.reserver3)}/>
+                    <HoverSwap  image={<img className="w-full h-full" src={'/images/B2B/B2B_3.png'} alt={'B2B3'} />} div1={div1(dictionnaire.B2B.discoverhs.discover1)} div2={div2(dictionnaire.B2B.discoverhs.discover1,dictionnaire.B2B.discoverhs.discover2,dictionnaire.B2B.discoverhs.discover3)}/>
+                </div>
             </div>
-            <div className="flex mt-10 relative ">
-                <img className="w-full h-full" src={'/images/B2B/B2B_4.png'} alt={'B2B4'}/>
-                <div className="absolute  top-0 left-0 w-1/2 h-full p-[50px]">
-                    <div className="w-full h-full relative flex flex-col">
+            <div className="flex center w-full">
+                <div className="flex mt-10 relative ">
+                    <img className="w-full h-full" src={'/images/B2B/B2B_4.png'} alt={'B2B4'}/>
+                    <div className="absolute  top-0 left-0 w-1/2 h-full p-[50px]">
+                        <div className="w-full  h-full relative flex flex-col">
 
-                        <div className="flex font-mt-bold text-[36px] text-left">{dictionnaire.B2B.expert.expert1.toUpperCase()}</div>
-                        <div className="flex flex-col center h-[calc(100%-270px)]">
-                            <div>
-                                <div className="flex text-[16px] text-left ">{dictionnaire.B2B.expert.expert2}</div>
-                            
-                                <div className="flex text-[16px] text-left mt-[26px]"><img src={"/images/check.png"} alt={"check"}/>{dictionnaire.B2B.expert.expert3}</div>
-                                <div className="flex text-[16px] text-left"><img src={"/images/check.png"} alt={"check"}/>{dictionnaire.B2B.expert.expert4}</div>
-                                <div className="flex text-[16px] text-left"><img src={"/images/check.png"} alt={"check"}/>{dictionnaire.B2B.expert.expert5}</div>
-                                <div className="flex text-[16px] text-left"><img src={"/images/check.png"} alt={"check"}/>{dictionnaire.B2B.expert.expert6}</div>
-                                <div className="flex text-[16px] text-left"><img src={"/images/check.png"} alt={"check"}/>{dictionnaire.B2B.expert.expert7}</div>
-                                <div className="flex text-[16px] text-left"><img src={"/images/check.png"} alt={"check"}/>{dictionnaire.B2B.expert.expert8}</div>        
+                            <div className="flex font-mt-bold text-[36px] text-left">{dictionnaire.B2B.expert.expert1.toUpperCase()}</div>
+                            <div className="flex flex-col center h-[calc(100%-300px)] text-[14px] 3xl:text-[16px]">
+                                <div>
+                                    <div className="flex text-left ">{dictionnaire.B2B.expert.expert2}</div>
+                                
+                                    <div className="flex text-left 3xl:mt-[26px]"><img src={"/images/check.png"} alt={"check"}/>{dictionnaire.B2B.expert.expert3}</div>
+                                    <div className="flex text-left"><img src={"/images/check.png"} alt={"check"}/>{dictionnaire.B2B.expert.expert4}</div>
+                                    <div className="flex text-left"><img src={"/images/check.png"} alt={"check"}/>{dictionnaire.B2B.expert.expert5}</div>
+                                    <div className="flex text-left"><img src={"/images/check.png"} alt={"check"}/>{dictionnaire.B2B.expert.expert6}</div>
+                                    <div className="flex text-left"><img src={"/images/check.png"} alt={"check"}/>{dictionnaire.B2B.expert.expert7}</div>
+                                    <div className="flex text-left"><img src={"/images/check.png"} alt={"check"}/>{dictionnaire.B2B.expert.expert8}</div>        
+                                </div>
+                            </div>
+                            <div className="absolute bottom-6 flex center w-full "><div className="rounded-full px-4 py-2 bg-blue text-white_coffee font-mt-bold text-[14px]" >{dictionnaire.B2B.expert.expert9.toUpperCase()}</div></div>
+                        </div>        
+                    </div>
+                </div>
+            </div>
+            <div className="flex center mt-[30px]">
+                <div className="w-full 3xl:w-3/4 flex">
+                    <div className="w-1/2">
+                        <img src={"images/B2B/B2B_5.png"} alt={"B2B5"}/>
+                    </div>
+                    <div className="w-1/2 flex flex-col text-left text-[16px]">
+                        <div className="text-[100px] ">{dictionnaire.TextDivers.presentation.po}</div>
+                        <div className="text-[36px] font-mt-bold mt-[-36px] ml-[6px]" >{dictionnaire.TextDivers.presentation.peau}</div>
+                        <div className="font-mt-bold mt-[18px] ml-[6px]">{dictionnaire.B2B.leader.leader1}</div>
+                        <div className="text-justify mt-[38px] ml-[6px]">{dictionnaire.B2B.leader.leader2}</div>
+                        <div className="text-justify mt-[30px] ml-[6px]">{dictionnaire.B2B.leader.leader3}</div>
+                        <div className="text-justify mt-[12px] ml-[6px]">{dictionnaire.B2B.leader.leader4}</div>
+                        <div className="mt-[24px] rounded-full px-4 py-4 bg-blue text-white_coffee font-mt-bold text-[14px] w-fit" >{dictionnaire.TextDivers.apropos.en_savoir_plus.toUpperCase()}</div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div className="flex center">
+                <div className="w-full 3xl:w-3/4 flex center">
+                    <div>
+                        <p className="mt-[10px] sm:mt-[40px] text-[10px] sm:text-[20px]  font-mt-extra-bold">{dictionnaire.Expertise.expertise}</p>
+                        <p className="ml-[10%] mt-[10px] sm:mt-[30px] w-[80%]  text-[6px] sm:text-[16px]">{dictionnaire.Expertise.domain}</p>
+                        <div className="w-[100%] mt-[15px] sm:mt-[80px] grid grid-cols-3 ">
+                            <div className="col-start-1 flex flex-col items-center">
+                                <p className=" text-[6px] sm:text-[16px] w-[90%] sm:w-[60%]">{dictionnaire.Expertise.academie}</p>
+                                <div className="mt-[5px] sm:mt-[20px] p-4"> <img src={"./images/partenaire1_black.png"} alt={"partenaire1"}  /></div>  
+                            </div>
+                            <div className="col-start-2 flex flex-col items-center ">
+                                <p className=" text-[6px] sm:text-[16px] w-[90%] sm:w-[60%] ">{dictionnaire.Expertise.ecole}</p>
+                                <div className="mt-[5px] sm:mt-[20px] p-4"> <img src={"./images/partenaire2_black.png"}  alt={"partenaire2"}/></div>  
+                            </div>
+                            <div className="col-start-3 flex flex-col items-center">
+                                <p className=" text-[6px] sm:text-[16px] w-[90%] sm:w-[60%]">{dictionnaire.Expertise.produit}</p>
+                                <div className="mt-[5px] sm:mt-[20px] p-4"> <img src={"./images/partenaire3_black.png"} alt={"partenaire3"}  /></div>  
                             </div>
                         </div>
-                        <div className="absolute bottom-10 flex center w-full "><div className="rounded-full px-4 py-2 bg-blue text-white_coffee font-mt-bold text-[20px]" >{dictionnaire.B2B.expert.expert9.toUpperCase()}</div></div>
-                    </div>        
+                    </div>
                 </div>
             </div>
         </div>

@@ -128,7 +128,9 @@
         "diagnostic": "Mon diagnostic",
         "take_rdv": "Prendre rendez-vous",
         "take_diagnostic":"Faire un diagnostic",
-        "rdv": "Mes rendez-vous"
+        "rdv": "Mes rendez-vous",
+        "qsm": "Qui sommes-nous",
+        "expertise":"Notre expertise"
     },
     "TextDivers": {
         "presentation": {
@@ -369,7 +371,12 @@
             "expert7":"Accédez au Po Store pour commercialiser vos produits ",
             "expert8":"Adhésion à la communauté des experts Po",
             "expert9":"Devenez partenaire de PO dès maintenant !"
-
+        },
+        "leader":{
+            "leader1":"Leader incontesté de la mise en relation entre les patients et les experts en soins du visage.",
+            "leader2":"Nous avons choisi de collaborer avec des experts facialistes pour VOUS ! Pour que vous puissiez bénéficier d’un diagnostic fiable et personnalisé. Vous pourrez donc vous orienter vers ce dont vous avez réellement besoin.",
+            "leader3":"En plus de pouvoir bénéficier d’un savoir-faire hors pair, profitez également d’une technologie hors pair !",
+            "leader4":"L’Intelligence Artificielle saura parfaire votre diagnostic afin de le rendre encore plus précis !Un simple selfie servira à déterminer la ligne directrice de votre diagnostic."
         }
     },
     "week": "Semaine",

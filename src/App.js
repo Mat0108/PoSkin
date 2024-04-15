@@ -31,6 +31,8 @@ import { useCookies } from "react-cookie";
 import { LanguageContext, LanguageProvider } from "./languages/index";
 import Tableaudebord from './pages/TableauDeBord';
 import B2B from "./pages/B2B";
+import Expertise from "./pages/Expertise";
+import QuiSommesNous from "./pages/QuiSommesNous";
 
 function App() {
   const { dictionnaire } = useContext(LanguageContext);
@@ -234,9 +236,9 @@ function App() {
               }
             ></Route>
             <Route exact path="/Blog/:BlogId" element={<Blog />}></Route>
-            {/* <Route path="/Expertise" element={<Expertise/>}></Route> 
+            <Route path="/Expertise" element={<Expertise/>}></Route> 
             <Route path="/APropos" element={<QuiSommesNous />}></Route>
-            <Route path="/Community" element={<Commu/>}></Route>
+            {/*<Route path="/Community" element={<Commu/>}></Route>
             <Route path='/Conseils' element={<Conseils/>}></Route>*/}
             <Route
               exact

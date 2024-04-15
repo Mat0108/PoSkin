@@ -3,12 +3,13 @@ import { LanguageContext } from "../languages"
 
 const ExpertiseHome =()=>{
     const { dictionnaire } = useContext(LanguageContext);
+    const isMobile = window.screen.width < 600
     return (<>
-        <div className="relative w-full h-fit p-[10px] grid grid-cols-4 bg-blue">
-            <div className="col-start-1">
+        <div className="relative w-full h-fit p-[10px] grid grid-cols-3 sm:grid-cols-4 bg-blue">
+            {!isMobile && <div className="invisible sm:visible col-start-1">
                 <div className="p-2 sm:p-[40px] w-full h-full flex center"> <div><img src={"./images/visage/visage6.png"} alt={"visage"} /></div></div>  
-            </div>
-            <div className="col-start-2 col-span-3">
+            </div>}
+            <div className="sm:col-start-2 col-span-3">
                 <p className="mt-[10px] sm:mt-[40px] text-[10px] sm:text-[20px] text-white font-mt-extra-bold">{dictionnaire.Expertise.expertise}</p>
                 <p className="ml-[10%] mt-[10px] sm:mt-[30px] w-[80%] text-white text-[6px] sm:text-[16px]">{dictionnaire.Expertise.domain}</p>
                 <div className="w-[100%] mt-[15px] sm:mt-[80px] grid grid-cols-3 ">

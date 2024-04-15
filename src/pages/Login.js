@@ -92,7 +92,7 @@ const Login = (props) => {
                   type="text"
                   onChange={onChangeHandler}
                   value={user.email}
-                  placeholder={`${dictionnaire.Compte.Nom}*`}
+                  placeholder={`${dictionnaire.Compte.Email}*`}
                   id="email"
                   required
                 />

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import LanguageSelector from "../constants/LanguageSelector";
 import { LanguageContext } from "../languages";
 import MenuSelector from "./MenuSelector";
+import QuiSommesNous from './../pages/QuiSommesNous';
 
 const Navbar = (props) => {
   const { dictionnaire, userLanguage } = useContext(LanguageContext);
@@ -71,13 +72,36 @@ const Navbar = (props) => {
           {to:"/Diagnostic",name:dictionnaire.Navbar.take_diagnostic},
           ...(isMobile ? [{ to: "/PriseDeRdv", name: dictionnaire.Navbar.take_rdv }] : []),
           {to:"/Logout",name:dictionnaire.Navbar.logout},
-        ] : [{to:"/Login",name:dictionnaire.Navbar.login}]),
+          ...(isMobile ? [
+            {to:"/Expertise",name:dictionnaire.Navbar.expertise},
+            {to:"/APropos",name:dictionnaire.Navbar.qsm}
+          ] : [])
+        ] : [
+          {to:"/Login",name:dictionnaire.Navbar.login},
+          ...(isMobile ? [
+            {to:"/Expertise",name:dictionnaire.Navbar.expertise},
+            {to:"/APropos",name:dictionnaire.Navbar.qsm}
+          ] : [])
+      ]),
         ]
       }
      return <div className="flex justify-end">
       <MenuSelector title={dictionnaire.Navbar.account} options={NavBar(props.LoginCond,isMobile)}/>  
       </div>  
-  },[props,dictionnaire,login,isMobile])
+  },[props,dictionnaire,isMobile])
+
+  const Po = useMemo(()=>{
+    function NavBar(){
+      return [
+        {to:"/Expertise",name:dictionnaire.Navbar.expertise},
+        {to:"/APropos",name:dictionnaire.Navbar.qsm},
+          
+      ]
+      }
+     return <div className="flex justify-end">
+      <MenuSelector title={dictionnaire.TextDivers.presentation.po} options={NavBar()}/>  
+      </div>  
+  },[dictionnaire])
   const TakeRdv = BoutonMemo(takeRdv,null,"/PriseDeRdv",dictionnaire.Navbar.take_rdv,userLanguage === "en" ? "w-[270px]" : "w-[240px]") 
   
 
@@ -101,9 +125,8 @@ const Navbar = (props) => {
         <div className="col-start-2 sm:col-start-4 sm:col-span-2 flex ">
           <div className="w-full h-fit sm:h-full flex flex-row text-[12px] sm:text-lg space-x-2 mr-[100px] center justify-end ">
           <LanguageSelector />
-            {/*
-                <div onMouseEnter={()=>{setRegisterbool(true)}}
-                onMouseLeave={()=>{setRegisterbool(false)}}>{Register}</div> */}
+          
+           
             {props.LoginCond  ? (
               <>
               {!isMobile ? 
@@ -121,6 +144,7 @@ const Navbar = (props) => {
             ) : (
               ""
             )}
+             {!isMobile ? Po : ""}
             <div
               onMouseEnter={() => {
                 setLogin(true);

@@ -82,9 +82,9 @@ const DiagnosticStart = (props)=>{
                                 {typeof cookies.user !== "object" ? <>
                                 <div className="text-[14px] sm:text-[20px] text-[#264C4D] text-left mt-[10px]">{dictionnaire.DiagnosticStart.copie}</div>
                                 <input
-                                    className="rounded-lg w-[500px] bg-gray-700 mt-2 py-2 px-4 border-[#264C4D] border-2 focus:bg-black-800 focus:outline-none form-control"
+                                    className="rounded-lg w-[98%] sm:w-[500px] bg-gray-700 mt-2 py-2 px-4 border-[#264C4D] border-2 focus:bg-black-800 focus:outline-none form-control"
                                     type="text"
-                                    onChange={(e)=>{setMail(e.target.value)}}
+                                        onChange={(e)=>{setMail(e.target.value)}}
                                     value={mail}
                                     placeholder="Email*"
                                     required
