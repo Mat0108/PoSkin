@@ -71,7 +71,7 @@ const Home = (props)=>{
             <div className="relative w-full h-fit mt-[10px] flex center" key={url}>
                 <Link to={url}>
                     <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt={altimage} className='h-[100px] sm:h-[250px] w-fit'/></div>  
-                    <div className="h-[100px] sm:h-[150px] flex center flex-col">
+                    <div className="h-[120px] sm:h-[150px] flex center flex-col">
                         <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">{title}</p>    
                         <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">{text}</p>
                        </div>

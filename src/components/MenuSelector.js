@@ -44,7 +44,7 @@ const MenuSelector = (props) => {
          <div className="flex center gap-1 sm:gap-2.5 w-fit mr-[10px]">
        {showOptions ?   <img src={"/images/pointwhite.png"} alt={"pw"} /> : <img src={"/images/pointhidden.png"} alt={"pw"} />}
         
-        <div >
+        <div className="font-mt-bold">
             {props.title}
         </div>
         </div>
@@ -74,7 +74,7 @@ const MenuSelector = (props) => {
                   tabIndex="-1"
                   id={`Menu-choice-${option.to}`}
                 >
-                  <div className="flex h-6 w-[140px] sm:h-12 sm:w-[165px] sm:px-1 text-xs sm:text-md align-left">
+                  <div className="flex h-6 w-[150px] sm:h-12 sm:w-[170px] sm:px-[1px] text-xs sm:text-md align-left">
 
                   </div>
 

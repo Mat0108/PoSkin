@@ -40,7 +40,7 @@ const Navbar = (props) => {
     return useMemo(()=>{
       let html = (
       <div className={`flex flex-row ${width} ${cmhover}`}>
-        <div className="flex center w-fit mr-[10px]">
+        <div className="flex center w-fit mr-[10px] ">
           
           {action ?   <img src={"/images/pointwhite.png"} alt={"pw"} /> : <img src={"/images/pointhidden.png"} alt={"pw"} />}
         </div>
@@ -74,13 +74,15 @@ const Navbar = (props) => {
           {to:"/Logout",name:dictionnaire.Navbar.logout},
           ...(isMobile ? [
             {to:"/Expertise",name:dictionnaire.Navbar.expertise},
-            {to:"/APropos",name:dictionnaire.Navbar.qsm}
+            {to:"/APropos",name:dictionnaire.Navbar.qsm},
+            {to:"/B2B",name:dictionnaire.Navbar.b2b}
           ] : [])
         ] : [
           {to:"/Login",name:dictionnaire.Navbar.login},
           ...(isMobile ? [
             {to:"/Expertise",name:dictionnaire.Navbar.expertise},
-            {to:"/APropos",name:dictionnaire.Navbar.qsm}
+            {to:"/APropos",name:dictionnaire.Navbar.qsm},
+            {to:"/B2B",name:dictionnaire.Navbar.b2b}
           ] : [])
       ]),
         ]
@@ -95,6 +97,7 @@ const Navbar = (props) => {
       return [
         {to:"/Expertise",name:dictionnaire.Navbar.expertise},
         {to:"/APropos",name:dictionnaire.Navbar.qsm},
+        {to:"/B2B",name:dictionnaire.Navbar.b2b}
           
       ]
       }
@@ -102,7 +105,7 @@ const Navbar = (props) => {
       <MenuSelector title={dictionnaire.TextDivers.presentation.po} options={NavBar()}/>  
       </div>  
   },[dictionnaire])
-  const TakeRdv = BoutonMemo(takeRdv,null,"/PriseDeRdv",dictionnaire.Navbar.take_rdv,userLanguage === "en" ? "w-[270px]" : "w-[240px]") 
+  const TakeRdv = BoutonMemo(takeRdv,null,"/PriseDeRdv",dictionnaire.Navbar.take_rdv,userLanguage === "en" ? "w-[260px]" : "w-[260px]") 
   
 
 
@@ -123,7 +126,7 @@ const Navbar = (props) => {
           </a>
         </div>
         <div className="col-start-2 sm:col-start-4 sm:col-span-2 flex ">
-          <div className="w-full h-fit sm:h-full flex flex-row text-[12px] sm:text-lg space-x-2 mr-[100px] center justify-end ">
+          <div className="w-full h-fit sm:h-full flex flex-row font-mt-bold text-[12px] sm:text-lg space-x-2 mr-[100px] center justify-end ">
           <LanguageSelector />
           
            
