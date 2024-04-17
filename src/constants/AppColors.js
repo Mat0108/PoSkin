@@ -5,6 +5,7 @@ const Colors = {
   "cyan_medium":"#346C6D",
   "vivid_tangerine":"#F5AD89",
   "white_coffee":"#E4DDD3",
+  "white_smoke":"#EEE8E4",
   "transparent": "transparent",
   "white": "#FFFFFF",
   "white2": "#FFF9F9",
