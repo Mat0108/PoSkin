@@ -287,24 +287,24 @@ const Commu1 = ()=>{
 const Expertise1 = ()=>{
   const { dictionnaire } = useContext(LanguageContext);
   return <div className="w-full flex flex-col center">
-   <p className="text-[15px] sm:text-[30px] bg-[#264C4D] font-mt-extra-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise1.key1}</p>
-   <p className="text-[12px] sm:text-[16px] bg-[#264C4D] font-mt-extra-bold text-justify  text-white w-[312px] h-[160px] sm:h-[300px] px-4 pb-10">{dictionnaire.TextDivers.Expertise1.key2}</p>
+   <p className="text-[15px] sm:text-[30px] bg-[#264C4D] font-mt-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise1.key1}</p>
+   <p className="text-[12px] sm:text-[16px] bg-[#264C4D] font-mt-bold text-justify  text-white w-[312px] h-[160px] sm:h-[300px] px-4 pb-10">{dictionnaire.TextDivers.Expertise1.key2}</p>
   </div>
 }
 
 const Expertise2 = ()=>{
   const { dictionnaire } = useContext(LanguageContext);
   return <div className="w-full flex flex-col center">
-   <p className="text-[15px] sm:text-[30px] bg-[#264C4D] font-mt-extra-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise2.key1}</p>
-   <p className="text-[12px] sm:text-[16px] bg-[#264C4D] font-mt-extra-bold text-justify  text-white w-[312px] h-[160px] sm:h-[300px] px-4 pb-10">{dictionnaire.TextDivers.Expertise2.key2}</p>
+   <p className="text-[15px] sm:text-[30px] bg-[#264C4D] font-mt-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise2.key1}</p>
+   <p className="text-[12px] sm:text-[16px] bg-[#264C4D] font-mt-bold text-justify  text-white w-[312px] h-[160px] sm:h-[300px] px-4 pb-10">{dictionnaire.TextDivers.Expertise2.key2}</p>
   </div>
 }
 
 const Expertise3 = ()=>{
   const { dictionnaire } = useContext(LanguageContext);
   return <div className="w-full flex flex-col center">
-   <p className="text-[15px] sm:text-[30px] bg-[#264C4D] font-mt-extra-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise3.key1}</p>
-   <p className="text-[12px] sm:text-[16px] bg-[#264C4D] font-mt-extra-bold text-justify  text-white w-[312px] h-[160px] sm:h-[300px] px-4 pb-10">{dictionnaire.TextDivers.Expertise3.key2}</p>
+   <p className="text-[15px] sm:text-[30px] bg-[#264C4D] font-mt-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise3.key1}</p>
+   <p className="text-[12px] sm:text-[16px] bg-[#264C4D] font-mt-bold text-justify  text-white w-[312px] h-[160px] sm:h-[300px] px-4 pb-10">{dictionnaire.TextDivers.Expertise3.key2}</p>
   </div>
 }
 
