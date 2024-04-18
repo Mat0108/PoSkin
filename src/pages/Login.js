@@ -89,7 +89,7 @@ const Login = (props) => {
                 {/* <label className="py-1">Email :</label> */}
                 <input
                   className="rounded-lg bg-gray-700 mt-2 py-2 px-4 border-[#346C6D] border-2 focus:bg-black-800 focus:outline-none form-control"
-                  type="text"
+                  type="email"
                   onChange={onChangeHandler}
                   value={user.email}
                   placeholder={`${dictionnaire.Compte.Email}*`}

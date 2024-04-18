@@ -219,7 +219,7 @@ function App() {
             {divModal}
           </Modal>
 
-          <div className="relative h-full overflow-auto sm:overflow-hidden sm:hover:overflow-auto" id={"Scrollref"}>
+          <div className="relative h-full overflow-auto sm:overflow-auto" id={"Scrollref"}>
             <Routes>
               <Route 
                 exact
@@ -260,12 +260,12 @@ function App() {
                 element={<DiagnosticStart login={LoginDiagnostic} />}
               ></Route>
               <Route path="/Compte" element={<Compte />}></Route>
-              <Route
+              {/* <Route
                 path="/MesDiagnostics"
                 element={
                   <MesDiagnostics openModal={openModal} closeModal={closeModal} />
                 }
-              ></Route>
+              ></Route> */}
               <Route path="/PriseDeRdv" element={<PriseDeRdv />}></Route>
               <Route path="/ConfirmRdv/:rdvId" element={<ConfirmRdv />}></Route>
               <Route path="/MesRdv" element={<MesRdv />}></Route>

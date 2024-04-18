@@ -98,17 +98,20 @@ const B2B = () =>{
             <div className="flex center">
                 <div className="w-full 3xl:w-3/4 flex center">
                     <div>
-                        <p className="mt-[10px] sm:mt-[40px] text-[10px] sm:text-[20px]  font-mt-extra-bold">{dictionnaire.Expertise.expertise}</p>
-                        <p className="sm:ml-[10%] mt-[10px] sm:mt-[30px] w-[90%] sm:w-[80%]  text-[6px] sm:text-[16px]">{dictionnaire.Expertise.domain}</p>
-                        <div className="w-[100%] mt-[15px] sm:mt-[80px] grid grid-cols-2 ">
-                            <div className="col-start-1 flex flex-col items-center">
-                                <p className=" text-[6px] sm:text-[16px] w-[90%] sm:w-[60%]">{dictionnaire.Expertise.academie}</p>
-                                <div className="mt-[5px] sm:mt-[20px] p-4 flex center"> <img src={"./images/partenaire1_black.png"} alt={"partenaire1"} className="w-2/3 sm:w-fit " /></div>  
-                            </div>
-                            <div className="col-start-2 flex flex-col items-center ">
-                                <p className=" text-[6px] sm:text-[16px] w-[90%] sm:w-[60%] ">{dictionnaire.Expertise.ecole}</p>
-                                <div className="mt-[5px] sm:mt-[20px] p-4 flex center"> <img src={"./images/partenaire2_black.png"}  alt={"partenaire2"} className="w-2/3 sm:w-fit "/></div>  
-                            </div>
+                        <p className="mt-[10px] sm:mt-[40px] text-[10px] sm:text-[20px]  font-mt-extra-bold">{dictionnaire.Valeur.key0}</p>
+                        <div className="w-[100%] mt-[15px] sm:mt-[40px] grid grid-cols-3     ">
+                        <div className="col-start-1 flex flex-col items-center">
+                            <p className="text-[6px] sm:text-[16px] w-[90%] sm:w-[60%]">{dictionnaire.Valeur.key1}</p>
+                            <p className="text-[6px] sm:text-[16px] w-[90%] sm:w-[60%] text-justify mt-4">{dictionnaire.Valeur.key1_text}</p>
+                        </div>
+                        <div className="col-start-2 flex flex-col items-center">
+                            <p className="text-[6px] sm:text-[16px] w-[90%] sm:w-[60%]">{dictionnaire.Valeur.key2}</p>
+                            <p className="text-[6px] sm:text-[16px] w-[90%] sm:w-[60%] text-justify mt-4">{dictionnaire.Valeur.key2_text}</p>
+                        </div>
+                        <div className="col-start-3 flex flex-col items-center">
+                            <p className="text-[6px] sm:text-[16px] w-[90%] sm:w-[60%]">{dictionnaire.Valeur.key3}</p>
+                            <p className="text-[6px] sm:text-[16px] w-[90%] sm:w-[60%] text-justify mt-4">{dictionnaire.Valeur.key3_text}</p>
+                        </div>
       
                         </div>
                     </div>

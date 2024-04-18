@@ -67,7 +67,7 @@ const Navbar = (props) => {
       return [
         ...(isConnected ? [
           {to:"/Compte",name:dictionnaire.Navbar.account},
-          {to:"/MesDiagnostics",name:dictionnaire.Navbar.diagnostic},
+          // {to:"/MesDiagnostics",name:dictionnaire.Navbar.diagnostic},
           {to:"/MesRdv",name:dictionnaire.Navbar.rdv},
           {to:"/Diagnostic",name:dictionnaire.Navbar.take_diagnostic},
           ...(isMobile ? [{ to: "/PriseDeRdv", name: dictionnaire.Navbar.take_rdv }] : []),

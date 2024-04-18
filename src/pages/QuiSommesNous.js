@@ -11,8 +11,8 @@ const QuiSommesNous = () =>{
         return (
         <div className="w-full sm:w-[686px] sm:h-[300px] flex flex-row">
             <div className="w-2/3 sm:w-[343px] h-full bg-white rounded-l-2xl">
-              <p className="text-[15px] sm:text-[30px] mt-[20px]">{props.titre}</p>
-              <p className="text-[7px] sm:text-[14px] mx-auto mt-[20px] mb-[5px] w-[90%] text-justify">{props.text}</p>
+              <p className="text-[15px] sm:text-[30px] mt-2 sm:mt-[20px]">{props.titre}</p>
+              <p className="text-[7px] sm:text-[12px] mx-auto mt-2 sm:mt-[20px] mb-[5px] w-[90%] text-justify">{props.text}</p>
             </div>
             <div className="w-1/3 sm:w-[343px] sm:h-[300px] bg-white flex center rounded-r-2xl">
 

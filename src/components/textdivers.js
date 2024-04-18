@@ -82,7 +82,7 @@ const Presentation = (action)=>{
       <p className="text-[8px] sm:text-[16px] mt-[30px] text-left ">{dictionnaire.TextDivers.presentation.slogan}</p>
       <p className="text-[8px] sm:text-[16px] mt-[10px] text-left ">{dictionnaire.TextDivers.presentation.accessibilite}</p>
       <p className="text-[8px] sm:text-[16px]  text-left ">{dictionnaire.TextDivers.presentation.formules}</p>
-      <div className="mt-[20px] text-[10px] sm:text-[30px] w-fit px-4 sm:px-8 py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue hover:cursor-pointer" onClick={action}><p>{dictionnaire.TextDivers.presentation.newsletter}</p></div>
+      <div className="mt-[20px] mb-[10px] text-[10px] sm:text-[30px] w-fit py-[4px] px-4 sm:px-8 sm:py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue hover:cursor-pointer" onClick={action}><p>{dictionnaire.TextDivers.presentation.newsletter}</p></div>
     </>
   )
 }
@@ -165,15 +165,14 @@ const Quisommesnous = () =>{
   const { dictionnaire } = useContext(LanguageContext);
   return (<>
     
-    <p className="text-[25px] sm:text-[50px] font-mt-extra-bold text-blue text-left sm:w-[50%] mt-[4%] ">{dictionnaire.TextDivers.Quisommesnous.key1}</p>
-    <p className="text-[25px] sm:text-[50px] font-mt-extra-bold text-blue text-left sm:w-[50%]">{dictionnaire.TextDivers.Quisommesnous.key2}</p>
+    <p className="text-[25px] sm:text-[50px] font-mt-extra-bold text-blue text-left mt-[4%] ">{dictionnaire.TextDivers.Quisommesnous.key1}</p>
+    <p className="text-[25px] sm:text-[50px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.Quisommesnous.key2}</p>
     <div className="sm:w-[85%] h-full text-left text-[12px] sm:text-[16px]">
       <p className="mt-[20px]">{dictionnaire.TextDivers.Quisommesnous.key3}</p>
       <p className="mt-[20px]">{dictionnaire.TextDivers.Quisommesnous.key4}</p>
       <p className="mt-[20px]">{dictionnaire.TextDivers.Quisommesnous.key5}</p> 
-      <p className="mt-[20px]">{dictionnaire.TextDivers.Quisommesnous.key6}</p>
     </div>
-  <div className="absolute sm:bottom-0 left-0 w-full"><div className="w-[70%]  flex center"><div className="ml-[10px] text-[15px] sm:text-[30px] w-fit px-6 py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-[#264C4D] text-left hover:text-white hover:bg-blue"><p>En savoir plus</p></div></div>   
+  <div className="mt-[20px] left-0 w-full"><div className="w-full sm:w-[80%]  flex center"><div className="ml-[10px] text-[15px] sm:text-[30px] w-fit px-6 py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-[#264C4D] text-left hover:text-white hover:bg-blue"><p>En savoir plus</p></div></div>   
   </div>
   </>)
 }
@@ -188,7 +187,7 @@ const Quisommesnous3 = () => {
   const { dictionnaire } = useContext(LanguageContext);
   return (<div className="sm:w-[450px]">
     <p className="mt-[32px] mb-[32px] text-[12px] sm:text-[24px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous3.key1}</p>
-    <div className=""><p className="mt-[32px] mb-[32px] text-[12px] sm:text-[16px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous3.key2}</p>
+    <div className=""><p className="mt-[32px] mb-[32px] text-[12px] sm:text-[16px] font-mt-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous3.key2}</p>
     </div>
   </div>);
 };
@@ -197,7 +196,7 @@ const Quisommesnous4 = () => {
   const { dictionnaire } = useContext(LanguageContext);
   return (<div className="sm:w-[450px]">
     <p className="mt-[32px] mb-[32px] text-[24px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous4.key1}</p>
-    <div className=""><p className="mt-[32px] mb-[32px] text-[12px] sm:text-[16px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous4.key2}</p>
+    <div className=""><p className="mt-[32px] mb-[32px] text-[12px] sm:text-[16px] font-mt-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous4.key2}</p>
     </div>
   </div>);
 };

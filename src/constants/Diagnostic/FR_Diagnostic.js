@@ -16,7 +16,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "Sensibilité peau",
+  id: "sensibilité_peau",
   titre: "Sensibilité de la peau",
   section: "évaluation de la peau et préoccupations",
   question: "Comment décririez-vous la Sensibilité de votre peau ?",
@@ -31,7 +31,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "taches pigmentaires",
+  id: "taches_pigmentaires",
   titre: "Taches pigmentaires",
   section: "évaluation de la peau et préoccupations",
   question: "Avez-vous des taches brunes ou des zones de pigmentation irrégulière ?",
@@ -46,7 +46,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "rides ridules",
+  id: "rides_ridules",
   titre: "Rides et ridules",
   section: "évaluation de la peau et préoccupations",
   question: "Avez-vous des rides ou des ridules visibles ?",
@@ -84,11 +84,11 @@ export const FR_Diagnostic = [{
     "Rarement",
     "Jamais"
   ],
-  format:"1",
+  format:"2",
   type:"simple",
 },
 {
-  id: "rides prononcées",
+  id: "rides_prononcées",
   titre: "Rides prononcées",      
   section: "vieillissement cutané",
   question: "Remarquez-vous des rides et ridules prononcées ?",
@@ -118,7 +118,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "réaction produits",
+  id: "réaction_produits",
   titre: "Réaction aux produits",
   section: "Sensibilité",
   question: "Votre peau réagit-elle facilement aux produits ou aux agressions extérieures ?",
@@ -129,11 +129,11 @@ export const FR_Diagnostic = [{
     "Rarement",
     "Jamais"
   ],
-  format:"1",
+  format:"2",
   type:"simple",
 },
 {
-  id: "rougeurs picotements",
+  id: "rougeurs_picotements",
   titre: "Rougeurs et picotements",
   section: "Sensibilité",
   question: "Ressentez-vous des rougeurs, des picotements ou des démangeaisons ?",
@@ -144,11 +144,11 @@ export const FR_Diagnostic = [{
     "Rarement",
     "Jamais"
   ],
-  format:"1",
+  format:"2",
   type:"simple",
 },
 {
-  id: "antécédents allergiques",
+  id: "antécédents_allergiques",
   titre: "Antécédents allergiques",
   section: "Sensibilité",
   question: "Avez-vous des antécédents d'allergies ou d'eczéma ?",
@@ -161,7 +161,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "routine nettoyage",
+  id: "routine_nettoyage",
   titre: "Routine de nettoyage",
   section: "Nettoyage",
   question: "Quelle est votre routine de nettoyage actuelle ?",
@@ -176,7 +176,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "utilisation démaquillant",
+  id: "utilisation_démaquillant",
   titre: "Utilisation du démaquillant",
   section: "Nettoyage",
   question: "Utilisez-vous un démaquillant ?",
@@ -184,14 +184,14 @@ export const FR_Diagnostic = [{
     "Toujours",
     "Souvent",
     "Parfois",
-    "Rarely",
+    "Rarement",
     "Jamais"
   ],
-  format:"1",
+  format:"2",
   type:"simple",
 },
 {
-  id: "problèmes nettoyage",
+  id: "problèmes_nettoyage",
   titre: "Problèmes liés au nettoyage",
   section: "Nettoyage",
   question: "Avez-vous des problèmes de peau liés au nettoyage, comme des rougeurs ou des sensations de tiraillement ?",
@@ -206,7 +206,7 @@ export const FR_Diagnostic = [{
 },
 {
 
-  id: "Exfoliation fréquence",
+  id: "Exfoliation_fréquence",
   titre: "Fréquence d'exfoliation",
   section: "Exfoliation",
   question: "Exfoliez-vous votre peau ?",
@@ -217,11 +217,11 @@ export const FR_Diagnostic = [{
     "Rarement",
     "Jamais"
   ],
-  format:"1",
+  format:"2",
   type:"simple",
 },
 {
-  id: "fréquence exfoliation",
+  id: "fréquence_exfoliation",
   titre: "Quelle fréquence d'exfoliation vous convient ?",
   section: "Exfoliation",
   question: "À quelle fréquence exfoliez-vous votre peau ?",
@@ -234,7 +234,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "problèmes exfoliation",
+  id: "problèmes_exfoliation",
   titre: "Problèmes liés à l'exfoliation",
   section: "Exfoliation",
   question: "Avez-vous des problèmes de peau liés à l'exfoliation, comme des irritations ou des desquamations ?",
@@ -247,7 +247,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "type hydratant",
+  id: "type_hydratant",
   titre: "Type d'hydratant",
   section: "Hydratation",
   question: "Quel type d'hydratant utilisez-vous ?",
@@ -260,7 +260,7 @@ export const FR_Diagnostic = [{
   type:"multi",
 },
 {
-  id: "efficacité hydratant",
+  id: "efficacité_hydratant",
   titre: "Efficacité de l'hydratant",
   section: "Hydratation",
   question: "Votre hydratant actuel répond-il aux besoins de votre peau ?",
@@ -275,7 +275,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "problèmes hydratation",
+  id: "problèmes_hydratation",
   titre: "Problèmes de peau liés à l'hydratation",
   section: "Hydratation",
   question: "Avez-vous des problèmes de peau liés à l'hydratation, comme une sensation de sécheresse ou de déshydratation ?",
@@ -288,7 +288,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "application protection solaire",
+  id: "application_protection_solaire",
   titre: "Application de protection solaire",
   section: "Protection solaire",
   question: "Appliquez-vous une protection solaire quotidiennement ?",
@@ -299,7 +299,7 @@ export const FR_Diagnostic = [{
     "Rarement",
     "Jamais"
   ],
-  format:"1",
+  format:"2",
   type:"simple",
 },
 {
@@ -316,7 +316,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "problèmes soleil",
+  id: "problèmes_soleil",
   titre: "Problèmes de peau liés au soleil",
   section: "Protection solaire",
   question: "Avez-vous des problèmes de peau liés au soleil, comme des coups de soleil ou des taches pigmentaires ?",
@@ -331,7 +331,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "port maquillage",
+  id: "port_maquillage",
   titre: "Port de maquillage",
   section: "Maquillage",
   question: "Portez-vous du maquillage ?",
@@ -342,11 +342,11 @@ export const FR_Diagnostic = [{
     "Rarement",
     "Jamais"
   ],
-  format:"1",
+  format:"2",
   type:"simple",
 },
 {
-  id: "type maquillage",
+  id: "type_maquillage",
   titre: "Type de maquillage",
   section: "Maquillage",
   question: "Quel type de maquillage utilisez-vous ?",
@@ -359,7 +359,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "problèmes maquillage",
+  id: "problèmes_maquillage",
   titre: "Problèmes liés au maquillage",
   section: "Maquillage",
   question: "Avez-vous des problèmes de peau liés au maquillage, comme des allergies ou des pores obstrués ?",
@@ -372,7 +372,7 @@ export const FR_Diagnostic = [{
   type:"simple",
 },
 {
-  id: "habitudes vie",
+  id: "habitudes_vie",
   titre: "Habitudes de vie",
   section: "Mode de vie",
   question: "Avez-vous des habitudes de vie particulières qui pourraient affecter la santé de votre peau ?",
@@ -385,6 +385,16 @@ export const FR_Diagnostic = [{
   ],
   format:"1",
   type:"simple",
+},
+{
+  id: "end",
+  titre: "",
+  section: "",
+  question:"Pour garder une trace de votre diagnostic de peau,veuillez indiquer une adresse e-mail :",
+  reponses:[
+  ],
+  format:"1",
+  type:"simple"
 }
 ]
   
