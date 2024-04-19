@@ -6,7 +6,8 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     setTimeout(() => { 
-      window.scrollTo(0, 0);
+      var myDiv = document.getElementById('Scrollref');
+      myDiv.scrollTop = 0;
     }, 1000);
   }, [pathname]);
 

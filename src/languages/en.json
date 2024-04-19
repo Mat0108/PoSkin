@@ -126,7 +126,11 @@
         "diagnostic": "My diagnosis",
         "take_rdv": "Make an appointment",
         "take_diagnostic":"Make a diagnosis",
-        "rdv": "My appointments"
+        "rdv": "My appointments",
+        "qsm": "Who are we",
+        "expertise":"Our expertise",
+        "b2b":"Become a Po expert."
+
     },
     "TextDivers": {
         "presentation": {
@@ -318,11 +322,61 @@
         "rejoindrepo":"JOIN PO. ON:"
     },
     "Expertise":{
-    "expertise":"OUR EXPERTISE",
-    "domain":"Our partners are graduates and recognized as experts in their field, ensuring honest and thoughtful care.",
-    "academie":"Certification - Facialists Academy - Paris",
-    "ecole":"Certification - Delphine Langlois School - Facialist Paris",
-    "produit":"All our products are tested and certified cruelty free"
+        "expertise":"OUR EXPERTISE",
+        "domain":"Our partners are graduates and recognized as experts in their field, ensuring honest and thoughtful care.",
+        "academie":"Certification - Facialists Academy - Paris",
+        "ecole":"Certification - Delphine Langlois School - Facialist Paris",
+        "produit":"All our products are tested and certified cruelty free"
+    },  
+    "B2B":{
+        "rdv":"YOUR APPOINTMENT ",
+        "with":"WITH",
+        "total":"TOTAL",
+        "TTC":"€ TTC",
+        "HT":"€ HT",
+        "prestations":"SERVICES",
+        "add":"ADD A SERVICE",
+        "more":"SEE MORE",
+        "discover":"DISCOVER YOUR SKIN THANKS TO OUR EXPERTS",
+        "discover2":"Discover bookings with an expert facialist",
+        "Po":"PO. the benchmark in beauty care",
+        "presentation1":"At Po. we are convinced that taking care of your skin should be within everyone's reach.",
+        "presentation2":"This is why we want to make care, advice and expertise accessible.",
+        "presentation3":"We are proud to provide you with clean care formulas and to put you in contact with our expert partners in skin problems.",
+        "contact":"CONTACT US",
+        "contactplaceholder":"Join our network of experts:",
+        "offre":{
+            "offre1":"Sweet offers await you at PO.",
+            "offre2":"Discover our exclusive offers now and book your session last minute or during off-peak hours to experience an unparalleled moment of care. Give your skin the special attention it deserves and discover all the other offers we have at your disposal.",
+            "offre3":"DISCOVER OUR OFFERS"
+        },
+        "reserver":{
+            "reserver1":"Book 24/7 with PO.",
+            "reserver2":"Tired of skin problems and looking for the perfect routine? Now, simply book your consultation with our expert facialists at PO. Take control of your skin, at your own pace and without waiting.",
+            "reserver3":"RESERVE NOW"
+        },
+        "discoverhs":{
+            "discover1":"Discover our selection of expert facialists at PO.",
+            "discover2":"With a multitude of certified experts at PO, find the one that perfectly suits your needs. Book now and take control of your beauty with confidence.",
+            "discover3":"DISCOVER NOW"
+        },
+        "expert":{
+            "expert1":"Are you a facial care expert or consultant? Boost your online business with PO!",
+            "expert2":"PO Partenaire, our management software dedicated to professionals, boosts the development of your business and your customers. We offer you a range of tools to simplify the management of online reservations in one click:",
+            "expert3":"Digital calendar and online appointments",
+            "expert4":"Promotions and marketing strategies",
+            "expert5":"Detailed reports and analyzes",
+            "expert6":"Integrated cash register, billing and payment system",
+            "expert7":"Access the Po Store to market your products ",
+            "expert8":"Membership in the Po expert community",
+            "expert9":"Become a PO partner now!"
+        },
+        "leader":{
+            "leader1":"Undisputed leader in connecting patients with facial care experts.",
+            "leader2":"We have chosen to collaborate with expert facialists for YOU! So that you can benefit from a reliable and personalized diagnosis. You will therefore be able to focus on what you really need.",
+            "leader3":"In addition to benefiting from unparalleled know-how, you can also benefit from unparalleled technology!",
+            "leader4":"Artificial Intelligence will be able to perfect your diagnosis to make it even more precise! A simple selfie will be used to determine the guideline of your diagnosis."
+        }
     },
     "week": "Week",
     "month": "Month",

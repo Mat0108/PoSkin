@@ -21,8 +21,8 @@ export const getAllUsers = async (user) => {
     return res;
 }
 
-export const forgotPassword = async (mail) => {
-    const res = await axios.post(`${url}/users/forgetpassword`,mail);
+export const forgotPassword = async (body) => {
+    const res = await axios.post(`${url}/users/forgetpassword`,body);
     return res;
 }
 

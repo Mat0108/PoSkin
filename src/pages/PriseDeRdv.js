@@ -9,6 +9,7 @@ import { url } from "../services/config";
 import { useCookies } from "react-cookie";
 import { LanguageContext } from '../languages/index';
 import moment from "moment";
+import { Months, Weekday } from "../components/dateUtils";
 const PriseDeRdv = ()=>{
     const isMobile = window.screen.width < 600
     const { dictionnaire } = useContext(LanguageContext);
@@ -34,12 +35,9 @@ const PriseDeRdv = ()=>{
     const lastDay = useMemo(()=>{return moment(month).endOf('month')},[month])
     const dateplus = useMemo(()=>{return lastDay},[lastDay])
 
-    var weekday = [dictionnaire.Week.sunday, dictionnaire.Week.monday, dictionnaire.Week.tuesday, dictionnaire.Week.wednesday,
-                    dictionnaire.Week.thursday, dictionnaire.Week.friday, dictionnaire.Week.saturday];
-    var months = [dictionnaire.Month.january,dictionnaire.Month.february,dictionnaire.Month.march,
-        dictionnaire.Month.april,dictionnaire.Month.may,dictionnaire.Month.june,dictionnaire.Month.july,
-        dictionnaire.Month.august,dictionnaire.Month.september,dictionnaire.Month.october,dictionnaire.Month.november,dictionnaire.Month.december
-    ];
+    var weekday = Weekday()
+    var months = Months()
+    
     const navigate = useNavigate();
     useEffect(() => {
       if(typeof cookies.user !== "object"){

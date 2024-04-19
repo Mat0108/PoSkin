@@ -128,7 +128,10 @@
         "diagnostic": "Mon diagnostic",
         "take_rdv": "Prendre rendez-vous",
         "take_diagnostic":"Faire un diagnostic",
-        "rdv": "Mes rendez-vous"
+        "rdv": "Mes rendez-vous",
+        "qsm": "Qui sommes-nous",
+        "expertise":"Notre expertise",
+        "b2b":"Devenir expert Po."
     },
     "TextDivers": {
         "presentation": {
@@ -176,10 +179,9 @@
         "Quisommesnous": {
             "key1": "Notre histoire",
             "key2": "et votre histoire",
-            "key3": "Chez Po, nous mettons tout en œuvre pour vous offrir une expérience de soin de peau exceptionnelle. Notre équipe dévouée d'experts en skincare est là pour vous accompagner à chaque étape de votre parcours. Que vous cherchiez à résoudre des problèmes de peau spécifiques, à améliorer votre routine existante ou à découvrir de nouveaux produits, nous sommes là pour vous guider.",
-            "key4": "Grâce à notre expertise et à notre passion pour la peau, nous vous proposons des conseils personnalisés, des recommandations de produits adaptés à votre type de peau et des informations de qualité basées sur des recherches scientifiques. Nous croyons en l'importance de la transparence et de l'éducation, c'est pourquoi nous partageons des ressources utiles et des guides d'achat détaillés pour vous aider à prendre des décisions éclairées.",
-            "key5": "En nous rejoignant, vous bénéficierez également de l'accès à notre communauté d'experts facialistes et d'autres passionnés de skincare. Vous pourrez échanger des conseils, partager votre expérience et trouver du soutien tout au long de votre parcours de soin de peau.",
-            "key6": "Chez Po, nous sommes là pour vous aider à atteindre une peau saine, équilibrée et rayonnante."
+            "key3": "Po. aspire à devenir une référence dans le domaine de la dermatologie esthétique en ligne, en offrant une expérience utilisateur optimale et en répondant aux besoins spécifiques des individus soucieux de leur apparence et de leur bien-être cutané.",
+            "key4": "Chez Po, nous nous engageons à vous offrir une expérience de soin de peau personnalisée, accompagnée d'un suivi attentif à chaque étape de votre parcours. Notre équipe dévouée d'experts en skincare est là pour répondre à vos besoins spécifiques et pour vous guider dans le traitement des problèmes mineurs de votre visage.",
+            "key5": "En rejoignant Po, vous bénéficierez d'une attention personnalisée, d'un accompagnement dédié et d'un suivi régulier pour garantir votre satisfaction et le succès de votre parcours de soin de peau. Chez Po, nous sommes là pour vous aider à atteindre une peau saine, équilibrée et rayonnante."
         },
         "Quisommesnous2": {
             "key1": "NOTRE CONCEPT & NOTRE TEAM"
@@ -294,7 +296,8 @@
         "selected_motif":"Merci de sélectionner un motif de rendez-vous !",
         "selected_date":"Merci de sélectionner une date !",
         "selected_rdv":"Merci de sélectionner un créneau !",
-        "selected_expert":"Merci de sélectionner un expert !"
+        "selected_expert":"Merci de sélectionner un expert !",
+        "newsletter_expert":"Nous avons bien reçu votre mail, nous allons bientot vous contacter"
     },
     "NewsLetter":{
         "info":"Suivez notre actualité et ne manquez aucune de nos nouveautés en vous inscrivant à notre newsletter",
@@ -325,7 +328,66 @@
         "academie":"Certification - Académie des Facialistes - Paris",
         "ecole":"Certification - École Delphine Langlois - Facialiste Paris",
         "produit":"Tous nos produits sont testés et certifiés cruelty free"
-    },    
+    },   
+    "B2B":{
+        "rdv":"VOTRE RDV DU ",
+        "with":"AVEC",
+        "total":"TOTAL",
+        "TTC":"€ TTC",
+        "HT":"€ HT",
+        "prestations":"PRESTATIONS",
+        "add":"AJOUTER UNE PRESTATION",
+        "more":"VOIR PLUS",
+        "discover":"DÉCOUVRIR VOTRE PEAU GRÂCE À NOS EXPERTS",
+        "discover2":"Découvrez les réservations avec un expert facialiste ",
+        "Po":"PO. la référence en matière de soins beauté",
+        "presentation1":"Chez Po. nous sommes convaincus que prendre soin de sa peau devrait être à la portée de tous et de toutes.",
+        "presentation2":"C’est pour cela que nous voulons rendre accessibles les soins, les conseils, les expertises.",
+        "presentation3":"Nous sommes fiers de mettre à votre disposition des formules de soins clean et de vous mettre en contact avec nos partenaires expert dans les problèmes de peaux.",
+        "contact":"NOUS CONTACTER",
+        "contactplaceholder":"Rejoignez notre réseau d'experts :",
+        "offre":{
+            "offre1":"Des offres toutes douces vous attendent chez PO.",
+            "offre2":"Découvrez dès maintenant nos offres exclusives et réservez votre séance de dernière minute ou durant les heures creuses pour vivre un moment de soin inégalé. Offrez à votre peau l'attention spéciale qu'elle mérite et découvrez toutes les autres offres que nous mettons à votre disposition.",
+            "offre3":"DÉCOUVRIR NOS OFFRES"
+        },
+        "reserver":{
+            "reserver1":"Réservez 24h/24 et 7j/7 avec PO.",
+            "reserver2":"Fatigué(e) des problèmes de peau et en quête de la routine parfaite ? Désormais, réservez simplement votre consultation avec nos experts facialistes chez PO. Prenez le contrôle de votre peau, à votre rythme et sans attente.",
+            "reserver3":"RÉSERVER MAINTENANT"
+        },
+        "discoverhs":{
+            "discover1":"Découvrez notre sélection d'expert facialiste chez PO.",
+            "discover2":"Avec une multitude d'experts certifiés chez PO, trouvez celui qui correspond parfaitement à vos besoins. Réservez dès maintenant et prenez le contrôle de votre beauté avec confiance.",
+            "discover3":"DÉCOUVRIR MAINTENANT"
+        },
+        "expert":{
+            "expert1":"Êtes-vous un expert en soins du visage ou un consultant ? Propulsez votre activité en ligne avec PO !",
+            "expert2":"PO Partenaire, notre logiciel de gestion dédié aux professionnels,  booste le développement de votre entreprise et de votre clientèle. Nous vous offrons une gamme d'outils pour simplifier la gestion des réservations en ligne en un clic :",
+            "expert3":"Agenda digital et rendez-vous en ligne",
+            "expert4":"Promotions et stratégies marketing",
+            "expert5":"Rapports et analyses détaillés",
+            "expert6":"Système de caisse, facturation et paiement intégré",
+            "expert7":"Accédez au Po Store pour commercialiser vos produits ",
+            "expert8":"Adhésion à la communauté des experts Po",
+            "expert9":"Devenez partenaire de PO dès maintenant !"
+        },
+        "leader":{
+            "leader1":"Leader incontesté de la mise en relation entre les patients et les experts en soins du visage.",
+            "leader2":"Nous avons choisi de collaborer avec des experts facialistes pour VOUS ! Pour que vous puissiez bénéficier d’un diagnostic fiable et personnalisé. Vous pourrez donc vous orienter vers ce dont vous avez réellement besoin.",
+            "leader3":"En plus de pouvoir bénéficier d’un savoir-faire hors pair, profitez également d’une technologie hors pair !",
+            "leader4":"L’Intelligence Artificielle saura parfaire votre diagnostic afin de le rendre encore plus précis !Un simple selfie servira à déterminer la ligne directrice de votre diagnostic."
+        }
+    },
+    "Valeur":{
+        "key0":"NOS VALEURS",
+        "key1":"PERSONNALISATION",
+        "key1_text":"Chez Po., nous croyons que chaque individu est unique. Notre approche est donc sur mesure, adaptée à vos besoins spécifiques. Nous nous consacrons à comprendre vos attentes et à élaborer des solutions personnalisées qui reflètent votre individualité.",
+        "key2":"ACCOMPAGNEMENT",
+        "key2_text":"Votre voyage vers le bien-être est notre priorité. Nos experts vous accompagnent à chaque étape, offrant des conseils professionnels et un soutien inébranlable. Nous sommes à vos côtés pour vous guider dans votre parcours de soins avec empathie et expertise.",
+        "key3":"SUIVI",
+        "key3_text":"Notre engagement envers vous se prolonge bien au-delà de nos sessions. Nous offrons un suivi continu pour garantir que vous bénéficiez pleinement de nos services. Nous nous engageons à entretenir une relation durable, évolutive et enrichissante avec vous."
+    },
     "week": "Semaine",
     "month": "Mois",
     "votre": "votre",

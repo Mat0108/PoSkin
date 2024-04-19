@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { pdfjs, Document, Page,  } from 'react-pdf';
 import { getDiagnosticPDF } from '../services/Diagnostic';
 import { LanguageContext } from '../languages';
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 export const PdfViewer = (props) => {
     
@@ -22,9 +23,9 @@ export const PdfViewer = (props) => {
         return <Document file={pdfurl}>
             <Page 
             renderTextLayer={false}
-            renderAnnotationLayer={false}
-            customTextRenderer={false}
-            pageNumber={pageNumber} scale={isMobile ? 0.6 : 1}/>
+            renderAnnotationLayer={true}
+            pageNumber={pageNumber} 
+            scale={isMobile ? 0.6 : 1}/>
         </Document>
     }
     const downloadPdf = () => {

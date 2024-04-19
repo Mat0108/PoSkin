@@ -56,13 +56,13 @@ const Carousel2 =({props})=>{
         <div className="w-full flex flex-col">       
             <div className="flex flex-row w-full">
                 <div className={`${getW(Mratio,true)} sm:${getW(ratio,true)} flex center`}>
-                {!props.disableClic && <p className="text-5xl" onClick={()=>{Next()}}>{"<"}</p>}
+                {!props.disableClic && <p className="text-5xl" onClick={()=>{Back()}}>{"<"}</p>}
                 </div>
                 <div className={`flex flex-row ${getW(100-2*Mratio,true)} sm:${getW(100-2*ratio,true)}  h-full ${props.nbShow === 1 ? "center":"justify-between space-x-4"}`}>
                     {items}
                 </div>
                 <div className={`${getW(Mratio,true)} sm:${getW(ratio,true)} flex center`}>
-                    {!props.disableClic &&<p className="text-5xl" onClick={()=>{Back()}}>{">"}</p>}
+                    {!props.disableClic &&<p className="text-5xl" onClick={()=>{Next()}}>{">"}</p>}
                 </div>
 
             </div>

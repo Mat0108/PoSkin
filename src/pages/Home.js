@@ -2,7 +2,6 @@
 import LayoutFullImage from '../components/Layout/LayoutFullImage';
 import Layout1image from '../components/Layout/Layout1image';
 import Layout2image from '../components/Layout/Layout2image';
-import ExpertiseHome from '../components/ExpertiseHome';
 
 import {switchtext} from './../components/textdivers';
 
@@ -15,6 +14,7 @@ import { activateAccount, logout } from '../services/user';
 import { toast } from 'react-toastify';
 import { useCookies } from 'react-cookie';
 import { LanguageContext } from '../languages';
+import Valeurs from '../components/Valeurs';
 const Home = (props)=>{
     
     const { dictionnaire } = useContext(LanguageContext);
@@ -71,7 +71,7 @@ const Home = (props)=>{
             <div className="relative w-full h-fit mt-[10px] flex center" key={url}>
                 <Link to={url}>
                     <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt={altimage} className='h-[100px] sm:h-[250px] w-fit'/></div>  
-                    <div className="h-[100px] sm:h-[150px] flex center flex-col">
+                    <div className="h-[130px] sm:h-[160px] flex center flex-col mt-[2px]">
                         <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">{title}</p>    
                         <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">{text}</p>
                        </div>
@@ -110,7 +110,7 @@ const Home = (props)=>{
         {/* <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div> */}
         <div className='mt-[20px]'></div>
         {/* <Carousel props={{titre:"Nos conseils...",col:switchtext("Carousel1")}} /> */}
-        <ExpertiseHome />
+        <Valeurs/>
        </div>)
 }
 

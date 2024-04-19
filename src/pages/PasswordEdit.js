@@ -57,7 +57,7 @@ function PasswordEdit(props) {
   const element = useMemo(() => {
     if(!condToken){
       return (
-      <form className="w-full h-full bg-[#EEE8E4] px-[30px] sm:px-[60px] py-[15px] sm:py-[30px] border-[6px] border-red-Venetian">
+      <form className="w-full h-full bg-[#EEE8E4] px-[30px] sm:px-[60px] py-[15px] sm:py-[30px] border-[6px] border-cyan_medium">
         <h2 className="text-[12px] sm:text-[20px] font-av-bold text-[#264C4D] font-mt-extra-bold ">
           {dictionnaire.Password.edit}
         </h2>
@@ -95,7 +95,7 @@ function PasswordEdit(props) {
 
       </form>)
       }else{
-        return <div className="w-full h-full flex flex-col center bg-[#EEE8E4] border-[6px] border-red-Venetian">
+        return <div className="w-full h-full flex flex-col center bg-[#EEE8E4] border-[6px] border-cyan_medium">
           <h2 className="w-full mb-[30px] mt-3 sm:mt-0 text-[10px] sm:text-[18px] font-av-bold text-[#264C4D] font-mt-extra-bold ">
             {dictionnaire.Password.not_valide} 
           </h2>

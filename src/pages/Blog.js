@@ -15,14 +15,15 @@ const Blog = () =>{
         textcolor:[],
         layout:[]});
     const [listItems,setListItems]= useState([])
+    const [className, setClassname] = useState("")
     
     useEffect(() => {
         const fetchData = async() => {
             const blog = await getBlogbyField(params.BlogId);
             const blogs = await getBlogs();
             setListItem(blog[0])
-            setMargin(blog[0].margin);
-            setListItems(blogs)
+            setMargin(blog[0].margin ?? "");
+            setListItems(blogs);
         };
         fetchData();
     }, [params])
@@ -33,7 +34,7 @@ const Blog = () =>{
             <div className="relative w-full h-fit mt-[10px] flex center" key={url}>
                 <Link to={url}>
                     <div className="mt-[20px] w-full flex center h-[100px] sm:h-[250px]"> <img src={image}  alt={altimage} className='h-[100px] sm:h-[250px] w-fit'/></div>  
-                    <div className="h-[100px] sm:h-[150px] flex center flex-col">
+                    <div className="h-[120px] sm:h-[150px] flex center flex-col">
                         <p className="w-[90%] sm:w-[70%] mt-[6px] sm:mt-[20px] text-[8px] sm:text-[16px] font-mt-extra-bold text-blue">{title}</p>    
                         <p className="w-[90%] sm:w-[70%] text-[8px] sm:text-[16px] mt-[5px] text-justify ">{text}</p>
                     </div>
@@ -153,7 +154,7 @@ const Blog = () =>{
         return <Carousel2 props={{items:list2,nbShow:1,ratio:25,showPoint:true,start:start}}/>
     }, [listItems,params])
 
-    return (<div className='w-full h-full flex center flex-col'>
+    return (<div className={`${className} w-full  flex center flex-col `}>
         {items}
         <div className="relative w-full h-0.5 mt-[30px] bg-[#10264C4D]"></div>
         <div><h1 className="mt-[12px] sm:mt-[30px] text-[12px] sm:text-[50px] font-mt-extra-bold text-blue ">Articles connexes :</h1></div>

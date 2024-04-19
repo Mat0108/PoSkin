@@ -82,7 +82,7 @@ const Presentation = (action)=>{
       <p className="text-[8px] sm:text-[16px] mt-[30px] text-left ">{dictionnaire.TextDivers.presentation.slogan}</p>
       <p className="text-[8px] sm:text-[16px] mt-[10px] text-left ">{dictionnaire.TextDivers.presentation.accessibilite}</p>
       <p className="text-[8px] sm:text-[16px]  text-left ">{dictionnaire.TextDivers.presentation.formules}</p>
-      <div className="mt-[20px] text-[10px] sm:text-[30px] w-fit px-4 sm:px-8 py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue hover:cursor-pointer" onClick={action}><p>{dictionnaire.TextDivers.presentation.newsletter}</p></div>
+      <div className="mt-[20px] mb-[10px] text-[10px] sm:text-[30px] w-fit py-[4px] px-4 sm:px-8 sm:py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue hover:cursor-pointer" onClick={action}><p>{dictionnaire.TextDivers.presentation.newsletter}</p></div>
     </>
   )
 }
@@ -165,39 +165,38 @@ const Quisommesnous = () =>{
   const { dictionnaire } = useContext(LanguageContext);
   return (<>
     
-    <p className="text-[50px] font-mt-extra-bold text-blue text-left w-[50%] mt-[4%] ">{dictionnaire.TextDivers.Quisommesnous.key1}</p>
-    <p className="text-[50px] font-mt-extra-bold text-blue text-left w-[50%]">{dictionnaire.TextDivers.Quisommesnous.key2}</p>
-    <div className="w-[85%] h-full text-left text-[16px]">
+    <p className="text-[25px] sm:text-[50px] font-mt-extra-bold text-blue text-left mt-[4%] ">{dictionnaire.TextDivers.Quisommesnous.key1}</p>
+    <p className="text-[25px] sm:text-[50px] font-mt-extra-bold text-blue text-left ">{dictionnaire.TextDivers.Quisommesnous.key2}</p>
+    <div className="sm:w-[85%] h-full text-left text-[12px] sm:text-[16px]">
       <p className="mt-[20px]">{dictionnaire.TextDivers.Quisommesnous.key3}</p>
       <p className="mt-[20px]">{dictionnaire.TextDivers.Quisommesnous.key4}</p>
       <p className="mt-[20px]">{dictionnaire.TextDivers.Quisommesnous.key5}</p> 
-      <p className="mt-[20px]">{dictionnaire.TextDivers.Quisommesnous.key6}</p>
     </div>
-  <div className="absolute bottom-0 left-0 w-full"><div className="w-[70%]  flex center"><div className="ml-[10px] text-[30px] w-fit px-6 py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-[#264C4D] text-left hover:text-white hover:bg-blue"><p>En savoir plus</p></div></div>   
+  <div className="mt-[20px] left-0 w-full"><div className="w-full sm:w-[80%]  flex center"><div className="ml-[10px] text-[15px] sm:text-[30px] w-fit px-6 py-2 bg-[#83C5BE] rounded-full font-mt-extra-bold text-[#264C4D] text-left hover:text-white hover:bg-blue"><p>En savoir plus</p></div></div>   
   </div>
   </>)
 }
 const Quisommesnous2 = () => {
   const { dictionnaire } = useContext(LanguageContext);
   return (<>
-    <p className="text-[50px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous2.key1}</p>
+    <p className="text-[25px] sm:text-[50px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous2.key1}</p>
   </>);
 };
 
 const Quisommesnous3 = () => {
   const { dictionnaire } = useContext(LanguageContext);
-  return (<div className="w-[450px]">
-    <p className="mt-[32px] mb-[32px] text-[24px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous3.key1}</p>
-    <div className=""><p className="mt-[32px] mb-[32px] text-[16px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous3.key2}</p>
+  return (<div className="sm:w-[450px]">
+    <p className="mt-[32px] mb-[32px] text-[12px] sm:text-[24px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous3.key1}</p>
+    <div className=""><p className="mt-[32px] mb-[32px] text-[12px] sm:text-[16px] font-mt-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous3.key2}</p>
     </div>
   </div>);
 };
 
 const Quisommesnous4 = () => {
   const { dictionnaire } = useContext(LanguageContext);
-  return (<div className="w-[450px]">
+  return (<div className="sm:w-[450px]">
     <p className="mt-[32px] mb-[32px] text-[24px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous4.key1}</p>
-    <div className=""><p className="mt-[32px] mb-[32px] text-[16px] font-mt-extra-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous4.key2}</p>
+    <div className=""><p className="mt-[32px] mb-[32px] text-[12px] sm:text-[16px] font-mt-bold text-blue text-center w-full">{dictionnaire.TextDivers.Quisommesnous4.key2}</p>
     </div>
   </div>);
 };
@@ -237,15 +236,15 @@ const Carousel3 = () => {
 
 const NotreHistoire = ()=>{
   const { dictionnaire } = useContext(LanguageContext);
-  return <div className="w-[90%]">
-      <p className="text-[50px] font-mt-extra-bold text-left ">{dictionnaire.TextDivers.NotreHistoire.NosExperts}</p>
-      <p className="text-[16px] text-justify mt-[50px]">{dictionnaire.TextDivers.NotreHistoire.PlongezDansLUnivers}</p>
+  return <div className="sm:w-[90%] mb-[10px]">
+      <p className="text-[25px] sm:text-[50px] font-mt-extra-bold text-left ">{dictionnaire.TextDivers.NotreHistoire.NosExperts}</p>
+      <p className="text-[12px] sm:text-[16px] text-justify mt-[20px] sm:mt-[50px]">{dictionnaire.TextDivers.NotreHistoire.PlongezDansLUnivers}</p>
       </div>
 }
 const ExpertisePassion = ()=>{
   const { dictionnaire } = useContext(LanguageContext);
-return <div className="w-[90%]">
-      <p className="text-[50px] font-mt-extra-bold text-left ">{dictionnaire.TextDivers.ExpertisePassion.UneExpertiseUnePassion}</p>
+return <div className="sm:w-[90%]">
+      <p className="text-[25px] sm:text-[50px] font-mt-extra-bold text-left ">{dictionnaire.TextDivers.ExpertisePassion.UneExpertiseUnePassion}</p>
       <p className="text-[16px] text-justify mt-[40px]">{dictionnaire.TextDivers.ExpertisePassion.NosExpertsFacialistes}</p>
       <p className="text-[16px] text-justify mt-[10px]">{dictionnaire.TextDivers.ExpertisePassion.GrâceÀLeurExpérience}</p> 
       <p className="text-[16px] text-justify  mt-[10px]">{dictionnaire.TextDivers.ExpertisePassion.FaitesConfianceÀNosExperts}</p>
@@ -253,12 +252,12 @@ return <div className="w-[90%]">
 }
 const EcoleDelphine = ()=>{
   const { dictionnaire } = useContext(LanguageContext);
-  return <div className="w-[80%] ml-[30px]">
-      <p className="text-[40px] font-mt-extra-bold text-left ">{dictionnaire.TextDivers.EcoleDelphine.EcoleDelphineLanglois}</p>
-      <p className="text-[40px] font-mt-extra-bold text-left ">{dictionnaire.TextDivers.EcoleDelphine.FacialisteParis}</p>
-      <p className="text-[16px] text-justify mt-[30px]">{dictionnaire.TextDivers.EcoleDelphine.NosExpertsEnSoinsDeLaPeau}</p>
-      <p className="text-[16px] text-justify mt-[10px]">{dictionnaire.TextDivers.EcoleDelphine.EnCollaborantAvecDesExperts}</p>
-      <div className="flex center"><div className="mt-[20px] text-[30px] w-fit px-8 py-4 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue"><p>{dictionnaire.TextDivers.EcoleDelphine.EnSavoirPlus}</p></div>
+  return <div className="sm:w-[80%] sm:ml-[30px] mt-[5px]">
+      <p className="text-[20px] sm:text-[40px] font-mt-extra-bold text-left ">{dictionnaire.TextDivers.EcoleDelphine.EcoleDelphineLanglois}</p>
+      <p className="text-[20px] sm:text-[40px] font-mt-extra-bold text-left ">{dictionnaire.TextDivers.EcoleDelphine.FacialisteParis}</p>
+      <p className="text-[12px] sm:text-[16px] text-justify mt-[30px]">{dictionnaire.TextDivers.EcoleDelphine.NosExpertsEnSoinsDeLaPeau}</p>
+      <p className="text-[12px] sm:text-[16px] text-justify mt-[10px]">{dictionnaire.TextDivers.EcoleDelphine.EnCollaborantAvecDesExperts}</p>
+      <div className="flex center"><div className="mt-[20px] text-[15px] sm:text-[30px] w-fit px-4 sm:px-8 py-2 sm:py-4 bg-[#83C5BE] rounded-full font-mt-extra-bold text-blue text-left hover:text-white hover:bg-blue"><p>{dictionnaire.TextDivers.EcoleDelphine.EnSavoirPlus}</p></div>
       </div>
   </div>
 }
@@ -288,24 +287,24 @@ const Commu1 = ()=>{
 const Expertise1 = ()=>{
   const { dictionnaire } = useContext(LanguageContext);
   return <div className="w-full flex flex-col center">
-   <p className="text-[30px] bg-[#264C4D] font-mt-extra-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise1.key1}</p>
-   <p className="text-[16px] bg-[#264C4D] font-mt-extra-bold text-justify  text-white w-[312px] h-[280px] px-4 pb-10">{dictionnaire.TextDivers.Expertise1.key2}</p>
+   <p className="text-[15px] sm:text-[30px] bg-[#264C4D] font-mt-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise1.key1}</p>
+   <p className="text-[12px] sm:text-[16px] bg-[#264C4D] font-mt-bold text-justify  text-white w-[312px] h-[160px] sm:h-[300px] px-4 pb-10">{dictionnaire.TextDivers.Expertise1.key2}</p>
   </div>
 }
 
 const Expertise2 = ()=>{
   const { dictionnaire } = useContext(LanguageContext);
   return <div className="w-full flex flex-col center">
-   <p className="text-[30px] bg-[#264C4D] font-mt-extra-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise2.key1}</p>
-   <p className="text-[16px] bg-[#264C4D] font-mt-extra-bold text-justify  text-white w-[312px] h-[280px] px-4 pb-10">{dictionnaire.TextDivers.Expertise2.key2}</p>
+   <p className="text-[15px] sm:text-[30px] bg-[#264C4D] font-mt-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise2.key1}</p>
+   <p className="text-[12px] sm:text-[16px] bg-[#264C4D] font-mt-bold text-justify  text-white w-[312px] h-[160px] sm:h-[300px] px-4 pb-10">{dictionnaire.TextDivers.Expertise2.key2}</p>
   </div>
 }
 
 const Expertise3 = ()=>{
   const { dictionnaire } = useContext(LanguageContext);
   return <div className="w-full flex flex-col center">
-   <p className="text-[30px] bg-[#264C4D] font-mt-extra-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise3.key1}</p>
-   <p className="text-[16px] bg-[#264C4D] font-mt-extra-bold text-justify  text-white w-[312px] h-[280px] px-4 pb-10">{dictionnaire.TextDivers.Expertise3.key2}</p>
+   <p className="text-[15px] sm:text-[30px] bg-[#264C4D] font-mt-bold text-center text-white w-[312px] p-2">{dictionnaire.TextDivers.Expertise3.key1}</p>
+   <p className="text-[12px] sm:text-[16px] bg-[#264C4D] font-mt-bold text-justify  text-white w-[312px] h-[160px] sm:h-[300px] px-4 pb-10">{dictionnaire.TextDivers.Expertise3.key2}</p>
   </div>
 }
 

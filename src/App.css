@@ -36,10 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+
 .react-pdf__Page__canvas {
   height: 70vh; 
   width: auto; 
 }
+.react-pdf__Page__canvas.annotationLayer :is(.linkAnnotation, .buttonWidgetAnnotation.pushButton) > a:hover {
+  background-color: white;
+}
+
 /* 
 img{
   object-fit: cover;

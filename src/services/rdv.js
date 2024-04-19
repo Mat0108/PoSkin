@@ -18,7 +18,7 @@ export const getRdv = async (rdvId)=>{
     return res;
 }
 
-export const confirmRdv = async (rdvId)=>{
-    const res = await axios.post(`${url}/rdv/update/${rdvId}`,{Confirmation:true})
+export const confirmRdv = async (rdvId,language)=>{
+    const res = await axios.post(`${url}/rdv/update/${rdvId}`,{Confirmation:true,language:language})
     return res;
 }

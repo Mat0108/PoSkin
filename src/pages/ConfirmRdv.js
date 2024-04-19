@@ -8,7 +8,7 @@ import { LanguageContext } from "../languages";
 
 const ConfirmRdv = ()=>{
     const isMobile = window.screen.width < 600
-    const { dictionnaire } = useContext(LanguageContext);
+    const { dictionnaire, userLanguage } = useContext(LanguageContext);
     const {rdvId} = useParams();
     const navigate = useNavigate();
     const queryParams = new URLSearchParams(window.location.search);
@@ -20,7 +20,8 @@ const ConfirmRdv = ()=>{
             let res = await getRdv(rdvId)
             if(res.status === 200){
                 if(success === "true"){
-                    let confirm = await confirmRdv(rdvId);
+                    let confirm = await confirmRdv(rdvId,userLanguage);
+                    
                     if(confirm.status === 200){
                         setRdv(res.data)
                     }
@@ -28,7 +29,7 @@ const ConfirmRdv = ()=>{
             }
         }
         fetchData()
-    },[rdvId,success])
+    },[rdvId,success,userLanguage])
     const element = useMemo(() => {
         
         if(rdv && success === "true"){

@@ -1,4 +1,4 @@
-![alt text](https://github.com/Mat0108/PoSkin/blob/master/Front/public/images/logobig.png?raw=true)
+![alt text](https://github.com/Mat0108/PoSkin/blob/master/public/images/logobig.png?raw=true)
 
 
 ```
