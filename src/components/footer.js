@@ -1,9 +1,20 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { LanguageContext } from "../languages";
+import { useLocation } from 'react-router-dom';
 
 const Footer = ()=>{
+    const location = useLocation();
+    const [display, setDisplay] = useState(true);
+    useEffect(()=>{
+        if(location.pathname.includes('PanelExpert')){
+            setDisplay(false);
+          }else{
+            setDisplay(true)
+          }
+    },[location])
     const { dictionnaire } = useContext(LanguageContext);
-    return (
+    return (<>
+    {display &&
     <footer className="px-4 py-2 sm:p-4 pb-10 bg-white_coffee flex w-full">
         <div className="w-[20%] flex flex-col center ">
             <div>
@@ -52,7 +63,7 @@ const Footer = ()=>{
                     </div>
             </div>
         </div> 
-    </footer>
+    </footer>}</>
     )
 }
 export default Footer;

@@ -2,7 +2,7 @@ import "./App.css";
 
 import React, { useMemo, useState, useRef, useEffect, useContext } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
 
 import Home from "./pages/Home";
 import Navbar from "./components/navbar";
@@ -29,6 +29,10 @@ import MesRdv from "./pages/MesRdv";
 import ConfirmRdv from "./pages/ConfirmRdv";
 import { useCookies } from "react-cookie";
 import { LanguageContext, LanguageProvider } from "./languages/index";
+import Tableaudebord from './pages/TableauDeBord';
+import B2B from "./pages/B2B";
+import Expertise from "./pages/Expertise";
+import QuiSommesNous from "./pages/QuiSommesNous";
 
 function App() {
   const { dictionnaire } = useContext(LanguageContext);
@@ -201,7 +205,7 @@ function App() {
     }
   }
   return (
-    <div className="App w-full h-full relative bg-[#EEE8E4] font-mt">
+    <div className="App w-screen h-screen min-h-[700px] flex flex-col  bg-[#EEE8E4] font-mt ">
       <LanguageProvider>
         <Router>
           <ScrollToTop />
@@ -214,76 +218,95 @@ function App() {
           >
             {divModal}
           </Modal>
-          <Routes>
-            <Route
-              exact
-              path="/Activate/:userId"
-              element={
-                <Home
-                  scroll={() => {
-                    ScrollNewsletter();
-                  }}
-                />
-              }
-            ></Route>
-            <Route exact path="/Blog/:BlogId" element={<Blog />}></Route>
-            {/* <Route path="/Expertise" element={<Expertise/>}></Route> 
-            <Route path="/APropos" element={<QuiSommesNous />}></Route>
-            <Route path="/Community" element={<Commu/>}></Route>
-            <Route path='/Conseils' element={<Conseils/>}></Route>*/}
-            <Route
-              exact
-              path="/ForgotPassword/:TokenId"
-              element={
-                <PasswordEdit
-                  login={() => openModal(login)}
-                  password={() => openModal(password)}
-                />
-              }
-            ></Route>
-            <Route path="/Login" element={<Login />}></Route>
-            <Route path="/Register" element={<Register />}></Route>
-            <Route path="/Diagnostic" element={<Diagnostic />}></Route>
-            <Route
-              path="/Diagnostic/start/"
-              element={<DiagnosticStart login={LoginDiagnostic} />}
-            ></Route>
-            <Route path="/Compte" element={<Compte />}></Route>
-            <Route
-              path="/MesDiagnostics"
-              element={
-                <MesDiagnostics openModal={openModal} closeModal={closeModal} />
-              }
-            ></Route>
-            <Route path="/PriseDeRdv" element={<PriseDeRdv />}></Route>
-            <Route path="/ConfirmRdv/:rdvId" element={<ConfirmRdv />}></Route>
-            <Route path="/MesRdv" element={<MesRdv />}></Route>
-            <Route
-              exact
-              path="/"
-              element={
-                <Home
-                  scroll={() => {
-                    ScrollNewsletter();
-                  }}
-                />
-              }
-            ></Route>
-            <Route
-              exact
-              path="/Logout"
-              element={
-                <Home
-                  scroll={() => {
-                    ScrollNewsletter();
-                  }}
-                />
-              }
-            ></Route>
-          </Routes>
-          <div ref={newsletterRef}></div>
-          <Newsletter />
-          <Footer />
+
+          <div className="relative h-full overflow-auto sm:overflow-auto" id={"Scrollref"}>
+            <Routes>
+              <Route 
+                exact
+                path="/B2B"
+                element={<B2B />}
+              ></Route>
+              <Route
+                exact
+                path="/Activate/:userId"
+                element={
+                  <Home
+                    scroll={() => {
+                      ScrollNewsletter();
+                    }}
+                  />
+                }
+              ></Route>
+              <Route exact path="/Blog/:BlogId" element={<Blog />}></Route>
+              <Route path="/Expertise" element={<Expertise/>}></Route> 
+              <Route path="/APropos" element={<QuiSommesNous />}></Route>
+              {/*<Route path="/Community" element={<Commu/>}></Route>
+              <Route path='/Conseils' element={<Conseils/>}></Route>*/}
+              <Route
+                exact
+                path="/ForgotPassword/:TokenId"
+                element={
+                  <PasswordEdit
+                    login={() => openModal(login)}
+                    password={() => openModal(password)}
+                  />
+                }
+              ></Route>
+              <Route path="/Login" element={<Login />}></Route>
+              <Route path="/Register" element={<Register />}></Route>
+              <Route path="/Diagnostic" element={<Diagnostic />}></Route>
+              <Route
+                path="/Diagnostic/start/"
+                element={<DiagnosticStart login={LoginDiagnostic} />}
+              ></Route>
+              <Route path="/Compte" element={<Compte />}></Route>
+              {/* <Route
+                path="/MesDiagnostics"
+                element={
+                  <MesDiagnostics openModal={openModal} closeModal={closeModal} />
+                }
+              ></Route> */}
+              <Route path="/PriseDeRdv" element={<PriseDeRdv />}></Route>
+              <Route path="/ConfirmRdv/:rdvId" element={<ConfirmRdv />}></Route>
+              <Route path="/MesRdv" element={<MesRdv />}></Route>
+              <Route
+                exact
+                path="/"
+                element={
+                  <Home
+                    scroll={() => {
+                      ScrollNewsletter();
+                    }}
+                  />
+                }
+              ></Route>
+              <Route
+                exact
+                path="/Logout"
+                element={
+                  <Home
+                    scroll={() => {
+                      ScrollNewsletter();
+                    }}
+                  />
+                }
+              ></Route>
+              {cookies.user && cookies.user.type === 1 ? <>
+                <Route
+
+                path="/PanelExpert/*"
+                element={
+                  <Tableaudebord />
+                }
+              ></Route>
+              </>:""}
+              
+            </Routes>
+
+            <div ref={newsletterRef}></div>
+            <Newsletter />
+            <Footer />
+          </div>
           <ToastContainer
             icon={(type) =>
               type.type === "error" ? (
@@ -321,6 +344,7 @@ function App() {
           />
         </Router>
       </LanguageProvider>
+
     </div>
   );
 }

@@ -15,7 +15,7 @@ const Diagnostic = ()=>{
                 <div className="w-full sm:w-2/3 h-full bg-[#264C4D]">
                     <div><p className="mt-[20px] sm:mt-[160px] text-white text-[30px] sm:text-[50px] font-mt-extra-bold">{dictionnaire.Diagnostic.Diagnostic.toUpperCase()}</p></div>
                     <div className="w-full flex center mt-[20px] sm:mt-[120px]">
-                        <div className="bg-[#EEE8E4] hover:bg-[#264C4D] border-2 border-[#EEE8E4] w-[330px] rounded-full"><Link to={"/Diagnostic/start/"} className="text-[16px] sm:text-[40px] text-[#264C4D] hover:text-[#EEE8E4]">{dictionnaire.Diagnostic.Go}</Link></div>
+                        <Link Link to={"/Diagnostic/start/"} className="bg-[#EEE8E4] hover:bg-[#264C4D] border-2 border-[#EEE8E4] w-[330px] rounded-full text-[16px] sm:text-[40px] text-[#264C4D] hover:text-[#EEE8E4]">{dictionnaire.Diagnostic.Go}</Link>
                         <p></p>
                     </div>
                     <div className="w-full flex center mt-[30px] mb-[10px]">
